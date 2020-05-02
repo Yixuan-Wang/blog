@@ -109,7 +109,7 @@
     <span>
     <time>2020/5/1</time>
     
-    <span class="wordcount">601 词</span></span>
+    <span class="wordcount">599 词</span></span>
     <div>
         <p>
         <p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
@@ -238,7 +238,12 @@
 <p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
 <p>Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.</p>
 <p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
-<h2 id="tex-test">TeX Test</h2>
+<h2 id="tex">TeX</h2>
+<p>Inline math: $$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $$</p>
+<p>Block math:</p>
+<p>$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$</p>
 <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
 <p>In this example we will be using <a href="https://katex.org/">KaTeX</a></p>
 <ul>
@@ -250,16 +255,10 @@
 {{ partial &quot;math.html&quot; . }}
 {{ end }}
 </code></pre><ul>
-<li>To enable KaTex globally set the parameter <code>math</code> to <code>true</code> in a project&rsquo;s configuration</li>
-<li>To enable KaTex on a per page basis include the parameter <code>math: true</code> in content files.</li>
+<li>To enable KaTeX globally set the parameter <code>math</code> to <code>true</code> in a project&rsquo;s configuration</li>
+<li>To enable KaTeX on a per page basis include the parameter <code>math: true</code> in content files.</li>
 </ul>
 <p><strong>Note:</strong> Use the online reference of <a href="https://katex.org/docs/supported.html">Supported TeX Functions</a></p>
-<h3 id="examples">Examples</h3>
-<p>Inline math: $$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $$</p>
-<p>Block math:</p>
-<p>$$
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
