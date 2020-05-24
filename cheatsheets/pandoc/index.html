@@ -121,14 +121,42 @@
 
 <h1 class="post-title">Pandoc 速查表</h1>
     <span>
-    <time>2020/05/23</time>
+    <time>2020/05/24</time>
     
-    <span class="wordcount">21 词</span></span>
+    <span class="wordcount">178 词</span></span>
     <div>
         <p>
         <p>Pandoc 是一个文本格式转换工具。</p>
+<h2 id="链接">链接</h2>
+<p><a href="https://pandoc.org/">官网</a><br>
+<a href="https://pandoc.org/getting-started.html">基础指南</a>，面对不会命令行的人士<br>
+<a href="https://pandoc.org/MANUAL.html">用户手册</a></p>
+<h2 id="支持的格式">支持的格式</h2>
+<p>以下列出部分常用的格式。完整列表见官网。</p>
+<ul>
+<li>Markdown</li>
+<li>LaTeX</li>
+<li>Microsoft Word(.docx)</li>
+<li>HTML</li>
+<li>EPUB</li>
+<li>OPML</li>
+<li>Jupyter Notebook</li>
+<li>reStructuredText</li>
+</ul>
+<p>以上格式支持导入和导出。</p>
+<ul>
+<li>reveal.js</li>
+<li>Microsoft Powerpoint(.pptx)</li>
+<li>LaTeX Beamer</li>
+<li>PDF</li>
+</ul>
+<p>以上格式仅支持导出。</p>
 <h2 id="基本用法">基本用法</h2>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc <span style="color:#000;font-weight:bold">[</span>inputfile<span style="color:#000;font-weight:bold">]</span> -o <span style="color:#000;font-weight:bold">[</span>outputfile<span style="color:#000;font-weight:bold">]</span>
+<p>Pandoc 可以根据扩展名自动检测导入导出类型。</p>
+<p>使用 <code>-o</code> 或 <code>--output=&quot;foo&quot;</code> 导出文件。如果文件设为 <code>-</code> 则直接打印到控制台。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pandoc <span style="color:#000;font-weight:bold">[</span>inputFile<span style="color:#000;font-weight:bold">]</span> -o <span style="color:#000;font-weight:bold">[</span>outputFile<span style="color:#000;font-weight:bold">]</span>
+</code></pre></div><p>使用 <code>-f</code> 指定导入格式，<code>-t</code> 指定导出格式。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pandoc <span style="color:#000;font-weight:bold">[</span>inputFile<span style="color:#000;font-weight:bold">]</span> -f <span style="color:#000;font-weight:bold">[</span>inputType<span style="color:#000;font-weight:bold">]</span> -t <span style="color:#000;font-weight:bold">[</span>outputType<span style="color:#000;font-weight:bold">]</span>
 </code></pre></div>
         </p>
     </div>
