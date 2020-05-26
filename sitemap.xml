@@ -18,11 +18,6 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/series/</loc>
-    <lastmod>2020-05-24T09:07:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yixuan-wang.github.io/blog/tags/</loc>
     <lastmod>2020-05-24T09:07:00+08:00</lastmod>
   </url>
@@ -43,8 +38,18 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/series/%E9%80%9F%E6%9F%A5%E8%A1%A8/</loc>
-    <lastmod>2020-05-24T09:07:00+08:00</lastmod>
+    <loc>https://yixuan-wang.github.io/blog/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/posts/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/cheatsheets/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -54,6 +59,11 @@
   
   <url>
     <loc>https://yixuan-wang.github.io/blog/posts/</loc>
+    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/series/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -80,11 +90,6 @@
   <url>
     <loc>https://yixuan-wang.github.io/blog/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yixuan-wang.github.io/blog/</loc>
-    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
