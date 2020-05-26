@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Pak</title>
+    <title>文章 on Pak</title>
     <link>https://yixuan-wang.github.io/blog/posts/</link>
-    <description>Pak 上最近的Posts内容</description>
+    <description>Pak 上最近的文章内容</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://yixuan-wang.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
