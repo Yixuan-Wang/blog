@@ -1,50 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pak</title>
-    <link>https://yixuan-wang.github.io/blog/</link>
-    <description>Pak 上最近的内容</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://yixuan-wang.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Pandoc 速查表</title>
-      <link>https://yixuan-wang.github.io/blog/cheatsheets/pandoc/</link>
-      <pubDate>Sun, 24 May 2020 09:07:00 +0800</pubDate>
-      
-      <guid>https://yixuan-wang.github.io/blog/cheatsheets/pandoc/</guid>
-      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>为什么不能竖排呢？</title>
-      <link>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%AB%96%E6%8E%92%E5%91%A2/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%AB%96%E6%8E%92%E5%91%A2/</guid>
-      <description>&lt;p&gt;学习层叠样式表时的玩耍：竖排《千字文》。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%AB%96%E6%8E%92%E5%91%A2/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>第一篇胡扯</title>
-      <link>https://yixuan-wang.github.io/blog/posts/2020/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E8%83%A1%E6%89%AF/</link>
-      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://yixuan-wang.github.io/blog/posts/2020/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E8%83%A1%E6%89%AF/</guid>
-      <description>&lt;p&gt;这个博客出现了是怎么回事呢？这个作者相信大家都很熟悉，但是这个博客出现了是怎么回事呢，下面就让小编也就是作者本人带大家一起了解吧。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E8%83%A1%E6%89%AF/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>一个测试</title>
-      <link>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<channel>
+<title>Pak</title>
+<link>https://yixuan-wang.github.io/blog/</link>
+<description>Pak 上最近的内容</description>
+<generator>Hugo -- gohugo.io</generator>
+<lastBuildDate>Sun, 07 Jun 2020 00:00:00 +0000</lastBuildDate>
+<atom:link href="https://yixuan-wang.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>加密测试</title>
+<link>https://yixuan-wang.github.io/blog/posts/2020/06/%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/</link>
+<pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
+<guid>https://yixuan-wang.github.io/blog/posts/2020/06/%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/</guid>
+<description>&lt;p&gt;这是一个加密文本的测试。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/posts/2020/06/%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+</item>
+<item>
+<title>Pandoc 速查表</title>
+<link>https://yixuan-wang.github.io/blog/cheatsheets/pandoc/</link>
+<pubDate>Sun, 24 May 2020 09:07:00 +0800</pubDate>
+<guid>https://yixuan-wang.github.io/blog/cheatsheets/pandoc/</guid>
+<description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/cheatsheets/pandoc/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+</item>
+<item>
+<title>为什么不能竖排呢？</title>
+<link>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%AB%96%E6%8E%92%E5%91%A2/</link>
+<pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+<guid>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%AB%96%E6%8E%92%E5%91%A2/</guid>
+<description>&lt;p&gt;学习层叠样式表时的玩耍：竖排《千字文》。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%AB%96%E6%8E%92%E5%91%A2/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+</item>
+<item>
+<title>第一篇胡扯</title>
+<link>https://yixuan-wang.github.io/blog/posts/2020/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E8%83%A1%E6%89%AF/</link>
+<pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+<guid>https://yixuan-wang.github.io/blog/posts/2020/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E8%83%A1%E6%89%AF/</guid>
+<description>&lt;p&gt;这个博客出现了是怎么回事呢？这个作者相信大家都很熟悉，但是这个博客出现了是怎么回事呢，下面就让小编也就是作者本人带大家一起了解吧。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/posts/2020/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E8%83%A1%E6%89%AF/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+</item>
+<item>
+<title>一个测试</title>
+<link>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95/</link>
+<pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+<guid>https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95/</guid>
+<description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/posts/2020/05/%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+</item>
+</channel>
 </rss>
