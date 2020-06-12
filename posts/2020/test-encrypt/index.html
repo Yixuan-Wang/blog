@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<title>第一篇胡扯 | Pak</title>
+<title>加密测试 | Pak</title>
 <meta charset="utf-8"/>
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -12,7 +12,7 @@
 <link href="/blog/manifest.json" rel="manifest"/>
 <link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
 <meta content="#0F59A4" name="theme-color"/>
-<link href="https://yixuan-wang.github.io/blog/css/main.min.1bdd3c6ae038e1e56e48267b6042a564250c7f85759587fb71e24b24771a59bc.css" rel="stylesheet"/>
+<link href="https://yixuan-wang.github.io/blog/css/main.min.e9bfe6481c5294028dabe72006d49ab566ae667fabc9a558f0863e8cce2a5c1f.css" rel="stylesheet"/>
 </head>
 <body>
 <nav>
@@ -76,27 +76,24 @@
 </footer>
 </nav>
 <div class="content-container" id="content">
-<h1 class="post-title">第一篇胡扯</h1>
+<h1 class="post-title">加密测试</h1>
 <span>
-<time>2020/05/02</time>
-<span class="wordcount">435 词</span></span>
+<time>2020/06/07</time>
+<span class="wordcount">51 词</span></span>
 <div>
 <p>
-</p><p>这个博客出现了是怎么回事呢？这个作者相信大家都很熟悉，但是这个博客出现了是怎么回事呢，下面就让小编也就是作者本人带大家一起了解吧。</p>
-<p>这个博客出现了，其实就是这个作者开始写博客了，大家可能会很惊讶这个博客怎么会出现了呢？但事实就是这样，作者本人也感到非常惊讶。
-这就是关于这个博客出现的事情了，大家有什么想法呢？虽然很欢迎大家，但是没有评论区，就没法欢迎大家在评论区告诉作者、一起讨论了。</p>
-<p>好了营销号部分到此结束。</p>
-<h2 id="正经话">正经话</h2>
-<p>这里确实没有评论区，不过微信<strong>朋友圈</strong>有，而且微信甚至还有<strong>私信</strong>功能😮！所以非常欢迎大家在微信里提出意见和建议，比如，想看到什么<strong>文章</strong>，这个页面的<strong>设计</strong>还有什么不美观的地方，等等。</p>
-<p>不过，作者大胆预测，这可能是大家第一次，也最后一次访问这个网站了，理由如下：</p>
-<ol>
-<li>咕。</li>
-<li>咕。</li>
-<li>咕。</li>
-</ol>
-<h2 id="真正的正经话">真正的正经话</h2>
-<p>冗长的正经话请移步<a href="https://yixuan-wang.github.io/blog/about/">这里</a>。</p>
-<p>如果愿意的话，还可以帮忙看看这个<a href="https://yixuan-wang.github.io/blog/posts/2020/05/test/">测试页面</a>的显示效果，尤其是<a href="https://yixuan-wang.github.io/blog/posts/2020/05/test/#tex">数学公式的显示</a>，调试得好苦。当然，桌面端显示效果会好一些，移动端次之，微信内置浏览器的显示效果可能有问题。</p>
+</p><p>这是一个加密文本的测试。</p>
+<p>密码是123456。</p>
+<div class="hugo-encryptor-container">
+<div class="hugo-encryptor-prompt">
+<p>文章的部分内容被密码保护：</p>
+</div>
+<div class="hugo-encryptor-form">
+<input class="hugo-encryptor-input" placeholder="请输入密码"/>
+<input class="hugo-encryptor-button" onclick="_click_handler(this)" type="button" value="点击验证"/>
+</div>
+<div class="hugo-encryptor-cipher-text" style="display: none;">lw+NWVWgyZ3YyBdpOB3WwwKLVxysK9byDSKS5n6eEUafxS9QmJCFh8uv/DltgQbuz6J2zMms28kFTOLsAftuAOXuu0+iY0dEzQcCk6Z9eWReyABRbJZx7VLULYvo6o5rzT/twZ8yiFjkql36bBI+usc8gcB3hPZtQlxxEnzSc3rfvsrzbmiMkXx92ktFHhTpSEolgJhDav/wEqhNksUsow==</div>
+</div>
 </div>
 <div class="page-footer">
 <hr class="footer-divider"/>
@@ -105,13 +102,8 @@
         
         
         
-            <a class="category" href="/blog/series/%E6%B5%8B%E8%AF%95">测试</a> | 
         
-        
-        
-        
-            <a class="tag" href="/blog/tags/%E8%83%A1%E6%89%AF">#胡扯</a>
-<a class="tag" href="/blog/tags/%E6%B5%8B%E8%AF%95">#测试</a>
+            <a class="tag" href="/blog/tags/%E6%B5%8B%E8%AF%95">#测试</a>
 </div>
 </div>
 <footer class="footer-mobile">
@@ -129,5 +121,79 @@
 </div>
 <script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.github.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
 </footer>
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script><script>
+const _do_decrypt = function(encrypted, password) {
+  let key = CryptoJS.enc.Utf8.parse(password);
+  let iv = CryptoJS.enc.Utf8.parse(password.substr(16));
+
+  let decrypted_data = CryptoJS.AES.decrypt(encrypted, key, {
+    iv: iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+  });
+  return decrypted_data.toString(CryptoJS.enc.Utf8);
+};
+
+const _click_handler = function(element) {
+  let parent = element.parentNode.parentNode;
+  let encrypted = parent.querySelector(
+    ".hugo-encryptor-cipher-text").innerText;
+  let password = parent.querySelector(
+    ".hugo-encryptor-input").value;
+  password = CryptoJS.MD5(password).toString();
+
+  let index = -1;
+  let elements = document.querySelectorAll(
+    ".hugo-encryptor-container");
+  for (index = 0; index < elements.length; ++index) {
+    if (elements[index].isSameNode(parent)) {
+      break;
+    }
+  }
+
+  let decrypted = "";
+  try {
+    decrypted = _do_decrypt(encrypted, password);
+  } catch (err) {
+    console.error(err);
+    alert("Failed to decrypt.");
+    return;
+  }
+
+  if (!decrypted.includes("--- DON'T MODIFY THIS LINE ---")) {
+    alert("Incorrect password.");
+    return;
+  }
+
+  let storage = localStorage;
+
+  let key = location.pathname + ".password." + index;
+  storage.setItem(key, password);
+  parent.innerHTML = decrypted;
+}
+
+window.onload = () => {
+  let index = -1;
+  let elements = document.querySelectorAll(
+    ".hugo-encryptor-container");
+
+  while (1) {
+    ++index;
+
+    let key = location.pathname + ".password." + index;
+    let password = localStorage.getItem(key);
+
+    if (!password) {
+      break;
+
+    } else {
+      console.log("Found password for part " + index);
+
+      let parent = elements[index];
+      let encrypted = parent.querySelector(".hugo-encryptor-cipher-text").innerText;
+      let decrypted = _do_decrypt(encrypted, password);
+      elements[index].innerHTML = decrypted;
+    }
+  }
+};</script></body>
 </html>

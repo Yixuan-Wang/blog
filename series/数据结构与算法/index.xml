@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构与算法 on Pak</title>
+    <link>https://yixuan-wang.github.io/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+    <description>Pak 上最近的数据结构与算法内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Thu, 11 Jun 2020 21:39:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>KMP 算法</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</link>
+      <pubDate>Thu, 11 Jun 2020 21:39:02 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</guid>
+      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -12,7 +12,7 @@
 <link href="/blog/manifest.json" rel="manifest"/>
 <link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
 <meta content="#0F59A4" name="theme-color"/>
-<link href="https://yixuan-wang.github.io/blog/css/main.min.1bdd3c6ae038e1e56e48267b6042a564250c7f85759587fb71e24b24771a59bc.css" rel="stylesheet"/>
+<link href="https://yixuan-wang.github.io/blog/css/main.min.e9bfe6481c5294028dabe72006d49ab566ae667fabc9a558f0863e8cce2a5c1f.css" rel="stylesheet"/>
 </head>
 <body>
 <nav>
@@ -90,30 +90,39 @@
 <h2 id="支持的格式">支持的格式</h2>
 <p>以下列出部分常用的格式。完整列表见官网。</p>
 <ul>
-<li>Markdown</li>
-<li>LaTeX</li>
-<li>Microsoft Word(.docx)</li>
-<li>HTML</li>
-<li>EPUB</li>
-<li>OPML</li>
-<li>Jupyter Notebook</li>
+<li>Markdown<br/>
+</li>
+<li>LaTeX<br/>
+</li>
+<li>Microsoft Word(.docx)<br/>
+</li>
+<li>HTML<br/>
+</li>
+<li>EPUB<br/>
+</li>
+<li>OPML<br/>
+</li>
+<li>Jupyter Notebook<br/>
+</li>
 <li>reStructuredText</li>
 </ul>
 <p>以上格式支持导入和导出。</p>
 <ul>
-<li>reveal.js</li>
-<li>Microsoft Powerpoint(.pptx)</li>
-<li>LaTeX Beamer</li>
+<li>reveal.js<br/>
+</li>
+<li>Microsoft Powerpoint(.pptx)<br/>
+</li>
+<li>LaTeX Beamer<br/>
+</li>
 <li>PDF</li>
 </ul>
 <p>以上格式仅支持导出。</p>
 <h2 id="基本用法">基本用法</h2>
 <p>Pandoc 可以根据扩展名自动检测导入导出类型。</p>
 <p>使用 <code>-o</code> 或 <code>--output="foo"</code> 导出文件。如果文件设为 <code>-</code> 则直接打印到控制台。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pandoc <span style="color:#000;font-weight:bold">[</span>inputFile<span style="color:#000;font-weight:bold">]</span> -o <span style="color:#000;font-weight:bold">[</span>outputFile<span style="color:#000;font-weight:bold">]</span>
-</code></pre></div><p>使用 <code>-f</code> 指定导入格式，<code>-t</code> 指定导出格式。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pandoc <span style="color:#000;font-weight:bold">[</span>inputFile<span style="color:#000;font-weight:bold">]</span> -f <span style="color:#000;font-weight:bold">[</span>inputType<span style="color:#000;font-weight:bold">]</span> -t <span style="color:#000;font-weight:bold">[</span>outputType<span style="color:#000;font-weight:bold">]</span>
-</code></pre></div>
+<pre class="shell"><code>pandoc [inputFile] -o [outputFile]</code></pre>
+<p>使用 <code>-f</code> 指定导入格式，<code>-t</code> 指定导出格式。</p>
+<pre class="shell"><code>pandoc [inputFile] -f [inputType] -t [outputType]</code></pre>
 </div>
 <div class="page-footer">
 <hr class="footer-divider"/>
@@ -123,8 +132,7 @@
         
         
         
-            <a class="tag" href="/blog/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C">#命令行</a>
-<a class="tag" href="/blog/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86">#文本处理</a>
+            <a class="tag" href="/blog/tags/%E5%B7%A5%E5%85%B7">#工具</a>
 </div>
 </div>
 <footer class="footer-mobile">

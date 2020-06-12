@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>KMP 算法 | Pak</title>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="/blog/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/blog/manifest.json" rel="manifest"/>
+<link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#0F59A4" name="theme-color"/>
+<link href="https://yixuan-wang.github.io/blog/css/main.min.e9bfe6481c5294028dabe72006d49ab566ae667fabc9a558f0863e8cce2a5c1f.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" rel="stylesheet"/>
+<script defer="" src="/blog/js/katex.min.js" type="text/javascript"></script>
+<script defer="" onload="renderMathInElement(document.body);" src="/blog/js/auto-render.min.js" type="text/javascript"></script>
+</head>
+<body>
+<nav>
+<header>
+<div class="site-title">
+<a href="/blog/">Pak</a>
+</div>
+</header>
+<div class="nav-menu">
+<a class="color-link nav-link" href="/blog/" title="主页">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M9.8,21v-6.7h4.5V21h5.6v-9h3.4L12,1.9L0.8,12.1h3.4v9H9.8z"></path>
+</svg>
+<span class="nav-title">主页</span>
+</a>
+<a class="color-link nav-link" href="/blog/archives/" title="存档">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M2.7,2.7h18.6v4.1H2.7V2.7 M3.7,7.9h16.6v13.4H3.7V7.9 M9.4,10.9c-0.3,0-0.5,0.2-0.5,0.5V13h6.2v-1.5c0-0.3-0.2-0.5-0.5-0.5	H9.4z"></path>
+</svg>
+<span class="nav-title">存档</span>
+</a>
+<a class="color-link nav-link" href="/blog/categories/" title="类别">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"></path>
+</svg>
+<span class="nav-title">类别</span>
+</a>
+<a class="color-link nav-link" href="/blog/tags/" title="标签">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z"></path>
+</svg>
+<span class="nav-title">标签</span>
+</a>
+<a class="color-link nav-link" href="/blog/series/" title="系列">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M12,16.6l8.3-6.4l1.8-1.4L12,0.8L1.9,8.7l1.8,1.4 M12,19.4L3.7,13l-1.8,1.4L12,22.2l10.1-7.9L20.3,13L12,19.4z"></path>
+</svg>
+<span class="nav-title">系列</span>
+</a>
+<a class="color-link nav-link" href="/blog/about/" title="关于">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+</svg>
+<span class="nav-title">关于</span>
+</a>
+</div>
+<footer class="footer">
+<div class="social-icons">
+<a class="social-icon" href="https://yixuan-wang.github.io/blog/index.xml" rel="noopener" target="_blank" title="RSS">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z"></path>
+</svg>
+</a>
+<a class="social-icon" href="https://github.com/Yixuan-Wang" rel="noopener" target="_blank" title="GitHub">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path>
+</svg>
+</a>
+</div>
+<script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.github.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
+</footer>
+</nav>
+<div class="content-container" id="content">
+<h1 class="post-title">KMP 算法</h1>
+<span>
+<time>2020/06/11</time>
+<span class="wordcount">2429 词</span></span>
+<div>
+<p>
+</p><p>KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。</p>
+<h2 id="回溯">回溯</h2>
+<blockquote>
+<p>TL;DR | 暴力算法中存在不必要的<span style="--color:red">向左回退</span>比较。</p>
+</blockquote>
+<p><span style="--color:red"><strong>暴力</strong></span>的字符串匹配算法会遇到回溯的情况，如下所示：</p>
+<pre><code>模式串 abc
+
+    ababc
+  1|^
+  2|a^
+! 3|ab^
+! 4| ^</code></pre>
+<p>用<strong>模式串</strong>abc匹配<strong>目标串</strong>ababc，在第3步中，先将模式串第0位对齐目标串第0位，模式串的前两位匹配成功，第2位匹配失败(3)，因此将模式串的第零位移动到目标串第1位重新对齐(4)，因而比较的位置<strong>回溯</strong>了，但由于(2)用模式串第1位b匹配目标串第1位b成功，(4)用模式串第0位a重新匹配目标串第1位必定失败，因此这样的回溯是妨害效率的。主要原因是，在回溯的过程中，原有的匹配成功信息没有被利用即被丢弃。</p>
+<p>设模式串长度为<span class="math inline">\(m\)</span>，目标串长度为<span class="math inline">\(n\)</span>，最坏情况是每次都在模式串的最后一位匹配失败，即匹配<span class="math inline">\(m\)</span>次后失败，一直比较到模式串和目标串右对齐，模式串的第零位对齐在目标串第<span class="math inline">\(n-m\)</span>位，一共比较<span class="math inline">\(n-m+1\)</span>次。由于<span class="math inline">\(n \ge m\)</span>，因而最坏时间复杂度是<span class="math inline">\(O(mn)\)</span>。</p>
+<h2 id="kmp-算法">KMP 算法</h2>
+<blockquote>
+<p>TL;DR | KMP算法利用了模式串中<span style="--color:blue">重复</span>的片段，通过<strong>对齐</strong>这些片段实现不向左后退。</p>
+</blockquote>
+<p>暴力算法中，每次在模式串第<span class="math inline">\(i\)</span>位和目标串第<span class="math inline">\(j\)</span>位匹配失败以后，模式串左端总是向右移动1位。而<span style="--color:blue"><strong>KMP算法</strong></span>的思路是，根据模式串的某种规律（将在下文分析），得出一个对应关系<span class="math inline">\(next\)</span>，使得在模式串第<span class="math inline">\(i\)</span>位和目标串第<span class="math inline">\(j\)</span>位匹配失败以后，使得模式串的<span class="math inline">\(next(i)\)</span>位和目标串<span class="math inline">\(j\)</span>位对齐，即模式串左端向右移动<span class="math inline">\(i-next(i)\)</span>位，<strong>避免发生回溯</strong>。分析以下操作的例子：</p>
+<pre><code>模式串 abcdabd
+    
+    0   45
+    abcdaabcda
+! 1|abcda^
+  2|    a^
+    *   *
+
+    01  456
+    abcdabcdabd
+! 3|abcdab^   
+  4|    ab^
+    **  **</code></pre>
+<p>先看<span class="math inline">\(i\ne0\)</span>时的情况。</p>
+<p>对于模式串<span class="math inline">\(p\)</span>匹配失败的第<span class="math inline">\(i\)</span>位<strong>之前的</strong>部分，即子串<span class="math inline">\(p'_{i}=p_0 p_1 \dots p_{i-1}\)</span>，我们希望找到<span class="math inline">\(p'_{i}\)</span>中<strong>最长</strong>的一对<strong>完全相同</strong>的<strong>前缀和后缀</strong>，并把它的长度记作<span class="math inline">\(k_i\)</span>，即： <span class="math display">\[
+p_0 p_1 \dots p_{k_i-1} = p_{i-k_i} p_{i-k_i+1} \dots p_{i-1}
+\]</span> 并通过移位使得<strong>前缀左端</strong>移到原来<strong>后缀左端</strong>对应的位置，可以得到： <span class="math display">\[
+next(i) = k_i\tag{1}
+\]</span></p>
+<p>如果找不到符合上述要求的一对前缀和后缀时，将模式串的左端直接对齐到匹配失败的一位即可。此时<span class="math inline">\(k_i=0\)</span>，公式<span class="math inline">\((1)\)</span>仍然成立。</p>
+<p>如果<span class="math inline">\(i=0\)</span>，也就是第0位已经匹配失败，则模式串的左端移到<span class="math inline">\(i+1\)</span>，继续比较。令<span class="math inline">\(k_0=-1\)</span>，公式<span class="math inline">\((1)\)</span>仍然成立，只是<span class="math inline">\(p_{-1}\)</span>没有意义。课本上基于此点把这两个混在一起了，多循环了一次，个人觉得有点还是分开处理比较好理解。</p>
+<p>在<span class="math inline">\(j &lt; n\)</span>时如果找到目标串中匹配模式串的子串，即满足<span class="math inline">\(i=m-1\)</span>时匹配，则返回模式串左端位置<span class="math inline">\(j-i\)</span>。如果<span class="math inline">\(j=n\)</span>，说明目标串中不存在匹配模式串的字串，返回表示搜索无结果的值。</p>
+<p>在搜索过程中，<span class="math inline">\(j\)</span>不会减小（即不会发生回溯），递增的次数不会超过<span class="math inline">\(n\)</span>。<span class="math inline">\(j\)</span>递增的同时，一定伴随着<span class="math inline">\(i\)</span>递增，<span class="math inline">\(i\)</span>在匹配失败时也会减小，但最多减小到0，减小的次数不会多于增加的次数，因此最终<span class="math inline">\(i\)</span>递增的次数不会超过<span class="math inline">\(2n\)</span>。所以，搜索部分的最坏时间复杂度是<span class="math inline">\(O(n)\)</span>。</p>
+<h2 id="模式串的预处理">模式串的预处理</h2>
+<blockquote>
+<p>TL;DR | 通过递推的方法可以快速推出<span class="math inline">\(next(i)\)</span>表，还可以再进行递归优化避免在移动模式串前后比较内容相同的情况。</p>
+</blockquote>
+<p>问题的关键转移到了计算<strong>最长相同前后缀长度</strong><span class="math inline">\(k_i\)</span>。这里利用递推会比较简单。</p>
+<pre><code>模式串 ababba
+
+   0  1  2  3  4  5
+   a  b  a  b  b  a
+0|-1  0  0
+  
+ | *     ^
+1|-1  0  0-&gt;1
+  
+ | *  *  ^  ^
+2|-1  0  0  1-&gt;2
+
+...  
+ | *  *  !
+ |       ^  ^  !
+3|-1  0  0  1  2-&gt;0</code></pre>
+<p>初始条件(0)是<span class="math inline">\(k_0=-1, k_1=0\)</span>。</p>
+<p>注意到： <span class="math display">\[
+p_a p_{a+1} \dots p_{a+k-2} p_{a+k-1} = p_b p_{b+1} \dots p_{b+k-2} p_{b+k-1} \\
+p_{a} p_{a+1} \dots p_{a+k-2} = p_b p_{b+1} \dots p_{b+k-2}
+\]</span> 可知<span class="math inline">\(k_i &gt; 0 \Leftrightarrow k_{i-1} = k_i - 1\)</span>。据(1)-(3)归纳，每次只需验证<strong>上一次验证</strong>中前缀末尾和后缀末尾的下一位是否相等，即： <span class="math display">\[
+k_i = 
+\begin{cases}
+   k_{i-1}+1 &amp;p_{i-1} = p_{k_{i-1}}  \\
+   0 &amp;p_{i-1} \ne p_{k_{i-1}}
+\end{cases}
+\tag{2}
+\]</span></p>
+<p>这样就得到了<span class="math inline">\(next\)</span>，但是还有优化的空间。</p>
+<pre><code>模式串 abab
+   a  b  a  b
+k -1  0  0  1
+
+    abaabab 
+! 1|aba^
+! 2|  a^
+  3|   ^</code></pre>
+<p>在这个例子中，发现(1)匹配失败，(2)必定也匹配失败，两次比较的字符完全相同，多了一次无谓的比较，根本原因是<span class="math inline">\(s_j \ne p_{i}=p_{k_i}\)</span>，使得移动模式串后，比较的字符没有变，还需要再次移动。因此，可以对<span class="math inline">\(k_i\)</span>（当然也是<span class="math inline">\(next(i)\)</span>）<strong>递归地优化</strong>：当<span class="math inline">\(p_i = p_{k_i}\)</span>时，令<span class="math inline">\(k_i = k_{k_i}\)</span> ，或者写作“令<span class="math inline">\(next(i) = next(next(i))\)</span>”，可能更方便理解。</p>
+<p>对于上例，优化效果如下所示：</p>
+<pre><code>模式串 abab
+    a  b  a  b
+k  -1  0  0  1
+k' -1  0 -1  0  
+
+    abaabab
+! 1|aba^
+  2|   ^</code></pre>
+<p>预处理过程中，递推部分的时间复杂度是<span class="math inline">\(O(m)\)</span>；递归优化中，由于优化到第<span class="math inline">\(i\)</span>项时第<span class="math inline">\(next(i)\)</span>项已经优化过，因此不会再进行第二次递归，最坏时间复杂度是<span class="math inline">\(O(m)\)</span>。因此，预处理过程的时间复杂度是<span class="math inline">\(O(m)\)</span>。</p>
+<h2 id="结论">结论</h2>
+<blockquote>
+<p>TL;DR | KMP算法时间复杂度是<span class="math inline">\(O(m+n)\)</span>。</p>
+</blockquote>
+<p>综上，KMP算法的时间复杂度是<span class="math inline">\(O(m+n)\)</span>，小于暴力算法的<span class="math inline">\(O(mn)\)</span>。由于在实践中通常<span class="math inline">\(m \ll n\)</span>，因此KMP算法的时间复杂度可以视为<span class="math inline">\(O(n)\)</span>。但是，由于KMP算法的优化基于重复片段，因此使用的字符集比较大时（比如汉语的字符集），重复片段出现的概率低，它的效率提升也有限。实践中，从尾部开始向左匹配并计算“坏字符”的另一个字符串匹配算法，BM算法，效率更高，可以达到<span class="math inline">\(O(n)\)</span>，可以查看参考资料中的文章中的介绍。</p>
+<h2 id="python-实现">Python 实现</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>NO_MATCH <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">def</span> kmp(p, s): <span class="co"># pattern 模式串, string 目标串</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>    m, n <span class="op">=</span> <span class="bu">len</span>(p), <span class="bu">len</span>(s)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    i, j <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>    </span>
+<span id="cb6-7"><a href="#cb6-7"></a>    <span class="co"># 预处理</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>    nxt <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>] <span class="co"># next 预处理表</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, m):</span>
+<span id="cb6-10"><a href="#cb6-10"></a>        <span class="cf">if</span> p[x<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> p[nxt[x<span class="op">-</span><span class="dv">1</span>]]: <span class="co"># 公式(2)</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>            nxt.append(nxt[x<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-13"><a href="#cb6-13"></a>            nxt.append(<span class="dv">0</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, m):</span>
+<span id="cb6-15"><a href="#cb6-15"></a>        <span class="cf">if</span> p[x] <span class="op">==</span> p[nxt[x]]: <span class="co"># 递归优化</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>            nxt[x] <span class="op">=</span> nxt[nxt[x]]</span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    <span class="co"># 比较</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> m <span class="kw">and</span> j <span class="op">&lt;</span> n: </span>
+<span id="cb6-20"><a href="#cb6-20"></a>        <span class="cf">if</span> p[i] <span class="op">==</span> s[j]: <span class="co"># 匹配成功</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>            i <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a>        <span class="cf">else</span>: <span class="co"># 匹配失败</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a>            <span class="cf">if</span> nxt[i] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>: <span class="co"># 向后移动1位</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>                i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a>            <span class="cf">else</span>:</span>
+<span id="cb6-26"><a href="#cb6-26"></a>                i <span class="op">=</span> nxt[i] <span class="co"># 将nxt[i]位置和j位置对齐</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a>    <span class="cf">if</span> i <span class="op">==</span> m:</span>
+<span id="cb6-28"><a href="#cb6-28"></a>        <span class="cf">return</span> j <span class="op">-</span> i <span class="co"># 返回子串的左端</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a>    <span class="cf">return</span> NO_MATCH</span></code></pre></div>
+</div>
+<div class="page-footer">
+<hr class="footer-divider"/>
+<a class="category" href="/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6">信息学</a> | 
+        
+        
+        
+        
+            <a class="category" href="/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a> | 
+        
+        
+        
+        
+            <a class="tag" href="/blog/tags/%E7%AE%97%E6%B3%95">#算法</a>
+</div>
+</div>
+<footer class="footer-mobile">
+<div class="social-icons">
+<a class="social-icon" href="https://yixuan-wang.github.io/blog/index.xml" rel="noopener" target="_blank" title="RSS">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z"></path>
+</svg>
+</a>
+<a class="social-icon" href="https://github.com/Yixuan-Wang" rel="noopener" target="_blank" title="GitHub">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path>
+</svg>
+</a>
+</div>
+<script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.github.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
+</footer>
+</body>
+</html>
