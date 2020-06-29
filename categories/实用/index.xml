@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>工具 on Pak</title>
-    <link>https://yixuan-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/</link>
-    <description>Pak 上最近的工具内容</description>
+    <title>实用 on Pak</title>
+    <link>https://yixuan-wang.github.io/blog/categories/%E5%AE%9E%E7%94%A8/</link>
+    <description>Pak 上最近的实用内容</description>
     <generator>Hugo</generator>
     <lastBuildDate>Mon, 29 Jun 2020 15:48:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yixuan-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yixuan-wang.github.io/blog/categories/%E5%AE%9E%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>在 Markdown 中引用参考文献 | Pak</title>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="/blog/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/blog/manifest.json" rel="manifest"/>
+<link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#0F59A4" name="theme-color"/>
+<link href="https://yixuan-wang.github.io/blog/css/main.min.7c6f2b5586bfd62fdd7b3de8548820d2d72434d3470a3028d49787c2e79ff53f.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<header>
+<div class="site-title">
+<a href="/blog/">Pak</a>
+</div>
+</header>
+<div class="nav-menu">
+<a class="color-link nav-link" href="/blog/" title="主页">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M9.8,21v-6.7h4.5V21h5.6v-9h3.4L12,1.9L0.8,12.1h3.4v9H9.8z"></path>
+</svg>
+<span class="nav-title">主页</span>
+</a>
+<a class="color-link nav-link" href="/blog/archives/" title="存档">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M2.7,2.7h18.6v4.1H2.7V2.7 M3.7,7.9h16.6v13.4H3.7V7.9 M9.4,10.9c-0.3,0-0.5,0.2-0.5,0.5V13h6.2v-1.5c0-0.3-0.2-0.5-0.5-0.5	H9.4z"></path>
+</svg>
+<span class="nav-title">存档</span>
+</a>
+<a class="color-link nav-link" href="/blog/categories/" title="类别">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"></path>
+</svg>
+<span class="nav-title">类别</span>
+</a>
+<a class="color-link nav-link" href="/blog/tags/" title="标签">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z"></path>
+</svg>
+<span class="nav-title">标签</span>
+</a>
+<a class="color-link nav-link" href="/blog/series/" title="系列">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M12,16.6l8.3-6.4l1.8-1.4L12,0.8L1.9,8.7l1.8,1.4 M12,19.4L3.7,13l-1.8,1.4L12,22.2l10.1-7.9L20.3,13L12,19.4z"></path>
+</svg>
+<span class="nav-title">系列</span>
+</a>
+</div>
+<footer class="footer">
+<div class="social-icons">
+<a class="social-icon" href="https://yixuan-wang.github.io/blog/index.xml" rel="noopener" target="_blank" title="RSS">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
+</path>
+</svg>
+</a>
+<a class="social-icon" href="https://github.com/Yixuan-Wang" rel="noopener" target="_blank" title="GitHub">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z">
+</path>
+</svg>
+</a>
+<a class="social-icon" href="/blog/about/" rel="author" target="_self" title="关于">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+</svg>
+</a>
+</div>
+<script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.github.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
+</footer>
+</nav>
+<div class="content-container" id="content">
+<h1 class="post-title">在 Markdown 中引用参考文献</h1>
+<span>
+<time>2020/06/29</time>
+<span class="wordcount">2349 词</span></span>
+<div>
+<p>
+</p><p>借助 Pandoc，在 Markdown 中引用参考文献非常方便。</p>
+<h2 id="为什么不用-docx">为什么不用 DOCX</h2>
+<blockquote>
+<p>TL;DR | 因为无法避免<strong>干扰性的界面交互</strong>，同时<strong>调整样式</strong>十分困难😭。</p>
+</blockquote>
+<p>DOCX 这里是广义的，代指 Word、WPS、Pages 等文档编辑软件使用的富文本格式。DOCX 编辑器通常是所见即所得的，也就是“写的是什么样，显示的就是什么样，打印出来就是什么样”。调整样式、参考文献只需要通过操作编辑器界面上的各种按钮。但是，在写作的过程中，<span style="--color:blue">不断在<strong>内容</strong>和<strong>界面</strong>之间反复横跳一般地<strong>切换注意力</strong></span>会干扰到思路。<span style="--color:red">引用本是文章<strong>内容</strong>的一部分</span>，但在所见即所得编辑器中，它<span style="--color:blue">只能通过操作<strong>界面</strong>来添加</span>，单击引文面板—插入引文—你需要的参考文献。整个过程耗时虽不长，但仍属一种非必要的、令人厌烦的中断。</p>
+<p>此外，DOCX 自带的<span style="--color:blue">引用及参考文献<strong>样式</strong>也很少</span>，不能满足需求。自带的引文是著者年份的格式，而没有编号格式（似乎可以用交叉引用解决，但这样就不能用自带的文献管理器）。如果想标注引文的页码，还要手动设置为上标格式，又被迫要操作界面上的按钮。最后插入的“GB7714 标准”参考文献列表，根本不符合最新的 GB7714 标准要求，又要大费周章地修改。</p>
+<h2 id="为什么不用-latex">为什么不用 LaTeX</h2>
+<blockquote>
+<p>TL;DR | LaTeX 引用很方便，但它的<strong>学习、配置成本</strong>比较高🤔。</p>
+</blockquote>
+<p>LaTeX 是基于 TeX 的排版系统，在学术上的应用非常之广泛，或许说它是学术界的标准工具也不为过。它引用参考文献（当然，交叉引用等同理）非常简便，配合 <strong>BibTeX</strong>，再加上 cite 和 gbt7714 宏包，在论文尾部加入<code>\bibliography{文献数据文件}</code>，可以自动生成参考文献列表；行文中插入一句 <code>\cite[页码]{文献名}</code> 指令就可以添加带页码的引用——而且全部符合 GB7714 标准（当然也可以配置其他标准）。<span style="--color:green">引用得以自然地融入了<strong>行文过程</strong></span>，输入几个字符的指令带来的干扰比操作用户界面要小得多，速度也快得多。</p>
+<p>但是，LaTeX 的<span style="--color:blue"><strong>指令</strong>多且复杂，学习曲线陡峭，配置环境、导言区也比较复杂</span>。个人在实践中常常想不起来某个样式的语法是什么，某个功能是哪一个宏包里提供的，文档必须放在手边。另外， LaTeX 对中文以及整套 Unicode 的支持也需要一番<ruby>配置<rt>zhē teng</rt></ruby>。LaTeX 引用虽然方便，但还是存在不方便之处的。</p>
+<h2 id="pandoc-markdown-的引用语法">Pandoc Markdown 的引用语法</h2>
+<p>原始的 Markdown 标准（以及许多分支）是<span style="--color:blue"><strong>不支持</strong>参考文献引用</span>的（仅支持简单的脚注），但是 <a href="https://pandoc.org/">Pandoc</a> 的 Markdown 标准支持一套强大的参考文献引用扩展语法。大量论文都要求 DOCX 格式，可以用顺手的 Markdown 编辑器把文章写好，然后用 Pandoc CLI 转换成 DOCX。</p>
+<p><a href="https://pandoc.org/MANUAL.html">Pandoc 的用户手册</a>很详细，但比较长，这里指路到参考文献相关的<a href="https://pandoc.org/MANUAL.html#citation-rendering">命令行选项</a>和<a href="https://pandoc.org/MANUAL.html#citations">语法</a>。关于 Pandoc 可参考<a href="https://yixuan-wang.github.io/blog/cheatsheets/pandoc/">速查表</a>。</p>
+<h3 id="命令行选项">命令行选项</h3>
+<p>按 *nix 下 Shell 的语法（Powershell 除了换行是一样的）：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> \</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    --bibliography <span class="st">'[文献数据]'</span> \</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    --csl <span class="st">'[CSL]'</span> \</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    -o <span class="st">'[导出]'</span></span></code></pre></div>
+<p>文献数据用 <strong>BibTeX</strong> 就可以（百度学术、谷歌学术、图书馆的搜索结果都提供 BibTeX）。CSL 是指<strong>引用样式标记语言</strong>（Citation Style Language）。</p>
+<h3 id="csl">CSL</h3>
+<p>CSL 是基于 XML 的，语法很易懂，指路<a href="https://docs.citationstyles.org/en/1.0.1/specification.html">文档</a>。通过它可以设置引用、参考文献的样式。在<a href="https://github.com/citation-style-language/styles">官方 GitHub 库</a>里有许多社区贡献的样式文件，GB7714 的有<a href="https://github.com/citation-style-language/styles/blob/1a87f4b4748d0a9a5653aa3b3491d772745c247e/china-national-standard-gb-t-7714-2015-author-date.csl">著者加日期</a>（著者-出版年制）、<a href="https://github.com/citation-style-language/styles/blob/8628afb2f4b4db13e317cca45b4c384eaae9d83c/china-national-standard-gb-t-7714-2015-numeric.csl">尾注编号</a>、<a href="https://github.com/citation-style-language/styles/blob/2032fef01713812c184739c030bb18b8c89a89de/china-national-standard-gb-t-7714-2015-note.csl">脚注编号</a>（顺序编号制），<span style="--color:red">但页码显示部分<strong>不合标准</strong>，<strong>前两种的修复方案</strong>如下</span>。</p>
+<p>对于前两种格式文件，需要把第 25 行中间 <code>&lt;single&gt;</code>、<code>&lt;multiple&gt;</code>标签注释掉：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">&lt;term</span><span class="ot"> name=</span><span class="st">"page"</span><span class="ot"> form=</span><span class="st">"short"</span><span class="kw">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">&lt;single&gt;</span>p.<span class="kw">&lt;/single&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="kw">&lt;multiple&gt;</span>pp.<span class="kw">&lt;/multiple&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">&lt;/term&gt;</span></span></code></pre></div>
+<p>对于著者加日期 CSL，还需要把第 189 行及之后整个 <code>&lt;citation&gt;</code> 标签改成：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">&lt;citation</span><span class="ot"> et-al-min=</span><span class="st">"2"</span><span class="ot"> et-al-use-first=</span><span class="st">"1"</span><span class="ot"> disambiguate-add-year-suffix=</span><span class="st">"true"</span><span class="ot"> disambiguate-add-names=</span><span class="st">"true"</span><span class="ot"> disambiguate-add-givenname=</span><span class="st">"true"</span><span class="ot"> collapse=</span><span class="st">"year"</span><span class="kw">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">&lt;sort&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>      <span class="kw">&lt;key</span><span class="ot"> macro=</span><span class="st">"author-intext"</span><span class="kw">/&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>      <span class="kw">&lt;key</span><span class="ot"> macro=</span><span class="st">"issue-date-year"</span><span class="ot"> sort=</span><span class="st">"ascending"</span><span class="kw">/&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw">&lt;/sort&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="kw">&lt;layout</span><span class="ot"> delimiter=</span><span class="st">"; "</span><span class="kw">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="kw">&lt;group</span><span class="ot">  prefix=</span><span class="st">"("</span><span class="ot"> suffix=</span><span class="st">")"</span><span class="ot">  delimiter=</span><span class="st">", "</span><span class="kw">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>      <span class="kw">&lt;text</span><span class="ot"> macro=</span><span class="st">"author-intext"</span><span class="kw">/&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>      <span class="kw">&lt;text</span><span class="ot"> macro=</span><span class="st">"issue-date-year"</span><span class="kw">/&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="kw">&lt;/group&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="kw">&lt;group&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>        <span class="kw">&lt;label</span><span class="ot"> variable=</span><span class="st">"locator"</span><span class="ot"> form=</span><span class="st">"short"</span><span class="kw">/&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>        <span class="kw">&lt;text</span><span class="ot"> vertical-align=</span><span class="st">"sup"</span><span class="ot"> variable=</span><span class="st">"locator"</span><span class="kw">/&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>    <span class="kw">&lt;/group&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>  <span class="kw">&lt;/layout&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="kw">&lt;/citation&gt;</span></span></code></pre></div>
+<p>尾注编号 CSL 则在 176 行，需要改成：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">&lt;citation</span><span class="ot"> collapse=</span><span class="st">"citation-number"</span><span class="ot"> after-collapse-delimiter=</span><span class="st">","</span><span class="kw">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">&lt;sort&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="kw">&lt;key</span><span class="ot"> variable=</span><span class="st">"citation-number"</span><span class="ot"> sort=</span><span class="st">"ascending"</span><span class="kw">/&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="kw">&lt;/sort&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="kw">&lt;layout</span><span class="ot"> vertical-align=</span><span class="st">"sup"</span><span class="ot"> delimiter=</span><span class="st">","</span><span class="kw">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="kw">&lt;text</span><span class="ot"> variable=</span><span class="st">"citation-number"</span><span class="ot"> prefix=</span><span class="st">"["</span><span class="ot"> suffix=</span><span class="st">"]"</span><span class="kw">/&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="kw">&lt;group&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>      <span class="kw">&lt;label</span><span class="ot"> variable=</span><span class="st">"locator"</span><span class="ot"> suffix=</span><span class="st">". "</span><span class="ot"> form=</span><span class="st">"short"</span><span class="ot"> strip-periods=</span><span class="st">"true"</span><span class="kw">/&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>      <span class="kw">&lt;text</span><span class="ot"> variable=</span><span class="st">"locator"</span><span class="kw">/&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="kw">&lt;/group&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="kw">&lt;/layout&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="kw">&lt;/citation&gt;</span></span></code></pre></div>
+<p>这样引用的页码显示就符合标准了。</p>
+<h3 id="语法">@ 语法</h3>
+<p>Pandoc 引入了一个表示引用参考文献的符号，<code>@</code>。</p>
+<h4 id="行内引用">行内引用</h4>
+<p>对于著者加日期，著者在行内，日期在括号里；对于尾注编号，没有上标，不带方括号；对于脚注编号，行内引用和正常相同，显示上标。如：</p>
+<ul>
+<li>无名氏 (2020)</li>
+<li>1</li>
+</ul>
+<p>语法如下：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>@文献名</span>
+<span id="cb5-2"><a href="#cb5-2"></a>一段话之后跟一个空格 @文献名</span></code></pre></div>
+<h4 id="引用">引用</h4>
+<p>对于著者加日期，著者和日期都在括号内，逗号分隔；对于尾注编号，显示为上标，带方括号；对于脚注编号，显示为上标，不带方括号。前两种经修正，页码会显示为上标。如：</p>
+<ul>
+<li>(无名氏, 2020)<sup>15, 20–21</sup></li>
+<li>(无名氏, 2020)</li>
+<li><sup>[1]15, 20-21</sup></li>
+<li><sup>[1]</sup></li>
+<li><sup>1</sup></li>
+</ul>
+<p>语法如下：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">[</span><span class="ot">@文献名</span><span class="co">]</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>前面不带空格也可以<span class="co">[</span><span class="ot">@文献名</span><span class="co">]</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">[</span><span class="ot">@文献名 {页码}</span><span class="co">]</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">[</span><span class="ot">@文献名 {页码,半角逗号分隔,还可以用-横杠}</span><span class="co">]</span></span></code></pre></div>
+<h4 id="不显示著者">不显示著者</h4>
+<p>著者加日期的格式还可以不显示著者，只显示日期（页码照常），如：(2020)。语法如下：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a>-@文献名</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">[</span><span class="ot">-@文献名</span><span class="co">]</span></span></code></pre></div>
+<h4 id="转义">转义</h4>
+<p>以下情况不会处理成为引用：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a>but-i-am-email@whatever.com</span>
+<span id="cb8-2"><a href="#cb8-2"></a>1@不是引用</span>
+<span id="cb8-3"><a href="#cb8-3"></a>中文字符@不是引用</span>
+<span id="cb8-4"><a href="#cb8-4"></a>+\@不是引用</span>
+<span id="cb8-5"><a href="#cb8-5"></a>这里有个空格 \@不是引用</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">[</span><span class="ot">\@不是引用</span><span class="co">]</span></span></code></pre></div>
+<h3 id="参考文献列表">参考文献列表</h3>
+<p>参考文献列表会<span style="--color:red">自动附在文章的<strong>结束处</strong></span>（所以记得在结尾留一个二级标题 <code>## 参考文献</code> ）。可以将以下片段插入你希望生成参考文献列表的位置，就不会再附加在结尾处：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a>::: {#refs}</span>
+<span id="cb9-2"><a href="#cb9-2"></a>这里也可以插入一个段落显示在列表前面，但好像没什么用</span>
+<span id="cb9-3"><a href="#cb9-3"></a>:::</span></code></pre></div>
+<p>参考文献列表（以及参考文献列表语法中插入的段落）在 DOCX 中会使用“书目”样式。</p>
+<h2 id="配合-bibtex">配合 BibTeX</h2>
+<p>如果需要自己手写 BibTeX，以下是书籍、期刊文章、书籍内文章的格式参考。文献名是一个标签，常用著者加年份后两位表示，但可以随意起名字（中文也可）。当然这里的文献种类和参数没有列全。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1"></a>@book{文献名,</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  title={书名},</span>
+<span id="cb10-3"><a href="#cb10-3"></a>  author={作者 and 作者2 and 作者3},</span>
+<span id="cb10-4"><a href="#cb10-4"></a>  year={2000},</span>
+<span id="cb10-5"><a href="#cb10-5"></a>  publisher={出版社},</span>
+<span id="cb10-6"><a href="#cb10-6"></a>  address={地址},</span>
+<span id="cb10-7"><a href="#cb10-7"></a>  edition={版本}</span>
+<span id="cb10-8"><a href="#cb10-8"></a>}</span>
+<span id="cb10-9"><a href="#cb10-9"></a>@article{文献名,</span>
+<span id="cb10-10"><a href="#cb10-10"></a>  title={文章名},</span>
+<span id="cb10-11"><a href="#cb10-11"></a>  author={作者},</span>
+<span id="cb10-12"><a href="#cb10-12"></a>  year={2000},</span>
+<span id="cb10-13"><a href="#cb10-13"></a>  journal={期刊名},</span>
+<span id="cb10-14"><a href="#cb10-14"></a>  number={1},#卷数</span>
+<span id="cb10-15"><a href="#cb10-15"></a>  pages={1-5},#页码范围</span>
+<span id="cb10-16"><a href="#cb10-16"></a>}</span>
+<span id="cb10-17"><a href="#cb10-17"></a>@inbook{文献名,</span>
+<span id="cb10-18"><a href="#cb10-18"></a>  title={文章名},</span>
+<span id="cb10-19"><a href="#cb10-19"></a>  author={郭錫良},</span>
+<span id="cb10-20"><a href="#cb10-20"></a>  year={2000},</span>
+<span id="cb10-21"><a href="#cb10-21"></a>  pages={1-5},</span>
+<span id="cb10-22"><a href="#cb10-22"></a>  booktitle={书名},</span>
+<span id="cb10-23"><a href="#cb10-23"></a>  publisher={出版社},</span>
+<span id="cb10-24"><a href="#cb10-24"></a>  address={地址},</span>
+<span id="cb10-25"><a href="#cb10-25"></a>  edition={版本}</span>
+<span id="cb10-26"><a href="#cb10-26"></a>}</span></code></pre></div>
+</div>
+<div class="page-footer">
+<hr class="footer-divider"/>
+<a class="category" href="/blog/categories/%E5%AE%9E%E7%94%A8">实用</a> |
+  
+  
+  
+  
+  
+  <a class="tag" href="/blog/tags/%E5%B7%A5%E5%85%B7">#工具</a>
+</div>
+</div>
+<footer class="footer-mobile">
+<div class="social-icons">
+<a class="social-icon" href="https://yixuan-wang.github.io/blog/index.xml" rel="noopener" target="_blank" title="RSS">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
+</path>
+</svg>
+</a>
+<a class="social-icon" href="https://github.com/Yixuan-Wang" rel="noopener" target="_blank" title="GitHub">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z">
+</path>
+</svg>
+</a>
+<a class="social-icon" href="/blog/about/" rel="author" target="_self" title="关于">
+<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+</svg>
+</a>
+</div>
+<script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.github.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
+</footer>
+</body>
+</html>
