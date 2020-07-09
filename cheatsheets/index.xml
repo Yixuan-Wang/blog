@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Git 速查表</title>
+      <link>https://yixuan-wang.github.io/blog/cheatsheets/git/</link>
+      <pubDate>Thu, 09 Jul 2020 22:01:19 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/cheatsheets/git/</guid>
+      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Pandoc 速查表</title>
       <link>https://yixuan-wang.github.io/blog/cheatsheets/pandoc/</link>
       <pubDate>Mon, 29 Jun 2020 15:48:00 +0800</pubDate>

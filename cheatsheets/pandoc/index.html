@@ -121,22 +121,22 @@
 <h2 id="基本用法">基本用法</h2>
 <p>Pandoc 可以根据扩展名自动检测导入导出类型。</p>
 <p>使用 <code>-o</code> 或 <code>--output="foo"</code> 导出文件。如果文件设为 <code>-</code> 则直接打印到控制台。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> \</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    -o <span class="st">'[导出]'</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> <span class="kw">\</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2"></a>    <span class="ex">-o</span> <span class="st">'[导出]'</span></span></code></pre></div>
 <p>使用 <code>-f</code> 指定导入格式，<code>-t</code> 指定导出格式。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> \</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    -f <span class="st">'[导入格式]'</span> \</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    -t <span class="st">'[导出格式]'</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> <span class="kw">\</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2"></a>    <span class="ex">-f</span> <span class="st">'[导入格式]'</span> <span class="kw">\</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3"></a>    <span class="ex">-t</span> <span class="st">'[导出格式]'</span></span></code></pre></div>
 <!--
 ```shell
 pandoc test.md --bibliography my.bib --csl china-national-standard-gb-t-7714-2015-author-date.csl -o test.docx
 ```
 -->
 <h2 id="参考文献">参考文献</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> \</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    --bibliography <span class="st">'[文献数据]'</span> \</span>
-<span id="cb3-3"><a href="#cb3-3"></a>    --csl <span class="st">'[CSL]'</span> \</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    -o <span class="st">'[导出]'</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> <span class="kw">\</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2"></a>    <span class="ex">--bibliography</span> <span class="st">'[文献数据]'</span> <span class="kw">\</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3"></a>    <span class="ex">--csl</span> <span class="st">'[CSL]'</span> <span class="kw">\</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4"></a>    <span class="ex">-o</span> <span class="st">'[导出]'</span></span></code></pre></div>
 </div>
 <div class="page-footer">
 <hr class="footer-divider"/>
