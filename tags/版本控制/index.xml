@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>版本控制 on Pak</title>
+    <link>https://yixuan-wang.github.io/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</link>
+    <description>Pak 上最近的版本控制内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Thu, 09 Jul 2020 22:01:19 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git 速查表</title>
+      <link>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</link>
+      <pubDate>Thu, 09 Jul 2020 22:01:19 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</guid>
+      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

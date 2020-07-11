@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学术 on Pak</title>
+    <link>https://yixuan-wang.github.io/blog/tags/%E5%AD%A6%E6%9C%AF/</link>
+    <description>Pak 上最近的学术内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Mon, 29 Jun 2020 10:27:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/tags/%E5%AD%A6%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在 Markdown 中引用参考文献</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</link>
+      <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
