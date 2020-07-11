@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信息学 on Pak</title>
+    <link>https://yixuan-wang.github.io/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6/</link>
+    <description>Pak 上最近的信息学内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Thu, 09 Jul 2020 22:01:19 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git 速查表</title>
+      <link>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</link>
+      <pubDate>Thu, 09 Jul 2020 22:01:19 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</guid>
+      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pandoc 速查表</title>
+      <link>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/</link>
+      <pubDate>Mon, 29 Jun 2020 15:48:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/</guid>
+      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 Markdown 中引用参考文献</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</link>
+      <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>KMP 算法</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</link>
+      <pubDate>Thu, 11 Jun 2020 21:39:02 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</guid>
+      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
