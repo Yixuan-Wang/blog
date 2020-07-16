@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>语言学 on Pak</title>
+    <link>https://yixuan-wang.github.io/blog/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/</link>
+    <description>Pak 上最近的语言学内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Thu, 16 Jul 2020 11:48:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>汉语的鼻音韵尾</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</link>
+      <pubDate>Thu, 16 Jul 2020 11:48:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</guid>
+      <description>&lt;p&gt;最近注意到北京话的使用者不能区分粤语的/m/尾和/n/尾，因此简单查了一下《汉语方言概要》和《汉语语音史》。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
