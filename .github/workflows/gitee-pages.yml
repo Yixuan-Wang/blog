@@ -22,21 +22,22 @@ jobs:
           echo "##[set-output name=message;]$(echo 'build(mirror): '`date +%Y%m%dT%H%M`)"
         id: generate_commit_message
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
       - name: Checkout Master
         uses: actions/checkout@v2
-
-      - name: Mirror to Gitee Branch
-        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: ${{ steps.generate_commit_message.outputs.message }}
-          branch: gitee
-          push_options: "--force"
-
+          path: /master
+      
       - name: Checkout Gitee
         uses: actions/checkout@v2
         with:
           ref: gitee
+          path: /gitee
+
+      - name: Mirror
+        run: |
+          mv -f /master /gitee
+          cd /gitee
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
@@ -48,7 +49,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: ${{ steps.generate_commit_message.outputs.message }}
-          branch: gitee
 
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
