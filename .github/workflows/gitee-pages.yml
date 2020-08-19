@@ -18,13 +18,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: Checkout Master
+      uses: actions/checkout@v2
 
     - name: Find and Replace
       uses: jacobtomlinson/gha-find-replace@master
       with:
         find: "yixuan-wang.github.io"
         replace: "yixuan-wang.gitee.io"
+
+    - name: Checkout Gitee
+      uses: actions/checkout@v2
+      with:
+        ref: gitee
 
     - name: Generate Commit Message
       run: |
