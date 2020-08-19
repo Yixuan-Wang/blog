@@ -19,6 +19,7 @@ jobs:
     steps:
       - name: Generate Commit Message
         run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'
           echo "##[set-output name=message;]$(echo 'build(mirror): '`date +%Y%m%dT%H%M`)"
         id: generate_commit_message
 
