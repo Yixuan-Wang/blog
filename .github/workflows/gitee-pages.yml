@@ -35,8 +35,12 @@ jobs:
 
       - name: Mirror
         run: |
-          mv -f master gitee
+          cd $GITHUB_WORKSPACE
           ls
+          mv -f master gitee
+          cd gitee
+          ls
+          cd ..
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
