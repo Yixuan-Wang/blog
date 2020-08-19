@@ -6,7 +6,7 @@ name: Gitee Pages Mirror Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,35 +17,59 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      - name: Generate Commit Message
+        run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'
+          echo "##[set-output name=message;]$(echo 'build(mirror): '`date +%Y%m%dT%H%M`)"
+        id: generate_commit_message
 
-    - name: Find and Replace
-      uses: jacobtomlinson/gha-find-replace@master
-      with:
-        find: "yixuan-wang.github.io"
-        replace: "yixuan-wang.gitee.io"
+      - name: Checkout Master
+        uses: actions/checkout@v2
+        with:
+          path: master
+      
+      - name: Checkout Gitee
+        uses: actions/checkout@v2
+        with:
+          ref: gitee
+          path: gitee
 
-    - name: Commit to Gitee Branch
-      run: |
-        git checkout gitee
-        git add .
-        git commit "build(mirror): "`date +%Y%m%dT%H%M%S`
-        
-    - name: Sync to Gitee
-      uses: wearerequired/git-mirror-action@master
-      env:
+      - name: Mirror
+        run: |
+          cp -rf gitee/.git gitee-git
+          rm -rf master/.git
+          rm -rf gitee
+          mv -f master gitee
+          cp -rf gitee-git gitee/.git
+          rm -rf gitee-git
+
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "yixuan-wang.github.io/blog"
+          replace: "yixuan-wang.gitee.io/blog"
+
+      - name: Commit to Gitee Branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ${{ steps.generate_commit_message.outputs.message }}
+          branch: gitee
+          repository: gitee
+
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
           # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-      with:
+        with:
           # 注意替换为你的 GitHub 源仓库地址
           source-repo: "git@github.com:Yixuan-Wang/blog.git"
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: "git@gitee.com:yixuan-wang/blog.git"
 
-    - name: Build Gitee Pages
-      uses: yanglbme/gitee-pages-action@master
-      with:
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
           # 注意替换为你的 Gitee 用户名
           gitee-username: yixuan-wang
           # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
