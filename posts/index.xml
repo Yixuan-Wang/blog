@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>文章 on Pak</title>
-    <link>https://yixuan-wang.gitee.io/blog/posts/</link>
+    <link>https://yixuan-wang.github.io/blog/posts/</link>
     <description>Pak 上最近的文章内容</description>
     <generator>Hugo</generator>
     <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://yixuan-wang.gitee.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yixuan-wang.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>汉语方言的鼻音韵尾数量</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/ling-phon-chn-nasal-coda/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</link>
       <pubDate>Thu, 16 Jul 2020 11:48:00 +0800</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/ling-phon-chn-nasal-coda/</guid>
-      <description>&lt;p&gt;最近注意到北京话的使用者不能区分粤语的/m/尾和/n/尾，因此简单查了一下《汉语方言概要》和《汉语语音史》。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/ling-phon-chn-nasal-coda/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</guid>
+      <description>&lt;p&gt;最近注意到北京话的使用者不能区分粤语的/m/尾和/n/尾，因此简单查了一下《汉语方言概要》和《汉语语音史》。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>在 Markdown 中引用参考文献</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</link>
       <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
-      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>KMP 算法</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/comp-algo-kmp/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</link>
       <pubDate>Thu, 11 Jun 2020 21:39:02 +0800</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-algo-kmp/</guid>
-      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-algo-kmp/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</guid>
+      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>加密测试</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/test-encrypt/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/test-encrypt/</link>
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/test-encrypt/</guid>
-      <description>&lt;p&gt;这是一个加密文本的测试。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/test-encrypt/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/test-encrypt/</guid>
+      <description>&lt;p&gt;这是一个加密文本的测试。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/test-encrypt/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>竖排显示测试</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/test-vertical/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/test-vertical/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/test-vertical/</guid>
-      <description>&lt;p&gt;学习层叠样式表时的玩耍：竖排《千字文》。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/test-vertical/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/test-vertical/</guid>
+      <description>&lt;p&gt;学习层叠样式表时的玩耍：竖排《千字文》。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/test-vertical/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>第一篇博客</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/test-initial-release/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/test-initial-release/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/test-initial-release/</guid>
-      <description>&lt;p&gt;这个博客出现了是怎么回事呢？这个作者相信大家都很熟悉，但是这个博客出现了是怎么回事呢，下面就让小编也就是作者本人带大家一起了解吧。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/test-initial-release/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/test-initial-release/</guid>
+      <description>&lt;p&gt;这个博客出现了是怎么回事呢？这个作者相信大家都很熟悉，但是这个博客出现了是怎么回事呢，下面就让小编也就是作者本人带大家一起了解吧。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/test-initial-release/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>页面内容测试</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/test-content/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/test-content/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/test-content/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/test-content/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/test-content/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/test-content/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

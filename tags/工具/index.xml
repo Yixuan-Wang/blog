@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on Pak</title>
-    <link>https://yixuan-wang.gitee.io/blog/tags/%E5%B7%A5%E5%85%B7/</link>
+    <link>https://yixuan-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/</link>
     <description>Pak 上最近的工具内容</description>
     <generator>Hugo</generator>
     <lastBuildDate>Thu, 09 Jul 2020 22:01:19 +0800</lastBuildDate>
     
-	<atom:link href="https://yixuan-wang.gitee.io/blog/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yixuan-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git 速查表</title>
-      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-git/</link>
+      <link>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</link>
       <pubDate>Thu, 09 Jul 2020 22:01:19 +0800</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-git/</guid>
-      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</guid>
+      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Pandoc 速查表</title>
-      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-pandoc/</link>
+      <link>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/</link>
       <pubDate>Mon, 29 Jun 2020 15:48:00 +0800</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-pandoc/</guid>
-      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/</guid>
+      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>在 Markdown 中引用参考文献</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</link>
       <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
       
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
-      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
