@@ -18,23 +18,32 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Generate Commit Message
+      run: |
+        COMMIT_MESSAGE="build(mirror): "`date +%Y%m%dT%H%M`
+        git branch -a 
+    
     - name: Checkout Master
       uses: actions/checkout@v2
 
-    - name: Find and Replace
-      uses: jacobtomlinson/gha-find-replace@master
+    - name: Mirror to Gitee Branch
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        find: "yixuan-wang.github.io"
-        replace: "yixuan-wang.gitee.io"
+        commit_message: $COMMIT_MESSAGE
+        branch: gitee
+        push_options: '--force'
+        
 
     - name: Checkout Gitee
       uses: actions/checkout@v2
       with:
         ref: gitee
 
-    - name: Generate Commit Message
-      run: |
-        COMMIT_MESSAGE="build(mirror): "`date +%Y%m%dT%H%M`
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        find: "yixuan-wang.github.io"
+        replace: "yixuan-wang.gitee.io"
 
     - name: Commit to Gitee Branch
       uses: stefanzweifel/git-auto-commit-action@v4
