@@ -22,22 +22,21 @@ jobs:
           echo "##[set-output name=message;]$(echo 'build(mirror): '`date +%Y%m%dT%H%M`)"
         id: generate_commit_message
 
-
       - name: Checkout Master
         uses: actions/checkout@v2
         with:
-          path: /master
+          path: master
       
       - name: Checkout Gitee
         uses: actions/checkout@v2
         with:
           ref: gitee
-          path: /gitee
+          path: gitee
 
       - name: Mirror
         run: |
-          mv -f /master /gitee
-          cd /gitee
+          mv -f master gitee
+          cd gitee
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
