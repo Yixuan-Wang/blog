@@ -36,13 +36,18 @@ jobs:
 
       - name: Mirror
         run: |
+          cp -rf gitee/.git gitee-git
+          rm -rf master/.git
+          rm -rf gitee
           mv -f master gitee
+          cp -rf gitee-git gitee/.git
+          rm -rf gitee-git
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "yixuan-wang.github.io"
-          replace: "yixuan-wang.gitee.io"
+          find: "yixuan-wang.github.io/blog"
+          replace: "yixuan-wang.gitee.io/blog"
 
       - name: Commit to Gitee Branch
         uses: stefanzweifel/git-auto-commit-action@v4
