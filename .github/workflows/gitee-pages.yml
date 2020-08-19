@@ -35,6 +35,7 @@ jobs:
 
       - name: Mirror
         run: |
+          cd $GITHUB_WORKSPACE
           mv -f master gitee
           git branch -a
 
