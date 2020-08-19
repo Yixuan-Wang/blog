@@ -28,9 +28,10 @@ jobs:
 
     - name: Commit to Gitee Branch
       run: |
-        git checkout gitee
-        git add .
-        git commit "build(mirror): "`date +%Y%m%dT%H%M%S`
+        git status
+        # git checkout gitee
+        # git add .
+        # git commit "build(mirror): "`date +%Y%m%dT%H%M%S`
         
     - name: Sync to Gitee
       uses: wearerequired/git-mirror-action@master
