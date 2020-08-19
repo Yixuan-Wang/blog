@@ -19,6 +19,18 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        find: "yixuan-wang.github.io"
+        replace: "yixuan-wang.gitee.io"
+
+    - name: Commit to Gitee Branch
+      run: |
+        git checkout gitee
+        git add .
+        git commit "build(mirror): "`date +%Y%m%dT%H%M%S`
         
     - name: Sync to Gitee
       uses: wearerequired/git-mirror-action@master
@@ -40,3 +52,4 @@ jobs:
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           # 注意替换为你的 Gitee 仓库
           gitee-repo: yixuan-wang/blog
+          branch: gitee
