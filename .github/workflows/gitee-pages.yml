@@ -36,7 +36,7 @@ jobs:
       - name: Mirror
         run: |
           mv -f master gitee
-          cd gitee
+          git branch -a
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
@@ -48,6 +48,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: ${{ steps.generate_commit_message.outputs.message }}
+          branch: gitee
 
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
