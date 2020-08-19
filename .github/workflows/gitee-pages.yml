@@ -35,9 +35,8 @@ jobs:
 
       - name: Mirror
         run: |
-          cd $GITHUB_WORKSPACE
           mv -f master gitee
-          git branch -a
+          ls
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
