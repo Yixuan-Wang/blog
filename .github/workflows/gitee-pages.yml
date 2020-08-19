@@ -35,12 +35,7 @@ jobs:
 
       - name: Mirror
         run: |
-          cd $GITHUB_WORKSPACE
-          ls
           mv -f master gitee
-          cd gitee
-          ls
-          cd ..
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
@@ -53,6 +48,7 @@ jobs:
         with:
           commit_message: ${{ steps.generate_commit_message.outputs.message }}
           branch: gitee
+          repository: $GITHUB_WORKSPACE/gitee
 
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
