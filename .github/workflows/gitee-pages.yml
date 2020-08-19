@@ -48,7 +48,7 @@ jobs:
         with:
           commit_message: ${{ steps.generate_commit_message.outputs.message }}
           branch: gitee
-          repository: $GITHUB_WORKSPACE/gitee
+          repository: gitee
 
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
