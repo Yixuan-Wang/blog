@@ -12,7 +12,7 @@
 <link href="/blog/manifest.json" rel="manifest"/>
 <link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
 <meta content="#0F59A4" name="theme-color"/>
-<link href="https://yixuan-wang.gitee.io/blog/css/main.min.aa19b26b9805ae4ba41d33e54d9ec054576a9cc5660ca056dfca417e003092be.css" rel="stylesheet"/>
+<link href="https://yixuan-wang.gitee.io/blog/css/main.min.9f190e0f0e86495c363f79c8e4bad17b0ebfdfa97cea10cc9c4a198ba1782bec.css" rel="stylesheet"/>
 </head>
 <body>
 <nav>
@@ -80,7 +80,7 @@
 <h1 class="post-title">在 Markdown 中引用参考文献</h1>
 <span>
 <time>2020/06/29</time>
-<span class="wordcount">2349 词</span>
+<span class="wordcount">2348 词</span>
 </span>
 <div>
 <p>
@@ -99,7 +99,7 @@
 <p>但是，LaTeX 的<span style="--color:blue"><strong>指令</strong>多且复杂，学习曲线陡峭，配置环境、导言区也比较复杂</span>。个人在实践中常常想不起来某个样式的语法是什么，某个功能是哪一个宏包里提供的，文档必须放在手边。另外， LaTeX 对中文以及整套 Unicode 的支持也需要一番<ruby>配置<rt>zhē teng</rt></ruby>。LaTeX 引用虽然方便，但还是存在不方便之处的。</p>
 <h2 id="pandoc-markdown-的引用语法">Pandoc Markdown 的引用语法</h2>
 <p>原始的 Markdown 标准（以及许多分支）是<span style="--color:blue"><strong>不支持</strong>参考文献引用</span>的（仅支持简单的脚注），但是 <a href="https://pandoc.org/">Pandoc</a> 的 Markdown 标准支持一套强大的参考文献引用扩展语法。大量论文都要求 DOCX 格式，可以用顺手的 Markdown 编辑器把文章写好，然后用 Pandoc CLI 转换成 DOCX。</p>
-<p><a href="https://pandoc.org/MANUAL.html">Pandoc 的用户手册</a>很详细，但比较长，这里指路到参考文献相关的<a href="https://pandoc.org/MANUAL.html#citation-rendering">命令行选项</a>和<a href="https://pandoc.org/MANUAL.html#citations">语法</a>。关于 Pandoc 可参考<a href="https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-pandoc/">速查表</a>。</p>
+<p><a href="https://pandoc.org/MANUAL.html">Pandoc 的用户手册</a>很详细，但比较长，这里指路到参考文献相关的<a href="https://pandoc.org/MANUAL.html#citation-rendering">命令行选项</a>和<a href="https://pandoc.org/MANUAL.html#citations">语法</a>。关于 Pandoc 可参考<a href="%3C%20ref%20%22cheatsheets/comp/comp-util-pandoc.md%22%20%3E">速查表</a>。</p>
 <h3 id="命令行选项">命令行选项</h3>
 <p>按 *nix 下 Shell 的语法（Powershell 除了换行是一样的）：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1"></a>$ <span class="ex">pandoc</span> <span class="st">'[导入]'</span> <span class="kw">\</span></span>
@@ -208,7 +208,7 @@
 <span id="cb10-16"><a aria-hidden="true" href="#cb10-16"></a>}</span>
 <span id="cb10-17"><a aria-hidden="true" href="#cb10-17"></a>@inbook{文献名,</span>
 <span id="cb10-18"><a aria-hidden="true" href="#cb10-18"></a>  title={文章名},</span>
-<span id="cb10-19"><a aria-hidden="true" href="#cb10-19"></a>  author={郭錫良},</span>
+<span id="cb10-19"><a aria-hidden="true" href="#cb10-19"></a>  author={作者},</span>
 <span id="cb10-20"><a aria-hidden="true" href="#cb10-20"></a>  year={2000},</span>
 <span id="cb10-21"><a aria-hidden="true" href="#cb10-21"></a>  pages={1-5},</span>
 <span id="cb10-22"><a aria-hidden="true" href="#cb10-22"></a>  booktitle={书名},</span>
