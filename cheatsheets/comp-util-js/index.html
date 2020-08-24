@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<title>算法 | Pak</title>
+<title>JavaScript 相关工具速查表 | Pak</title>
 <meta charset="utf-8"/>
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -12,8 +12,7 @@
 <link href="/blog/manifest.json" rel="manifest"/>
 <link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
 <meta content="#0F59A4" name="theme-color"/>
-<link href="https://yixuan-wang.github.io/blog/css/main.min.aa19b26b9805ae4ba41d33e54d9ec054576a9cc5660ca056dfca417e003092be.css" rel="stylesheet"/>
-<link href="https://yixuan-wang.github.io/blog/tags/%E7%AE%97%E6%B3%95/index.xml" rel="alternate" title="Pak" type="application/rss+xml"/>
+<link href="https://yixuan-wang.github.io/blog/css/main.min.9f190e0f0e86495c363f79c8e4bad17b0ebfdfa97cea10cc9c4a198ba1782bec.css" rel="stylesheet"/>
 </head>
 <body>
 <nav>
@@ -78,39 +77,38 @@
 </footer>
 </nav>
 <div class="content-container" id="content">
-<h1>标签 - 算法</h1>
-<article>
-<h2>
-<a href="https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/">
-      KMP 算法
-    </a>
-</h2>
+<h1 class="post-title">JavaScript 相关工具速查表</h1>
+<span>
+<time>2020/08/24</time>
+<span class="wordcount">88 词</span>
+</span>
 <div>
-<p></p><p>KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。</p>
+<p>
+</p><p>JavaScript 相关工具的速查表。</p>
+<h2 id="http-server">http-server</h2>
+<p>http-server 顾名思义是一个 HTTP 服务器工具，用于在本地进行调试。</p>
+<pre class="shell"><code>$ http-server [dist]</code></pre>
+<p>目标默认为当前文件夹（./）。</p>
+<p>开启 HTTPS 需要用到 OpenSSL：</p>
+<pre class="shell"><code>$ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+$ http-server -S -C cert.pem</code></pre>
 </div>
-<div class="post-footer">
-<time class="post-footer-time">2020/6/11</time>
-<span class="post-footer-taxonomies">
+<div class="page-footer">
+<hr class="footer-divider"/>
 <span class="chips-taxonomies">
 <a class="category" href="/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6">信息学</a>
     
-      · <a class="category" href="/blog/categories/%E7%AE%97%E6%B3%95">算法</a>
+      · <a class="category" href="/blog/categories/%E5%AE%9E%E7%94%A8">实用</a>
     
     |
   
   
-    <a class="series" href="/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
-    1
-    |
-  
   
     
-      <a class="tag" href="/blog/tags/%E7%AE%97%E6%B3%95">#算法</a>
-<a class="tag" href="/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2">#字符串</a>
-</span>
+      <a class="tag" href="/blog/tags/javascript">#JavaScript</a>
+<a class="tag" href="/blog/tags/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF">#网络技术</a>
 </span>
 </div>
-</article>
 </div>
 <footer class="footer-mobile">
 <div class="social-icons">

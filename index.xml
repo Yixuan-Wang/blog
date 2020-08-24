@@ -5,14 +5,21 @@
 <link>https://yixuan-wang.github.io/blog/</link>
 <description>Pak 上最近的内容</description>
 <generator>Hugo</generator>
-<lastBuildDate>Thu, 16 Jul 2020 11:48:00 +0800</lastBuildDate>
+<lastBuildDate>Mon, 24 Aug 2020 17:13:00 +0800</lastBuildDate>
 <atom:link href="https://yixuan-wang.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>JavaScript 相关工具速查表</title>
+<link>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-js/</link>
+<pubDate>Mon, 24 Aug 2020 17:13:00 +0800</pubDate>
+<guid>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-js/</guid>
+<description>&lt;p&gt;JavaScript 相关工具的速查表。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/cheatsheets/comp-util-js/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+</item>
 <item>
 <title>汉语方言的鼻音韵尾数量</title>
 <link>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</link>
 <pubDate>Thu, 16 Jul 2020 11:48:00 +0800</pubDate>
 <guid>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</guid>
-<description>&lt;p&gt;最近注意到北京话的使用者不能区分粤语的/m/尾和/n/尾，因此简单查了一下《汉语方言概要》和《汉语语音史》。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+<description>&lt;p&gt;汉语普通话有两个鼻音韵尾音位，吴语苏州话有一个，粤语广府话有三个。&lt;/p&gt;&lt;p&gt;&lt;a href="https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/" &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
 </item>
 <item>
 <title>Git 速查表</title>
