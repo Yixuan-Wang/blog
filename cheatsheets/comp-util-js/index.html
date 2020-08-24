@@ -87,11 +87,11 @@
 </p><p>JavaScript 相关工具的速查表。</p>
 <h2 id="http-server">http-server</h2>
 <p>http-server 顾名思义是一个 HTTP 服务器工具，用于在本地进行调试。</p>
-<pre class="shell"><code>$ http-server [dist]</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1"></a>$ <span class="ex">http-server</span> [dist]</span></code></pre></div>
 <p>目标默认为当前文件夹（./）。</p>
 <p>开启 HTTPS 需要用到 OpenSSL：</p>
-<pre class="shell"><code>$ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
-$ http-server -S -C cert.pem</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1"></a>$ <span class="ex">openssl</span> req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2"></a>$ <span class="ex">http-server</span> -S -C cert.pem</span></code></pre></div>
 </div>
 <div class="page-footer">
 <hr class="footer-divider"/>
