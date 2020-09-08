@@ -16,7 +16,15 @@
       <pubDate>Mon, 24 Aug 2020 17:13:00 +0800</pubDate>
       
       <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-js/</guid>
-      <description>&lt;p&gt;JavaScript 相关工具的速查表。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-js/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;JavaScript 相关工具的速查表。&lt;/p&gt;
+&lt;h2 id=&#34;http-server&#34;&gt;http-server&lt;/h2&gt;
+&lt;p&gt;http-server 顾名思义是一个 HTTP 服务器工具，用于在本地进行调试。&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb1&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb1-1&#34;&gt;&lt;a href=&#34;#cb1-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;http-server&lt;/span&gt; [dist]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;目标默认为当前文件夹（./）。&lt;/p&gt;
+&lt;p&gt;开启 HTTPS 需要用到 OpenSSL：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb2&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb2-1&#34;&gt;&lt;a href=&#34;#cb2-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;openssl&lt;/span&gt; req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem&lt;/span&gt;
+&lt;span id=&#34;cb2-2&#34;&gt;&lt;a href=&#34;#cb2-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;http-server&lt;/span&gt; -S -C cert.pem&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

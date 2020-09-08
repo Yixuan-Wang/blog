@@ -16,7 +16,15 @@
       <pubDate>Mon, 24 Aug 2020 17:13:00 +0800</pubDate>
       
       <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-js/</guid>
-      <description>&lt;p&gt;JavaScript 相关工具的速查表。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-js/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;JavaScript 相关工具的速查表。&lt;/p&gt;
+&lt;h2 id=&#34;http-server&#34;&gt;http-server&lt;/h2&gt;
+&lt;p&gt;http-server 顾名思义是一个 HTTP 服务器工具，用于在本地进行调试。&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb1&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb1-1&#34;&gt;&lt;a href=&#34;#cb1-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;http-server&lt;/span&gt; [dist]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;目标默认为当前文件夹（./）。&lt;/p&gt;
+&lt;p&gt;开启 HTTPS 需要用到 OpenSSL：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb2&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb2-1&#34;&gt;&lt;a href=&#34;#cb2-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;openssl&lt;/span&gt; req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem&lt;/span&gt;
+&lt;span id=&#34;cb2-2&#34;&gt;&lt;a href=&#34;#cb2-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;http-server&lt;/span&gt; -S -C cert.pem&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -25,7 +33,14 @@
       <pubDate>Thu, 09 Jul 2020 22:01:19 +0800</pubDate>
       
       <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-git/</guid>
-      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;
+&lt;h2 id=&#34;删除&#34;&gt;删除&lt;/h2&gt;
+&lt;p&gt;删除分支：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb1&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb1-1&#34;&gt;&lt;a href=&#34;#cb1-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;fu&#34;&gt;git&lt;/span&gt; branch -d &lt;span class=&#34;st&#34;&gt;&amp;#39;[分支名]&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-2&#34;&gt;&lt;a href=&#34;#cb1-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;fu&#34;&gt;git&lt;/span&gt; branch -D &lt;span class=&#34;st&#34;&gt;&amp;#39;[分支名]&amp;#39;&lt;/span&gt; &lt;span class=&#34;co&#34;&gt;# 强制删除&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-3&#34;&gt;&lt;a href=&#34;#cb1-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;fu&#34;&gt;git&lt;/span&gt; branch -r -d &lt;span class=&#34;st&#34;&gt;&amp;#39;[远程仓库名]/[分支名]&amp;#39;&lt;/span&gt; &lt;span class=&#34;co&#34;&gt;# 删除本地监控的远程分支&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-4&#34;&gt;&lt;a href=&#34;#cb1-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;fu&#34;&gt;git&lt;/span&gt; push &lt;span class=&#34;st&#34;&gt;&amp;#39;[远程仓库名]&amp;#39;&lt;/span&gt; -d &lt;span class=&#34;st&#34;&gt;&amp;#39;[分支名]&amp;#39;&lt;/span&gt; &lt;span class=&#34;co&#34;&gt;# 删除远程分支&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -34,7 +49,61 @@
       <pubDate>Mon, 29 Jun 2020 15:48:00 +0800</pubDate>
       
       <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-pandoc/</guid>
-      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-util-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;
+&lt;h2 id=&#34;链接&#34;&gt;链接&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://pandoc.org/&#34;&gt;官网&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;https://pandoc.org/getting-started.html&#34;&gt;基础指南&lt;/a&gt;，面对不会命令行的人士&lt;br /&gt;
+&lt;a href=&#34;https://pandoc.org/MANUAL.html&#34;&gt;用户手册&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;支持的格式&#34;&gt;支持的格式&lt;/h2&gt;
+&lt;p&gt;以下列出部分常用的格式。完整列表见官网。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markdown&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;LaTeX&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Microsoft Word(.docx)&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;HTML&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;EPUB&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;OPML&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Jupyter Notebook&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;reStructuredText&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上格式支持导入和导出。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reveal.js&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Microsoft Powerpoint(.pptx)&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;LaTeX Beamer&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;PDF&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上格式仅支持导出。&lt;/p&gt;
+&lt;h2 id=&#34;基本用法&#34;&gt;基本用法&lt;/h2&gt;
+&lt;p&gt;Pandoc 可以根据扩展名自动检测导入导出类型。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;-o&lt;/code&gt; 或 &lt;code&gt;--output=&#34;foo&#34;&lt;/code&gt; 导出文件。如果文件设为 &lt;code&gt;-&lt;/code&gt; 则直接打印到控制台。&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb1&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb1-1&#34;&gt;&lt;a href=&#34;#cb1-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;pandoc&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导入]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-2&#34;&gt;&lt;a href=&#34;#cb1-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;-o&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导出]&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;使用 &lt;code&gt;-f&lt;/code&gt; 指定导入格式，&lt;code&gt;-t&lt;/code&gt; 指定导出格式。&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb2&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb2-1&#34;&gt;&lt;a href=&#34;#cb2-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;pandoc&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导入]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb2-2&#34;&gt;&lt;a href=&#34;#cb2-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导入格式]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb2-3&#34;&gt;&lt;a href=&#34;#cb2-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;-t&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导出格式]&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;!--
+```shell
+pandoc test.md --bibliography my.bib --csl china-national-standard-gb-t-7714-2015-author-date.csl -o test.docx
+```
+--&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;参考文献&lt;/h2&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb3&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb3-1&#34;&gt;&lt;a href=&#34;#cb3-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;pandoc&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导入]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-2&#34;&gt;&lt;a href=&#34;#cb3-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;--bibliography&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[文献数据]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-3&#34;&gt;&lt;a href=&#34;#cb3-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;--csl&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[CSL]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-4&#34;&gt;&lt;a href=&#34;#cb3-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;-o&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导出]&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -43,7 +112,139 @@
       <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
       
       <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
-      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;
+&lt;h2 id=&#34;为什么不用-docx&#34;&gt;为什么不用 DOCX&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR | 因为无法避免&lt;strong&gt;干扰性的界面交互&lt;/strong&gt;，同时&lt;strong&gt;调整样式&lt;/strong&gt;十分困难😭。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;DOCX 这里是广义的，代指 Word、WPS、Pages 等文档编辑软件使用的富文本格式。DOCX 编辑器通常是所见即所得的，也就是“写的是什么样，显示的就是什么样，打印出来就是什么样”。调整样式、参考文献只需要通过操作编辑器界面上的各种按钮。但是，在写作的过程中，&lt;span style=&#34;--color:blue&#34;&gt;不断在&lt;strong&gt;内容&lt;/strong&gt;和&lt;strong&gt;界面&lt;/strong&gt;之间反复横跳一般地&lt;strong&gt;切换注意力&lt;/strong&gt;&lt;/span&gt;会干扰到思路。&lt;span style=&#34;--color:red&#34;&gt;引用本是文章&lt;strong&gt;内容&lt;/strong&gt;的一部分&lt;/span&gt;，但在所见即所得编辑器中，它&lt;span style=&#34;--color:blue&#34;&gt;只能通过操作&lt;strong&gt;界面&lt;/strong&gt;来添加&lt;/span&gt;，单击引文面板—插入引文—你需要的参考文献。整个过程耗时虽不长，但仍属一种非必要的、令人厌烦的中断。&lt;/p&gt;
+&lt;p&gt;此外，DOCX 自带的&lt;span style=&#34;--color:blue&#34;&gt;引用及参考文献&lt;strong&gt;样式&lt;/strong&gt;也很少&lt;/span&gt;，不能满足需求。自带的引文是著者年份的格式，而没有编号格式（似乎可以用交叉引用解决，但这样就不能用自带的文献管理器）。如果想标注引文的页码，还要手动设置为上标格式，又被迫要操作界面上的按钮。最后插入的“GB7714 标准”参考文献列表，根本不符合最新的 GB7714 标准要求，又要大费周章地修改。&lt;/p&gt;
+&lt;h2 id=&#34;为什么不用-latex&#34;&gt;为什么不用 LaTeX&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR | LaTeX 引用很方便，但它的&lt;strong&gt;学习、配置成本&lt;/strong&gt;比较高🤔。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;LaTeX 是基于 TeX 的排版系统，在学术上的应用非常之广泛，或许说它是学术界的标准工具也不为过。它引用参考文献（当然，交叉引用等同理）非常简便，配合 &lt;strong&gt;BibTeX&lt;/strong&gt;，再加上 cite 和 gbt7714 宏包，在论文尾部加入&lt;code&gt;\bibliography{文献数据文件}&lt;/code&gt;，可以自动生成参考文献列表；行文中插入一句 &lt;code&gt;\cite[页码]{文献名}&lt;/code&gt; 指令就可以添加带页码的引用——而且全部符合 GB7714 标准（当然也可以配置其他标准）。&lt;span style=&#34;--color:green&#34;&gt;引用得以自然地融入了&lt;strong&gt;行文过程&lt;/strong&gt;&lt;/span&gt;，输入几个字符的指令带来的干扰比操作用户界面要小得多，速度也快得多。&lt;/p&gt;
+&lt;p&gt;但是，LaTeX 的&lt;span style=&#34;--color:blue&#34;&gt;&lt;strong&gt;指令&lt;/strong&gt;多且复杂，学习曲线陡峭，配置环境、导言区也比较复杂&lt;/span&gt;。个人在实践中常常想不起来某个样式的语法是什么，某个功能是哪一个宏包里提供的，文档必须放在手边。另外， LaTeX 对中文以及整套 Unicode 的支持也需要一番&lt;ruby&gt;配置&lt;rt&gt;zhē teng&lt;/rt&gt;&lt;/ruby&gt;。LaTeX 引用虽然方便，但还是存在不方便之处的。&lt;/p&gt;
+&lt;h2 id=&#34;pandoc-markdown-的引用语法&#34;&gt;Pandoc Markdown 的引用语法&lt;/h2&gt;
+&lt;p&gt;原始的 Markdown 标准（以及许多分支）是&lt;span style=&#34;--color:blue&#34;&gt;&lt;strong&gt;不支持&lt;/strong&gt;参考文献引用&lt;/span&gt;的（仅支持简单的脚注），但是 &lt;a href=&#34;https://pandoc.org/&#34;&gt;Pandoc&lt;/a&gt; 的 Markdown 标准支持一套强大的参考文献引用扩展语法。大量论文都要求 DOCX 格式，可以用顺手的 Markdown 编辑器把文章写好，然后用 Pandoc CLI 转换成 DOCX。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pandoc.org/MANUAL.html&#34;&gt;Pandoc 的用户手册&lt;/a&gt;很详细，但比较长，这里指路到参考文献相关的&lt;a href=&#34;https://pandoc.org/MANUAL.html#citation-rendering&#34;&gt;命令行选项&lt;/a&gt;和&lt;a href=&#34;https://pandoc.org/MANUAL.html#citations&#34;&gt;语法&lt;/a&gt;。关于 Pandoc 可参考&lt;a href=&#34;%3C%20ref%20%22cheatsheets/comp/comp-util-pandoc.md%22%20%3E&#34;&gt;速查表&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;命令行选项&#34;&gt;命令行选项&lt;/h3&gt;
+&lt;p&gt;按 *nix 下 Shell 的语法（Powershell 除了换行是一样的）：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb1&#34;&gt;&lt;pre class=&#34;sourceCode sh&#34;&gt;&lt;code class=&#34;sourceCode bash&#34;&gt;&lt;span id=&#34;cb1-1&#34;&gt;&lt;a href=&#34;#cb1-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;$ &lt;span class=&#34;ex&#34;&gt;pandoc&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导入]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-2&#34;&gt;&lt;a href=&#34;#cb1-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;--bibliography&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[文献数据]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-3&#34;&gt;&lt;a href=&#34;#cb1-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;--csl&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[CSL]&amp;#39;&lt;/span&gt; &lt;span class=&#34;kw&#34;&gt;\&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb1-4&#34;&gt;&lt;a href=&#34;#cb1-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;ex&#34;&gt;-o&lt;/span&gt; &lt;span class=&#34;st&#34;&gt;&amp;#39;[导出]&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;文献数据用 &lt;strong&gt;BibTeX&lt;/strong&gt; 就可以（百度学术、谷歌学术、图书馆的搜索结果都提供 BibTeX）。CSL 是指&lt;strong&gt;引用样式标记语言&lt;/strong&gt;（Citation Style Language）。&lt;/p&gt;
+&lt;h3 id=&#34;csl&#34;&gt;CSL&lt;/h3&gt;
+&lt;p&gt;CSL 是基于 XML 的，语法很易懂，指路&lt;a href=&#34;https://docs.citationstyles.org/en/1.0.1/specification.html&#34;&gt;文档&lt;/a&gt;。通过它可以设置引用、参考文献的样式。在&lt;a href=&#34;https://github.com/citation-style-language/styles&#34;&gt;官方 GitHub 库&lt;/a&gt;里有许多社区贡献的样式文件，GB7714 的有&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/1a87f4b4748d0a9a5653aa3b3491d772745c247e/china-national-standard-gb-t-7714-2015-author-date.csl&#34;&gt;著者加日期&lt;/a&gt;（著者-出版年制）、&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/8628afb2f4b4db13e317cca45b4c384eaae9d83c/china-national-standard-gb-t-7714-2015-numeric.csl&#34;&gt;尾注编号&lt;/a&gt;、&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/2032fef01713812c184739c030bb18b8c89a89de/china-national-standard-gb-t-7714-2015-note.csl&#34;&gt;脚注编号&lt;/a&gt;（顺序编号制），&lt;span style=&#34;--color:red&#34;&gt;但页码显示部分&lt;strong&gt;不合标准&lt;/strong&gt;，&lt;strong&gt;前两种的修复方案&lt;/strong&gt;如下&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;对于前两种格式文件，需要把第 25 行中间 &lt;code&gt;&amp;lt;single&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;multiple&amp;gt;&lt;/code&gt;标签注释掉：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb2&#34;&gt;&lt;pre class=&#34;sourceCode xml&#34;&gt;&lt;code class=&#34;sourceCode xml&#34;&gt;&lt;span id=&#34;cb2-1&#34;&gt;&lt;a href=&#34;#cb2-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;&amp;lt;term&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; name=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;page&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; form=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;short&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb2-2&#34;&gt;&lt;a href=&#34;#cb2-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;single&amp;gt;&lt;/span&gt;p.&lt;span class=&#34;kw&#34;&gt;&amp;lt;/single&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb2-3&#34;&gt;&lt;a href=&#34;#cb2-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;multiple&amp;gt;&lt;/span&gt;pp.&lt;span class=&#34;kw&#34;&gt;&amp;lt;/multiple&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb2-4&#34;&gt;&lt;a href=&#34;#cb2-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;&amp;lt;/term&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;对于著者加日期 CSL，还需要把第 189 行及之后整个 &lt;code&gt;&amp;lt;citation&amp;gt;&lt;/code&gt; 标签改成：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb3&#34;&gt;&lt;pre class=&#34;sourceCode xml&#34;&gt;&lt;code class=&#34;sourceCode xml&#34;&gt;&lt;span id=&#34;cb3-1&#34;&gt;&lt;a href=&#34;#cb3-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;&amp;lt;citation&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; et-al-min=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; et-al-use-first=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; disambiguate-add-year-suffix=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; disambiguate-add-names=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; disambiguate-add-givenname=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; collapse=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;year&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-2&#34;&gt;&lt;a href=&#34;#cb3-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;sort&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-3&#34;&gt;&lt;a href=&#34;#cb3-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;      &lt;span class=&#34;kw&#34;&gt;&amp;lt;key&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; macro=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;author-intext&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-4&#34;&gt;&lt;a href=&#34;#cb3-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;      &lt;span class=&#34;kw&#34;&gt;&amp;lt;key&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; macro=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;issue-date-year&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; sort=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;ascending&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-5&#34;&gt;&lt;a href=&#34;#cb3-5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;/sort&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-6&#34;&gt;&lt;a href=&#34;#cb3-6&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;layout&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; delimiter=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;; &amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-7&#34;&gt;&lt;a href=&#34;#cb3-7&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;group&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;  prefix=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;(&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; suffix=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;)&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;  delimiter=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;, &amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-8&#34;&gt;&lt;a href=&#34;#cb3-8&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;      &lt;span class=&#34;kw&#34;&gt;&amp;lt;text&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; macro=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;author-intext&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-9&#34;&gt;&lt;a href=&#34;#cb3-9&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;      &lt;span class=&#34;kw&#34;&gt;&amp;lt;text&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; macro=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;issue-date-year&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-10&#34;&gt;&lt;a href=&#34;#cb3-10&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;/group&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-11&#34;&gt;&lt;a href=&#34;#cb3-11&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;group&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-12&#34;&gt;&lt;a href=&#34;#cb3-12&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;kw&#34;&gt;&amp;lt;label&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; variable=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;locator&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; form=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;short&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-13&#34;&gt;&lt;a href=&#34;#cb3-13&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;kw&#34;&gt;&amp;lt;text&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; vertical-align=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;sup&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; variable=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;locator&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-14&#34;&gt;&lt;a href=&#34;#cb3-14&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;/group&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-15&#34;&gt;&lt;a href=&#34;#cb3-15&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;/layout&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb3-16&#34;&gt;&lt;a href=&#34;#cb3-16&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;&amp;lt;/citation&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;尾注编号 CSL 则在 176 行，需要改成：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb4&#34;&gt;&lt;pre class=&#34;sourceCode xml&#34;&gt;&lt;code class=&#34;sourceCode xml&#34;&gt;&lt;span id=&#34;cb4-1&#34;&gt;&lt;a href=&#34;#cb4-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;&amp;lt;citation&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; collapse=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;citation-number&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; after-collapse-delimiter=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-2&#34;&gt;&lt;a href=&#34;#cb4-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;sort&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-3&#34;&gt;&lt;a href=&#34;#cb4-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;key&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; variable=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;citation-number&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; sort=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;ascending&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-4&#34;&gt;&lt;a href=&#34;#cb4-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;/sort&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-5&#34;&gt;&lt;a href=&#34;#cb4-5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;layout&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; vertical-align=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;sup&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; delimiter=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-6&#34;&gt;&lt;a href=&#34;#cb4-6&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;text&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; variable=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;citation-number&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; prefix=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;[&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; suffix=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;]&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-7&#34;&gt;&lt;a href=&#34;#cb4-7&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;group&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-8&#34;&gt;&lt;a href=&#34;#cb4-8&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;      &lt;span class=&#34;kw&#34;&gt;&amp;lt;label&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; variable=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;locator&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; suffix=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;. &amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; form=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;short&amp;quot;&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; strip-periods=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-9&#34;&gt;&lt;a href=&#34;#cb4-9&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;      &lt;span class=&#34;kw&#34;&gt;&amp;lt;text&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt; variable=&lt;/span&gt;&lt;span class=&#34;st&#34;&gt;&amp;quot;locator&amp;quot;&lt;/span&gt;&lt;span class=&#34;kw&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-10&#34;&gt;&lt;a href=&#34;#cb4-10&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;kw&#34;&gt;&amp;lt;/group&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-11&#34;&gt;&lt;a href=&#34;#cb4-11&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  &lt;span class=&#34;kw&#34;&gt;&amp;lt;/layout&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb4-12&#34;&gt;&lt;a href=&#34;#cb4-12&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;&amp;lt;/citation&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样引用的页码显示就符合标准了。&lt;/p&gt;
+&lt;h3 id=&#34;语法&#34;&gt;@ 语法&lt;/h3&gt;
+&lt;p&gt;Pandoc 引入了一个表示引用参考文献的符号，&lt;code&gt;@&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;行内引用&#34;&gt;行内引用&lt;/h4&gt;
+&lt;p&gt;对于著者加日期，著者在行内，日期在括号里；对于尾注编号，没有上标，不带方括号；对于脚注编号，行内引用和正常相同，显示上标。如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无名氏 (2020)&lt;/li&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;语法如下：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb5&#34;&gt;&lt;pre class=&#34;sourceCode markdown&#34;&gt;&lt;code class=&#34;sourceCode markdown&#34;&gt;&lt;span id=&#34;cb5-1&#34;&gt;&lt;a href=&#34;#cb5-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;@文献名&lt;/span&gt;
+&lt;span id=&#34;cb5-2&#34;&gt;&lt;a href=&#34;#cb5-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;一段话之后跟一个空格 @文献名&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;引用&#34;&gt;引用&lt;/h4&gt;
+&lt;p&gt;对于著者加日期，著者和日期都在括号内，逗号分隔；对于尾注编号，显示为上标，带方括号；对于脚注编号，显示为上标，不带方括号。前两种经修正，页码会显示为上标。如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(无名氏, 2020)&lt;sup&gt;15, 20–21&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;(无名氏, 2020)&lt;/li&gt;
+&lt;li&gt;&lt;sup&gt;[1]15, 20-21&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;sup&gt;[1]&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;语法如下：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb6&#34;&gt;&lt;pre class=&#34;sourceCode markdown&#34;&gt;&lt;code class=&#34;sourceCode markdown&#34;&gt;&lt;span id=&#34;cb6-1&#34;&gt;&lt;a href=&#34;#cb6-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;co&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;@文献名&lt;/span&gt;&lt;span class=&#34;co&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-2&#34;&gt;&lt;a href=&#34;#cb6-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;前面不带空格也可以&lt;span class=&#34;co&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;@文献名&lt;/span&gt;&lt;span class=&#34;co&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-3&#34;&gt;&lt;a href=&#34;#cb6-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;co&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;@文献名 {页码}&lt;/span&gt;&lt;span class=&#34;co&#34;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-4&#34;&gt;&lt;a href=&#34;#cb6-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;co&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;@文献名 {页码,半角逗号分隔,还可以用-横杠}&lt;/span&gt;&lt;span class=&#34;co&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;不显示著者&#34;&gt;不显示著者&lt;/h4&gt;
+&lt;p&gt;著者加日期的格式还可以不显示著者，只显示日期（页码照常），如：(2020)。语法如下：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb7&#34;&gt;&lt;pre class=&#34;sourceCode markdown&#34;&gt;&lt;code class=&#34;sourceCode markdown&#34;&gt;&lt;span id=&#34;cb7-1&#34;&gt;&lt;a href=&#34;#cb7-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;-@文献名&lt;/span&gt;
+&lt;span id=&#34;cb7-2&#34;&gt;&lt;a href=&#34;#cb7-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;co&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;-@文献名&lt;/span&gt;&lt;span class=&#34;co&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;转义&#34;&gt;转义&lt;/h4&gt;
+&lt;p&gt;以下情况不会处理成为引用：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb8&#34;&gt;&lt;pre class=&#34;sourceCode markdown&#34;&gt;&lt;code class=&#34;sourceCode markdown&#34;&gt;&lt;span id=&#34;cb8-1&#34;&gt;&lt;a href=&#34;#cb8-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;but-i-am-email@whatever.com&lt;/span&gt;
+&lt;span id=&#34;cb8-2&#34;&gt;&lt;a href=&#34;#cb8-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;1@不是引用&lt;/span&gt;
+&lt;span id=&#34;cb8-3&#34;&gt;&lt;a href=&#34;#cb8-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;中文字符@不是引用&lt;/span&gt;
+&lt;span id=&#34;cb8-4&#34;&gt;&lt;a href=&#34;#cb8-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;+\@不是引用&lt;/span&gt;
+&lt;span id=&#34;cb8-5&#34;&gt;&lt;a href=&#34;#cb8-5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;这里有个空格 \@不是引用&lt;/span&gt;
+&lt;span id=&#34;cb8-6&#34;&gt;&lt;a href=&#34;#cb8-6&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;co&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;ot&#34;&gt;\@不是引用&lt;/span&gt;&lt;span class=&#34;co&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;参考文献列表&#34;&gt;参考文献列表&lt;/h3&gt;
+&lt;p&gt;参考文献列表会&lt;span style=&#34;--color:red&#34;&gt;自动附在文章的&lt;strong&gt;结束处&lt;/strong&gt;&lt;/span&gt;（所以记得在结尾留一个二级标题 &lt;code&gt;## 参考文献&lt;/code&gt; ）。可以将以下片段插入你希望生成参考文献列表的位置，就不会再附加在结尾处：&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb9&#34;&gt;&lt;pre class=&#34;sourceCode markdown&#34;&gt;&lt;code class=&#34;sourceCode markdown&#34;&gt;&lt;span id=&#34;cb9-1&#34;&gt;&lt;a href=&#34;#cb9-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;::: {#refs}&lt;/span&gt;
+&lt;span id=&#34;cb9-2&#34;&gt;&lt;a href=&#34;#cb9-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;这里也可以插入一个段落显示在列表前面，但好像没什么用&lt;/span&gt;
+&lt;span id=&#34;cb9-3&#34;&gt;&lt;a href=&#34;#cb9-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;:::&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;参考文献列表（以及参考文献列表语法中插入的段落）在 DOCX 中会使用“书目”样式。&lt;/p&gt;
+&lt;h2 id=&#34;配合-bibtex&#34;&gt;配合 BibTeX&lt;/h2&gt;
+&lt;p&gt;如果需要自己手写 BibTeX，以下是书籍、期刊文章、书籍内文章的格式参考。文献名是一个标签，常用著者加年份后两位表示，但可以随意起名字（中文也可）。当然这里的文献种类和参数没有列全。&lt;/p&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb10&#34;&gt;&lt;pre class=&#34;sourceCode latex&#34;&gt;&lt;code class=&#34;sourceCode latex&#34;&gt;&lt;span id=&#34;cb10-1&#34;&gt;&lt;a href=&#34;#cb10-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;@book{文献名,&lt;/span&gt;
+&lt;span id=&#34;cb10-2&#34;&gt;&lt;a href=&#34;#cb10-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  title={书名},&lt;/span&gt;
+&lt;span id=&#34;cb10-3&#34;&gt;&lt;a href=&#34;#cb10-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  author={作者 and 作者2 and 作者3},&lt;/span&gt;
+&lt;span id=&#34;cb10-4&#34;&gt;&lt;a href=&#34;#cb10-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  year={2000},&lt;/span&gt;
+&lt;span id=&#34;cb10-5&#34;&gt;&lt;a href=&#34;#cb10-5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  publisher={出版社},&lt;/span&gt;
+&lt;span id=&#34;cb10-6&#34;&gt;&lt;a href=&#34;#cb10-6&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  address={地址},&lt;/span&gt;
+&lt;span id=&#34;cb10-7&#34;&gt;&lt;a href=&#34;#cb10-7&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  edition={版本}&lt;/span&gt;
+&lt;span id=&#34;cb10-8&#34;&gt;&lt;a href=&#34;#cb10-8&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;}&lt;/span&gt;
+&lt;span id=&#34;cb10-9&#34;&gt;&lt;a href=&#34;#cb10-9&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;@article{文献名,&lt;/span&gt;
+&lt;span id=&#34;cb10-10&#34;&gt;&lt;a href=&#34;#cb10-10&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  title={文章名},&lt;/span&gt;
+&lt;span id=&#34;cb10-11&#34;&gt;&lt;a href=&#34;#cb10-11&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  author={作者},&lt;/span&gt;
+&lt;span id=&#34;cb10-12&#34;&gt;&lt;a href=&#34;#cb10-12&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  year={2000},&lt;/span&gt;
+&lt;span id=&#34;cb10-13&#34;&gt;&lt;a href=&#34;#cb10-13&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  journal={期刊名},&lt;/span&gt;
+&lt;span id=&#34;cb10-14&#34;&gt;&lt;a href=&#34;#cb10-14&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  number={1},#卷数&lt;/span&gt;
+&lt;span id=&#34;cb10-15&#34;&gt;&lt;a href=&#34;#cb10-15&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  pages={1-5},#页码范围&lt;/span&gt;
+&lt;span id=&#34;cb10-16&#34;&gt;&lt;a href=&#34;#cb10-16&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;}&lt;/span&gt;
+&lt;span id=&#34;cb10-17&#34;&gt;&lt;a href=&#34;#cb10-17&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;@inbook{文献名,&lt;/span&gt;
+&lt;span id=&#34;cb10-18&#34;&gt;&lt;a href=&#34;#cb10-18&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  title={文章名},&lt;/span&gt;
+&lt;span id=&#34;cb10-19&#34;&gt;&lt;a href=&#34;#cb10-19&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  author={作者},&lt;/span&gt;
+&lt;span id=&#34;cb10-20&#34;&gt;&lt;a href=&#34;#cb10-20&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  year={2000},&lt;/span&gt;
+&lt;span id=&#34;cb10-21&#34;&gt;&lt;a href=&#34;#cb10-21&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  pages={1-5},&lt;/span&gt;
+&lt;span id=&#34;cb10-22&#34;&gt;&lt;a href=&#34;#cb10-22&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  booktitle={书名},&lt;/span&gt;
+&lt;span id=&#34;cb10-23&#34;&gt;&lt;a href=&#34;#cb10-23&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  publisher={出版社},&lt;/span&gt;
+&lt;span id=&#34;cb10-24&#34;&gt;&lt;a href=&#34;#cb10-24&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  address={地址},&lt;/span&gt;
+&lt;span id=&#34;cb10-25&#34;&gt;&lt;a href=&#34;#cb10-25&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;  edition={版本}&lt;/span&gt;
+&lt;span id=&#34;cb10-26&#34;&gt;&lt;a href=&#34;#cb10-26&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -52,7 +253,143 @@
       <pubDate>Thu, 11 Jun 2020 21:39:02 +0800</pubDate>
       
       <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-algo-kmp/</guid>
-      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-algo-kmp/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      
+      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;
+&lt;h2 id=&#34;回溯&#34;&gt;回溯&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR | 暴力算法中存在不必要的&lt;span style=&#34;--color:red&#34;&gt;向左回退&lt;/span&gt;比较。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span style=&#34;--color:red&#34;&gt;&lt;strong&gt;暴力&lt;/strong&gt;&lt;/span&gt;的字符串匹配算法会遇到回溯的情况，如下所示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;模式串 abc
+
+    ababc
+  1|^
+  2|a^
+! 3|ab^
+! 4| ^&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;用&lt;strong&gt;模式串&lt;/strong&gt;abc匹配&lt;strong&gt;目标串&lt;/strong&gt;ababc，在第3步中，先将模式串第0位对齐目标串第0位，模式串的前两位匹配成功，第2位匹配失败(3)，因此将模式串的第零位移动到目标串第1位重新对齐(4)，因而比较的位置&lt;strong&gt;回溯&lt;/strong&gt;了，但由于(2)用模式串第1位b匹配目标串第1位b成功，(4)用模式串第0位a重新匹配目标串第1位必定失败，因此这样的回溯是妨害效率的。主要原因是，在回溯的过程中，原有的匹配成功信息没有被利用即被丢弃。&lt;/p&gt;
+&lt;p&gt;设模式串长度为&lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;，目标串长度为&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;，最坏情况是每次都在模式串的最后一位匹配失败，即匹配&lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;次后失败，一直比较到模式串和目标串右对齐，模式串的第零位对齐在目标串第&lt;span class=&#34;math inline&#34;&gt;\(n-m\)&lt;/span&gt;位，一共比较&lt;span class=&#34;math inline&#34;&gt;\(n-m+1\)&lt;/span&gt;次。由于&lt;span class=&#34;math inline&#34;&gt;\(n \ge m\)&lt;/span&gt;，因而最坏时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(mn)\)&lt;/span&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;kmp-算法&#34;&gt;KMP 算法&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR | KMP算法利用了模式串中&lt;span style=&#34;--color:blue&#34;&gt;重复&lt;/span&gt;的片段，通过&lt;strong&gt;对齐&lt;/strong&gt;这些片段实现不向左后退。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;暴力算法中，每次在模式串第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;位和目标串第&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;位匹配失败以后，模式串左端总是向右移动1位。而&lt;span style=&#34;--color:blue&#34;&gt;&lt;strong&gt;KMP算法&lt;/strong&gt;&lt;/span&gt;的思路是，根据模式串的某种规律（将在下文分析），得出一个对应关系&lt;span class=&#34;math inline&#34;&gt;\(next\)&lt;/span&gt;，使得在模式串第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;位和目标串第&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;位匹配失败以后，使得模式串的&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;位和目标串&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;位对齐，即模式串左端向右移动&lt;span class=&#34;math inline&#34;&gt;\(i-next(i)\)&lt;/span&gt;位，&lt;strong&gt;避免发生回溯&lt;/strong&gt;。分析以下操作的例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;模式串 abcdabd
+    
+    0   45
+    abcdaabcda
+! 1|abcda^
+  2|    a^
+    *   *
+
+    01  456
+    abcdabcdabd
+! 3|abcdab^   
+  4|    ab^
+    **  **&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;先看&lt;span class=&#34;math inline&#34;&gt;\(i\ne0\)&lt;/span&gt;时的情况。&lt;/p&gt;
+&lt;p&gt;对于模式串&lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;匹配失败的第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;位&lt;strong&gt;之前的&lt;/strong&gt;部分，即子串&lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;_{i}=p_0 p_1 \dots p_{i-1}\)&lt;/span&gt;，我们希望找到&lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;_{i}\)&lt;/span&gt;中&lt;strong&gt;最长&lt;/strong&gt;的一对&lt;strong&gt;完全相同&lt;/strong&gt;的&lt;strong&gt;前缀和后缀&lt;/strong&gt;，并把它的长度记作&lt;span class=&#34;math inline&#34;&gt;\(k_i\)&lt;/span&gt;，即： &lt;span class=&#34;math display&#34;&gt;\[
+p_0 p_1 \dots p_{k_i-1} = p_{i-k_i} p_{i-k_i+1} \dots p_{i-1}
+\]&lt;/span&gt; 并通过移位使得&lt;strong&gt;前缀左端&lt;/strong&gt;移到原来&lt;strong&gt;后缀左端&lt;/strong&gt;对应的位置，可以得到： &lt;span class=&#34;math display&#34;&gt;\[
+next(i) = k_i\tag{1}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;如果找不到符合上述要求的一对前缀和后缀时，将模式串的左端直接对齐到匹配失败的一位即可。此时&lt;span class=&#34;math inline&#34;&gt;\(k_i=0\)&lt;/span&gt;，公式&lt;span class=&#34;math inline&#34;&gt;\((1)\)&lt;/span&gt;仍然成立。&lt;/p&gt;
+&lt;p&gt;如果&lt;span class=&#34;math inline&#34;&gt;\(i=0\)&lt;/span&gt;，也就是第0位已经匹配失败，则模式串的左端移到&lt;span class=&#34;math inline&#34;&gt;\(i+1\)&lt;/span&gt;，继续比较。令&lt;span class=&#34;math inline&#34;&gt;\(k_0=-1\)&lt;/span&gt;，公式&lt;span class=&#34;math inline&#34;&gt;\((1)\)&lt;/span&gt;仍然成立，只是&lt;span class=&#34;math inline&#34;&gt;\(p_{-1}\)&lt;/span&gt;没有意义。课本上基于此点把这两个混在一起了，多循环了一次，个人觉得有点还是分开处理比较好理解。&lt;/p&gt;
+&lt;p&gt;在&lt;span class=&#34;math inline&#34;&gt;\(j &amp;lt; n\)&lt;/span&gt;时如果找到目标串中匹配模式串的子串，即满足&lt;span class=&#34;math inline&#34;&gt;\(i=m-1\)&lt;/span&gt;时匹配，则返回模式串左端位置&lt;span class=&#34;math inline&#34;&gt;\(j-i\)&lt;/span&gt;。如果&lt;span class=&#34;math inline&#34;&gt;\(j=n\)&lt;/span&gt;，说明目标串中不存在匹配模式串的字串，返回表示搜索无结果的值。&lt;/p&gt;
+&lt;p&gt;在搜索过程中，&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;不会减小（即不会发生回溯），递增的次数不会超过&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;。&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;递增的同时，一定伴随着&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;递增，&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;在匹配失败时也会减小，但最多减小到0，减小的次数不会多于增加的次数，因此最终&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;递增的次数不会超过&lt;span class=&#34;math inline&#34;&gt;\(2n\)&lt;/span&gt;。所以，搜索部分的最坏时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(n)\)&lt;/span&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;模式串的预处理&#34;&gt;模式串的预处理&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR | 通过递推的方法可以快速推出&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;表，还可以再进行递归优化避免在移动模式串前后比较内容相同的情况。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;问题的关键转移到了计算&lt;strong&gt;最长相同前后缀长度&lt;/strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(k_i\)&lt;/span&gt;。这里利用递推会比较简单。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;模式串 ababba
+
+   0  1  2  3  4  5
+   a  b  a  b  b  a
+0|-1  0  0
+  
+ | *     ^
+1|-1  0  0-&amp;gt;1
+  
+ | *  *  ^  ^
+2|-1  0  0  1-&amp;gt;2
+
+...  
+ | *  *  !
+ |       ^  ^  !
+3|-1  0  0  1  2-&amp;gt;0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;初始条件(0)是&lt;span class=&#34;math inline&#34;&gt;\(k_0=-1, k_1=0\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;注意到： &lt;span class=&#34;math display&#34;&gt;\[
+p_a p_{a+1} \dots p_{a+k-2} p_{a+k-1} = p_b p_{b+1} \dots p_{b+k-2} p_{b+k-1} \\
+p_{a} p_{a+1} \dots p_{a+k-2} = p_b p_{b+1} \dots p_{b+k-2}
+\]&lt;/span&gt; 可知&lt;span class=&#34;math inline&#34;&gt;\(k_i &amp;gt; 0 \Leftrightarrow k_{i-1} = k_i - 1\)&lt;/span&gt;。据(1)-(3)归纳，每次只需验证&lt;strong&gt;上一次验证&lt;/strong&gt;中前缀末尾和后缀末尾的下一位是否相等，即： &lt;span class=&#34;math display&#34;&gt;\[
+k_i = 
+\begin{cases}
+   k_{i-1}+1 &amp;amp;p_{i-1} = p_{k_{i-1}}  \\
+   0 &amp;amp;p_{i-1} \ne p_{k_{i-1}}
+\end{cases}
+\tag{2}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;这样就得到了&lt;span class=&#34;math inline&#34;&gt;\(next\)&lt;/span&gt;，但是还有优化的空间。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;模式串 abab
+   a  b  a  b
+k -1  0  0  1
+
+    abaabab 
+! 1|aba^
+! 2|  a^
+  3|   ^&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在这个例子中，发现(1)匹配失败，(2)必定也匹配失败，两次比较的字符完全相同，多了一次无谓的比较，根本原因是&lt;span class=&#34;math inline&#34;&gt;\(s_j \ne p_{i}=p_{k_i}\)&lt;/span&gt;，使得移动模式串后，比较的字符没有变，还需要再次移动。因此，可以对&lt;span class=&#34;math inline&#34;&gt;\(k_i\)&lt;/span&gt;（当然也是&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;）&lt;strong&gt;递归地优化&lt;/strong&gt;：当&lt;span class=&#34;math inline&#34;&gt;\(p_i = p_{k_i}\)&lt;/span&gt;时，令&lt;span class=&#34;math inline&#34;&gt;\(k_i = k_{k_i}\)&lt;/span&gt; ，或者写作“令&lt;span class=&#34;math inline&#34;&gt;\(next(i) = next(next(i))\)&lt;/span&gt;”，可能更方便理解。&lt;/p&gt;
+&lt;p&gt;对于上例，优化效果如下所示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;模式串 abab
+    a  b  a  b
+k  -1  0  0  1
+k&amp;#39; -1  0 -1  0  
+
+    abaabab
+! 1|aba^
+  2|   ^&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;预处理过程中，递推部分的时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m)\)&lt;/span&gt;；递归优化中，由于优化到第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;项时第&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;项已经优化过，因此不会再进行第二次递归，最坏时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m)\)&lt;/span&gt;。因此，预处理过程的时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m)\)&lt;/span&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR | KMP算法时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m+n)\)&lt;/span&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;综上，KMP算法的时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m+n)\)&lt;/span&gt;，小于暴力算法的&lt;span class=&#34;math inline&#34;&gt;\(O(mn)\)&lt;/span&gt;。由于在实践中通常&lt;span class=&#34;math inline&#34;&gt;\(m \ll n\)&lt;/span&gt;，因此KMP算法的时间复杂度可以视为&lt;span class=&#34;math inline&#34;&gt;\(O(n)\)&lt;/span&gt;。但是，由于KMP算法的优化基于重复片段，因此使用的字符集比较大时（比如汉语的字符集），重复片段出现的概率低，它的效率提升也有限。实践中，从尾部开始向左匹配并计算“坏字符”的另一个字符串匹配算法，BM算法，效率更高，可以达到&lt;span class=&#34;math inline&#34;&gt;\(O(n)\)&lt;/span&gt;，可以查看参考资料中的文章中的介绍。&lt;/p&gt;
+&lt;h2 id=&#34;python-实现&#34;&gt;Python 实现&lt;/h2&gt;
+&lt;div class=&#34;sourceCode&#34; id=&#34;cb6&#34;&gt;&lt;pre class=&#34;sourceCode python&#34;&gt;&lt;code class=&#34;sourceCode python&#34;&gt;&lt;span id=&#34;cb6-1&#34;&gt;&lt;a href=&#34;#cb6-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;NO_MATCH &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-2&#34;&gt;&lt;a href=&#34;#cb6-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-3&#34;&gt;&lt;a href=&#34;#cb6-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;def&lt;/span&gt; kmp(p, s): &lt;span class=&#34;co&#34;&gt;# pattern 模式串, string 目标串&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-4&#34;&gt;&lt;a href=&#34;#cb6-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    m, n &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bu&#34;&gt;len&lt;/span&gt;(p), &lt;span class=&#34;bu&#34;&gt;len&lt;/span&gt;(s)&lt;/span&gt;
+&lt;span id=&#34;cb6-5&#34;&gt;&lt;a href=&#34;#cb6-5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    i, j &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-6&#34;&gt;&lt;a href=&#34;#cb6-6&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;/span&gt;
+&lt;span id=&#34;cb6-7&#34;&gt;&lt;a href=&#34;#cb6-7&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;co&#34;&gt;# 预处理&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-8&#34;&gt;&lt;a href=&#34;#cb6-8&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    nxt &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; [&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;] &lt;span class=&#34;co&#34;&gt;# next 预处理表&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-9&#34;&gt;&lt;a href=&#34;#cb6-9&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;for&lt;/span&gt; x &lt;span class=&#34;kw&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;bu&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;dv&#34;&gt;2&lt;/span&gt;, m):&lt;/span&gt;
+&lt;span id=&#34;cb6-10&#34;&gt;&lt;a href=&#34;#cb6-10&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; p[x&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; p[nxt[x&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;]]: &lt;span class=&#34;co&#34;&gt;# 公式(2)&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-11&#34;&gt;&lt;a href=&#34;#cb6-11&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            nxt.append(nxt[x&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;] &lt;span class=&#34;op&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;)&lt;/span&gt;
+&lt;span id=&#34;cb6-12&#34;&gt;&lt;a href=&#34;#cb6-12&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;
+&lt;span id=&#34;cb6-13&#34;&gt;&lt;a href=&#34;#cb6-13&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            nxt.append(&lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;
+&lt;span id=&#34;cb6-14&#34;&gt;&lt;a href=&#34;#cb6-14&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;for&lt;/span&gt; x &lt;span class=&#34;kw&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;bu&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;, m):&lt;/span&gt;
+&lt;span id=&#34;cb6-15&#34;&gt;&lt;a href=&#34;#cb6-15&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; p[x] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; p[nxt[x]]: &lt;span class=&#34;co&#34;&gt;# 递归优化&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-16&#34;&gt;&lt;a href=&#34;#cb6-16&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            nxt[x] &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; nxt[nxt[x]]&lt;/span&gt;
+&lt;span id=&#34;cb6-17&#34;&gt;&lt;a href=&#34;#cb6-17&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-18&#34;&gt;&lt;a href=&#34;#cb6-18&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;co&#34;&gt;# 比较&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-19&#34;&gt;&lt;a href=&#34;#cb6-19&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;while&lt;/span&gt; i &lt;span class=&#34;op&#34;&gt;&amp;lt;&lt;/span&gt; m &lt;span class=&#34;kw&#34;&gt;and&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;&amp;lt;&lt;/span&gt; n: &lt;/span&gt;
+&lt;span id=&#34;cb6-20&#34;&gt;&lt;a href=&#34;#cb6-20&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; p[i] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; s[j]: &lt;span class=&#34;co&#34;&gt;# 匹配成功&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-21&#34;&gt;&lt;a href=&#34;#cb6-21&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            i &lt;span class=&#34;op&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;op&#34;&gt;;&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-22&#34;&gt;&lt;a href=&#34;#cb6-22&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;else&lt;/span&gt;: &lt;span class=&#34;co&#34;&gt;# 匹配失败&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-23&#34;&gt;&lt;a href=&#34;#cb6-23&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; nxt[i] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;: &lt;span class=&#34;co&#34;&gt;# 向后移动1位&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-24&#34;&gt;&lt;a href=&#34;#cb6-24&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;                i &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;op&#34;&gt;;&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-25&#34;&gt;&lt;a href=&#34;#cb6-25&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            &lt;span class=&#34;cf&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;
+&lt;span id=&#34;cb6-26&#34;&gt;&lt;a href=&#34;#cb6-26&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;                i &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; nxt[i] &lt;span class=&#34;co&#34;&gt;# 将nxt[i]位置和j位置对齐&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-27&#34;&gt;&lt;a href=&#34;#cb6-27&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; i &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; m:&lt;/span&gt;
+&lt;span id=&#34;cb6-28&#34;&gt;&lt;a href=&#34;#cb6-28&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;return&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;-&lt;/span&gt; i &lt;span class=&#34;co&#34;&gt;# 返回子串的左端&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&#34;cb6-29&#34;&gt;&lt;a href=&#34;#cb6-29&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;return&lt;/span&gt; NO_MATCH&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/v_july_v/article/details/7041827&#34;&gt;July，从头到尾彻底理解KMP，2014&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;裘宗燕，数据结构与算法：Python 语言描述，2018&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>
