@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Pak</title>
+    <title>Categories | Pak</title>
     <link>https://yixuan-wang.gitee.io/blog/categories/</link>
-    <description>Pak 上最近的Categories内容</description>
+    <description>Pak 上最近的 Categories 内容</description>
     <generator>Hugo</generator>
     <lastBuildDate>Mon, 24 Aug 2020 17:13:00 +0800</lastBuildDate>
     
