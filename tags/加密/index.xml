@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>加密 on Pak</title>
+    <title>加密 | Pak</title>
     <link>https://yixuan-wang.github.io/blog/tags/%E5%8A%A0%E5%AF%86/</link>
-    <description>Pak 上最近的加密内容</description>
+    <description>Pak 上最近的 加密 内容</description>
     <generator>Hugo</generator>
     <lastBuildDate>Sun, 07 Jun 2020 00:00:00 +0000</lastBuildDate>
     
@@ -16,42 +16,7 @@
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://yixuan-wang.github.io/blog/posts/2020/test-encrypt/</guid>
-      
-      <description>&lt;p&gt;这是一个加密文本的测试。&lt;/p&gt;
-&lt;p&gt;密码是123456。&lt;/p&gt;
-
-
-
-
-&lt;div class=&#34;hugo-encryptor-container&#34;&gt;
-  &lt;div class=&#34;hugo-encryptor-prompt&#34;&gt;
-    
-      &lt;p&gt;文章的部分内容被密码保护：&lt;/p&gt;
-    
-  &lt;/div&gt;
-  &lt;div class=&#34;hugo-encryptor-form&#34;&gt;
-    &lt;input
-      class=&#34;hugo-encryptor-input&#34;
-      placeholder=&#39;请输入密码&#39;
-    /&gt;
-    &lt;input
-      class=&#34;hugo-encryptor-button&#34;
-      type=&#34;button&#34;
-      value=&#39;点击验证&#39;
-      onclick=&#34;_click_handler(this)&#34;
-    /&gt;
-  &lt;/div&gt;
-  &lt;div
-    class=&#34;hugo-encryptor-cipher-text&#34;
-    data-password=&#34;123456&#34;
-    style=&#34;display: none;&#34;
-  &gt;
-    &lt;span style=&#34;display: none;&#34;&gt;--- DON&#39;T MODIFY THIS LINE ---&lt;/span&gt;
-    &lt;h1 id=&#34;加密&#34;&gt;加密&lt;/h1&gt;
-&lt;p&gt;这是加密的文本。&lt;/p&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</description>
+      <description>&lt;p&gt;这是一个加密文本的测试。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/test-encrypt/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

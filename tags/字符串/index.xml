@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>字符串 on Pak</title>
+    <title>字符串 | Pak</title>
     <link>https://yixuan-wang.github.io/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-    <description>Pak 上最近的字符串内容</description>
+    <description>Pak 上最近的 字符串 内容</description>
     <generator>Hugo</generator>
     <lastBuildDate>Thu, 11 Jun 2020 21:39:02 +0800</lastBuildDate>
     
@@ -16,143 +16,7 @@
       <pubDate>Thu, 11 Jun 2020 21:39:02 +0800</pubDate>
       
       <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/</guid>
-      
-      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;
-&lt;h2 id=&#34;回溯&#34;&gt;回溯&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;TL;DR | 暴力算法中存在不必要的&lt;span style=&#34;--color:red&#34;&gt;向左回退&lt;/span&gt;比较。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;span style=&#34;--color:red&#34;&gt;&lt;strong&gt;暴力&lt;/strong&gt;&lt;/span&gt;的字符串匹配算法会遇到回溯的情况，如下所示：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;模式串 abc
-
-    ababc
-  1|^
-  2|a^
-! 3|ab^
-! 4| ^&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;用&lt;strong&gt;模式串&lt;/strong&gt;abc匹配&lt;strong&gt;目标串&lt;/strong&gt;ababc，在第3步中，先将模式串第0位对齐目标串第0位，模式串的前两位匹配成功，第2位匹配失败(3)，因此将模式串的第零位移动到目标串第1位重新对齐(4)，因而比较的位置&lt;strong&gt;回溯&lt;/strong&gt;了，但由于(2)用模式串第1位b匹配目标串第1位b成功，(4)用模式串第0位a重新匹配目标串第1位必定失败，因此这样的回溯是妨害效率的。主要原因是，在回溯的过程中，原有的匹配成功信息没有被利用即被丢弃。&lt;/p&gt;
-&lt;p&gt;设模式串长度为&lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;，目标串长度为&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;，最坏情况是每次都在模式串的最后一位匹配失败，即匹配&lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;次后失败，一直比较到模式串和目标串右对齐，模式串的第零位对齐在目标串第&lt;span class=&#34;math inline&#34;&gt;\(n-m\)&lt;/span&gt;位，一共比较&lt;span class=&#34;math inline&#34;&gt;\(n-m+1\)&lt;/span&gt;次。由于&lt;span class=&#34;math inline&#34;&gt;\(n \ge m\)&lt;/span&gt;，因而最坏时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(mn)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;kmp-算法&#34;&gt;KMP 算法&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;TL;DR | KMP算法利用了模式串中&lt;span style=&#34;--color:blue&#34;&gt;重复&lt;/span&gt;的片段，通过&lt;strong&gt;对齐&lt;/strong&gt;这些片段实现不向左后退。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;暴力算法中，每次在模式串第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;位和目标串第&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;位匹配失败以后，模式串左端总是向右移动1位。而&lt;span style=&#34;--color:blue&#34;&gt;&lt;strong&gt;KMP算法&lt;/strong&gt;&lt;/span&gt;的思路是，根据模式串的某种规律（将在下文分析），得出一个对应关系&lt;span class=&#34;math inline&#34;&gt;\(next\)&lt;/span&gt;，使得在模式串第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;位和目标串第&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;位匹配失败以后，使得模式串的&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;位和目标串&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;位对齐，即模式串左端向右移动&lt;span class=&#34;math inline&#34;&gt;\(i-next(i)\)&lt;/span&gt;位，&lt;strong&gt;避免发生回溯&lt;/strong&gt;。分析以下操作的例子：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;模式串 abcdabd
-    
-    0   45
-    abcdaabcda
-! 1|abcda^
-  2|    a^
-    *   *
-
-    01  456
-    abcdabcdabd
-! 3|abcdab^   
-  4|    ab^
-    **  **&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;先看&lt;span class=&#34;math inline&#34;&gt;\(i\ne0\)&lt;/span&gt;时的情况。&lt;/p&gt;
-&lt;p&gt;对于模式串&lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;匹配失败的第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;位&lt;strong&gt;之前的&lt;/strong&gt;部分，即子串&lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;_{i}=p_0 p_1 \dots p_{i-1}\)&lt;/span&gt;，我们希望找到&lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;_{i}\)&lt;/span&gt;中&lt;strong&gt;最长&lt;/strong&gt;的一对&lt;strong&gt;完全相同&lt;/strong&gt;的&lt;strong&gt;前缀和后缀&lt;/strong&gt;，并把它的长度记作&lt;span class=&#34;math inline&#34;&gt;\(k_i\)&lt;/span&gt;，即： &lt;span class=&#34;math display&#34;&gt;\[
-p_0 p_1 \dots p_{k_i-1} = p_{i-k_i} p_{i-k_i+1} \dots p_{i-1}
-\]&lt;/span&gt; 并通过移位使得&lt;strong&gt;前缀左端&lt;/strong&gt;移到原来&lt;strong&gt;后缀左端&lt;/strong&gt;对应的位置，可以得到： &lt;span class=&#34;math display&#34;&gt;\[
-next(i) = k_i\tag{1}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;如果找不到符合上述要求的一对前缀和后缀时，将模式串的左端直接对齐到匹配失败的一位即可。此时&lt;span class=&#34;math inline&#34;&gt;\(k_i=0\)&lt;/span&gt;，公式&lt;span class=&#34;math inline&#34;&gt;\((1)\)&lt;/span&gt;仍然成立。&lt;/p&gt;
-&lt;p&gt;如果&lt;span class=&#34;math inline&#34;&gt;\(i=0\)&lt;/span&gt;，也就是第0位已经匹配失败，则模式串的左端移到&lt;span class=&#34;math inline&#34;&gt;\(i+1\)&lt;/span&gt;，继续比较。令&lt;span class=&#34;math inline&#34;&gt;\(k_0=-1\)&lt;/span&gt;，公式&lt;span class=&#34;math inline&#34;&gt;\((1)\)&lt;/span&gt;仍然成立，只是&lt;span class=&#34;math inline&#34;&gt;\(p_{-1}\)&lt;/span&gt;没有意义。课本上基于此点把这两个混在一起了，多循环了一次，个人觉得有点还是分开处理比较好理解。&lt;/p&gt;
-&lt;p&gt;在&lt;span class=&#34;math inline&#34;&gt;\(j &amp;lt; n\)&lt;/span&gt;时如果找到目标串中匹配模式串的子串，即满足&lt;span class=&#34;math inline&#34;&gt;\(i=m-1\)&lt;/span&gt;时匹配，则返回模式串左端位置&lt;span class=&#34;math inline&#34;&gt;\(j-i\)&lt;/span&gt;。如果&lt;span class=&#34;math inline&#34;&gt;\(j=n\)&lt;/span&gt;，说明目标串中不存在匹配模式串的字串，返回表示搜索无结果的值。&lt;/p&gt;
-&lt;p&gt;在搜索过程中，&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;不会减小（即不会发生回溯），递增的次数不会超过&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;。&lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;递增的同时，一定伴随着&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;递增，&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;在匹配失败时也会减小，但最多减小到0，减小的次数不会多于增加的次数，因此最终&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;递增的次数不会超过&lt;span class=&#34;math inline&#34;&gt;\(2n\)&lt;/span&gt;。所以，搜索部分的最坏时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(n)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;模式串的预处理&#34;&gt;模式串的预处理&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;TL;DR | 通过递推的方法可以快速推出&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;表，还可以再进行递归优化避免在移动模式串前后比较内容相同的情况。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;问题的关键转移到了计算&lt;strong&gt;最长相同前后缀长度&lt;/strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(k_i\)&lt;/span&gt;。这里利用递推会比较简单。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;模式串 ababba
-
-   0  1  2  3  4  5
-   a  b  a  b  b  a
-0|-1  0  0
-  
- | *     ^
-1|-1  0  0-&amp;gt;1
-  
- | *  *  ^  ^
-2|-1  0  0  1-&amp;gt;2
-
-...  
- | *  *  !
- |       ^  ^  !
-3|-1  0  0  1  2-&amp;gt;0&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;初始条件(0)是&lt;span class=&#34;math inline&#34;&gt;\(k_0=-1, k_1=0\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;注意到： &lt;span class=&#34;math display&#34;&gt;\[
-p_a p_{a+1} \dots p_{a+k-2} p_{a+k-1} = p_b p_{b+1} \dots p_{b+k-2} p_{b+k-1} \\
-p_{a} p_{a+1} \dots p_{a+k-2} = p_b p_{b+1} \dots p_{b+k-2}
-\]&lt;/span&gt; 可知&lt;span class=&#34;math inline&#34;&gt;\(k_i &amp;gt; 0 \Leftrightarrow k_{i-1} = k_i - 1\)&lt;/span&gt;。据(1)-(3)归纳，每次只需验证&lt;strong&gt;上一次验证&lt;/strong&gt;中前缀末尾和后缀末尾的下一位是否相等，即： &lt;span class=&#34;math display&#34;&gt;\[
-k_i = 
-\begin{cases}
-   k_{i-1}+1 &amp;amp;p_{i-1} = p_{k_{i-1}}  \\
-   0 &amp;amp;p_{i-1} \ne p_{k_{i-1}}
-\end{cases}
-\tag{2}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;这样就得到了&lt;span class=&#34;math inline&#34;&gt;\(next\)&lt;/span&gt;，但是还有优化的空间。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;模式串 abab
-   a  b  a  b
-k -1  0  0  1
-
-    abaabab 
-! 1|aba^
-! 2|  a^
-  3|   ^&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在这个例子中，发现(1)匹配失败，(2)必定也匹配失败，两次比较的字符完全相同，多了一次无谓的比较，根本原因是&lt;span class=&#34;math inline&#34;&gt;\(s_j \ne p_{i}=p_{k_i}\)&lt;/span&gt;，使得移动模式串后，比较的字符没有变，还需要再次移动。因此，可以对&lt;span class=&#34;math inline&#34;&gt;\(k_i\)&lt;/span&gt;（当然也是&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;）&lt;strong&gt;递归地优化&lt;/strong&gt;：当&lt;span class=&#34;math inline&#34;&gt;\(p_i = p_{k_i}\)&lt;/span&gt;时，令&lt;span class=&#34;math inline&#34;&gt;\(k_i = k_{k_i}\)&lt;/span&gt; ，或者写作“令&lt;span class=&#34;math inline&#34;&gt;\(next(i) = next(next(i))\)&lt;/span&gt;”，可能更方便理解。&lt;/p&gt;
-&lt;p&gt;对于上例，优化效果如下所示：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;模式串 abab
-    a  b  a  b
-k  -1  0  0  1
-k&amp;#39; -1  0 -1  0  
-
-    abaabab
-! 1|aba^
-  2|   ^&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;预处理过程中，递推部分的时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m)\)&lt;/span&gt;；递归优化中，由于优化到第&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;项时第&lt;span class=&#34;math inline&#34;&gt;\(next(i)\)&lt;/span&gt;项已经优化过，因此不会再进行第二次递归，最坏时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m)\)&lt;/span&gt;。因此，预处理过程的时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;TL;DR | KMP算法时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m+n)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;综上，KMP算法的时间复杂度是&lt;span class=&#34;math inline&#34;&gt;\(O(m+n)\)&lt;/span&gt;，小于暴力算法的&lt;span class=&#34;math inline&#34;&gt;\(O(mn)\)&lt;/span&gt;。由于在实践中通常&lt;span class=&#34;math inline&#34;&gt;\(m \ll n\)&lt;/span&gt;，因此KMP算法的时间复杂度可以视为&lt;span class=&#34;math inline&#34;&gt;\(O(n)\)&lt;/span&gt;。但是，由于KMP算法的优化基于重复片段，因此使用的字符集比较大时（比如汉语的字符集），重复片段出现的概率低，它的效率提升也有限。实践中，从尾部开始向左匹配并计算“坏字符”的另一个字符串匹配算法，BM算法，效率更高，可以达到&lt;span class=&#34;math inline&#34;&gt;\(O(n)\)&lt;/span&gt;，可以查看参考资料中的文章中的介绍。&lt;/p&gt;
-&lt;h2 id=&#34;python-实现&#34;&gt;Python 实现&lt;/h2&gt;
-&lt;div class=&#34;sourceCode&#34; id=&#34;cb6&#34;&gt;&lt;pre class=&#34;sourceCode python&#34;&gt;&lt;code class=&#34;sourceCode python&#34;&gt;&lt;span id=&#34;cb6-1&#34;&gt;&lt;a href=&#34;#cb6-1&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;NO_MATCH &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-2&#34;&gt;&lt;a href=&#34;#cb6-2&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-3&#34;&gt;&lt;a href=&#34;#cb6-3&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;span class=&#34;kw&#34;&gt;def&lt;/span&gt; kmp(p, s): &lt;span class=&#34;co&#34;&gt;# pattern 模式串, string 目标串&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-4&#34;&gt;&lt;a href=&#34;#cb6-4&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    m, n &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bu&#34;&gt;len&lt;/span&gt;(p), &lt;span class=&#34;bu&#34;&gt;len&lt;/span&gt;(s)&lt;/span&gt;
-&lt;span id=&#34;cb6-5&#34;&gt;&lt;a href=&#34;#cb6-5&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    i, j &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-6&#34;&gt;&lt;a href=&#34;#cb6-6&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;/span&gt;
-&lt;span id=&#34;cb6-7&#34;&gt;&lt;a href=&#34;#cb6-7&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;co&#34;&gt;# 预处理&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-8&#34;&gt;&lt;a href=&#34;#cb6-8&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    nxt &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; [&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;] &lt;span class=&#34;co&#34;&gt;# next 预处理表&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-9&#34;&gt;&lt;a href=&#34;#cb6-9&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;for&lt;/span&gt; x &lt;span class=&#34;kw&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;bu&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;dv&#34;&gt;2&lt;/span&gt;, m):&lt;/span&gt;
-&lt;span id=&#34;cb6-10&#34;&gt;&lt;a href=&#34;#cb6-10&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; p[x&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; p[nxt[x&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;]]: &lt;span class=&#34;co&#34;&gt;# 公式(2)&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-11&#34;&gt;&lt;a href=&#34;#cb6-11&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            nxt.append(nxt[x&lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;] &lt;span class=&#34;op&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;)&lt;/span&gt;
-&lt;span id=&#34;cb6-12&#34;&gt;&lt;a href=&#34;#cb6-12&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;
-&lt;span id=&#34;cb6-13&#34;&gt;&lt;a href=&#34;#cb6-13&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            nxt.append(&lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;
-&lt;span id=&#34;cb6-14&#34;&gt;&lt;a href=&#34;#cb6-14&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;for&lt;/span&gt; x &lt;span class=&#34;kw&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;bu&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;, m):&lt;/span&gt;
-&lt;span id=&#34;cb6-15&#34;&gt;&lt;a href=&#34;#cb6-15&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; p[x] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; p[nxt[x]]: &lt;span class=&#34;co&#34;&gt;# 递归优化&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-16&#34;&gt;&lt;a href=&#34;#cb6-16&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            nxt[x] &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; nxt[nxt[x]]&lt;/span&gt;
-&lt;span id=&#34;cb6-17&#34;&gt;&lt;a href=&#34;#cb6-17&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-18&#34;&gt;&lt;a href=&#34;#cb6-18&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;co&#34;&gt;# 比较&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-19&#34;&gt;&lt;a href=&#34;#cb6-19&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;while&lt;/span&gt; i &lt;span class=&#34;op&#34;&gt;&amp;lt;&lt;/span&gt; m &lt;span class=&#34;kw&#34;&gt;and&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;&amp;lt;&lt;/span&gt; n: &lt;/span&gt;
-&lt;span id=&#34;cb6-20&#34;&gt;&lt;a href=&#34;#cb6-20&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; p[i] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; s[j]: &lt;span class=&#34;co&#34;&gt;# 匹配成功&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-21&#34;&gt;&lt;a href=&#34;#cb6-21&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            i &lt;span class=&#34;op&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;op&#34;&gt;;&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-22&#34;&gt;&lt;a href=&#34;#cb6-22&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;else&lt;/span&gt;: &lt;span class=&#34;co&#34;&gt;# 匹配失败&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-23&#34;&gt;&lt;a href=&#34;#cb6-23&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; nxt[i] &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;op&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;: &lt;span class=&#34;co&#34;&gt;# 向后移动1位&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-24&#34;&gt;&lt;a href=&#34;#cb6-24&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;                i &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;op&#34;&gt;;&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;dv&#34;&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-25&#34;&gt;&lt;a href=&#34;#cb6-25&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;            &lt;span class=&#34;cf&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;
-&lt;span id=&#34;cb6-26&#34;&gt;&lt;a href=&#34;#cb6-26&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;                i &lt;span class=&#34;op&#34;&gt;=&lt;/span&gt; nxt[i] &lt;span class=&#34;co&#34;&gt;# 将nxt[i]位置和j位置对齐&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-27&#34;&gt;&lt;a href=&#34;#cb6-27&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;if&lt;/span&gt; i &lt;span class=&#34;op&#34;&gt;==&lt;/span&gt; m:&lt;/span&gt;
-&lt;span id=&#34;cb6-28&#34;&gt;&lt;a href=&#34;#cb6-28&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;        &lt;span class=&#34;cf&#34;&gt;return&lt;/span&gt; j &lt;span class=&#34;op&#34;&gt;-&lt;/span&gt; i &lt;span class=&#34;co&#34;&gt;# 返回子串的左端&lt;/span&gt;&lt;/span&gt;
-&lt;span id=&#34;cb6-29&#34;&gt;&lt;a href=&#34;#cb6-29&#34; aria-hidden=&#34;true&#34;&gt;&lt;/a&gt;    &lt;span class=&#34;cf&#34;&gt;return&lt;/span&gt; NO_MATCH&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/v_july_v/article/details/7041827&#34;&gt;July，从头到尾彻底理解KMP，2014&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;裘宗燕，数据结构与算法：Python 语言描述，2018&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>&lt;p&gt;KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-algo-kmp/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
