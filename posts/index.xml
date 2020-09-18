@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>二叉搜索树的删除结点操作</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/</link>
+      <pubDate>Fri, 18 Sep 2020 10:48:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/</guid>
+      <description>&lt;p&gt;二叉搜索树删除结点的操作实际上是一种旋转。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>汉语方言的鼻音韵尾数量</title>
       <link>https://yixuan-wang.github.io/blog/posts/2020/ling-phon-chn-nasal-coda/</link>
       <pubDate>Thu, 16 Jul 2020 11:48:00 +0800</pubDate>
@@ -21,11 +30,11 @@
     
     <item>
       <title>在 Markdown 中引用参考文献</title>
-      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</link>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-tech-bibli-with-md/</link>
       <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
       
-      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</guid>
-      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-tech-bibli-with-md/</guid>
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-tech-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

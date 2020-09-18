@@ -3,13 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/friends/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
+    <loc>https://yixuan-wang.github.io/blog/categories/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/categories/</loc>
-    <lastmod>2020-08-24T17:13:00+08:00</lastmod>
+    <loc>https://yixuan-wang.github.io/blog/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/series/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/tags/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/tags/%E6%A0%91/</loc>
+    <lastmod>2020-09-18T10:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yixuan-wang.github.io/blog/friends/</loc>
+    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,27 +58,12 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-js/</loc>
+    <loc>https://yixuan-wang.github.io/blog/cheatsheets/comp-tech-js/</loc>
     <lastmod>2020-08-24T17:13:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/</loc>
-    <lastmod>2020-08-24T17:13:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yixuan-wang.github.io/blog/tags/</loc>
-    <lastmod>2020-08-24T17:13:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yixuan-wang.github.io/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6/</loc>
-    <lastmod>2020-08-24T17:13:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yixuan-wang.github.io/blog/categories/%E5%AE%9E%E7%94%A8/</loc>
+    <loc>https://yixuan-wang.github.io/blog/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2020-08-24T17:13:00+08:00</lastmod>
   </url>
   
@@ -73,7 +98,7 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-git/</loc>
+    <loc>https://yixuan-wang.github.io/blog/cheatsheets/comp-tech-git/</loc>
     <lastmod>2020-07-09T22:01:19+08:00</lastmod>
   </url>
   
@@ -88,7 +113,7 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/cheatsheets/comp-util-pandoc/</loc>
+    <loc>https://yixuan-wang.github.io/blog/cheatsheets/comp-tech-pandoc/</loc>
     <lastmod>2020-06-29T15:48:00+08:00</lastmod>
   </url>
   
@@ -98,7 +123,7 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/posts/2020/comp-util-bibli-with-md/</loc>
+    <loc>https://yixuan-wang.github.io/blog/posts/2020/comp-tech-bibli-with-md/</loc>
     <lastmod>2020-06-29T10:27:02+08:00</lastmod>
   </url>
   
@@ -113,17 +138,7 @@
   </url>
   
   <url>
-    <loc>https://yixuan-wang.github.io/blog/series/</loc>
-    <lastmod>2020-06-11T21:39:02+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yixuan-wang.github.io/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
-    <lastmod>2020-06-11T21:39:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yixuan-wang.github.io/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-06-11T21:39:02+08:00</lastmod>
   </url>
   

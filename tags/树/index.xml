@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>树 | Pak</title>
+    <link>https://yixuan-wang.github.io/blog/tags/%E6%A0%91/</link>
+    <description>Pak 上最近的 树 内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Fri, 18 Sep 2020 10:48:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/tags/%E6%A0%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>二叉搜索树的删除结点操作</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/</link>
+      <pubDate>Fri, 18 Sep 2020 10:48:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/</guid>
+      <description>&lt;p&gt;二叉搜索树删除结点的操作实际上是一种旋转。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/comp-struc-del-bst/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
