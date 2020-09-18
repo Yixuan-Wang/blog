@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>工具 | Pak</title>
-    <link>https://yixuan-wang.gitee.io/blog/tags/%E5%B7%A5%E5%85%B7/</link>
-    <description>Pak 上最近的 工具 内容</description>
+    <title>技术 | Pak</title>
+    <link>https://yixuan-wang.gitee.io/blog/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Pak 上最近的 技术 内容</description>
     <generator>Hugo</generator>
-    <lastBuildDate>Thu, 09 Jul 2020 22:01:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2020 17:13:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yixuan-wang.gitee.io/blog/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yixuan-wang.gitee.io/blog/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript 相关工具速查表</title>
+      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-js/</link>
+      <pubDate>Mon, 24 Aug 2020 17:13:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-js/</guid>
+      <description>&lt;p&gt;JavaScript 相关工具的速查表。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-js/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Git 速查表</title>
