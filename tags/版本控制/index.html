@@ -1,162 +1,247 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
-<head>
-<title>版本控制 | Pak</title>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="telephone=no" name="format-detection"/>
-<link href="/blog/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/blog/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/blog/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/blog/manifest.json" rel="manifest"/>
-<link color="#0F59A4" href="/blog/safari-pinned-tab.svg" rel="mask-icon"/>
-<meta content="#0F59A4" name="theme-color"/>
-<link href="https://yixuan-wang.gitee.io/blog/css/main.min.7c59f3c6c44b2e205300c1188b8af8e89a5e69247d329226f48d3944117a69ef.css" rel="stylesheet"/>
-<link href="https://yixuan-wang.gitee.io/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/index.xml" rel="alternate" title="Pak" type="application/rss+xml"/>
-</head>
-<body>
+    <head>
+        
+        
+        <title>版本控制 | Pak</title>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no" />
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#0F59A4">
+<meta name="theme-color" content="#0F59A4">
+
+
+
+
+<link rel="stylesheet" href="https://yixuan-wang.gitee.io/blog/css/main.min.7c59f3c6c44b2e205300c1188b8af8e89a5e69247d329226f48d3944117a69ef.css" />
+
+
+
+
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="https://yixuan-wang.gitee.io/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/index.xml" title="Pak" />
+
+
+
+    </head>
+    <body>
+        
 <nav>
-<header>
-<div class="site-title">
-<a href="/blog/">Pak</a>
-</div>
+  <header>
+    <div class="site-title">
+        <a href="/blog/">Pak</a>
+    </div>  
 </header>
-<div class="nav-menu">
-<a class="color-link nav-link" href="/blog/" title="主页">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M9.8,21v-6.7h4.5V21h5.6v-9h3.4L12,1.9L0.8,12.1h3.4v9H9.8z"></path>
-</svg>
-<span class="nav-title">主页</span>
-</a>
-<a class="color-link nav-link" href="/blog/archives/" title="存档">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M2.7,2.7h18.6v4.1H2.7V2.7 M3.7,7.9h16.6v13.4H3.7V7.9 M9.4,10.9c-0.3,0-0.5,0.2-0.5,0.5V13h6.2v-1.5c0-0.3-0.2-0.5-0.5-0.5	H9.4z"></path>
-</svg>
-<span class="nav-title">存档</span>
-</a>
-<a class="color-link nav-link" href="/blog/categories/" title="类别">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"></path>
-</svg>
-<span class="nav-title">类别</span>
-</a>
-<a class="color-link nav-link" href="/blog/tags/" title="标签">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z"></path>
-</svg>
-<span class="nav-title">标签</span>
-</a>
-<a class="color-link nav-link" href="/blog/series/" title="系列">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M12,16.6l8.3-6.4l1.8-1.4L12,0.8L1.9,8.7l1.8,1.4 M12,19.4L3.7,13l-1.8,1.4L12,22.2l10.1-7.9L20.3,13L12,19.4z"></path>
-</svg>
-<span class="nav-title">系列</span>
-</a>
-</div>
-<footer class="footer">
-<div class="social-icons">
-<a class="social-icon" href="https://yixuan-wang.gitee.io/blog/index.xml" rel="noopener" target="_blank" title="RSS">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
-</path>
-</svg>
-</a>
-<a class="social-icon" href="https://github.com/Yixuan-Wang" rel="noopener" target="_blank" title="GitHub">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z">
-</path>
-</svg>
-</a>
-<a class="social-icon" href="/blog/about/" rel="author" target="_self" title="关于">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
-</svg>
-</a>
-<a class="social-icon" href="/blog/friends/" rel="author" target="_self" title="朋友">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M17.7,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S18.7,18.6,17.7,18.6 M17.7,12.9
-	c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S19.8,12.9,17.7,12.9 M12,11.1c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8
-	s1.8-0.8,1.8-1.8S13,11.1,12,11.1 M6.3,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S7.3,18.6,6.3,18.6
-	 M6.3,12.9c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S8.4,12.9,6.3,12.9 M12,4.4c1,0,1.9,0.9,1.9,1.9S13,8.2,12,8.2
-	c-1.1,0-1.9-0.9-1.9-1.9C10.1,5.2,10.9,4.4,12,4.4 M12,10.1c2.1,0,3.8-1.7,3.8-3.8S14.1,2.5,12,2.5S8.2,4.2,8.2,6.3
-	S9.9,10.1,12,10.1z"></path>
-</svg>
-</a>
-</div>
-<script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.gitee.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
-</footer>
-</nav>
-<div class="content-container" id="content">
-<h1>标签 - 版本控制</h1>
-<a class="button-rss color-link" href="/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/index.xml" rel="noopener" target="_blank" title="RSS">
-  订阅
-  <svg height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
-</path>
-</svg>
-</a>
-<article>
-<h2>
-<a href="https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-git/">
-      Git 速查表
+
+  <div class="nav-menu">
+    
+    <a class="color-link nav-link" href="/blog/" title="主页">
+      <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB"
+        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+        <path d="M9.8,21v-6.7h4.5V21h5.6v-9h3.4L12,1.9L0.8,12.1h3.4v9H9.8z"/>
+      </svg>
+      <span class="nav-title">主页</span>
     </a>
-</h2>
-<div>
-<p></p><p>Git 是一个分布式版本控制程序。</p>
+    
+    <a class="color-link nav-link" href="/blog/archives/" title="存档">
+      <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB"
+        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+        <path d="M2.7,2.7h18.6v4.1H2.7V2.7 M3.7,7.9h16.6v13.4H3.7V7.9 M9.4,10.9c-0.3,0-0.5,0.2-0.5,0.5V13h6.2v-1.5c0-0.3-0.2-0.5-0.5-0.5	H9.4z"/>
+      </svg>
+      <span class="nav-title">存档</span>
+    </a>
+    
+    <a class="color-link nav-link" href="/blog/categories/" title="类别">
+      <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB"
+        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+        <path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" />
+      </svg>
+      <span class="nav-title">类别</span>
+    </a>
+    
+    <a class="color-link nav-link" href="/blog/tags/" title="标签">
+      <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB"
+        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+        <path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z" />
+      </svg>
+      <span class="nav-title">标签</span>
+    </a>
+    
+    <a class="color-link nav-link" href="/blog/series/" title="系列">
+      <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB"
+        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+        <path d="M12,16.6l8.3-6.4l1.8-1.4L12,0.8L1.9,8.7l1.8,1.4 M12,19.4L3.7,13l-1.8,1.4L12,22.2l10.1-7.9L20.3,13L12,19.4z"/>
+      </svg>
+      <span class="nav-title">系列</span>
+    </a>
+    
+    
+  </div>
+  <footer class="footer">
+	<div class="social-icons">  
+  <a class="social-icon" href="https://yixuan-wang.gitee.io/blog/index.xml" target="_blank" rel="noopener" title="RSS">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path
+        d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
+      </path>
+    </svg>
+  </a>
+
+  
+
+  
+  <a class="social-icon" href="https://github.com/Yixuan-Wang" target="_blank" rel="noopener" title="GitHub">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path
+        d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z">
+      </path>
+    </svg>
+  </a>
+  
+
+  <a class="social-icon" href="/blog/about/" target="_self" rel="author" title="关于">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path
+        d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+    </svg>
+  </a>
+
+  <a class="social-icon" href="/blog/friends/" target="_self" rel="author" title="朋友">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path d="M17.7,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S18.7,18.6,17.7,18.6 M17.7,12.9
+	c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S19.8,12.9,17.7,12.9 M12,11.1c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8
+	s1.8-0.8,1.8-1.8S13,11.1,12,11.1 M6.3,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S7.3,18.6,6.3,18.6
+	 M6.3,12.9c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S8.4,12.9,6.3,12.9 M12,4.4c1,0,1.9,0.9,1.9,1.9S13,8.2,12,8.2
+	c-1.1,0-1.9-0.9-1.9-1.9C10.1,5.2,10.9,4.4,12,4.4 M12,10.1c2.1,0,3.8-1.7,3.8-3.8S14.1,2.5,12,2.5S8.2,4.2,8.2,6.3
+	S9.9,10.1,12,10.1z" />
+    </svg>
+  </a>
 </div>
-<div class="post-footer">
-<time class="post-footer-time">2020/7/9</time>
-<span class="post-footer-taxonomies">
-<span class="chips-taxonomies">
-<a class="category" href="/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6">信息学</a>
-    
-      · <a class="category" href="/blog/categories/%E6%8A%80%E6%9C%AF">技术</a>
-    
-    |
-  
-  
-  
-    
-      <a class="tag" href="/blog/tags/%E5%B7%A5%E5%85%B7">#工具</a>
-<a class="tag" href="/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">#版本控制</a>
-</span>
-</span>
-</div>
-</article>
-<div class="page-footer"></div>
-</div>
-<footer class="footer-mobile">
-<div class="social-icons">
-<a class="social-icon" href="https://yixuan-wang.gitee.io/blog/index.xml" rel="noopener" target="_blank" title="RSS">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
-</path>
-</svg>
-</a>
-<a class="social-icon" href="https://github.com/Yixuan-Wang" rel="noopener" target="_blank" title="GitHub">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z">
-</path>
-</svg>
-</a>
-<a class="social-icon" href="/blog/about/" rel="author" target="_self" title="关于">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
-</svg>
-</a>
-<a class="social-icon" href="/blog/friends/" rel="author" target="_self" title="朋友">
-<svg fill="#ABABAB" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-<path d="M17.7,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S18.7,18.6,17.7,18.6 M17.7,12.9
-	c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S19.8,12.9,17.7,12.9 M12,11.1c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8
-	s1.8-0.8,1.8-1.8S13,11.1,12,11.1 M6.3,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S7.3,18.6,6.3,18.6
-	 M6.3,12.9c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S8.4,12.9,6.3,12.9 M12,4.4c1,0,1.9,0.9,1.9,1.9S13,8.2,12,8.2
-	c-1.1,0-1.9-0.9-1.9-1.9C10.1,5.2,10.9,4.4,12,4.4 M12,10.1c2.1,0,3.8-1.7,3.8-3.8S14.1,2.5,12,2.5S8.2,4.2,8.2,6.3
-	S9.9,10.1,12,10.1z"></path>
-</svg>
-</a>
-</div>
-<script crossorigin="anonymous" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" src="https://yixuan-wang.gitee.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js"></script>
+
+	
+
+	<script src="https://yixuan-wang.gitee.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
 </footer>
-</body>
+</nav>      
+        <div id="content" class="content-container">
+        
+
+<h1>标签 - 版本控制</h1>
+<a class="button-rss color-link" href="/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/index.xml" target="_blank" rel="noopener" title="RSS">
+  订阅
+  <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg"
+    xmlns:xlink="https://www.w3.org/1999/xlink">
+    <path
+      d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
+    </path>
+  </svg>
+</a>
+
+<article>
+  <h2>
+    <a href="https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-git/">
+      Git 速查表
+    </a>
+  </h2>
+  <div>
+    <p><p>Git 是一个分布式版本控制程序。</p></p>
+  </div>
+  <div class="post-footer">
+    <time class="post-footer-time">2020/7/9</time>
+
+    
+    <span class="post-footer-taxonomies">
+      <span class="chips-taxonomies">
+  
+    <a class="category" href="/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6">信息学</a>
+    
+      ·&nbsp;<a class="category" href="/blog/categories/%E6%8A%80%E6%9C%AF">技术</a>
+    
+    |
+  
+  
+  
+    
+      <a class="tag" href="/blog/tags/%E5%B7%A5%E5%85%B7">#工具</a>
+    
+      <a class="tag" href="/blog/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">#版本控制</a>
+    
+  
+</span>
+    </span>
+  </div>
+
+</article>
+
+<div class="page-footer"></div>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">  
+  <a class="social-icon" href="https://yixuan-wang.gitee.io/blog/index.xml" target="_blank" rel="noopener" title="RSS">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path
+        d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
+      </path>
+    </svg>
+  </a>
+
+  
+
+  
+  <a class="social-icon" href="https://github.com/Yixuan-Wang" target="_blank" rel="noopener" title="GitHub">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path
+        d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z">
+      </path>
+    </svg>
+  </a>
+  
+
+  <a class="social-icon" href="/blog/about/" target="_self" rel="author" title="关于">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path
+        d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+    </svg>
+  </a>
+
+  <a class="social-icon" href="/blog/friends/" target="_self" rel="author" title="朋友">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg"
+      xmlns:xlink="https://www.w3.org/1999/xlink">
+      <path d="M17.7,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S18.7,18.6,17.7,18.6 M17.7,12.9
+	c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S19.8,12.9,17.7,12.9 M12,11.1c-1,0-1.8,0.8-1.8,1.8s0.8,1.8,1.8,1.8
+	s1.8-0.8,1.8-1.8S13,11.1,12,11.1 M6.3,18.6c-1.1,0-1.9-0.9-1.9-1.9c0-1.1,0.8-1.9,1.9-1.9c1,0,1.9,0.9,1.9,1.9S7.3,18.6,6.3,18.6
+	 M6.3,12.9c-2.1,0-3.8,1.7-3.8,3.8s1.7,3.8,3.8,3.8s3.8-1.7,3.8-3.8S8.4,12.9,6.3,12.9 M12,4.4c1,0,1.9,0.9,1.9,1.9S13,8.2,12,8.2
+	c-1.1,0-1.9-0.9-1.9-1.9C10.1,5.2,10.9,4.4,12,4.4 M12,10.1c2.1,0,3.8-1.7,3.8-3.8S14.1,2.5,12,2.5S8.2,4.2,8.2,6.3
+	S9.9,10.1,12,10.1z" />
+    </svg>
+  </a>
+</div>
+
+	
+
+	<script src="https://yixuan-wang.gitee.io/blog/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
 </html>
