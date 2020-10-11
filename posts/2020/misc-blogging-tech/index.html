@@ -4,7 +4,7 @@
     <head>
         
         
-        <title>字符串 | Pak</title>
+        <title>搭建博客的技术性思考 | Pak</title>
         <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,9 +31,6 @@
 
 
 
-
-
-<link rel="alternate" type="application/rss+xml" href="https://yixuan-wang.gitee.io/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" title="Pak" />
 
 
 
@@ -144,56 +141,83 @@
         <div id="content" class="content-container">
         
 
-<h1>标签 - 字符串</h1>
-<a class="button-rss color-link" href="/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" target="_blank" rel="noopener" title="RSS">
-  订阅
-  <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg"
-    xmlns:xlink="https://www.w3.org/1999/xlink">
-    <path
-      d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z">
-    </path>
-  </svg>
-</a>
-
-<article>
-  <h2>
-    <a href="https://yixuan-wang.gitee.io/blog/posts/2020/comp-algo-kmp/">
-      KMP 算法
-    </a>
-  </h2>
-  <div>
-    <p><p>KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。</p></p>
-  </div>
-  <div class="post-footer">
-    <time class="post-footer-time">2020/6/11</time>
-
-    
-    <span class="post-footer-taxonomies">
-      <span class="chips-taxonomies">
+<h1 class="post-title">搭建博客的技术性思考</h1>
+<span>
   
-    <a class="category" href="/blog/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6">信息学</a>
-    
-      ·&nbsp;<a class="category" href="/blog/categories/%E7%AE%97%E6%B3%95">算法</a>
+    <time>2020/10/11</time>
+  
+  <span class="wordcount">2032 词</span>
+  
+</span>
+<div id="article">
+  <p>
+    <p>搭建静态博客时考虑的技术的、形而下的问题。</p>
+<p>纯前端的静态网站加载速度应当都是快于 WordPress 等后端渲染方案的，而且还能节省下服务器的费用。所以这里主要谈静态的博客。</p>
+<h2 id="托管">托管</h2>
+<p>由于 <em>某些</em> 原因，在 ECS 上托管博客并不是个稳妥的选择。因此还是选择静态网站托管商。<span style="--color:red">GitHub Pages 显然是<strong>最方便直接</strong>的选择</span>，因为：</p>
+<ol type="1">
+<li>GitHub 是一家较为<span style="--color:red">可信</span>的公司（不容易跑路，且服务质量高）</li>
+<li>GitHub Pages <span style="--color:red">免费，且功能完整</span></li>
+</ol>
+<p>但是出于 <em>某些</em> 原因，其访问不稳定。因此有必要考虑一个备选方案。</p>
+<p>Vercel 专职提供静态网站托管，而且支持从 GitHub 仓库直接部署。<span style="--color:red">但 Vercel 访问速度不够快。</span></p>
+<p>Gitee 也提供静态网站托管服务（需要实名认证），但免费版不支持随 git 提交自动部署，只能手动部署。而且 Gitee 不支持托管某些格式的文件（比如 .txt）。它的<span style="--color:red"><strong>最大优势就是速度快</strong></span>。</p>
+<p>最终的解决方案是，<span style="--color:red">托管在 <strong>GitHub</strong> 上，利用 GitHub Actions <a href="https://github.com/Yixuan-Wang/blog/blob/master/.github/workflows/gitee-pages.yml"><span style="--color:red">另在 <strong>Gitee</strong> 上部署一份镜像</span></a></span>。</p>
+<h2 id="部署">部署</h2>
+<p><span style="--color:yellow">我把部署工作放在<strong>本机</strong>进行。</span>虽然可以利用 GitHub Actions 自动部署，但这意味着所有的草稿也会存在于 git 仓库内，容易发生手滑，把草稿推到远程仓库上去。因此我选择<span style="--color:yellow">把部署成品所在的文件夹设为 git 仓库，再上传到 GitHub</span>。我使用的生成器没有提供部署到远程的功能，所以手写了一个脚本，把部署和 git 推送到远程服务器两个步骤绑在一起。</p>
+<p>GitHub Action 在提交后触发，制作镜像（很不优雅）：</p>
+<ol type="1">
+<li>检出仓库 <code>master</code> 分支的最新一次提交到 <code>master</code> 文件夹。注意，此时在 CD 服务器上的仓库里只有这一次提交，没有 <code>master</code> 分支以往的提交和其他分支，但远程服务器（<code>remote</code>）则绑定好了 GitHub 仓库的 <code>master</code> 分支。</li>
+<li>检出仓库 <code>gitee</code> 分支的最新一次提交到 <code>gitee</code> 文件夹，这时分支的远程服务器就是 <code>gitee</code> 分支。</li>
+<li><span style="--color:yellow">土味替换🤦‍</span>：把 <code>gitee/.git</code> 文件夹取出来，删掉 <code>master/.git</code> 文件夹，再删掉 <code>gitee</code> 文件夹（如果直接覆盖，可能有一部分存在于旧版本而不存在于新版本的文件被保留下来，因此必须清空），再把 <code>master</code> 文件夹拷贝到 <code>gitee</code> 文件夹（其实就是重命名），最后把之前取出来的 <code>gitee/.git</code> 放回去。</li>
+<li>部署成品里面用于页面间导航的 URL 设成了绝对路径，要把所有 URL 中的 <code>{username}.github.io/blog/</code> 替换成 <code>{username}.gitee.io/blog/</code>。</li>
+<li>提交到 <code>gitee</code> 分支。</li>
+<li>使用第三方 Action 将库镜像到 Gitee，并触发 Gitee Pages 部署 <code>gitee</code> 分支。</li>
+</ol>
+<p>同时，GitHub Pages 会自动部署 <code>master</code> 分支。</p>
+<h2 id="静态网站生成器">静态网站生成器</h2>
+<p>静态网站生成器多种多样，选用哪一个比较见仁见智，因此放在最后。对于个人来说，我目前使用的是 <a href="https://gohugo.io"><span style="--color:blue"><strong>Hugo</strong></span></a>。</p>
+<p><span style="--color:blue">Hugo 最大的优势就是<strong>快</strong></span>。Hugo 是用 Golang 写的，因此启动、热加载和部署速度都显著快于其他基于 JS 的生成器，启动和部署基本上在 1 秒量级内完成，而热加载则大约在 0.1 秒量级（写作本篇时启动开发服务器花了 1632 毫秒，热加载每次大约花 250 毫秒）。<span style="--color:blue">不过它也有十分显著的缺点：</span></p>
+<ol type="1">
+<li>接口设计复杂，引入了不少术语，经常需要翻阅文档。</li>
+<li>文档内容比较简略，有时一笔带过。</li>
+<li>如果需要修改主题，需要一定的 Golang 基础。Golang 的模板语法个人认为有些诡异。</li>
+<li>社区不够活跃，生态不够完整。虽然主题较多，但是插件比较少，网上的教程也不多（尤其缺乏中文教程）。</li>
+<li>Markdown 渲染能力差。Golang 自带的 Markdown 渲染器虽然快，但功能不全，且不够稳定，最后我换用了外置 Pandoc 进行渲染。</li>
+</ol>
+<p>因此我选中并维持在 Hugo 主要是看中了它的速度。不过，随着折腾和自定义的欲望增加，我也考虑过迁移，只不过出于爱护肝而选择了继续苟在 Hugo。</p>
+<p><span style="--color:blue"><strong>Hexo</strong></span> 也是一款不错且十分流行的生成器。Hexo 基于 Node.js，因此速度慢于 Hugo，尤其是当博客规模扩大以后，效果非常明显（但“慢”不是刚好作为咕咕咕的借口吗？对于肝是一种很好的保护）。不过，Hexo 有活跃的社区、完整的生态和详细的文档。<span style="--color:blue">值得一提的是，<a href="https://theme-next.js.org"><span style="--color:blue"><strong>NexT 主题</strong></span></a>基本上由开发者<ruby>包办<rt>bào gān</rt></ruby>了一切</span>，包括评论系统、数学公式，等等，都已经内置好了，教程也十分详细，唯一的缺点就是用的人实在是太多了，可能不够彰显个性。我曾经尝试过 NexT 主题，在规模很小的时候，和 Hugo 速度差异并不显著。</p>
+<p><span style="--color:blue"><strong>Vuepress</strong></span> 是 Vue 官方推出的生成器，主要用于制作 Vue 文档，不过也可以生成博客。我曾经尝试过，似乎在性能方面问题更严重（和 Hugo 采用类似主题而仅有少量测试内容的情况下，启动耗时 7 秒），而且热加载之前似乎存在一些问题（这次测试似乎正常，速度也是 0.1 毫秒量级），因此放弃。</p>
+<p>如果想要在博客中<span style="--color:blue">使用 JS 框架，比如 React 或者 Vue，可以考虑 <strong>Gatsby</strong> 和 <strong>Gridsome</strong></span>（分别基于 React 和 Vue）这样的 JAMStack 工具（JavaScript-API-Markdown）。框架的加持使得更复杂的设计成为可能，比如<a href="https://allanchain.github.io/blog">一个完全基于 GitHub Issues 的博客</a> ::滑稽::。Gatsby 的生态比较成熟，而 Gridsome 的还不够成熟。我尝试过 Gridsome，速度虽然慢于 Hugo，似乎由于 webpack 的存在也慢于 Hexo，但还在可接受范围内（自带的非常简陋的初始模板启动大约需要 3 秒），热加载也能正常工作（也在 0.1 秒量级）。<span style="--color:blue">如果需要超高的自由度<del>且不再需要肝</del>，Gatsby / Gridsome 应该是首选</span>。</p>
+<p>至于 GitHub Pages 自带的 Jekyll，Jekyll 是基于 Ruby 语言的，Ruby 语言似乎在走下坡路，因而感觉 Jekyll 的前途也有些灰暗。而基于 Python 的 Pelican 和 MkDocs 我没有试过，不过据 OI Wiki 团队说 <a href="https://github.com/OI-wiki/OI-wiki/issues/1956">MkDocs 自由度不够，在考虑换用 Gatsby</a>。</p>
+<p>其他的生成器我没有了解过，在这里就不讨论了。</p>
+  </p>
+</div>
+
+
+
+
+
+<div class="page-footer">
+  
+    <hr class="footer-divider">
+    <span class="chips-taxonomies">
+  
+    <a class="category" href="/blog/categories/%E6%9D%82%E9%A1%B9">杂项</a>
     
     |
   
   
-    <a class="series" href="/blog/series/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
-    1
-    |
-  
   
     
-      <a class="tag" href="/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2">#字符串</a>
+      <a class="tag" href="/blog/tags/%E9%97%B2%E8%B0%88">#闲谈</a>
+    
+      <a class="tag" href="/blog/tags/%E5%8D%9A%E5%AE%A2">#博客</a>
     
   
 </span>
-    </span>
-  </div>
-
-</article>
-
-<div class="page-footer"></div>
+  
+</div>
 
         </div>
         <footer class="footer-mobile">
