@@ -5,10 +5,19 @@
     <link>https://yixuan-wang.github.io/blog/categories/%E6%9D%82%E9%A1%B9/</link>
     <description>Pak 上最近的 杂项 内容</description>
     <generator>Hugo</generator>
-    <lastBuildDate>Mon, 05 Oct 2020 15:31:57 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://yixuan-wang.github.io/blog/categories/%E6%9D%82%E9%A1%B9/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建博客的技术性思考</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2020/misc-blogging-tech/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2020/misc-blogging-tech/</guid>
+      <description>&lt;p&gt;搭建静态博客时考虑的技术的、形而下的问题。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2020/misc-blogging-tech/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>搭建博客的非技术性思考</title>
