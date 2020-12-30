@@ -144,9 +144,9 @@
 <h1 class="post-title">Pandoc 速查表</h1>
 <span>
   
-    <time>2020/06/29</time>
+    <time>2020/12/30</time>
   
-  <span class="wordcount">309 词</span>
+  <span class="wordcount">310 词</span>
   
 </span>
 <div id="article">
@@ -189,22 +189,23 @@
 <h2 id="基本用法">基本用法</h2>
 <p>Pandoc 可以根据扩展名自动检测导入导出类型。</p>
 <p>使用 <code>-o</code> 或 <code>--output="foo"</code> 导出文件。如果文件设为 <code>-</code> 则直接打印到控制台。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$ <span class="ex">pandoc</span> <span class="st">&#39;[导入]&#39;</span> <span class="kw">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="ex">-o</span> <span class="st">&#39;[导出]&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pandoc <span class="st">&#39;[导入]&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> <span class="st">&#39;[导出]&#39;</span></span></code></pre></div>
 <p>使用 <code>-f</code> 指定导入格式，<code>-t</code> 指定导出格式。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>$ <span class="ex">pandoc</span> <span class="st">&#39;[导入]&#39;</span> <span class="kw">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="ex">-f</span> <span class="st">&#39;[导入格式]&#39;</span> <span class="kw">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="ex">-t</span> <span class="st">&#39;[导出格式]&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pandoc <span class="st">&#39;[导入]&#39;</span> <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-f</span> <span class="st">&#39;[导入格式]&#39;</span> <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> <span class="st">&#39;[导出格式]&#39;</span></span></code></pre></div>
 <!--
 ```shell
 pandoc test.md --bibliography my.bib --csl china-national-standard-gb-t-7714-2015-author-date.csl -o test.docx
 ```
 -->
 <h2 id="参考文献">参考文献</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>$ <span class="ex">pandoc</span> <span class="st">&#39;[导入]&#39;</span> <span class="kw">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    <span class="ex">--bibliography</span> <span class="st">&#39;[文献数据]&#39;</span> <span class="kw">\</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    <span class="ex">--csl</span> <span class="st">&#39;[CSL]&#39;</span> <span class="kw">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="ex">-o</span> <span class="st">&#39;[导出]&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pandoc <span class="st">&#39;[导入]&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-C</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">--bibliography</span> <span class="st">&#39;[文献数据]&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--csl</span> <span class="st">&#39;[CSL]&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> <span class="st">&#39;[导出]&#39;</span></span></code></pre></div>
   </p>
 </div>
 
