@@ -5,10 +5,28 @@
     <link>https://yixuan-wang.gitee.io/blog/</link>
     <description>Pak 上最近的内容</description>
     <generator>Hugo</generator>
-    <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Dec 2020 23:05:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yixuan-wang.gitee.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pandoc 速查表</title>
+      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</link>
+      <pubDate>Wed, 30 Dec 2020 23:05:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</guid>
+      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 Markdown 中引用参考文献</title>
+      <link>https://yixuan-wang.gitee.io/blog/posts/2020/comp-tech-bibli-with-md/</link>
+      <pubDate>Wed, 30 Dec 2020 23:05:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-tech-bibli-with-md/</guid>
+      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-tech-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>北大钟亭的满文铭文</title>
@@ -80,24 +98,6 @@
       
       <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-git/</guid>
       <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Pandoc 速查表</title>
-      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</link>
-      <pubDate>Mon, 29 Jun 2020 15:48:00 +0800</pubDate>
-      
-      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</guid>
-      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>在 Markdown 中引用参考文献</title>
-      <link>https://yixuan-wang.gitee.io/blog/posts/2020/comp-tech-bibli-with-md/</link>
-      <pubDate>Mon, 29 Jun 2020 10:27:02 +0800</pubDate>
-      
-      <guid>https://yixuan-wang.gitee.io/blog/posts/2020/comp-tech-bibli-with-md/</guid>
-      <description>&lt;p&gt;借助 Pandoc，在 Markdown 中引用参考文献非常方便。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/posts/2020/comp-tech-bibli-with-md/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Pandoc 速查表</title>
+      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</link>
+      <pubDate>Wed, 30 Dec 2020 23:05:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</guid>
+      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>JavaScript 相关工具速查表</title>
       <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-js/</link>
       <pubDate>Mon, 24 Aug 2020 17:13:00 +0800</pubDate>
@@ -26,15 +35,6 @@
       
       <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-git/</guid>
       <description>&lt;p&gt;Git 是一个分布式版本控制程序。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-git/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Pandoc 速查表</title>
-      <link>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</link>
-      <pubDate>Mon, 29 Jun 2020 15:48:00 +0800</pubDate>
-      
-      <guid>https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/</guid>
-      <description>&lt;p&gt;Pandoc 是一个文本格式转换工具。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.gitee.io/blog/cheatsheets/comp-tech-pandoc/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

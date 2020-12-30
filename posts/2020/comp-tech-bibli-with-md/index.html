@@ -144,9 +144,9 @@
 <h1 class="post-title">在 Markdown 中引用参考文献</h1>
 <span>
   
-    <time>2020/06/29</time>
+    <time>2020/12/30</time>
   
-  <span class="wordcount">2348 词</span>
+  <span class="wordcount">2421 词</span>
   
 </span>
 <div id="article">
@@ -166,51 +166,53 @@
 <p>但是，LaTeX 的<span style="--color:blue"><strong>指令</strong>多且复杂，学习曲线陡峭，配置环境、导言区也比较复杂</span>。个人在实践中常常想不起来某个样式的语法是什么，某个功能是哪一个宏包里提供的，文档必须放在手边。另外， LaTeX 对中文以及整套 Unicode 的支持也需要一番<ruby>配置<rt>zhē teng</rt></ruby>。LaTeX 引用虽然方便，但还是存在不方便之处的。</p>
 <h2 id="pandoc-markdown-的引用语法">Pandoc Markdown 的引用语法</h2>
 <p>原始的 Markdown 标准（以及许多分支）是<span style="--color:blue"><strong>不支持</strong>参考文献引用</span>的（仅支持简单的脚注），但是 <a href="https://pandoc.org/">Pandoc</a> 的 Markdown 标准支持一套强大的参考文献引用扩展语法。大量论文都要求 DOCX 格式，可以用顺手的 Markdown 编辑器把文章写好，然后用 Pandoc CLI 转换成 DOCX。</p>
-<p><a href="https://pandoc.org/MANUAL.html">Pandoc 的用户手册</a>很详细，但比较长，这里指路到参考文献相关的<a href="https://pandoc.org/MANUAL.html#citation-rendering">命令行选项</a>和<a href="https://pandoc.org/MANUAL.html#citations">语法</a>。关于 Pandoc 可参考<a href="%3C%20ref%20%22cheatsheets/comp/comp-util-pandoc.md%22%20%3E">速查表</a>。</p>
+<p><a href="https://pandoc.org/MANUAL.html">Pandoc 的用户手册</a>很详细，但比较长，这里指路到参考文献相关的<a href="https://pandoc.org/MANUAL.html#citation-rendering">命令行选项</a>和<a href="https://pandoc.org/MANUAL.html#citations">语法</a>。关于 Pandoc 可参考<a href="%3C%20ref%20%22cheatsheets/comp/comp-tech-pandoc.md%22%20%3E">速查表</a>。</p>
 <h3 id="命令行选项">命令行选项</h3>
 <p>按 *nix 下 Shell 的语法（Powershell 除了换行是一样的）：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$ <span class="ex">pandoc</span> <span class="st">&#39;[导入]&#39;</span> <span class="kw">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="ex">--bibliography</span> <span class="st">&#39;[文献数据]&#39;</span> <span class="kw">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="ex">--csl</span> <span class="st">&#39;[CSL]&#39;</span> <span class="kw">\</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="ex">-o</span> <span class="st">&#39;[导出]&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pandoc <span class="st">&#39;[导入]&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-C</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">--bibliography</span> <span class="st">&#39;[文献数据]&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--csl</span> <span class="st">&#39;[CSL]&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> <span class="st">&#39;[导出]&#39;</span></span></code></pre></div>
 <p>文献数据用 <strong>BibTeX</strong> 就可以（百度学术、谷歌学术、图书馆的搜索结果都提供 BibTeX）。CSL 是指<strong>引用样式标记语言</strong>（Citation Style Language）。</p>
+<p><strong>2020-12-30 补充</strong>：必须加上 <code>-C</code> 选项（或 <code>--citeproc</code>）<strong>才能开启引用功能</strong>。在之前的版本中这一功能可能默认启用了，在 Windows 上版本 2.11.3.1 下必须加上这一选项才能启用。</p>
 <h3 id="csl">CSL</h3>
 <p>CSL 是基于 XML 的，语法很易懂，指路<a href="https://docs.citationstyles.org/en/1.0.1/specification.html">文档</a>。通过它可以设置引用、参考文献的样式。在<a href="https://github.com/citation-style-language/styles">官方 GitHub 库</a>里有许多社区贡献的样式文件，GB7714 的有<a href="https://github.com/citation-style-language/styles/blob/1a87f4b4748d0a9a5653aa3b3491d772745c247e/china-national-standard-gb-t-7714-2015-author-date.csl">著者加日期</a>（著者-出版年制）、<a href="https://github.com/citation-style-language/styles/blob/8628afb2f4b4db13e317cca45b4c384eaae9d83c/china-national-standard-gb-t-7714-2015-numeric.csl">尾注编号</a>、<a href="https://github.com/citation-style-language/styles/blob/2032fef01713812c184739c030bb18b8c89a89de/china-national-standard-gb-t-7714-2015-note.csl">脚注编号</a>（顺序编号制），<span style="--color:red">但页码显示部分<strong>不合标准</strong>，<strong>前两种的修复方案</strong>如下</span>。</p>
 <p>对于前两种格式文件，需要把第 25 行中间 <code>&lt;single&gt;</code>、<code>&lt;multiple&gt;</code>标签注释掉：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">&lt;term</span><span class="ot"> name=</span><span class="st">&quot;page&quot;</span><span class="ot"> form=</span><span class="st">&quot;short&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="kw">&lt;single&gt;</span>p.<span class="kw">&lt;/single&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="kw">&lt;multiple&gt;</span>pp.<span class="kw">&lt;/multiple&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">&lt;/term&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;term</span><span class="ot"> name=</span><span class="st">&quot;page&quot;</span><span class="ot"> form=</span><span class="st">&quot;short&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;single&gt;</span>p.<span class="kw">&lt;/single&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;multiple&gt;</span>pp.<span class="kw">&lt;/multiple&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/term&gt;</span></span></code></pre></div>
 <p>对于著者加日期 CSL，还需要把第 189 行及之后整个 <code>&lt;citation&gt;</code> 标签改成：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">&lt;citation</span><span class="ot"> et-al-min=</span><span class="st">&quot;2&quot;</span><span class="ot"> et-al-use-first=</span><span class="st">&quot;1&quot;</span><span class="ot"> disambiguate-add-year-suffix=</span><span class="st">&quot;true&quot;</span><span class="ot"> disambiguate-add-names=</span><span class="st">&quot;true&quot;</span><span class="ot"> disambiguate-add-givenname=</span><span class="st">&quot;true&quot;</span><span class="ot"> collapse=</span><span class="st">&quot;year&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">&lt;sort&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>      <span class="kw">&lt;key</span><span class="ot"> macro=</span><span class="st">&quot;author-intext&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>      <span class="kw">&lt;key</span><span class="ot"> macro=</span><span class="st">&quot;issue-date-year&quot;</span><span class="ot"> sort=</span><span class="st">&quot;ascending&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="kw">&lt;/sort&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  <span class="kw">&lt;layout</span><span class="ot"> delimiter=</span><span class="st">&quot;; &quot;</span><span class="kw">&gt;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>    <span class="kw">&lt;group</span><span class="ot">  prefix=</span><span class="st">&quot;(&quot;</span><span class="ot"> suffix=</span><span class="st">&quot;)&quot;</span><span class="ot">  delimiter=</span><span class="st">&quot;, &quot;</span><span class="kw">&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>      <span class="kw">&lt;text</span><span class="ot"> macro=</span><span class="st">&quot;author-intext&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>      <span class="kw">&lt;text</span><span class="ot"> macro=</span><span class="st">&quot;issue-date-year&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    <span class="kw">&lt;/group&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    <span class="kw">&lt;group&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>        <span class="kw">&lt;label</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="ot"> form=</span><span class="st">&quot;short&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>        <span class="kw">&lt;text</span><span class="ot"> vertical-align=</span><span class="st">&quot;sup&quot;</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="kw">&lt;/group&gt;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>  <span class="kw">&lt;/layout&gt;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="kw">&lt;/citation&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;citation</span><span class="ot"> et-al-min=</span><span class="st">&quot;2&quot;</span><span class="ot"> et-al-use-first=</span><span class="st">&quot;1&quot;</span><span class="ot"> disambiguate-add-year-suffix=</span><span class="st">&quot;true&quot;</span><span class="ot"> disambiguate-add-names=</span><span class="st">&quot;true&quot;</span><span class="ot"> disambiguate-add-givenname=</span><span class="st">&quot;true&quot;</span><span class="ot"> collapse=</span><span class="st">&quot;year&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;sort&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;key</span><span class="ot"> macro=</span><span class="st">&quot;author-intext&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;key</span><span class="ot"> macro=</span><span class="st">&quot;issue-date-year&quot;</span><span class="ot"> sort=</span><span class="st">&quot;ascending&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/sort&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;layout</span><span class="ot"> delimiter=</span><span class="st">&quot;; &quot;</span><span class="kw">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;group</span><span class="ot">  prefix=</span><span class="st">&quot;(&quot;</span><span class="ot"> suffix=</span><span class="st">&quot;)&quot;</span><span class="ot">  delimiter=</span><span class="st">&quot;, &quot;</span><span class="kw">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;text</span><span class="ot"> macro=</span><span class="st">&quot;author-intext&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;text</span><span class="ot"> macro=</span><span class="st">&quot;issue-date-year&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/group&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;group&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;label</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="ot"> form=</span><span class="st">&quot;short&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;text</span><span class="ot"> vertical-align=</span><span class="st">&quot;sup&quot;</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/group&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/layout&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/citation&gt;</span></span></code></pre></div>
 <p>尾注编号 CSL 则在 176 行，需要改成：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">&lt;citation</span><span class="ot"> collapse=</span><span class="st">&quot;citation-number&quot;</span><span class="ot"> after-collapse-delimiter=</span><span class="st">&quot;,&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="kw">&lt;sort&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    <span class="kw">&lt;key</span><span class="ot"> variable=</span><span class="st">&quot;citation-number&quot;</span><span class="ot"> sort=</span><span class="st">&quot;ascending&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>  <span class="kw">&lt;/sort&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>  <span class="kw">&lt;layout</span><span class="ot"> vertical-align=</span><span class="st">&quot;sup&quot;</span><span class="ot"> delimiter=</span><span class="st">&quot;,&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="kw">&lt;text</span><span class="ot"> variable=</span><span class="st">&quot;citation-number&quot;</span><span class="ot"> prefix=</span><span class="st">&quot;[&quot;</span><span class="ot"> suffix=</span><span class="st">&quot;]&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    <span class="kw">&lt;group&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>      <span class="kw">&lt;label</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="ot"> suffix=</span><span class="st">&quot;. &quot;</span><span class="ot"> form=</span><span class="st">&quot;short&quot;</span><span class="ot"> strip-periods=</span><span class="st">&quot;true&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>      <span class="kw">&lt;text</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    <span class="kw">&lt;/group&gt;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>  <span class="kw">&lt;/layout&gt;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="kw">&lt;/citation&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;citation</span><span class="ot"> collapse=</span><span class="st">&quot;citation-number&quot;</span><span class="ot"> after-collapse-delimiter=</span><span class="st">&quot;,&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;sort&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;key</span><span class="ot"> variable=</span><span class="st">&quot;citation-number&quot;</span><span class="ot"> sort=</span><span class="st">&quot;ascending&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/sort&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;layout</span><span class="ot"> vertical-align=</span><span class="st">&quot;sup&quot;</span><span class="ot"> delimiter=</span><span class="st">&quot;,&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;text</span><span class="ot"> variable=</span><span class="st">&quot;citation-number&quot;</span><span class="ot"> prefix=</span><span class="st">&quot;[&quot;</span><span class="ot"> suffix=</span><span class="st">&quot;]&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;group&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;label</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="ot"> suffix=</span><span class="st">&quot;. &quot;</span><span class="ot"> form=</span><span class="st">&quot;short&quot;</span><span class="ot"> strip-periods=</span><span class="st">&quot;true&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;text</span><span class="ot"> variable=</span><span class="st">&quot;locator&quot;</span><span class="kw">/&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/group&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/layout&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/citation&gt;</span></span></code></pre></div>
 <p>这样引用的页码显示就符合标准了。</p>
 <h3 id="语法">@ 语法</h3>
 <p>Pandoc 引入了一个表示引用参考文献的符号，<code>@</code>。</p>
@@ -221,8 +223,8 @@
 <li>1</li>
 </ul>
 <p>语法如下：</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>@文献名</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>一段话之后跟一个空格 @文献名</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>@文献名</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>一段话之后跟一个空格 @文献名</span></code></pre></div>
 <h4 id="引用">引用</h4>
 <p>对于著者加日期，著者和日期都在括号内，逗号分隔；对于尾注编号，显示为上标，带方括号；对于脚注编号，显示为上标，不带方括号。前两种经修正，页码会显示为上标。如：</p>
 <ul>
@@ -233,56 +235,56 @@
 <li><sup>1</sup></li>
 </ul>
 <p>语法如下：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">@文献名</span><span class="co">]</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>前面不带空格也可以<span class="co">[</span><span class="ot">@文献名</span><span class="co">]</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="co">[</span><span class="ot">@文献名 {页码}</span><span class="co">]</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="co">[</span><span class="ot">@文献名 {页码,半角逗号分隔,还可以用-横杠}</span><span class="co">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@文献名</span><span class="co">]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>前面不带空格也可以<span class="co">[</span><span class="ot">@文献名</span><span class="co">]</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@文献名 {页码}</span><span class="co">]</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@文献名 {页码,半角逗号分隔,还可以用-横杠}</span><span class="co">]</span></span></code></pre></div>
 <h4 id="不显示著者">不显示著者</h4>
 <p>著者加日期的格式还可以不显示著者，只显示日期（页码照常），如：(2020)。语法如下：</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>-@文献名</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="co">[</span><span class="ot">-@文献名</span><span class="co">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>-@文献名</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">-@文献名</span><span class="co">]</span></span></code></pre></div>
 <h4 id="转义">转义</h4>
 <p>以下情况不会处理成为引用：</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>but-i-am-email@whatever.com</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>1@不是引用</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>中文字符@不是引用</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>+\@不是引用</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>这里有个空格 \@不是引用</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="co">[</span><span class="ot">\@不是引用</span><span class="co">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>but-i-am-email@whatever.com</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>1@不是引用</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>中文字符@不是引用</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>+\@不是引用</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>这里有个空格 \@不是引用</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">\@不是引用</span><span class="co">]</span></span></code></pre></div>
 <h3 id="参考文献列表">参考文献列表</h3>
 <p>参考文献列表会<span style="--color:red">自动附在文章的<strong>结束处</strong></span>（所以记得在结尾留一个二级标题 <code>## 参考文献</code> ）。可以将以下片段插入你希望生成参考文献列表的位置，就不会再附加在结尾处：</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>::: {#refs}</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>这里也可以插入一个段落显示在列表前面，但好像没什么用</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>:::</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>这里也可以插入一个段落显示在列表前面，但好像没什么用</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
 <p>参考文献列表（以及参考文献列表语法中插入的段落）在 DOCX 中会使用“书目”样式。</p>
 <h2 id="配合-bibtex">配合 BibTeX</h2>
 <p>如果需要自己手写 BibTeX，以下是书籍、期刊文章、书籍内文章的格式参考。文献名是一个标签，常用著者加年份后两位表示，但可以随意起名字（中文也可）。当然这里的文献种类和参数没有列全。</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>@book{文献名,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>  title={书名},</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>  author={作者 and 作者2 and 作者3},</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>  year={2000},</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>  publisher={出版社},</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>  address={地址},</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>  edition={版本}</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>}</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>@article{文献名,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>  title={文章名},</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>  author={作者},</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>  year={2000},</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>  journal={期刊名},</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>  number={1},#卷数</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>  pages={1-5},#页码范围</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a>}</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>@inbook{文献名,</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>  title={文章名},</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>  author={作者},</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>  year={2000},</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a>  pages={1-5},</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a>  booktitle={书名},</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a>  publisher={出版社},</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a>  address={地址},</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a>  edition={版本}</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>@book{文献名,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  title={书名},</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  author={作者 and 作者2 and 作者3},</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  year={2000},</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  publisher={出版社},</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  address={地址},</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  edition={版本}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>@article{文献名,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  title={文章名},</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  author={作者},</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  year={2000},</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  journal={期刊名},</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  number={1},#卷数</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  pages={1-5},#页码范围</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>@inbook{文献名,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  title={文章名},</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  author={作者},</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  year={2000},</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  pages={1-5},</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  booktitle={书名},</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  publisher={出版社},</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  address={地址},</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  edition={版本}</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
   </p>
 </div>
 

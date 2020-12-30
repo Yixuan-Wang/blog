@@ -263,35 +263,35 @@ k&#39; -1  0 -1  0
 </blockquote>
 <p>综上，KMP算法的时间复杂度是<span class="math inline">\(O(m+n)\)</span>，小于暴力算法的<span class="math inline">\(O(mn)\)</span>。由于在实践中通常<span class="math inline">\(m \ll n\)</span>，因此KMP算法的时间复杂度可以视为<span class="math inline">\(O(n)\)</span>。但是，由于KMP算法的优化基于重复片段，因此使用的字符集比较大时（比如汉语的字符集），重复片段出现的概率低，它的效率提升也有限。实践中，从尾部开始向左匹配并计算“坏字符”的另一个字符串匹配算法，BM算法，效率更高，可以达到<span class="math inline">\(O(n)\)</span>，可以查看参考资料中的文章中的介绍。</p>
 <h2 id="python-实现">Python 实现</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>NO_MATCH <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">def</span> kmp(p, s): <span class="co"># pattern 模式串, string 目标串</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    m, n <span class="op">=</span> <span class="bu">len</span>(p), <span class="bu">len</span>(s)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    i, j <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    <span class="co"># 预处理</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    nxt <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>] <span class="co"># next 预处理表</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, m):</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>        <span class="cf">if</span> p[x<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> p[nxt[x<span class="op">-</span><span class="dv">1</span>]]: <span class="co"># 公式(2)</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>            nxt.append(nxt[x<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>            nxt.append(<span class="dv">0</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, m):</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>        <span class="cf">if</span> p[x] <span class="op">==</span> p[nxt[x]]: <span class="co"># 递归优化</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>            nxt[x] <span class="op">=</span> nxt[nxt[x]]</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    <span class="co"># 比较</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> m <span class="kw">and</span> j <span class="op">&lt;</span> n: </span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>        <span class="cf">if</span> p[i] <span class="op">==</span> s[j]: <span class="co"># 匹配成功</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>            i <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>        <span class="cf">else</span>: <span class="co"># 匹配失败</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>            <span class="cf">if</span> nxt[i] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>: <span class="co"># 向后移动1位</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>                i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>            <span class="cf">else</span>:</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>                i <span class="op">=</span> nxt[i] <span class="co"># 将nxt[i]位置和j位置对齐</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a>    <span class="cf">if</span> i <span class="op">==</span> m:</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a>        <span class="cf">return</span> j <span class="op">-</span> i <span class="co"># 返回子串的左端</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a>    <span class="cf">return</span> NO_MATCH</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>NO_MATCH <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kmp(p, s): <span class="co"># pattern 模式串, string 目标串</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    m, n <span class="op">=</span> <span class="bu">len</span>(p), <span class="bu">len</span>(s)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    i, j <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 预处理</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    nxt <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>] <span class="co"># next 预处理表</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, m):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> p[x<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> p[nxt[x<span class="op">-</span><span class="dv">1</span>]]: <span class="co"># 公式(2)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            nxt.append(nxt[x<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            nxt.append(<span class="dv">0</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, m):</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> p[x] <span class="op">==</span> p[nxt[x]]: <span class="co"># 递归优化</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            nxt[x] <span class="op">=</span> nxt[nxt[x]]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 比较</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> m <span class="kw">and</span> j <span class="op">&lt;</span> n: </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> p[i] <span class="op">==</span> s[j]: <span class="co"># 匹配成功</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            i <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: <span class="co"># 匹配失败</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> nxt[i] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>: <span class="co"># 向后移动1位</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                i <span class="op">=</span> nxt[i] <span class="co"># 将nxt[i]位置和j位置对齐</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> m:</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> j <span class="op">-</span> i <span class="co"># 返回子串的左端</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> NO_MATCH</span></code></pre></div>
 <h2 id="参考资料">参考资料</h2>
 <ul>
 <li><a href="https://blog.csdn.net/v_july_v/article/details/7041827">July，从头到尾彻底理解KMP，2014</a></li>

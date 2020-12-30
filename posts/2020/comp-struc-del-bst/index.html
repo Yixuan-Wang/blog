@@ -194,42 +194,42 @@ P市一辣鸡
      R  
 </pre>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co"># 二叉搜索树类的 delete 方法</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">def</span> delete(<span class="va">self</span>, key):</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    current <span class="op">=</span> <span class="va">self</span>._root <span class="co"># current 根结点，设为当前结点</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    fa <span class="op">=</span> <span class="va">None</span> <span class="co"># fa[ther] 当前结点的父结点</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    order <span class="op">=</span> <span class="va">self</span>.order <span class="co"># 全序关系函数 order(a, b) -&gt; Bool，二叉搜索树满足 order(左子，自己) == True</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    equal <span class="op">=</span> <span class="va">self</span>.equal <span class="co"># 相等关系函数 equal(a, b) -&gt; Bool</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>    </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    <span class="cf">while</span> current <span class="op">!=</span> <span class="va">None</span>:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>        <span class="cf">if</span> equal(key, current.key): <span class="co"># 当前结点就是目标结点</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>            <span class="cf">if</span> current.lch <span class="op">==</span> <span class="va">None</span>: <span class="co"># l[eft]ch[ild] 左子 左子为空</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>                <span class="cf">if</span> fa <span class="op">==</span> <span class="va">None</span>: <span class="va">self</span>._root <span class="op">=</span> current.rch <span class="co"># 若要删除的是根结点，且没有左子树</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>                <span class="cf">elif</span> fa.lch <span class="op">==</span> current: fa.lch <span class="op">=</span> current.rch <span class="co"># 当前是父结点的左子，用当前的右子替换当前结点</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>                <span class="cf">else</span>: fa.rch <span class="op">=</span> current.rch <span class="co"># 当前是父结点右子，同上</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>            <span class="cf">else</span>:</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>                rightmost <span class="op">=</span> current.lch <span class="co"># rightmost 左子树最大结点，初始化为左子</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>                faRightmost <span class="op">=</span> current <span class="co"># fa[ther-of-]Rightmost 左子树最大结点的父结点，初始化为当前结点</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>    </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>                <span class="cf">while</span> rightmost.rch <span class="op">!=</span> <span class="va">None</span>: faRightmost, rightmost <span class="op">=</span> rightmost, rightmost.rch</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>                <span class="co"># 循环找最右下结点</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>    </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>                <span class="cf">if</span> faRightmost <span class="op">==</span> current: faRightmost.lch <span class="op">=</span> rightmost.lch <span class="co"># 当前结点左子的右子树为空，用左子的左子替代左子</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>                <span class="cf">else</span>: faRightmost.rch <span class="op">=</span> rightmost.lch <span class="co"># 最大结点用左子替代</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>                </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>                rightmost.lch <span class="op">=</span> current.lch <span class="co"># 替换最右下结点的子结点引用</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>                rightmost.rch <span class="op">=</span> current.rch</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>                <span class="cf">if</span> fa <span class="op">==</span> <span class="va">None</span>: <span class="va">self</span>._root <span class="op">=</span> rightmost <span class="co"># 若当前结点是根节点，不用改变父的子结点引用</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>                <span class="cf">elif</span> fa.lch <span class="op">==</span> current: fa.lch <span class="op">=</span> rightmost <span class="co"># 替换当前结点父结点的子结点引用</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>                <span class="cf">else</span>: fa.rch <span class="op">=</span> rightmost</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>                <span class="co"># 左子树上最大结点替代当前结点</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a>    </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a>            <span class="kw">del</span> current <span class="co"># 删除当前结点</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a>            <span class="cf">return</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a>        <span class="cf">elif</span> order(key, current.key): fa, current <span class="op">=</span> current, current.lch <span class="co"># 找目标结点</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a>        <span class="cf">else</span>: fa, current <span class="op">=</span> current, current.rch</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 二叉搜索树类的 delete 方法</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delete(<span class="va">self</span>, key):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    current <span class="op">=</span> <span class="va">self</span>._root <span class="co"># current 根结点，设为当前结点</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    fa <span class="op">=</span> <span class="va">None</span> <span class="co"># fa[ther] 当前结点的父结点</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    order <span class="op">=</span> <span class="va">self</span>.order <span class="co"># 全序关系函数 order(a, b) -&gt; Bool，二叉搜索树满足 order(左子，自己) == True</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    equal <span class="op">=</span> <span class="va">self</span>.equal <span class="co"># 相等关系函数 equal(a, b) -&gt; Bool</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> current <span class="op">!=</span> <span class="va">None</span>:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> equal(key, current.key): <span class="co"># 当前结点就是目标结点</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> current.lch <span class="op">==</span> <span class="va">None</span>: <span class="co"># l[eft]ch[ild] 左子 左子为空</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> fa <span class="op">==</span> <span class="va">None</span>: <span class="va">self</span>._root <span class="op">=</span> current.rch <span class="co"># 若要删除的是根结点，且没有左子树</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> fa.lch <span class="op">==</span> current: fa.lch <span class="op">=</span> current.rch <span class="co"># 当前是父结点的左子，用当前的右子替换当前结点</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: fa.rch <span class="op">=</span> current.rch <span class="co"># 当前是父结点右子，同上</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                rightmost <span class="op">=</span> current.lch <span class="co"># rightmost 左子树最大结点，初始化为左子</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                faRightmost <span class="op">=</span> current <span class="co"># fa[ther-of-]Rightmost 左子树最大结点的父结点，初始化为当前结点</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">while</span> rightmost.rch <span class="op">!=</span> <span class="va">None</span>: faRightmost, rightmost <span class="op">=</span> rightmost, rightmost.rch</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="co"># 循环找最右下结点</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> faRightmost <span class="op">==</span> current: faRightmost.lch <span class="op">=</span> rightmost.lch <span class="co"># 当前结点左子的右子树为空，用左子的左子替代左子</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: faRightmost.rch <span class="op">=</span> rightmost.lch <span class="co"># 最大结点用左子替代</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                rightmost.lch <span class="op">=</span> current.lch <span class="co"># 替换最右下结点的子结点引用</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                rightmost.rch <span class="op">=</span> current.rch</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> fa <span class="op">==</span> <span class="va">None</span>: <span class="va">self</span>._root <span class="op">=</span> rightmost <span class="co"># 若当前结点是根节点，不用改变父的子结点引用</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> fa.lch <span class="op">==</span> current: fa.lch <span class="op">=</span> rightmost <span class="co"># 替换当前结点父结点的子结点引用</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: fa.rch <span class="op">=</span> rightmost</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                <span class="co"># 左子树上最大结点替代当前结点</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> current <span class="co"># 删除当前结点</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> order(key, current.key): fa, current <span class="op">=</span> current, current.lch <span class="co"># 找目标结点</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: fa, current <span class="op">=</span> current, current.rch</span></code></pre></div>
 <h2 id="旋转">旋转</h2>
 <p>课程里没有提及旋转的概念。后来一位前 OIer 朋友（<a href="https://www.cnblogs.com/FYH-SSGSS/">@FYH</a>）给我科普，以上删除结点的操作其实涉及到了旋转。</p>
 <p>对于以下两棵二叉搜索树：</p>

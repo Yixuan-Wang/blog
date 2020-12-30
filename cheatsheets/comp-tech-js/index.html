@@ -154,11 +154,11 @@
     <p>JavaScript 相关工具的速查表。</p>
 <h2 id="http-server">http-server</h2>
 <p>http-server 顾名思义是一个 HTTP 服务器工具，用于在本地进行调试。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$ <span class="ex">http-server</span> [dist]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> http-server [dist]</span></code></pre></div>
 <p>目标默认为当前文件夹（./）。</p>
 <p>开启 HTTPS 需要用到 OpenSSL：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>$ <span class="ex">openssl</span> req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>$ <span class="ex">http-server</span> -S -C cert.pem</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> openssl req <span class="at">-newkey</span> rsa:2048 <span class="at">-new</span> <span class="at">-nodes</span> <span class="at">-x509</span> <span class="at">-days</span> 3650 <span class="at">-keyout</span> key.pem <span class="at">-out</span> cert.pem</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> http-server <span class="at">-S</span> <span class="at">-C</span> cert.pem</span></code></pre></div>
   </p>
 </div>
 
