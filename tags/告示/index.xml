@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>告示 | Pak</title>
+    <link>https://yixuan-wang.github.io/blog/tags/%E5%91%8A%E7%A4%BA/</link>
+    <description>Pak 上最近的 告示 内容</description>
+    <generator>Hugo</generator>
+    <lastBuildDate>Fri, 22 Jan 2021 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yixuan-wang.github.io/blog/tags/%E5%91%8A%E7%A4%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>博客迁移</title>
+      <link>https://yixuan-wang.github.io/blog/posts/2021/moving-on/</link>
+      <pubDate>Fri, 22 Jan 2021 12:00:00 +0800</pubDate>
+      
+      <guid>https://yixuan-wang.github.io/blog/posts/2021/moving-on/</guid>
+      <description>&lt;p&gt;准备换一套博客系统。&lt;/p&gt;&lt;br/&gt;&lt;p&gt;&lt;a href=&#34;https://yixuan-wang.github.io/blog/posts/2021/moving-on/&#34; &gt;全文&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
