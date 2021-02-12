@@ -1,0 +1,61 @@
+{
+  "name": "pak",
+  "private": true,
+  "description": "This is a blоg, not a blοg.",
+  "version": "0.1.0",
+  "author": "Yixuan Wang",
+  "dependencies": {
+    "gatsby": "^2.32.3",
+    "gatsby-image": "^2.11.0",
+    "gatsby-plugin-catch-links": "^2.10.0",
+    "gatsby-plugin-feed": "^2.13.0",
+    "gatsby-plugin-manifest": "^2.12.0",
+    "gatsby-plugin-offline": "^3.10.0",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-sass": "^3.2.0",
+    "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-remark-copy-linked-files": "^2.10.0",
+    "gatsby-remark-images": "^3.11.0",
+    "gatsby-remark-katex": "^3.10.0",
+    "gatsby-remark-prismjs": "^3.13.0",
+    "gatsby-remark-responsive-iframe": "^2.11.0",
+    "gatsby-remark-smartypants": "^2.10.0",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-transformer-remark": "^2.16.0",
+    "gatsby-transformer-sharp": "^2.12.0",
+    "katex": "^0.12.0",
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.22.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "sass": "^1.32.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "prettier": "2.2.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yixuan-Wang/blog.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+}

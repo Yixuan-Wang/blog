@@ -1,0 +1,28 @@
+@import "../composables.scss";
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  height: 4em;
+  align-items: center;
+}
+
+.footer-button {
+  margin: 0 .125em;
+  padding: .25em;
+
+  color: var(--clr-ft);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &.active {
+    color: var(--clr-ac);
+  }
+}

@@ -1,0 +1,39 @@
+@import './components/prism.scss';
+
+@mixin colors-core-dark {
+    --clr-ac: #FFE900;
+    --clr-bg: #253137;
+    --clr-ft: #f5f5f5;
+    --clr-dm: #B2BBBE;
+    @include prism-one-dark();
+}
+
+@mixin colors-core-light {
+    --clr-ac: #003A70;
+    --clr-bg: #F5F5F5;
+    --clr-ft: #1D252D;
+    --clr-dm: #737C7B;
+    @include prism-one-light();
+}
+
+
+:root,
+html.dark {
+    @include colors-core-dark();
+}
+
+html.light {
+    @include colors-core-light();
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include colors-core-dark();
+    }
+}
+  
+@media (prefers-color-scheme: light) {
+    :root {
+        @include colors-core-light();
+    }
+}

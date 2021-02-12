@@ -1,0 +1,14 @@
+@import '../breakpoints';
+
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+
+    height: 100vh;
+    max-width: $b-md;
+    
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}

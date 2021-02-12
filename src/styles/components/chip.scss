@@ -1,0 +1,14 @@
+.chip {
+  display: inline-block;
+
+  margin: 0 .125em;
+
+  &:first-child {
+    margin-left: .25em;
+  }
+
+  &:last-child {
+    margin-right: .25em;
+  }
+
+}

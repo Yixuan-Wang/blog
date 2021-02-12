@@ -1,0 +1,34 @@
+@use 'colors';
+@use 'fonts';
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+
+    background-color: var(--clr-bg);
+    color: var(--clr-ft);
+    fill: var(--clr-ft);
+
+    font-family: var(--fnt-sans);
+}
+
+// ::-webkit-scrollbar {
+//     width: 4px;
+//     background-color: transparent;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//     background: var(--clr-ac);
+// }
+
+// ! TEMP
+a {
+    color: var(--clr-ac);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+article {
+    @import "./templates/article.scss";
+}

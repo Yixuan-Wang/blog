@@ -1,0 +1,18 @@
+.posts-group {
+  margin: 0;
+  padding-left: 0;
+}
+
+.posts-group-item {
+  display: flex;
+  margin: .5em 0;
+}
+
+.posts-group-item-date {
+  width: 3em;
+  margin-right: 1em;
+}
+
+.posts-group-item-link {
+  color: var(--clr-ft);
+}
