@@ -53,6 +53,6 @@ jobs:
         with:
           personal_token: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh-pages-next
+          publish_branch: gh-pages
 
       
