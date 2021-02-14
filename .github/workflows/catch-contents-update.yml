@@ -22,7 +22,7 @@ jobs:
 
       - name: Generate Commit Message
         run: |
-          original_message="${{ github.event.content_payload.message }}"
+          original_message="${{ github.event.client_payload.message }}"
           message="contents(${original_message%%:*}): ${original_message#*: }"
 
       - name: Commit Content Updates
@@ -30,5 +30,7 @@ jobs:
         with:
           branch: master
           file_pattern: contents
-          commit_user_name: ${{ github.event.content_payload.name }}
-          commit_user_email: ${{ github.event.content_payload.email }}
+          commit_message: $message
+          commit_user_name: ${{ github.event.client_payload.name }}
+          commit_user_email: ${{ github.event.client_payload.email }}
+          
