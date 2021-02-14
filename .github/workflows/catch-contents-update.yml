@@ -21,16 +21,18 @@ jobs:
           git submodule update --remote --recursive
 
       - name: Generate Commit Message
+        id: generate-commit-message
         run: |
           original_message="${{ github.event.client_payload.message }}"
           message="contents(${original_message%%:*}): ${original_message#*: }"
+          echo "::set-output name=message::$(echo $message)"
 
       - name: Commit Content Updates
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: master
           file_pattern: contents
-          commit_message: $message
+          commit_message: ${{ steps.generate-commit-message.outputs.message }}
           commit_user_name: ${{ github.event.client_payload.name }}
           commit_user_email: ${{ github.event.client_payload.email }}
           
