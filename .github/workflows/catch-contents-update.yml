@@ -1,0 +1,23 @@
+name: "Catch Contents Update"
+
+on:
+  repository_dispatch: 
+    types: [contents-update]
+
+jobs:
+  catch-contents-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate Commit Message
+        run: |
+          original_message="${{ github.event.content_payload.message }}"
+          message="contents(${original_message%%:*}): ${original_message#*: }"
+
+      - name: Commit Content Updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: master
+          file_pattern: contents
+          commit_user_name: ${{ github.event.content_payload.committerName }}
+          commit_user_email: ${{ github.event.content_payload.committerEmail }}
