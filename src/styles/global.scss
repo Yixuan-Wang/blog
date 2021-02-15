@@ -1,10 +1,12 @@
 @use 'colors';
 @use 'fonts';
+@import 'breakpoints';
 
 body {
-    margin: 0;
-    padding: 0;
     line-height: 1.5;
+
+    max-width: $b-md;
+    margin: 0 auto;
 
     background-color: var(--clr-bg);
     color: var(--clr-ft);
