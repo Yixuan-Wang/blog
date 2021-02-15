@@ -1,10 +1,26 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 
-// import Icon from '../components/Icon';
+import '../styles/pages/index.scss';
+
 import SEO from '../components/SEO';
+import CardArticle from '../components/CardArticle';
 
 export const query = graphql`
+  fragment Article on MarkdownRemark {
+    id
+    excerpt
+    fields {
+      slug
+    }
+    frontmatter {
+      tags
+      keywords
+      title
+      category
+      date(formatString: "YYYY/MM/DD")
+    }
+  }
   query QueryIndex {
     site {
       siteMetadata {
@@ -12,35 +28,54 @@ export const query = graphql`
         description
       }
     }
+    recentPosts: allMarkdownRemark(
+      limit: 3
+      filter: { fields: { quarter: { eq: "posts" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        ...Article
+      }
+    }
+    recentSheets: allMarkdownRemark(
+      limit: 1
+      filter: { fields: { quarter: { eq: "sheets" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        ...Article
+      }
+    }
   }
 `;
 
-const IndexPage = ({ data }) => (
-  <>
-    <SEO title="" />
-    <h1>{data.site.siteMetadata.title}</h1>
-    <p>
-      <span style={{ fontStyle: 'italic' }}>
-        {data.site.siteMetadata.description}
-      </span>
-      <br />
-      <span>
-        As о(U+043E&nbsp;
-        <span style={{ fontVariant: 'all-small-caps' }}>
-          CYRILLIC SMALL LETTER O
+const IndexPage = ({ data }) => {
+  const { siteMetadata } = data.site;
+  return (
+    <>
+      <SEO title="" />
+      <h1 className="title">{siteMetadata.title}</h1>
+      <p className="subtitle description">{siteMetadata.description}</p>
+      <section className="index-block">
+        <h2 id="recent-posts">最近的文章</h2>
+        {data.recentPosts.nodes.map(article => (
+          <CardArticle key={article.id} article={article} />
+        ))}
+        <span className="index-link-more">
+          <Link to="/posts/">全部…</Link>
         </span>
-        ) is not o(U+006F&nbsp;
-        <span style={{ fontVariant: 'all-small-caps' }}>
-          LATIN SMALL LETTER O
+      </section>
+      <section className="index-block">
+        <h2 id="recent-sheets">最近的清单</h2>
+        {data.recentSheets.nodes.map(article => (
+          <CardArticle key={article.id} article={article} />
+        ))}
+        <span className="index-link-more">
+          <Link to="/sheets/">全部…</Link>
         </span>
-        ).
-      </span>
-    </p>
-    <p>
-      <Link to="/posts/">文章</Link> <br />
-      <Link to="/sheets/">清单</Link>
-    </p>
-  </>
-);
+      </section>
+    </>
+  );
+};
 
 export default IndexPage;
