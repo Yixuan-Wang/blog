@@ -59,12 +59,6 @@ jobs:
     needs: build-and-deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          token: ${{ secrets.ACCESS_TOKEN }}
-
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
         env:
