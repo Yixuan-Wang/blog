@@ -55,4 +55,28 @@ jobs:
           publish_dir: ./public
           publish_branch: gh-pages
 
-      
+  mirror:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:
+          source-repo: "git@github.com:Yixuan-Wang/blog.git"
+          destination-repo: "git@gitee.com:yixuan-wang/blog.git"
+
+      - name: Deploy Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+          gitee-username: yixuan-wang
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: yixuan-wang/blog
+          branch: gh-pages      
