@@ -1,9 +1,7 @@
 name: "Mirror to Gitee"
 
 on:
-  push:
-    branches: [ gh-pages ]
-
+  page_build:
   workflow_dispatch:
 
 jobs:
