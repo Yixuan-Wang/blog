@@ -264,8 +264,3 @@ details {
   overflow-x: auto;
   overflow-y: visible;
 } */
-
-::selection {
-  background-color: var(--clr-ac); // darker
-  color: var(--clr-bg);
-}

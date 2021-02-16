@@ -3,35 +3,40 @@
 @import 'breakpoints';
 
 body {
-    line-height: 1.5;
+  line-height: 1.5;
 
-    max-width: $b-md;
-    margin: 0 auto;
+  max-width: $b-md;
+  margin: 0 auto;
 
-    background-color: var(--clr-bg);
-    color: var(--clr-ft);
-    fill: var(--clr-ft);
+  background-color: var(--clr-bg);
+  color: var(--clr-ft);
+  fill: var(--clr-ft);
 
-    font-family: var(--fnt-sans);
+  font-family: var(--fnt-sans);
 }
 
 ::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;
-    background-color: transparent;
+  height: 4px;
+  width: 4px;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--clr-ac);
+  background: var(--clr-ac);
+}
+
+::selection {
+  background-color: var(--clr-ac);
+  color: var(--clr-bg);
 }
 
 // ! TEMP
 a {
-    color: var(--clr-ac);
-    text-decoration: none;
-    cursor: pointer;
+  color: var(--clr-ac);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 article {
-    @import "./templates/article.scss";
+  @import './templates/article.scss';
 }
