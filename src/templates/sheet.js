@@ -17,7 +17,7 @@ export default function Sheet({ data }) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query QueryCreateSheet($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

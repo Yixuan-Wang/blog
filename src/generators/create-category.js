@@ -3,7 +3,8 @@ const path = require('path');
 exports.createCategory = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const result = await graphql(`
+  // eslint-disable-next-line prettier/prettier
+  const result = await graphql(`#graphql
     query QueryCreateCategory {
       allMarkdownRemark {
         group(field: frontmatter___category) {

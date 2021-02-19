@@ -7,9 +7,9 @@ import SEO from '../components/SEO';
 import '../styles/pages/posts.scss';
 
 export const query = graphql`
-  query QueryListSheets {
+  query QueryListTalks {
     allMarkdownRemark(
-      filter: { fields: { quarter: { eq: "sheets" } } }
+      filter: { fields: { quarter: { eq: "talks" } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
@@ -29,14 +29,14 @@ export const query = graphql`
   }
 `;
 
-const ListSheetsPage = ({ data }) => {
+const ListTalksPage = ({ data }) => {
   const postsList = data.allMarkdownRemark.edges;
   const yearGroup = groupBy(postsList, ({ node }) => node.frontmatter.year);
 
   return (
     <div>
-      <SEO title="清单" />
-      <h1>清单</h1>
+      <SEO title="言论" />
+      <h1>言论</h1>
       {Object.keys(yearGroup)
         .sort((a, b) => b - a)
         .map(year => (
@@ -63,4 +63,4 @@ const ListSheetsPage = ({ data }) => {
   );
 };
 
-export default ListSheetsPage;
+export default ListTalksPage;

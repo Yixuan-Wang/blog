@@ -46,6 +46,15 @@ export const query = graphql`
         ...Article
       }
     }
+    recentTalks: allMarkdownRemark(
+      limit: 1
+      filter: { fields: { quarter: { eq: "talks" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        ...Article
+      }
+    }
   }
 `;
 
@@ -72,6 +81,15 @@ const IndexPage = ({ data }) => {
         ))}
         <span className="index-link-more">
           <Link to="/sheets/">全部…</Link>
+        </span>
+      </section>
+      <section className="index-block">
+        <h2 id="recent-talks">最近的言论</h2>
+        {data.recentTalks.nodes.map(article => (
+          <CardArticle key={article.id} article={article} />
+        ))}
+        <span className="index-link-more">
+          <Link to="/talks/">全部…</Link>
         </span>
       </section>
     </>

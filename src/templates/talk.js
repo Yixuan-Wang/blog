@@ -4,20 +4,20 @@ import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
 import ArticleFront from '../components/ArticleFront';
 
-export default function Post({ data }) {
-  const post = data.markdownRemark;
+export default function Talk({ data }) {
+  const talk = data.markdownRemark;
 
   return (
     <>
-      <SEO title={post.frontmatter.title} type="article" />
-      <ArticleFront article={post} />
-      <article dangerouslySetInnerHTML={{ __html: post.html }} />
+      <SEO title={talk.frontmatter.title} type="article" />
+      <ArticleFront article={talk} />
+      <article dangerouslySetInnerHTML={{ __html: talk.html }} />
     </>
   );
 }
 
 export const query = graphql`
-  query QueryCreatePost($slug: String!) {
+  query QueryCreateTalk($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

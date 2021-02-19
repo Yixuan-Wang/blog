@@ -4,7 +4,7 @@ module.exports = {
     title: `Pak`,
     description: `This is a blоg, not a blοg.`,
     author: `@Yixuan-Wang`,
-    quarter: [`posts`, `sheets`],
+    quarter: [`posts`, `sheets`, `talks`],
   },
   plugins: [
     {
@@ -21,6 +21,8 @@ module.exports = {
         path: `${__dirname}/contents/sheets`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -51,8 +53,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
