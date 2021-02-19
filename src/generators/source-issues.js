@@ -181,7 +181,6 @@ exports.sourceIssues = async ({
         comments
           .map(comment => comment.body)
           .join('\n<hr class="talk-separator" />\n\n');
-      console.log(content);
       delete issue.body;
     } else {
       content = issue.body;
