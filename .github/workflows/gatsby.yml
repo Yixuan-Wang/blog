@@ -6,6 +6,9 @@ on:
 
   workflow_dispatch:
 
+  repository_dispatch: 
+    types: [contents-issues-update]
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
