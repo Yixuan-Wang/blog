@@ -15,6 +15,7 @@
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sass": "^3.2.0",
     "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-remark-autolink-headers": "^2.11.0",
     "gatsby-remark-copy-linked-files": "^2.10.0",
     "gatsby-remark-images": "^3.11.0",
     "gatsby-remark-katex": "^3.10.0",

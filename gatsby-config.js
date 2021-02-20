@@ -29,6 +29,16 @@ module.exports = {
         excerpt_separator: `<!-- more -->`,
         plugins: [
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+              maintainCase: true,
+              removeAccents: false,
+              enableCustomId: true,
+              elements: [`h2`, `h3`],
+            },
+          }, // Must come before prismjs
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
