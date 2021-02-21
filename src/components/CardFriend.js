@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from '../components/Icon';
-
 import '../styles/components/card-friend.scss';
 
 function CardFriend({ friend }) {
@@ -10,7 +8,6 @@ function CardFriend({ friend }) {
 
   return (
     <div className="card-friend">
-      {/* <img className="card-friend-avatar" src={avatar} /> */}
       <a
         className="card-friend-link"
         href={link}
@@ -19,7 +16,6 @@ function CardFriend({ friend }) {
       >
         <img className="card-friend-avatar" src={avatar} />
       </a>
-      {/* <span className="card-friend-name">{name}</span> */}
       <a
         className="card-friend-name"
         href={blog}

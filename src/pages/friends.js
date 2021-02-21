@@ -23,7 +23,6 @@ export const query = graphql`
 
 const Friends = ({ data }) => {
   const { friends } = data.issues.childYaml;
-  console.log(friends);
   return (
     <div>
       <SEO title="朋友" />

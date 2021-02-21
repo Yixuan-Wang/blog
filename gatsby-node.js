@@ -17,11 +17,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if (parentNode.internal.type === `File`) {
       quarter = parentNode.sourceInstanceName;
       modifiedTime = parentNode.modifiedTime;
-      slug = `${quarter}/${parentNode.name}`
+      slug = `${quarter}/${parentNode.name}`;
     } else if (parentNode.internal.type === `Issues`) {
       quarter = parentNode.quarter;
       modifiedTime = parentNode.lastEditedAt;
-      slug = `${quarter}/${parentNode.title}`
+      slug = `${quarter}/${parentNode.title}`;
     }
     createNodeField({ node, name: 'slug', value: slug });
     createNodeField({ node, name: 'quarter', value: quarter });
