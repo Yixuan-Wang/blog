@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import Chip from '../components/Chip';
 
-function ArticleMeta({ time, taxonomies }) {
+function ArticleMeta({ className, time, taxonomies }) {
   const { category, tags, keywords } = taxonomies;
 
   return (
-    <span className="subtitle" style={{ display: 'inline-block' }}>
+    <span className={className} style={{ display: 'inline-block' }}>
       <time style={{ marginRight: '1em' }}>{time}</time>
       <span style={{ color: 'var(--clr-ac)', fontWeight: 'bold' }}>
         <Chip>

@@ -3,7 +3,7 @@ const dictionary = {
   posts: '文章',
   sheets: '清单',
   talks: '言论',
-  others: '文章',
+  others: '其他',
   category: '类别',
   categories: '类别',
   tags: '标签',

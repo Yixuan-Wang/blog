@@ -36,7 +36,7 @@ const ListSheetsPage = ({ data }) => {
   return (
     <div>
       <SEO title="清单" />
-      <h1>清单</h1>
+      <h1 className="title">清单</h1>
       {Object.keys(yearGroup)
         .sort((a, b) => b - a)
         .map(year => (

@@ -4,7 +4,7 @@ module.exports = {
     title: `Pak`,
     description: `This is a blоg, not a blοg.`,
     author: `@Yixuan-Wang`,
-    quarter: [`posts`, `sheets`, `talks`],
+    quarter: [`posts`, `sheets`, `talks`, `others`],
   },
   plugins: [
     {
@@ -19,6 +19,12 @@ module.exports = {
       options: {
         name: `sheets`,
         path: `${__dirname}/contents/sheets`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `Yaml`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -5,6 +5,7 @@ import '../styles/pages/index.scss';
 
 import SEO from '../components/SEO';
 import CardArticle from '../components/CardArticle';
+import CardFriend from '../components/CardFriend';
 
 export const query = graphql`
   fragment Article on MarkdownRemark {
@@ -47,13 +48,16 @@ export const query = graphql`
       }
     }
     recentTalks: allMarkdownRemark(
-      limit: 1
+      limit: 3
       filter: { fields: { quarter: { eq: "talks" } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
         ...Article
       }
+    }
+    friends: issues(title: { eq: "friends" }) {
+      ...Friends
     }
   }
 `;
@@ -90,6 +94,17 @@ const IndexPage = ({ data }) => {
         ))}
         <span className="index-link-more">
           <Link to="/talks/">全部…</Link>
+        </span>
+      </section>
+      <section className="index-block">
+        <h2 id="friends">朋友</h2>
+        <div className="index-block-friends">
+          {data.friends.childYaml.friends.map(friend => (
+            <CardFriend key={friend.name} friend={friend} />
+          ))}
+        </div>
+        <span className="index-link-more">
+          <Link to="/friends">更多…</Link>
         </span>
       </section>
     </>

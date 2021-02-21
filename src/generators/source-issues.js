@@ -142,12 +142,15 @@ async function getComments({ owner, repo }, number) {
 
 const parseLabel = labels => {
   let quarter;
+  let format = 'markdown';
   for (label of labels) {
     if (label.startsWith('@') && !quarter) quarter = label.slice(1);
+    if (label.startsWith('=')) format = label.slice(1);
   }
 
   return {
     quarter,
+    format,
   };
 };
 
@@ -187,12 +190,19 @@ exports.sourceIssues = async ({
       delete issue.body;
     }
 
+    if (parsedLabel?.format !== 'markdown') {
+      content = content.substring(
+        content.indexOf('\n') + 1,
+        content.lastIndexOf('\n'),
+      );
+    }
+
     createNode({
       id,
       parent: null,
       children: [],
       internal: {
-        mediaType: 'text/markdown',
+        mediaType: `text/${parsedLabel.format}`,
         type: 'Issues',
         content,
         contentDigest: createContentDigest(issue),

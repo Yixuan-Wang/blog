@@ -38,7 +38,7 @@ const ListPostsPage = ({ data }) => {
   return (
     <div>
       <SEO title="文章" />
-      <h1>文章</h1>
+      <h1 className="title">文章</h1>
       {Object.keys(yearGroup)
         .sort((a, b) => b - a)
         .map(year => (

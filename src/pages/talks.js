@@ -36,7 +36,7 @@ const ListTalksPage = ({ data }) => {
   return (
     <div>
       <SEO title="言论" />
-      <h1>言论</h1>
+      <h1 className="title">言论</h1>
       {Object.keys(yearGroup)
         .sort((a, b) => b - a)
         .map(year => (
