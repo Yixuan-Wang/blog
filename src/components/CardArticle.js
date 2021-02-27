@@ -12,7 +12,7 @@ export default function CardArticle({ article }) {
       <h3 style={{ margin: '0' }}>
         <Link to={`/${article.fields.slug}`}>{title}</Link>
       </h3>
-      <p style={{ margin: '0' }}>{article.excerpt}</p>
+      <p style={{ margin: '0', paddingBottom: '.333em' }}>{article.excerpt}</p>
       <ArticleMeta time={time} taxonomies={{ category, tags, keywords }} />
     </section>
   );
