@@ -5,14 +5,7 @@ import ArticleMeta from '../components/ArticleMeta';
 
 export default function CardArticle({ article }) {
   const { title, date, category, tags, keywords } = article.frontmatter;
-  const time = (
-    <span>
-      {date}
-      {/* {post.frontmatter.date == post.fields.modifiedTime
-        ? ''
-        : ` → ${post.fields.modifiedTime}`} */}
-    </span>
-  );
+  const time = date;
 
   return (
     <section style={{ padding: '.25em .5em' }}>
