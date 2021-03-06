@@ -181,6 +181,7 @@ exports.sourceIssues = async ({
       const comments = await getComments(configSourceIssues, issue.number);
       content =
         issue.body +
+        '\n' +
         comments
           .map(comment => comment.body)
           .join('\n<hr class="talk-separator" />\n\n');

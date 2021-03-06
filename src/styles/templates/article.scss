@@ -1,12 +1,17 @@
-article p {
+p {
   a {
-      text-decoration: underline;
-      text-decoration-skip-ink: auto;
-      color: var(--clr-ft);
+    text-decoration-skip-ink: auto;
+    color: var(--clr-ac);
+    transition: all 0.2 ease-in;
+
+    :hover{
+      text-decoration: underline solid var(--clr-ac) 2px;
+      transition: all 0.3 ease-out;
+    }
   }
 }
 
-article .post-footer>a {
+.post-footer>a {
   text-decoration: none;
 }
 
@@ -176,6 +181,22 @@ hr {
   width: 62%;
   margin-bottom: 1em;
   border-bottom-color: var(--clr-ft);
+}
+
+hr.talk-separator {
+  height: 1.5em;
+
+  border: none;
+  overflow: visible;
+  text-align: center;
+  
+  &::after {
+    position: relative;
+    
+    content: '***';
+    letter-spacing: 0.5em;
+    background: transparent;
+  }
 }
 
 ul,
