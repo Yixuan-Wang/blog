@@ -18,7 +18,7 @@ function ArticleMeta({ className, time, taxonomies }) {
       <span>
         {tags?.map(tag => (
           <Chip key={tag}>
-            <Link to={`../../categories/${category}`}>{`@${tag}`}</Link>
+            <Link to={`../../categories/${category}#${tag}`}>{`@${tag}`}</Link>
           </Chip>
         ))}
       </span>
