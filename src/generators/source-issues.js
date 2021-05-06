@@ -164,7 +164,7 @@ exports.sourceIssues = async ({
   const configSourceIssues = {
     owner: `Yixuan-Wang`,
     repo: `blog-contents`,
-    labels: [process.env.ONLY_KEY_ISSUES ? `++` : `+`],
+    labels: [process.env.NODE_ENV === 'development' ? `++` : `+`],
   };
 
   const issues = await getIssues(configSourceIssues);

@@ -47,11 +47,13 @@ jobs:
 
       - name: Install Node Modules
         run: SHARP_IGNORE_GLOBAL_LIBVIPS=true yarn
-        
-      - name: Create DotEnv
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          envkey_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Create Env
+        env: 
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          touch .env
+          echo ACCESS_TOKEN=$ACCESS_TOKEN > .env
 
       - name: Gatsby Build
         run: yarn build --prefix-paths
