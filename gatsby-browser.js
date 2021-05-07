@@ -15,3 +15,8 @@ export const wrapRootElement = ({ element }) => {
     </TheContextGlobal>
   );
 };
+
+export function onServiceWorkerUpdateReady({ _serviceWorker }) {
+  console.log('ServiceWorker is ready to update. Reloading.');
+  location.reload(true);
+}

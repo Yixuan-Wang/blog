@@ -86,12 +86,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        appendScript: `src/helpers/sw-append.js`,
-      },
-    },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
   ],
