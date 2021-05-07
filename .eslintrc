@@ -32,12 +32,12 @@
   },
   "rules": {
     "strict": 0,
-    "prettier/prettier": "warn",
     "react/jsx-indent": ["error", 2, { "indentLogicalExpressions": true }],
     "react/prop-types": "off",
     "react/jsx-no-target-blank": "off",
     "react/no-unescaped-entities": "off",
     "no-undef": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "off",
+    "prettier/prettier": "warn"
   }
 }
