@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-d8a03e30d0300c6c68b5.js"
+    "url": "webpack-runtime-55235db22698f0a042eb.js"
   },
   {
     "url": "styles.bde4d1d8a310e429a524.css"
@@ -39,11 +39,11 @@ self.__precacheManifest = [
     "url": "framework-56253b3dadd752377c6f.js"
   },
   {
-    "url": "app-c60b074a51768899f676.js"
+    "url": "app-9beab9cb40ca7fb4d993.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "37c5f5815370b618fb6deafd2ac5b2c5"
+    "revision": "0d3d14b7fd3e3c1211e9cd87b20e93f8"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-b0556ce5127c1a3e2490.js"
@@ -58,7 +58,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "0ed5a53660882a6508bdc627173308d9"
+    "revision": "dedb5bd71fbf731c8a6fed803c40113c"
   },
   {
     "url": "polyfill-2cb897c2a056d28c9332.js"
@@ -157,7 +157,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/blog/app-c60b074a51768899f676.js`))) {
+  if (!resources || !(await caches.match(`/blog/app-9beab9cb40ca7fb4d993.js`))) {
     return await fetch(event.request)
   }
 
@@ -179,8 +179,3 @@ workbox.routing.registerRoute(navigationRoute)
 
 // this route is used when performing a non-navigation request (e.g. fetch)
 workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)
-
-self.addEventListener('waiting', _event => {
-  console.log(`A new service worker has installed, reloading.`);
-  location.reload(true);
-});
