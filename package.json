@@ -2,7 +2,7 @@
   "name": "pak",
   "private": true,
   "description": "This is a blоg, not a blοg.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Yixuan Wang",
   "dependencies": {
     "axios": "^0.21.1",
