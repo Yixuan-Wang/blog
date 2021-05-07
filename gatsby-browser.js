@@ -17,6 +17,6 @@ export const wrapRootElement = ({ element }) => {
 };
 
 export function onServiceWorkerUpdateReady({ _serviceWorker }) {
-  console.log('ServiceWorker is ready to update. Reloading.');
-  location.reload(true);
+  console.log('A new service worker is installed, reload window.');
+  window.location.reload(true);
 }
