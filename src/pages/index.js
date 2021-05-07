@@ -70,6 +70,15 @@ const IndexPage = ({ data }) => {
       <h1 className="title">{siteMetadata.title}</h1>
       <p className="subtitle description">{siteMetadata.description}</p>
       <section className="index-block">
+        <h2 id="recent-talks">最近的言论</h2>
+        {data.recentTalks.nodes.map(article => (
+          <CardArticle key={article.id} article={article} />
+        ))}
+        <span className="index-link-more">
+          <Link to="/talks/">全部…</Link>
+        </span>
+      </section>
+      <section className="index-block">
         <h2 id="recent-posts">最近的文章</h2>
         {data.recentPosts.nodes.map(article => (
           <CardArticle key={article.id} article={article} />
@@ -85,15 +94,6 @@ const IndexPage = ({ data }) => {
         ))}
         <span className="index-link-more">
           <Link to="/sheets/">全部…</Link>
-        </span>
-      </section>
-      <section className="index-block">
-        <h2 id="recent-talks">最近的言论</h2>
-        {data.recentTalks.nodes.map(article => (
-          <CardArticle key={article.id} article={article} />
-        ))}
-        <span className="index-link-more">
-          <Link to="/talks/">全部…</Link>
         </span>
       </section>
       <section className="index-block">
