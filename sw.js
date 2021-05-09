@@ -39,11 +39,11 @@ self.__precacheManifest = [
     "url": "framework-56253b3dadd752377c6f.js"
   },
   {
-    "url": "app-ed7a4eea701300cf8b19.js"
+    "url": "app-815c4d310c2c25d5dc3e.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "10fd71e0a356de8c723dc24a9d28cd08"
+    "revision": "8ffde5caaa19abf827e2b848f59ea011"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-b0556ce5127c1a3e2490.js"
@@ -58,7 +58,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "cb12a4a4f4903cdab99301c72fd61667"
+    "revision": "1839629a09b6ee5e93d23aa8b18f4d8f"
   },
   {
     "url": "polyfill-2cb897c2a056d28c9332.js"
@@ -157,7 +157,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/blog/app-ed7a4eea701300cf8b19.js`))) {
+  if (!resources || !(await caches.match(`/blog/app-815c4d310c2c25d5dc3e.js`))) {
     return await fetch(event.request)
   }
 
@@ -180,6 +180,8 @@ workbox.routing.registerRoute(navigationRoute)
 // this route is used when performing a non-navigation request (e.g. fetch)
 workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)
 
-self.addEventListener('install', _event => {
-  self.skipWaiting();
+self.addEventListener('message', event => {
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });
