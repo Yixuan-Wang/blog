@@ -1,3 +1,5 @@
-self.addEventListener('install', _event => {
-  self.skipWaiting();
+self.addEventListener('message', event => {
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });

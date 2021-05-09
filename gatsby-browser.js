@@ -16,6 +16,19 @@ export const wrapRootElement = ({ element }) => {
   );
 };
 
+export function onServiceWorkerUpdateFound({ serviceWorker }) {
+  serviceWorker.addEventListener('statechange', function () {
+    if (
+      serviceWorker.state === 'installed' &&
+      !!navigator.serviceWorker.controller
+    ) {
+      navigator.serviceWorker
+        .getRegistration()
+        .then(reg => reg.waiting.postMessage('skipWaiting'));
+    }
+  });
+}
+
 export function onServiceWorkerUpdateReady({ _serviceWorker }) {
   console.log('A new service worker is installed, reload window.');
   window.location.reload(true);
