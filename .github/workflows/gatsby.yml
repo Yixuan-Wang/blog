@@ -34,16 +34,16 @@ jobs:
           restore-keys: |
             node-
 
-      - name: Cache Gatsby Files;
-        uses: actions/cache@v2
-        id: cache-gatsby
-        with:
-          path: |
-            .cache
-            public
-          key: gatsby-${{ hashFiles('package-lock.json', 'gatsby-*.js') }}
-          restore-keys: |
-            gatsby-
+#       - name: Cache Gatsby Files;
+#         uses: actions/cache@v2
+#         id: cache-gatsby
+#         with:
+#           path: |
+#             .cache
+#             public
+#           key: gatsby-${{ hashFiles('package-lock.json', 'gatsby-*.js') }}
+#           restore-keys: |
+#             gatsby-
 
       - name: Install Node Modules
         run: SHARP_IGNORE_GLOBAL_LIBVIPS=true yarn
