@@ -45,6 +45,7 @@ function<span class="token operator">&lt;</span><span class="token keyword">int<
 <li>函数以值的形式返回对象*</li>
 </ul>
 <p>C++ 17 及以上要求实现返回值优化，如果返回值是纯右值（一个直接调用构造函数生成的临时对象），不会执行复制构造函数。此外还有具名返回值优化，可以参考<a href="https://www.zhihu.com/question/443571654/answer/1723219351">谷雨同学的知乎回答</a>。 </p>
+<p>以上操作的特点是，都发生了“在内存中<strong>开辟了一块新的空间</strong>，需要用一个同类对象初始化它”的事件，而在<strong>赋值</strong>操作中，赋值号左侧的左值<strong>并不是一块新的空间</strong>，因此并不调用复制构造函数。另一种理解是，<em>赋值操作过程中不涉及初始化</em> ——而构造函数本质上都是在做初始化操作。</p>
 <h3 id="析构函数">析构函数</h3>
 <p>通常情况下（比如，排除 <code>new</code> 分配的空间没有用 <code>delete</code> 释放的情况），每次调用构造函数，在将来的某个时间点都会发生一次对应的析构。注意，这里的构造函数包括<strong>所有种类的构造函数</strong>：无参构造函数、类型转换构造函数、复制构造函数、移动构造函数等。</p>
 <div class="gatsby-highlight" data-language="cpp"><pre class="language-cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
