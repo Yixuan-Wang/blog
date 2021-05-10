@@ -10,8 +10,7 @@ const About = () => {
       <h1 className="title">关于</h1>
       <h2 id="命名">命名</h2>
       <p>
-        “<strong>博</strong>”字，上古汉语拟音《汉字古音手册》拟作
-        [pɑ̆k]，中古汉语拟音各学派皆作 [pɑk]，其中后低不圆唇元音 ɑ (U+0251{' '}
+        “<strong>博</strong>”字，中古汉语声母“幫”，韵母“鐸開”，拟音 [pɑk]。其中后低不圆唇元音 ɑ (U+0251{' '}
         <span style={{ fontVariant: `all-small-caps` }}>
           LATIN SMALL LETTER ALPHA
         </span>
