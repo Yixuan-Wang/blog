@@ -13,6 +13,7 @@ body {
   fill: var(--clr-ft);
 
   font-family: var(--fnt-sans);
+  overflow: overlay;
 }
 
 ::-webkit-scrollbar {
