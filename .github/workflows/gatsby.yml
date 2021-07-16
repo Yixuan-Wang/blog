@@ -69,17 +69,13 @@ jobs:
     needs: build-and-deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-
       - name: Sync to Gitee
-        uses: spyoungtech/mirror-action@master
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
         with:
-          GIT_SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-          REMOTE: "ssh://git@gitee.com:yixuan-wang/blog.git"
-          GIT_SSH_NO_VERIFY_HOST: "true"
+          source-repo: "git@github.com:Yixuan-Wang/blog.git"
+          destination-repo: "git@gitee.com:yixuan-wang/blog.git"
 
       - name: Deploy Gitee Pages
         uses: yanglbme/gitee-pages-action@master
