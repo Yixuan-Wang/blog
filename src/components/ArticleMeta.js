@@ -12,13 +12,13 @@ function ArticleMeta({ className, time, taxonomies }) {
       <time style={{ marginRight: '1em' }}>{time}</time>
       <span style={{ color: 'var(--clr-ac)', fontWeight: 'bold' }}>
         <Chip>
-          <Link to={`../../categories/${category}`}>{category}</Link>
+          <Link to={`/categories/${category}`}>{category}</Link>
         </Chip>
       </span>
       <span>
         {tags?.map(tag => (
           <Chip key={tag}>
-            <Link to={`../../categories/${category}#${tag}`}>{`@${tag}`}</Link>
+            <Link to={`/categories/${category}#${tag}`}>{`@${tag}`}</Link>
           </Chip>
         ))}
       </span>

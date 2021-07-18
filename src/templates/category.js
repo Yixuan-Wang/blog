@@ -38,7 +38,7 @@ export default function Category({ pageContext, data }) {
                 <li key={fields.slug} className="posts-group-item">
                   <Link
                     className="posts-group-item-link"
-                    to={`../../${fields.slug}`}
+                    to={`/${fields.slug}`}
                   >
                     {frontmatter.title}
                   </Link>
