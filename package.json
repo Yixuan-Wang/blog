@@ -21,7 +21,6 @@
     "gatsby-remark-katex": "^5.6.0",
     "gatsby-remark-prismjs": "^5.6.0",
     "gatsby-remark-responsive-iframe": "^4.6.0",
-    "gatsby-remark-ruby": "^0.1.0",
     "gatsby-remark-smartypants": "^4.6.0",
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-transformer-remark": "^4.6.0",

@@ -6101,13 +6101,6 @@ gatsby-remark-responsive-iframe@^4.6.0:
     lodash "^4.17.21"
     unist-util-visit "^2.0.3"
 
-gatsby-remark-ruby@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.nlark.com/gatsby-remark-ruby/download/gatsby-remark-ruby-0.1.0.tgz#33a81d9154d622f95c6e89714914628db7dd8c07"
-  integrity sha1-M6gdkVTWIvlcbolxSRRijbfdjAc=
-  dependencies:
-    remark-ruby "^0.1.0"
-
 gatsby-remark-smartypants@^4.6.0:
   version "4.6.0"
   resolved "https://registry.nlark.com/gatsby-remark-smartypants/download/gatsby-remark-smartypants-4.6.0.tgz#cd95c17aca378ce5c2210ff528c42ab507afbb29"
@@ -11229,11 +11222,6 @@ remark-retext@^4.0.0:
   integrity sha1-JV7ZisPgpo2lxrpPFyKZuNBiuyg=
   dependencies:
     mdast-util-to-nlcst "^4.0.0"
-
-remark-ruby@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.nlark.com/remark-ruby/download/remark-ruby-0.1.0.tgz#feff8b4bb78710a384e7f23c89483ae4ab57dd09"
-  integrity sha1-/v+LS7eHEKOE5/I8iUg65KtX3Qk=
 
 remark-stringify@^8.1.0:
   version "8.1.1"
