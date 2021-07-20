@@ -16,3 +16,19 @@
 .posts-group-item-link {
   color: var(--clr-ft);
 }
+
+.posts-group-item-quarter {
+  width: 1em;
+  margin-right: 0.5em;
+  
+  svg {
+    vertical-align: middle !important;
+  }
+}
+
+.posts-group-item-chips {
+  margin-left: 0.5em;
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 0 0.25em;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 
 import SEO from '../components/SEO';
+import '../styles/templates/category.scss';
 
 export default function Category({ pageContext, data }) {
   const { category } = pageContext;
@@ -13,21 +14,20 @@ export default function Category({ pageContext, data }) {
       <SEO title={category} />
       <h1>{category}</h1>
       <section>
-        <ul className="posts-group">
+        <div className="tags-group">
           {tags.map(tag => {
             return (
-              <li key={tag} className="posts-group-item">
+              <span key={tag} className="tags-group-item">
                 <a
-                  className="posts-group-item-link"
+                  className="tags-group-item-link"
                   href={`#${tag}`}
-                  style={{ color: `var(--clr-ac)` }}
                 >
-                  {tag}
+                  @{tag}
                 </a>
-              </li>
+              </span>
             );
           })}
-        </ul>
+        </div>
       </section>
       {tagGroup.map(({ tag, nodes }) => (
         <section key={tag}>
@@ -42,6 +42,13 @@ export default function Category({ pageContext, data }) {
                   >
                     {frontmatter.title}
                   </Link>
+                  <span className="posts-group-item-chips">
+                    {frontmatter.keywords && frontmatter?.keywords.map((keyword) => (
+                      <span key={keyword} style={{color: `var(--clr-dm)`}}>
+                        #{keyword}
+                      </span>
+                    ))}
+                  </span>
                 </li>
               );
             })}
@@ -63,6 +70,7 @@ export const query = graphql`
         nodes {
           frontmatter {
             title
+            keywords
           }
           fields {
             slug

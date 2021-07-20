@@ -1,0 +1,15 @@
+.tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding-left: 0;
+  gap: 0 0.5em;
+}
+
+.tags-group-item {
+  color: var(--clr-sc);
+}
+
+.tags-group-item-link {
+  color: var(--clr-sc);
+}

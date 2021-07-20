@@ -34,9 +34,11 @@ function Icon({ iconName }) {
   return (
     <svg
       style={{
-        width: '1.25em',
-        height: '1.25em',
-        verticalAlign: 'text-top',
+        width: '1.25rem',
+        height: '1.25rem',
+        display: 'inline',
+        position: 'relative',
+        top: '0.15em',
       }}
       viewBox="0 0 24 24"
     >

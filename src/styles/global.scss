@@ -35,7 +35,11 @@ body {
 a {
   color: var(--clr-ac);
   text-decoration: none;
-  cursor: pointer;
+
+  @media (hover: hover) {
+    cursor: pointer;
+  }
+  
 }
 
 article {
