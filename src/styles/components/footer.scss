@@ -12,6 +12,7 @@ footer {
   padding: .25em;
 
   color: var(--clr-ft);
+  transition: all 0.2s ease-in;
 
   &:first-child {
     margin-left: 0;
@@ -24,5 +25,6 @@ footer {
   &:hover,
   &.active {
     color: var(--clr-ac);
+    transition: all 0.3s ease-out;
   }
 }
