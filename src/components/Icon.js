@@ -36,7 +36,7 @@ function Icon({ iconName }) {
       style={{
         width: '1.25em',
         height: '1.25em',
-        verticalAlign: '-.25em',
+        verticalAlign: 'text-top',
       }}
       viewBox="0 0 24 24"
     >
