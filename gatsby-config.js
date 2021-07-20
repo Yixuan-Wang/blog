@@ -57,10 +57,8 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: `gatsby-remark-shiki`,
             options: {
-              aliases: { sh: 'bash' },
-              noInlineHighlight: true,
             },
           },
           `gatsby-remark-copy-linked-files`,

@@ -6101,6 +6101,14 @@ gatsby-remark-responsive-iframe@^4.6.0:
     lodash "^4.17.21"
     unist-util-visit "^2.0.3"
 
+gatsby-remark-shiki@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.nlark.com/gatsby-remark-shiki/download/gatsby-remark-shiki-0.2.0.tgz#f9d881c21469466f2a5673c3286ca902e44d7f82"
+  integrity sha1-+diBwhRpRm8qVnPDKGypAuRNf4I=
+  dependencies:
+    shiki "^0.2.2"
+    unist-util-visit "^2.0.1"
+
 gatsby-remark-smartypants@^4.6.0:
   version "4.6.0"
   resolved "https://registry.nlark.com/gatsby-remark-smartypants/download/gatsby-remark-smartypants-4.6.0.tgz#cd95c17aca378ce5c2210ff528c42ab507afbb29"
@@ -8062,7 +8070,7 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-json5@^2.1.2, json5@^2.2.0:
+json5@^2.1.0, json5@^2.1.2, json5@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/json5/download/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
   integrity sha1-Lf7+cgxrpSXZ69kJlQ8FFTFsiaM=
@@ -8489,6 +8497,13 @@ lru-cache@^4.0.0, lru-cache@^4.0.1:
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
+
+lru-cache@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.npm.taobao.org/lru-cache/download/lru-cache-5.1.1.tgz#1da27e6710271947695daf6848e847f01d84b920"
+  integrity sha1-HaJ+ZxAnGUdpXa9oSOhH8B2EuSA=
+  dependencies:
+    yallist "^3.0.2"
 
 lru-cache@^6.0.0:
   version "6.0.0"
@@ -9595,6 +9610,13 @@ onetime@^5.1.0:
   integrity sha1-0Oluu1awdHbfHdnEgG5SN5hcpF4=
   dependencies:
     mimic-fn "^2.1.0"
+
+onigasm@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.npm.taobao.org/onigasm/download/onigasm-2.2.5.tgz#cc4d2a79a0fa0b64caec1f4c7ea367585a676892"
+  integrity sha1-zE0qeaD6C2TK7B9MfqNnWFpnaJI=
+  dependencies:
+    lru-cache "^5.1.1"
 
 open@^7.0.2, open@^7.0.3:
   version "7.4.2"
@@ -11828,6 +11850,40 @@ shell-quote@1.7.2:
   resolved "https://registry.npm.taobao.org/shell-quote/download/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha1-Z6fQLHbJ2iT5nSCAj8re0ODgS+I=
 
+shiki-languages@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.nlark.com/shiki-languages/download/shiki-languages-0.2.7.tgz#7230b675b96d37a36ac1bf995525375ce69f3924"
+  integrity sha1-cjC2dbltN6Nqwb+ZVSU3XOafOSQ=
+  dependencies:
+    vscode-textmate "^5.2.0"
+
+shiki-themes@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.nlark.com/shiki-themes/download/shiki-themes-0.2.7.tgz#6e04451d832152e0fc969876a7bd926b3963c1f2"
+  integrity sha1-bgRFHYMhUuD8lph2p72SazljwfI=
+  dependencies:
+    json5 "^2.1.0"
+    vscode-textmate "^5.2.0"
+
+shiki@^0.2.2:
+  version "0.2.7"
+  resolved "https://registry.nlark.com/shiki/download/shiki-0.2.7.tgz#d2547548ed8742673730e1e4bbe792a77c445540"
+  integrity sha1-0lR1SO2HQmc3MOHku+eSp3xEVUA=
+  dependencies:
+    onigasm "^2.2.5"
+    shiki-languages "^0.2.7"
+    shiki-themes "^0.2.7"
+    vscode-textmate "^5.2.0"
+
+shiki@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.nlark.com/shiki/download/shiki-0.9.5.tgz#c8da81a05fbfd1810729c6873901a729a72ec541"
+  integrity sha1-yNqBoF+/0YEHKcaHOQGnKacuxUE=
+  dependencies:
+    json5 "^2.2.0"
+    onigasm "^2.2.5"
+    vscode-textmate "5.2.0"
+
 side-channel@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/side-channel/download/side-channel-1.0.4.tgz#efce5c8fdc104ee751b25c58d4290011fa5ea2cf"
@@ -13161,7 +13217,7 @@ unist-util-visit@^1.1.0:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-unist-util-visit@^2.0.0, unist-util-visit@^2.0.2, unist-util-visit@^2.0.3:
+unist-util-visit@^2.0.0, unist-util-visit@^2.0.1, unist-util-visit@^2.0.2, unist-util-visit@^2.0.3:
   version "2.0.3"
   resolved "https://registry.nlark.com/unist-util-visit/download/unist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
   integrity sha1-w3A4kxRt9HIDu4qXla9H17lxIIw=
@@ -13404,6 +13460,16 @@ vfile@^4.0.0:
     is-buffer "^2.0.0"
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
+
+vscode-textmate@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.npm.taobao.org/vscode-textmate/download/vscode-textmate-5.2.0.tgz#01f01760a391e8222fe4f33fbccbd1ad71aed74e"
+  integrity sha1-AfAXYKOR6CIv5PM/vMvRrXGu104=
+
+vscode-textmate@^5.2.0:
+  version "5.4.0"
+  resolved "https://registry.npm.taobao.org/vscode-textmate/download/vscode-textmate-5.4.0.tgz#4b25ffc1f14ac3a90faf9a388c67a01d24257cd7"
+  integrity sha1-SyX/wfFKw6kPr5o4jGegHSQlfNc=
 
 watchpack@^2.2.0:
   version "2.2.0"
@@ -13900,6 +13966,11 @@ yallist@^2.0.0, yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npm.taobao.org/yallist/download/yallist-2.1.2.tgz?cache=0&sync_timestamp=1569874223546&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fyallist%2Fdownload%2Fyallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
   integrity sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
+
+yallist@^3.0.2:
+  version "3.1.1"
+  resolved "https://registry.npm.taobao.org/yallist/download/yallist-3.1.1.tgz?cache=0&sync_timestamp=1569874223546&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fyallist%2Fdownload%2Fyallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
+  integrity sha1-27fa+b/YusmrRev2ArjLrQ1dCP0=
 
 yallist@^4.0.0:
   version "4.0.0"

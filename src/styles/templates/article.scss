@@ -2,11 +2,11 @@ p {
   a {
     text-decoration-skip-ink: auto;
     color: var(--clr-ac);
-    transition: all 0.2 ease-in;
+    transition: all 0.2s ease-in;
 
-    :hover{
-      text-decoration: underline solid var(--clr-ac) 2px;
-      transition: all 0.3 ease-out;
+    &:hover{
+      color: var(--clr-sc);
+      transition: all 0.3s ease-out;
     }
   }
 }
@@ -20,7 +20,7 @@ h1 {
   padding-top: 0.2em;
   margin: 0.5em 0em 0.75em 0em;
   font-family: var(--fnt-serif);
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1.3em;
 }
 
@@ -31,7 +31,7 @@ h5,
 h6 {
   margin: 1.25em 0em 0.75em 0em;
   font-family: var(--fnt-serif);
-  font-weight: 600;
+  font-weight: bold;
 }
 
 h2 {
@@ -58,7 +58,6 @@ h2 {
 
 h5,
 h6 {
-  font-weight: 700;
   line-height: 1.3em;
 }
 
@@ -246,7 +245,7 @@ code,
 pre,
 kbd {
   font-family: var(--fnt-mono) !important;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 154%;
 }
 
