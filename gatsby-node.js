@@ -22,10 +22,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       quarter = parentNode.quarter;
       modifiedTime = parentNode.lastEditedAt;
       slug = `${quarter}/${parentNode.title}`;
+
+      node.frontmatter.date = modifiedTime;
     }
     createNodeField({ node, name: 'slug', value: slug });
     createNodeField({ node, name: 'quarter', value: quarter });
     createNodeField({ node, name: 'modifiedTime', value: modifiedTime });
+    createNodeField({ node, name: 'source', value: parentNode.internal.type.toLowerCase() });
   }
 };
 
