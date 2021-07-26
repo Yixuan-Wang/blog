@@ -20,7 +20,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       slug = `${quarter}/${parentNode.name}`;
     } else if (parentNode.internal.type === `Issues`) {
       quarter = parentNode.quarter;
-      modifiedTime = parentNode.lastEditedAt;
+      modifiedTime = parentNode.updatedAt;
       slug = `${quarter}/${parentNode.title}`;
 
       node.frontmatter.date = modifiedTime;

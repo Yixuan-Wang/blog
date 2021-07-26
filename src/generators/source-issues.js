@@ -31,6 +31,7 @@ query GHQueryIssues (
           }
         }
         lastEditedAt
+        updatedAt
         body
       }
     }
