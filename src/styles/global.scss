@@ -3,7 +3,7 @@
 @import 'breakpoints';
 
 body {
-  line-height: 1.65;
+  line-height: 1.5;
 
   max-width: $b-md;
   margin: 0 auto;
@@ -19,7 +19,7 @@ body {
 ::-webkit-scrollbar {
   height: 4px;
   width: 4px;
-  background-color: transparent;
+  background-color: var(--clr-bg);
 }
 
 ::-webkit-scrollbar-thumb {
