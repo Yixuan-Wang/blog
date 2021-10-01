@@ -178,7 +178,7 @@ exports.sourceIssues = async ({
     const parsedLabel = parseLabel(labels);
 
     let content;
-    if (parsedLabel?.quarter === 'talks') {
+    if (parsedLabel?.quarter === 'talks' || parsedLabel?.quarter === 'sheets') {
       const comments = await getComments(configSourceIssues, issue.number);
       content =
         issue.body +
