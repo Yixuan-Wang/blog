@@ -9,6 +9,7 @@ self.addEventListener('activate', function(e) {
       return self.clients.matchAll();
     })
     .then(function(clients) {
-      clients.forEach(client => client.navigate('https://blog.yixuan-wang.site'))
+      clients.forEach(client => client.navigate(client.url))
+      window.location.reload()
     });
 });

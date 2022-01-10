@@ -61,6 +61,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
+          cname: blog.yixuan-wang.site
 
       - name: Deploy Server
         uses: easingthemes/ssh-deploy@v2
