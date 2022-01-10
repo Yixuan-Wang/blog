@@ -11,7 +11,7 @@ const lang = props.article.frontmatter.lang ?? 'zh-Hans'
 
 <template>
   <article
-    class="flex items-start gap-2 rounded"
+    class="flex items-start gap-2 items-center rounded"
     :lang="lang"
   >
     <time class="font-mono">{{ d(article.frontmatter.date, 'monthDay', 'iso') }}</time>
