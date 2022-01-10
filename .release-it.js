@@ -8,6 +8,7 @@ module.exports = {
     commitMessage: 'chore(release): v${version}',
     commitArgs: ['-S'],
     tag: true,
+    tagName: 'v${version}',
     tagArgs: ['-s'],
     tagAnnotation: 'v${version}',
     push: true,
