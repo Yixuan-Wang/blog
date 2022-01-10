@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+  
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Checkout Contents
+        uses: actions/checkout@v2
+        with:
+          repository: Yixuan-Wang/blog-contents
+          path: contents
+
+      - name: Cache pnpm Modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Install Node Packages
+        run: pnpm install
+
+      - name: Create Env
+        env: 
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        # used to pull issues
+        run: |
+          touch .env.local
+          echo ACCESS_TOKEN=$ACCESS_TOKEN > .env.local
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Deploy GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          cname: blog.yixuan-wang.site
+
+      - name: Deploy Server
+        uses: easingthemes/ssh-deploy@v2
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.MIRROR_HOST }}
+          REMOTE_USER: ${{ secrets.MIRROR_USER }}
+          SOURCE: dist/.
+          TARGET: ${{ secrets.MIRROR_TARGET }}
