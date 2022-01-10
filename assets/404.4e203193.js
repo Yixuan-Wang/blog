@@ -1,1 +1,0 @@
-import{f as t,u as s,r as n,o as a,b as r,d as c,t as u,h as _,i}from"./vendor.e22f72d7.js";const m={class:"mt-4 mb-8"},h=t({setup(p){const{t:e}=s();return(d,l)=>{const o=n("router-view");return a(),r("main",null,[c("h1",m,u(_(e)("not-found")),1),i(o)])}}});export{h as default};
