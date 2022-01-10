@@ -164,9 +164,9 @@
 #md pre,
 #md kbd {
   font-family: var(--font-mono) !important;
-  font-size: 0.85rem;
   line-height: 154%;
 }
+
 #md .table-wrapper {
   overflow-x: auto;
 }
