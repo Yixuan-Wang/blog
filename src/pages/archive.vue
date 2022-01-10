@@ -10,7 +10,9 @@ const selection = reactive({
 const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection])
 
 const pageName = computed(() => t('archive'))
-syncRef(pageName, pageTitle)
+
+if (!import.meta.env.SSR)
+  syncRef(pageName, pageTitle)
 
 useHead({
   meta: [

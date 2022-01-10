@@ -18,7 +18,8 @@ const props = defineProps<{
 
 const route = useRoute()
 
-pageTitle.value = props.frontmatter.title
+if (!import.meta.env.SSR)
+  pageTitle.value = props.frontmatter.title
 
 useHead({
   meta: [

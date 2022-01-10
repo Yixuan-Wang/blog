@@ -6,7 +6,9 @@ const { t } = useI18n()
 const filter = (article: Article) => article.frontmatter.category === params.value?.category as string ?? ''
 
 const categoryName = computed(() => t(`categories.${params.value.category}`, params.value.category as string))
-syncRef(categoryName, pageTitle)
+
+if (!import.meta.env.SSR)
+  syncRef(categoryName, pageTitle)
 
 useHead({
   meta: [

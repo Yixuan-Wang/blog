@@ -4,7 +4,9 @@ const filter = (article: Article) => article.genre === 'sheets'
 const { t } = useI18n({ useScope: 'global' })
 
 const genreName = computed(() => t('genre.sheets'))
-syncRef(genreName, pageTitle)
+
+if (!import.meta.env.SSR)
+  syncRef(genreName, pageTitle)
 
 useHead({
   meta: [

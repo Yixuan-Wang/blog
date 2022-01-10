@@ -5,7 +5,9 @@ const { query } = toRefs(useRoute())
 const filter = (article: Article) => article.frontmatter.tags.includes(query.value?.tag as string ?? '')
 
 const tagName = computed(() => `@${query.value.tag}`)
-syncRef(tagName, pageTitle)
+
+if (!import.meta.env.SSR)
+  syncRef(tagName, pageTitle)
 
 useHead({
   meta: [

@@ -3,7 +3,9 @@ import { pageTitle } from '~/logic/title'
 
 const router = useRouter()
 
-pageTitle.value = '404'
+if (!import.meta.env.SSR)
+  pageTitle.value = '404'
+
 useHead({
   meta: [
     { name: 'description', content: '404' },
