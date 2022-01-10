@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { title } from './logic/title'
 import { initLocale } from './logic/locale'
 initLocale(useI18n)
-useHead({ title: import.meta.env.SSR ? 'Pak' : title.value })
 </script>
 
 <template>

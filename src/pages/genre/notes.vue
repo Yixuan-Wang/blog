@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { pageTitle } from '~/logic/title'
-
 const { t } = useI18n()
 const filter = (article: Article) => article.genre === 'notes'
 
 const genreName = computed(() => t('genre.notes'))
 
-if (!import.meta.env.SSR)
-  syncRef(genreName, pageTitle)
-
 useHead({
+  title: computed(() => `${genreName.value} | Pak`),
   meta: [
     { name: 'description', content: 'Talks on Pak' },
   ],

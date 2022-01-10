@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { pageTitle } from '~/logic/title'
-
 const router = useRouter()
 
-if (!import.meta.env.SSR)
-  pageTitle.value = '404'
-
 useHead({
+  title: '404 | Pak',
   meta: [
     { name: 'description', content: '404' },
   ],

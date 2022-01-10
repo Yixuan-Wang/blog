@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { pageTitle } from '~/logic/title'
 import { useStore } from '~/stores/store'
 import { friends } from '/others/friends.yaml'
 
-if (!import.meta.env.SSR)
-  pageTitle.value = null
-
 useHead({
+  title: 'Pak',
   meta: [
     { name: 'description', content: 'Yixuan Wang\'s personal blog' },
   ],

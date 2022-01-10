@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
-import { pageTitle } from '~/logic/title'
 const props = defineProps<{
   frontmatter: {
     title: string
@@ -18,10 +17,8 @@ const props = defineProps<{
 
 const route = useRoute()
 
-if (!import.meta.env.SSR)
-  pageTitle.value = props.frontmatter.title
-
 useHead({
+  title: `${props.frontmatter.title} | Pak`,
   meta: [
     {
       name: 'description',

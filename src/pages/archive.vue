@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { pageTitle } from '~/logic/title'
-
 const { t } = useI18n()
 const selection = reactive({
   posts: true,
@@ -11,10 +9,8 @@ const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeo
 
 const pageName = computed(() => t('archive'))
 
-if (!import.meta.env.SSR)
-  syncRef(pageName, pageTitle)
-
 useHead({
+  title: computed(() => `${pageName.value} | Pak`),
   meta: [
     { name: 'description', content: 'All articles on Pak.' },
   ],
