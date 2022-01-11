@@ -6,4 +6,4 @@
 
 > This is a blоg, not a blog.
 
-A personal blog system and beyond, built with [Gatsby](http://gatsbyjs.com/).
+A personal blog system and (possibly) beyond, built with [Vite](http://vitejs.dev/).
