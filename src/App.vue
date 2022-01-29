@@ -13,9 +13,18 @@ initLocale(useI18n)
 
 <style>
 #app {
-  @apply
-    grid grid-rows-[auto,1fr,auto] grid-cols-[100%]
-    mx-4 lg:mx-0 h-full
-  ;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  margin-left: 1rem; /* 16px */
+  margin-right: 1rem; /* 16px */
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  #app {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 </style>

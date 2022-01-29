@@ -36,9 +36,13 @@
 
 <style scoped>
 button {
-  @apply
-    p-1 text-lg text-acc
-    hover:text-sec
-  ;
+  padding: 0.25rem;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  color: var(--color-accent);
+}
+
+button:hover {
+  color: var(--color-secondary);
 }
 </style>

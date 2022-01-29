@@ -44,7 +44,10 @@ html:not(.dark) .shiki-dark {
 }
 
 body {
-  @apply h-full m-auto p-0 max-w-[75ch];
+  height: 100%;
+  margin: auto;
+  padding: 0;
+  max-width: 75ch;
 }
 
 svg {
@@ -60,7 +63,8 @@ svg {
 }
 
 #nprogress .bar {
-  @apply bg-acc opacity-75;
+  background-color: var(--color-accent);
+  opacity: 0.75;
 
   position: fixed;
   z-index: 1031;
@@ -94,18 +98,14 @@ svg {
 }
 
 h1 {
-  @apply text-3xl font-bold;
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem;
+  font-weight: 700;
 }
 
 button {
-  @apply !outline-none;
-}
-
-.btn {
-  @apply px-4 py-1 rounded inline-block
-    bg-teal-600 text-white cursor-pointer
-    hover:bg-teal-700
-    disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
 }
 
 .prose {
@@ -117,15 +117,25 @@ button {
   overflow-x: auto;
 }
 
-.icon-btn {
-  @apply inline-block cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-600;
-  /* font-size: 0.9em; */
-}
-
 .transition-lively,
 button {
-  @apply transition duration-200 ease-in
-    hover:(duration-300 ease-out);
+  -webkit-transition-property: background-color, border-color, color, fill, stroke, opacity, -webkit-box-shadow, -webkit-transform, filter, backdrop-filter;
+  -o-transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, -webkit-box-shadow, transform, -webkit-transform, filter, backdrop-filter;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  -o-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  -webkit-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+
+.transition-lively:hover,
+button:hover {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  -o-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transition-duration: 300ms;
+  -o-transition-duration: 300ms;
+  transition-duration: 300ms;
 }

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { unoify } from '~/logic/uno'
+
 // @ts-ignore
 const props = defineProps<{
   frontmatter: {
@@ -10,6 +12,12 @@ const props = defineProps<{
   }
   inner: string
 }>()
+
+if (!import.meta.env.SSR) {
+  onBeforeMount(async() => {
+    useStyleTag(await unoify(props.inner))
+  })
+}
 </script>
 
 <template>

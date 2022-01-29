@@ -12,16 +12,22 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-md'
 import yaml from '@rollup/plugin-yaml'
-import WindiCSS from 'vite-plugin-windicss'
+import UnoCSS from 'unocss/vite'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 
-import Shiki from 'markdown-it-shiki'
-import Katex from '@iktakahiro/markdown-it-katex'
-import LinkAttributes from 'markdown-it-link-attributes'
+import MdShiki from 'markdown-it-shiki'
+import MdKatex from '@iktakahiro/markdown-it-katex'
+import MdLinkAttributes from 'markdown-it-link-attributes'
 // @ts-ignore
-import Footnote from 'markdown-it-footnote'
+import MdFootnote from 'markdown-it-footnote'
 // @ts-ignore
-import Anchor from 'markdown-it-anchor'
+import MdAnchor from 'markdown-it-anchor'
+// @ts-ignore
+import MdContainer from 'markdown-it-container'
+// @ts-ignore
+import MdAttrs from 'markdown-it-attrs'
+// @ts-ignore
+import MdSpan from 'markdown-it-bracketed-spans'
 // @ts-ignore
 import uslug from 'uslug'
 
@@ -30,6 +36,10 @@ import { isString } from '@vueuse/core'
 
 import IssuesPagesPlugin from './generated/issues/issues'
 import { getMeta } from './generated/markdown-meta'
+// @ts-ignore
+import MdRuby from './generated/markdown-it-ruby'
+
+import UnoConfig from '.uno.config.js'
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') })
 
@@ -162,9 +172,10 @@ export default defineConfig(({ mode }) => ({
     }),
 
     // https://github.com/antfu/vite-plugin-windicss
-    WindiCSS({
+    /* WindiCSS({
       safelist: markdownWrapperClasses,
-    }),
+    }), */
+    UnoCSS(UnoConfig),
 
     // https://github.com/antfu/vite-plugin-md
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
@@ -174,24 +185,40 @@ export default defineConfig(({ mode }) => ({
         // https://prismjs.com/
         // md.use(Prism as any)
         const uslugify = (s: string) => uslug(s)
-        md.use(Anchor, {
-          slugify: uslugify,
+        md.use(MdSpan)
+        md.use(MdContainer, '~')
+        md.use(MdContainer, '%')
+        md.use(MdContainer, '+', {
+          render: (tokens: any, idx: any) => {
+            const m = tokens[idx].info.trim().match(/^\+\s+\[(.*)\]$/)
+
+            if (tokens[idx].nesting === 1)
+              return `<details><summary>${m[1]}</summary>\n`
+              // return `<details><summary>${md.utils.escapeHtml(m[1])}</summary>\n`
+            else
+              return '</details>\n'
+          },
         })
-        md.use(Shiki as any, {
+        md.use(MdAttrs)
+        md.use(MdShiki as any, {
           theme: {
             dark: 'nord',
             light: 'github-light',
           },
         })
-        md.use(Katex)
-        md.use(LinkAttributes as any, {
+        md.use(MdKatex)
+        md.use(MdRuby)
+        md.use(MdLinkAttributes as any, {
           pattern: /^https?:\/\//,
           attrs: {
             target: '_blank',
             rel: 'noopener',
           },
         })
-        md.use(Footnote)
+        md.use(MdAnchor, {
+          slugify: uslugify,
+        })
+        md.use(MdFootnote)
       },
       transforms: {
         after(code) {

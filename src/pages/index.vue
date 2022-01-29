@@ -68,7 +68,7 @@ const articles = computed(() => store.articles.filter(filter.value))
       <h2 class="text-xl font-bold">
         {{ t('friends') }}
       </h2>
-      <li class="grid grid-cols-[auto,auto,1fr] gap-2 items-center">
+      <li class="grid grid-cols-[auto_auto_1fr] gap-2 items-center">
         <CardFriend
           v-for="friend in friends"
           :key="friend.name"
@@ -81,10 +81,10 @@ const articles = computed(() => store.articles.filter(filter.value))
 
 <style scoped>
 button:hover {
-  @apply text-acc;
+  color: var(--color-accent);
 }
 .genre-hide {
-  @apply text-dim;
+  color: var(--color-dim);
 }
 </style>
 

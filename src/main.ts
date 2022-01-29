@@ -9,15 +9,19 @@ import { useStore } from './stores/store'
 import App from './App.vue'
 
 // windicss layers
-import 'virtual:windi-base.css'
-import 'virtual:windi-components.css'
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
+// import 'virtual:windi-base.css'
+// import 'virtual:windi-components.css'
 // your custom styles here
 import './styles/main.css'
 import '~/styles/article.css'
 // windicss utilities should be the last style import
-import 'virtual:windi-utilities.css'
+// import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
-import 'virtual:windi-devtools'
+// import 'virtual:windi-devtools'
+
+// console.log(Component)
 
 const routes = setupLayouts([...generatedRoutes, ...generatedIssuesRoutes])
 
@@ -32,7 +36,7 @@ const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
 export const createApp = ViteSSG(
   App,
   { routes, scrollBehavior },
-  (ctx) => {
+  async(ctx) => {
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx))
     const { app, routes } = ctx
@@ -43,6 +47,11 @@ export const createApp = ViteSSG(
     //   initialState.pinia = pinia.state.value
     // else
     //   pinia.state.value = initialState.pinia || {}
+
+    if (!import.meta.env.SSR) {
+      // @ts-nocheck
+      await import('@yixuan-wang/component-leipzig')
+    }
 
     const store = useStore(pinia)
     store.generateArticles(routes)

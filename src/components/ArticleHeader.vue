@@ -55,10 +55,3 @@ const lang = props.article.frontmatter.lang ?? 'zh-Hans'
     </span>
   </div>
 </template>
-
-<style scoped>
-.ring-chip {
-  @apply xl:(ring-inset ring-2);
-}
-
-</style>

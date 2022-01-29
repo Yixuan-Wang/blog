@@ -74,17 +74,25 @@ const version = import.meta.env.PACKAGE_VERSION
 
 <style scoped>
 button {
-  @apply
-    p-0.5 text-lg text-fgd
-    hover:text-acc
-  ;
+  padding: 0.125rem;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem;
+  color: var(--color-foreground);
+}
+
+button:hover {
+  color: var(--color-accent);
 }
 
 .button_container {
-  @apply relative;
+  position: relative;
 }
 .button_container .button_prompt {
-  @apply absolute left-[-4em] right-[-4em] top-[-100%] text-center;
+  position: absolute;
+  left: -4em;
+  right: -4em;
+  top: -100%;
+  text-align: center;
   visibility: hidden;
 }
 

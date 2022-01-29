@@ -13,12 +13,12 @@
 #md a,
 #md a * {
   text-decoration-skip-ink: auto;
-  color: var(--color-accent) !important;
+  color: var(--color-accent);
   transition: all 0.2s ease-in;
 }
 #md a:hover,
 #md a *:hover {
-  color: var(--color-secondary) !important;
+  color: var(--color-secondary);
   transition: all 0.3s ease-out;
 }
 
@@ -70,8 +70,23 @@
 #md p {
   margin: 1em 0;
 }
-#md strong {
-  /* color: var(--color-accent); */
+#md p:first-child,
+#md h1:first-child,
+#md h2:first-child,
+#md h3:first-child,
+#md h4:first-child,
+#md pre:first-child,
+#md .\~:first-child {
+  margin-top: 0;
+}
+#md p:last-child,
+#md h1:last-child,
+#md h2:last-child,
+#md h3:last-child,
+#md h4:last-child,
+#md pre:last-child,
+#md .\~:last-child {
+  margin-bottom: 0;
 }
 #md a {
   text-decoration: underline;
@@ -163,8 +178,12 @@
 #md code,
 #md pre,
 #md kbd {
-  font-family: var(--font-mono) !important;
+  font-family: var(--font-mono);
   line-height: 154%;
+}
+
+#md pre {
+  margin: 1em 0;
 }
 
 #md .table-wrapper {
@@ -184,9 +203,33 @@
 #md details summary:focus {
   outline: none;
 }
+#md details summary {
+  color: var(--color-accent);
+}
+#md details[open] summary {
+  color: var(--color-secondary);
+}
+#md details {
+  margin: 1em 0;
+}
 #md .katex {
   font-size: 1em;
 }
 #md img {
   max-width: 100%;
+}
+
+#md .\~ {
+  border-radius: 0.25em;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+#md .\~[class="~"] {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+}
+
+#md .\~ * {
+  margin: 0;
 }

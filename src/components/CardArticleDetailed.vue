@@ -35,10 +35,10 @@ const lang = props.article.frontmatter.lang ?? 'zh-Hans'
 
 <style scoped>
 article:hover h2 {
-  @apply text-acc;
+  color: var(--color-accent);
 }
 
 .card-article-text:hover h2 {
-  @apply text-sec;
+  color: var(--color-secondary);
 }
 </style>
