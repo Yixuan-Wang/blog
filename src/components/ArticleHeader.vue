@@ -15,7 +15,7 @@ const lang = props.article.frontmatter.lang ?? 'zh-Hans'
       <router-link
         :to="`/${article.genre}`"
       >
-        <BadgeGenre class="transition-lively hover:(text-acc)" :genre="article.genre" />
+        <BadgeGenre class="transition-lively hover:text-acc" :genre="article.genre" />
       </router-link>
     </span>
     <span class="flex gap-1 justify-center items-center">
@@ -25,7 +25,7 @@ const lang = props.article.frontmatter.lang ?? 'zh-Hans'
       <BaseChip v-if="lang !== locale" class="ring-inset ring-2 ring-fgd">{{ lang }}</BaseChip>
     </span>
     <span class="flex gap-1 justify-center items-center">
-      <BaseChip class="ring-inset ring-2 ring-acc text-acc hover:(bg-acc text-bgd)">
+      <BaseChip class="ring-inset ring-2 ring-acc text-acc hover:bg-acc hover:text-bgd">
         <router-link :to="`/categories/${article.frontmatter.category}`">
           {{ t(`categories.${article.frontmatter.category}`) }}
         </router-link>
@@ -35,7 +35,7 @@ const lang = props.article.frontmatter.lang ?? 'zh-Hans'
       <BaseChip
         v-for="tag in article.frontmatter.tags"
         :key="tag"
-        class="ring-inset ring-2 ring-sec text-sec hover:(bg-sec text-bgd)"
+        class="ring-inset ring-2 ring-sec text-sec hover:bg-sec hover:text-bgd"
       >
         <router-link :to="{ path: '/tags', query: { tag } }">
           @{{ tag }}
