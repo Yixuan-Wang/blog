@@ -22,6 +22,10 @@
   transition: all 0.3s ease-out;
 }
 
+#md em {
+  padding-right: 0.25ch;
+}
+
 #md .post-footer > a {
   text-decoration: none;
 }
@@ -134,7 +138,7 @@
 }
 #md ul,
 #md ol {
-  margin: .25em 0em;
+  margin: 1em 0em;
   padding-left: 1em;
 }
 #md ul {
@@ -145,6 +149,7 @@
 }
 #md li {
   line-height: 150%;
+  margin: .25em 0em;
 }
 
 #md mark {
