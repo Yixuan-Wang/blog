@@ -3,7 +3,9 @@ name: Release
 on:
   workflow_dispatch:
   repository_dispatch: 
-    types: [contents-update]
+    types: 
+      - contents-update
+      - contents-issues-update
   push:
     tags:
       - 'v*'
