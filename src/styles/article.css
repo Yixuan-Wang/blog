@@ -242,3 +242,14 @@
 #md .\~ * {
   margin: 0;
 }
+
+#md .poem {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+#md .poem > * {
+  padding: unset;
+  margin: unset;
+}

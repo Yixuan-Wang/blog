@@ -10,12 +10,14 @@ import App from './App.vue'
 
 // windicss layers
 import '@unocss/reset/tailwind.css'
+import './styles/reset.css'
 import 'uno.css'
 // import 'virtual:windi-base.css'
 // import 'virtual:windi-components.css'
 // your custom styles here
 import './styles/main.css'
-import '~/styles/article.css'
+import './styles/article.css'
+import { initTypography } from './logic/typography'
 // windicss utilities should be the last style import
 // import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
@@ -55,5 +57,7 @@ export const createApp = ViteSSG(
 
     const store = useStore(pinia)
     store.generateArticles(routes)
+    if (!import.meta.env.SSR)
+      initTypography(store)
   },
 )

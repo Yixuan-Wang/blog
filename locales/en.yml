@@ -20,3 +20,7 @@ friends: Friends
 button:
   toggleDark: Toggle Dark Mode
   toggleLocale: Toggle Language
+typography:
+  typography: Typography
+  font: Font
+  webfont: Webfont

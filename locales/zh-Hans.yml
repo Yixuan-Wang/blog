@@ -19,3 +19,7 @@ genre:
 about: 关于
 archive: 归档
 friends: 朋友
+typography:
+  typography: 排版
+  font: 字体
+  webfont: 网络字体

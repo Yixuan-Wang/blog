@@ -1,9 +1,13 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
+import { WEBFONTS } from '~/logic/typography'
+import { mapTo } from '~/logic/helpers'
 
 export const useStore = defineStore('store', () => {
   const articles = ref<Article[]>([])
   const title = ref('')
+
+  const webfont = ref<Record<string, boolean>>(mapTo(WEBFONTS, false))
 
   // const init = (routes: RouteRecordRaw[]) => {
   //   articles.value = routes.filter(({ path }) => path.match(/(posts|sheets|notes)\/.+/))?.map(route => route!.children![0]!.meta! as unknown as Article).sort((a, b) => b.timestamp - a.timestamp)
@@ -28,6 +32,7 @@ export const useStore = defineStore('store', () => {
   return {
     articles,
     title,
+    webfont,
     setTitle,
     generateArticles,
   }
