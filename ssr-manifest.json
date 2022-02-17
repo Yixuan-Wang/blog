@@ -2100,27 +2100,27 @@
   ],
   "contents/others/about.vue": [
     "/assets/about.ac725f07.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+    "/assets/about.214b3236.css"
   ],
   "assets/about.ac725f07.js-unocss-hash.css": [
     "/assets/about.ac725f07.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+    "/assets/about.214b3236.css"
   ],
   "contents/others/about/about-en.md": [
     "/assets/about-en.8e872dff.js",
-    "/assets/about-zh-Hans.0377cd3f.css"
+    "/assets/about-en.9e12e662.css"
   ],
   "assets/about-en.8e872dff.js-unocss-hash.css": [
     "/assets/about-en.8e872dff.js",
-    "/assets/about-zh-Hans.0377cd3f.css"
+    "/assets/about-en.9e12e662.css"
   ],
   "contents/others/about/about-zh-Hans.md": [
     "/assets/about-zh-Hans.a87d0cab.js",
-    "/assets/about-zh-Hans.0377cd3f.css"
+    "/assets/about-en.9e12e662.css"
   ],
   "assets/about-zh-Hans.a87d0cab.js-unocss-hash.css": [
     "/assets/about-zh-Hans.a87d0cab.js",
-    "/assets/about-zh-Hans.0377cd3f.css"
+    "/assets/about-en.9e12e662.css"
   ],
   "src/components/TheArticleFull.vue": [
     "/assets/TheArticle.4dab4958.js",
@@ -2200,11 +2200,11 @@
   ],
   "src/components/TheTaxonomy.vue": [
     "/assets/TheTaxonomy.87fff4a1.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+    "/assets/about.214b3236.css"
   ],
   "assets/TheTaxonomy.87fff4a1.js-unocss-hash.css": [
     "/assets/TheTaxonomy.87fff4a1.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+    "/assets/about.214b3236.css"
   ],
   "src/components/BaseSelect.vue": [
     "/assets/typography.db017d0e.js",
@@ -2350,11 +2350,11 @@
   ],
   "../../../../../notes/saussure-general-linguistics.md": [
     "/assets/saussure-general-linguistics.b56a2830.js",
-    "/assets/about-zh-Hans.0377cd3f.css"
+    "/assets/about-en.9e12e662.css"
   ],
   "assets/saussure-general-linguistics.b56a2830.js-unocss-hash.css": [
     "/assets/saussure-general-linguistics.b56a2830.js",
-    "/assets/about-zh-Hans.0377cd3f.css"
+    "/assets/about-en.9e12e662.css"
   ],
   "../../../../../notes/cpp-practice-of-programming.md": [
     "/assets/cpp-practice-of-programming.196eb05b.js",
