@@ -1,5 +1,6 @@
 import { storeToRefs } from 'pinia'
 import type { Ref } from 'vue'
+import { mapTo } from './helpers'
 import type { useStore } from '~/stores/store'
 
 type TheStore = ReturnType<typeof useStore>
@@ -52,7 +53,7 @@ function initWebfont(webfont: Ref<Record<string, boolean>>) {
 
 export function initTypography(store: TheStore) {
   const { webfont } = storeToRefs(store)
-  const webfontSt = useLocalStorage<Record<string, boolean>>('typography::webfont', {})
+  const webfontSt = useLocalStorage<Record<string, boolean>>('typography::webfont', mapTo(WEBFONTS, false))
   webfont.value = webfontSt.value
   syncRef(webfont, webfontSt)
 
