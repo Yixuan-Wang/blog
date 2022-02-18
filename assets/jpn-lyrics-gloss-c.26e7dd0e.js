@@ -1,3 +1,0 @@
-import{_ as n}from"./TheArticle.3ca9f339.js";import{o as r,e as s}from"./vendor.68320762.js";import"./app.4a7a081f.js";const _="\u65E5\u8BED\u6B4C\u8BCD\u6807\u6CE8\u4E4B\u4E19",f="2022-02-18T00:00:00.000Z",d="misc",g=["lyrics"],y=["lang:jpn","anime"],j={setup(c,{expose:e}){const t={title:"\u65E5\u8BED\u6B4C\u8BCD\u6807\u6CE8\u4E4B\u4E19",date:"2022-02-18T00:00:00.000Z",category:"misc",tags:["lyrics"],keywords:["lang:jpn","anime"]};return e({frontmatter:t}),(a,i)=>{const o=n;return r(),s(o,{frontmatter:t,inner:`<div><p>\u8BF6\uFF1F\u662F\u4E8C\u6B21\u5143\uFF1F</p>
-<!-- more -->
-</div>`})}}};export{d as category,f as date,j as default,y as keywords,g as tags,_ as title};
