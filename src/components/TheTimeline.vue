@@ -30,8 +30,12 @@ const years = computed(() => Object.keys(articleGroups.value).sort((a, b) => Num
       class="flex flex-col gap-2"
     >
       <div>
-        <h2 class="font-bold text-[1.5em] mb-1">{{ year }}</h2>
-        <p class="font-mono">{{ articleGroups[year].length }}</p>
+        <h2 class="font-bold text-xl mb-1">
+          {{ year }}
+        </h2>
+        <p class="font-mono">
+          {{ articleGroups[year].length }}
+        </p>
       </div>
       <ListArticleCard :articles="articleGroups[year]" :compact="true" />
     </section>
