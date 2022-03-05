@@ -1,0 +1,3 @@
+import{_ as r}from"./TheArticle.b423bf04.js";import{o as s,e as n}from"./vendor.68320762.js";import"./app.88bba982.js";const _="\u65E5\u8BED\u6B4C\u8BCD\u6807\u6CE8\u4E4B\u7532",f="2022-03-05T00:00:00.000Z",d="misc",g=["lyrics"],k=["lang:jpn","folk"],y={setup(c,{expose:o}){const t={title:"\u65E5\u8BED\u6B4C\u8BCD\u6807\u6CE8\u4E4B\u7532",date:"2022-03-05T00:00:00.000Z",category:"misc",tags:["lyrics"],keywords:["lang:jpn","folk"]};return o({frontmatter:t}),(a,i)=>{const e=r;return s(),n(e,{frontmatter:t,inner:`<div><p>\u504F\u5411\u6C11\u8C23\u6027\u8D28\u7684\u65E5\u8BED\u6B4C\u6B4C\u8BCD\u6807\u6CE8\u3002</p>
+<!-- more -->
+</div>`})}}};export{d as category,f as date,y as default,k as keywords,g as tags,_ as title};
