@@ -20,7 +20,10 @@ friends: Friends
 button:
   toggleDark: Toggle Dark Mode
   toggleLocale: Toggle Language
-typography:
+typesetting:
+  typesetting: Typesetting
   typography: Typography
-  font: Font
   webfont: Webfont
+  colors: Colors
+  accent: Accent
+lab: Lab

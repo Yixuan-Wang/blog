@@ -17,7 +17,7 @@ import 'uno.css'
 // your custom styles here
 import './styles/main.css'
 import './styles/article.css'
-import { initTypography } from './logic/typography'
+import { initTypesetting } from './logic/typesetting'
 // windicss utilities should be the last style import
 // import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
@@ -58,6 +58,6 @@ export const createApp = ViteSSG(
     const store = useStore(pinia)
     store.generateArticles(routes)
     if (!import.meta.env.SSR)
-      initTypography(store)
+      initTypesetting(store)
   },
 )

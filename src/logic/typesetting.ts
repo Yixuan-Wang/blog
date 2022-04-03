@@ -5,6 +5,12 @@ import type { useStore } from '~/stores/store'
 
 type TheStore = ReturnType<typeof useStore>
 export const WEBFONTS = ['Noto Sans', 'Noto Serif', 'Noto Sans CJK SC', 'Noto Serif CJK SC', 'JetBrains Mono']
+export const ACCENT_COLORS = {
+  'light-accent': '#003A70',
+  'light-secondary': '#61649F',
+  'dark-accent': '#FFE900',
+  'dark-secondary': '#F86B1D',
+}
 
 function initWebfont(webfont: Ref<Record<string, boolean>>) {
   const webfontTags: Record<string, ReturnType<typeof useStyleTag>> = {
@@ -51,11 +57,25 @@ function initWebfont(webfont: Ref<Record<string, boolean>>) {
   return webfontTags
 }
 
-export function initTypography(store: TheStore) {
-  const { webfont } = storeToRefs(store)
-  const webfontSt = useLocalStorage<Record<string, boolean>>('typography::webfont', mapTo(WEBFONTS, false))
+function initAccentColor(accentColors: Ref<Record<string, string>>) {
+  watchEffect(() => {
+    const accentColorDefinition = Object.entries(accentColors.value).map(([key, color]) => `--accent-${key}: ${color};`).join('\n')
+    useStyleTag(`:root {
+      ${accentColorDefinition}
+    }`)
+  })
+}
+
+export function initTypesetting(store: TheStore) {
+  const { webfont, accentColors } = storeToRefs(store)
+  const webfontSt = useLocalStorage<Record<string, boolean>>('typesetting::webfont', mapTo(WEBFONTS, false))
   webfont.value = webfontSt.value
   syncRef(webfont, webfontSt)
 
+  const accentColorSt = useLocalStorage<Record<string, string>>('typesetting::accent_color', ACCENT_COLORS)
+  accentColors.value = accentColorSt.value
+  syncRef(accentColors, accentColorSt)
+
   initWebfont(webfont)
+  initAccentColor(accentColors)
 }

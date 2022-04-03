@@ -19,7 +19,10 @@ genre:
 about: 关于
 archive: 归档
 friends: 朋友
-typography:
-  typography: 排版
-  font: 字体
+typesetting:
+  typesetting: 排版
+  typography: 字体
   webfont: 网络字体
+  colors: 色彩
+  accent: 主题色
+lab: 实验室

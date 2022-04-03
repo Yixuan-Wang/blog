@@ -1,6 +1,6 @@
 :root {
-  --color-accent:     #003A70;
-  --color-secondary:  #61649f;
+  --color-accent:     var(--accent-light-accent, #003A70);
+  --color-secondary:  var(--accent-light-secondary, #61649f);
   --color-background: #F5F5F5;
   --color-foreground: #1D252D;
   --color-dim:        #737C7B;
@@ -13,8 +13,8 @@
 }
 
 :root.dark {
-  --color-accent:     #FFE900;
-  --color-secondary:  #f86b1d;
+  --color-accent:     var(--accent-dark-accent, #FFE900);
+  --color-secondary:  var(--accent-dark-secondary, #f86b1d);
   --color-background: #253137;
   --color-foreground: #f5f5f5;
   --color-dim:        #B2BBBE;
