@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "pak",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "scripts": {
     "dev": "vite --port 3333 --open",
     "build": "cross-env NODE_ENV=production vite-ssg build",
