@@ -23,6 +23,14 @@ const selectionOthers = reactive<Record<string, boolean>>({
 
 const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection])
 const articles = computed(() => store.articles.filter(filter.value))
+
+const colors = [['#ee3f4d', '#bf3553'], ['#f86b1d', '#fb8b05'], ['#f9a633', '#fcb70a'], ['#229453', '#41b349'], ['#12aa9c', '#57c3c2'], ['#1177b0', '#0f59a4'], ['#813c85', '#ad6598']]
+const resetColors = (color: [string, string]) => {
+  store.accentColors['light-accent'] = color[0]
+  store.accentColors['light-secondary'] = color[1]
+  store.accentColors['dark-accent'] = color[0]
+  store.accentColors['dark-secondary'] = color[1]
+}
 </script>
 
 <template>
@@ -33,6 +41,15 @@ const articles = computed(() => store.articles.filter(filter.value))
     This is a blоg, not a blοg.
   </p>
   <div class="flex flex-col gap-8">
+    <div class="flex gap-1">
+      <div
+        v-for="color in colors"
+        :key="color"
+        :style="{ backgroundColor: color[0] }"
+        class="w-4 h-4 rounded"
+        @click="resetColors(color)"
+      />
+    </div>
     <div
       class="flex gap-2"
     >
