@@ -2192,11 +2192,11 @@
   ],
   "src/pages/tags.vue": [
     "/assets/tags.67a88209.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "assets/tags.67a88209.js-unocss-hash.css": [
     "/assets/tags.67a88209.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "src/components/TheTaxonomy.vue": [
     "/assets/TheTaxonomy.92586ea6.js",
@@ -2208,27 +2208,27 @@
   ],
   "src/pages/genre/notes.vue": [
     "/assets/notes.0e36ea3c.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "assets/notes.0e36ea3c.js-unocss-hash.css": [
     "/assets/notes.0e36ea3c.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "src/pages/genre/posts.vue": [
     "/assets/posts.03523b10.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "assets/posts.03523b10.js-unocss-hash.css": [
     "/assets/posts.03523b10.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "src/pages/genre/sheets.vue": [
     "/assets/sheets.7e416605.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "assets/sheets.7e416605.js-unocss-hash.css": [
     "/assets/sheets.7e416605.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "~icons/mdi/typewriter": [
     "/assets/index.ef2159b8.js",
@@ -2343,11 +2343,11 @@
   ],
   "src/pages/categories/[category].vue": [
     "/assets/_category_.06b80604.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "assets/_category_.06b80604.js-unocss-hash.css": [
     "/assets/_category_.06b80604.js",
-    "/assets/tags.232ba356.css"
+    "/assets/notes.306c8c4c.css"
   ],
   "~icons/mdi/arrow-left": [
     "/assets/_...all_.2d6114c3.js",
