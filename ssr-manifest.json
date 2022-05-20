@@ -63,7 +63,7 @@
   "src/styles/article.css": [],
   "src/main.ts": [],
   "index.html": [],
-  "assets/app.9c1983a3.js-unocss-hash.css": [],
+  "assets/app.7c00ca8e.js-unocss-hash.css": [],
   "node_modules/.pnpm/@intlify+shared@9.1.9/node_modules/@intlify/shared/dist/shared.esm-bundler.js": [
     "/assets/vendor.131e67d1.js"
   ],
@@ -2099,135 +2099,135 @@
     "/assets/index.51351731.js"
   ],
   "contents/others/about.vue": [
-    "/assets/about.346140a2.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+    "/assets/about.d42af6c9.js",
+    "/assets/about.214b3236.css"
   ],
-  "assets/about.346140a2.js-unocss-hash.css": [
-    "/assets/about.346140a2.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+  "assets/about.d42af6c9.js-unocss-hash.css": [
+    "/assets/about.d42af6c9.js",
+    "/assets/about.214b3236.css"
   ],
   "contents/others/about/about-en.md": [
-    "/assets/about-en.812b7bf2.js",
+    "/assets/about-en.8d0fdf73.js",
     "/assets/about-en.253e81e3.css"
   ],
-  "assets/about-en.812b7bf2.js-unocss-hash.css": [
-    "/assets/about-en.812b7bf2.js",
+  "assets/about-en.8d0fdf73.js-unocss-hash.css": [
+    "/assets/about-en.8d0fdf73.js",
     "/assets/about-en.253e81e3.css"
   ],
   "contents/others/about/about-zh-Hans.md": [
-    "/assets/about-zh-Hans.e5a88fed.js",
-    "/assets/saussure-general-linguistics.87f8b262.css"
+    "/assets/about-zh-Hans.d035ce3a.js",
+    "/assets/about-zh-Hans.0377cd3f.css"
   ],
-  "assets/about-zh-Hans.e5a88fed.js-unocss-hash.css": [
-    "/assets/about-zh-Hans.e5a88fed.js",
-    "/assets/saussure-general-linguistics.87f8b262.css"
+  "assets/about-zh-Hans.d035ce3a.js-unocss-hash.css": [
+    "/assets/about-zh-Hans.d035ce3a.js",
+    "/assets/about-zh-Hans.0377cd3f.css"
   ],
   "src/components/TheArticleFull.vue": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+core@0.30.11/node_modules/@unocss/core/dist/index.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-mini@0.30.11/node_modules/@unocss/preset-mini/dist/chunks/utilities.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-mini@0.30.11/node_modules/@unocss/preset-mini/dist/chunks/variants.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-mini@0.30.11/node_modules/@unocss/preset-mini/dist/chunks/colors.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-mini@0.30.11/node_modules/@unocss/preset-mini/dist/chunks/default.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-mini@0.30.11/node_modules/@unocss/preset-mini/dist/chunks/default2.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-mini@0.30.11/node_modules/@unocss/preset-mini/dist/chunks/default3.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-wind@0.30.11/node_modules/@unocss/preset-wind/dist/index.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "node_modules/.pnpm/@unocss+preset-uno@0.30.11/node_modules/@unocss/preset-uno/dist/index.mjs": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   ".uno.config.js": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "src/logic/uno.ts": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "src/components/TheArticle.vue": [
-    "/assets/TheArticle.500c3dfe.js",
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
-  "assets/TheArticle.500c3dfe.js-unocss-hash.css": [
-    "/assets/TheArticle.500c3dfe.js",
+  "assets/TheArticle.48a7176e.js-unocss-hash.css": [
+    "/assets/TheArticle.48a7176e.js",
     "/assets/TheArticle.25f0d059.css"
   ],
   "src/components/TheTimeline.vue": [
-    "/assets/archive.85ddc00c.js",
+    "/assets/archive.1a25d07e.js",
     "/assets/archive.60c6dc93.css"
   ],
   "src/pages/archive.vue": [
-    "/assets/archive.85ddc00c.js",
+    "/assets/archive.1a25d07e.js",
     "/assets/archive.60c6dc93.css"
   ],
-  "assets/archive.85ddc00c.js-unocss-hash.css": [
-    "/assets/archive.85ddc00c.js",
+  "assets/archive.1a25d07e.js-unocss-hash.css": [
+    "/assets/archive.1a25d07e.js",
     "/assets/archive.60c6dc93.css"
   ],
   "src/pages/tags.vue": [
-    "/assets/tags.77f589c2.js",
+    "/assets/tags.0e4c0657.js",
     "/assets/_category_.17522947.css"
   ],
-  "assets/tags.77f589c2.js-unocss-hash.css": [
-    "/assets/tags.77f589c2.js",
+  "assets/tags.0e4c0657.js-unocss-hash.css": [
+    "/assets/tags.0e4c0657.js",
     "/assets/_category_.17522947.css"
   ],
   "src/components/TheTaxonomy.vue": [
-    "/assets/TheTaxonomy.fa16f8b9.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+    "/assets/TheTaxonomy.1cd04176.js",
+    "/assets/about.214b3236.css"
   ],
-  "assets/TheTaxonomy.fa16f8b9.js-unocss-hash.css": [
-    "/assets/TheTaxonomy.fa16f8b9.js",
-    "/assets/TheTaxonomy.c51787b4.css"
+  "assets/TheTaxonomy.1cd04176.js-unocss-hash.css": [
+    "/assets/TheTaxonomy.1cd04176.js",
+    "/assets/about.214b3236.css"
   ],
   "src/pages/genre/notes.vue": [
-    "/assets/notes.13746331.js",
+    "/assets/notes.2e995b47.js",
     "/assets/_category_.17522947.css"
   ],
-  "assets/notes.13746331.js-unocss-hash.css": [
-    "/assets/notes.13746331.js",
+  "assets/notes.2e995b47.js-unocss-hash.css": [
+    "/assets/notes.2e995b47.js",
     "/assets/_category_.17522947.css"
   ],
   "src/pages/genre/posts.vue": [
-    "/assets/posts.87d1eed0.js",
+    "/assets/posts.9c21ca86.js",
     "/assets/_category_.17522947.css"
   ],
-  "assets/posts.87d1eed0.js-unocss-hash.css": [
-    "/assets/posts.87d1eed0.js",
+  "assets/posts.9c21ca86.js-unocss-hash.css": [
+    "/assets/posts.9c21ca86.js",
     "/assets/_category_.17522947.css"
   ],
   "src/pages/genre/sheets.vue": [
-    "/assets/sheets.63e9a89a.js",
+    "/assets/sheets.72b1a402.js",
     "/assets/_category_.17522947.css"
   ],
-  "assets/sheets.63e9a89a.js-unocss-hash.css": [
-    "/assets/sheets.63e9a89a.js",
+  "assets/sheets.72b1a402.js-unocss-hash.css": [
+    "/assets/sheets.72b1a402.js",
     "/assets/_category_.17522947.css"
   ],
   "~icons/mdi/typewriter": [
@@ -2243,177 +2243,185 @@
     "/assets/index.2da74bb9.css"
   ],
   "src/components/BaseSelect.vue": [
-    "/assets/typesetting.90f9a404.js",
+    "/assets/typesetting.b4534e90.js",
     "/assets/typesetting.1b117e72.css"
   ],
   "~icons/mdi/restore": [
-    "/assets/typesetting.90f9a404.js",
+    "/assets/typesetting.b4534e90.js",
     "/assets/typesetting.1b117e72.css"
   ],
   "src/pages/lab/typesetting.vue": [
-    "/assets/typesetting.90f9a404.js",
+    "/assets/typesetting.b4534e90.js",
     "/assets/typesetting.1b117e72.css"
   ],
-  "assets/typesetting.90f9a404.js-unocss-hash.css": [
-    "/assets/typesetting.90f9a404.js",
+  "assets/typesetting.b4534e90.js-unocss-hash.css": [
+    "/assets/typesetting.b4534e90.js",
     "/assets/typesetting.1b117e72.css"
   ],
   "contents/posts/ling/comp_dialect-zho-septipartite.md": [
-    "/assets/comp_dialect-zho-septipartite.7cc85361.js"
+    "/assets/comp_dialect-zho-septipartite.e73690d9.js"
   ],
   "contents/posts/ling/comp_leipzig-glossing.md": [
-    "/assets/comp_leipzig-glossing.39a9062c.js",
+    "/assets/comp_leipzig-glossing.322d94cf.js",
     "/assets/comp_leipzig-glossing.5fcb6633.css"
   ],
-  "assets/comp_leipzig-glossing.39a9062c.js-unocss-hash.css": [
-    "/assets/comp_leipzig-glossing.39a9062c.js",
+  "assets/comp_leipzig-glossing.322d94cf.js-unocss-hash.css": [
+    "/assets/comp_leipzig-glossing.322d94cf.js",
     "/assets/comp_leipzig-glossing.5fcb6633.css"
   ],
   "contents/posts/ling/comp_zho-nasal-coda.md": [
-    "/assets/comp_zho-nasal-coda.aa25390d.js"
+    "/assets/comp_zho-nasal-coda.f3376a13.js"
   ],
   "contents/posts/comp/dsa_del-bst.md": [
-    "/assets/dsa_del-bst.9d3c002d.js",
+    "/assets/dsa_del-bst.c3cf744c.js",
     "/assets/dsa_del-bst.ddb50315.css"
   ],
-  "assets/dsa_del-bst.9d3c002d.js-unocss-hash.css": [
-    "/assets/dsa_del-bst.9d3c002d.js",
+  "assets/dsa_del-bst.c3cf744c.js-unocss-hash.css": [
+    "/assets/dsa_del-bst.c3cf744c.js",
     "/assets/dsa_del-bst.ddb50315.css"
   ],
   "contents/posts/comp/dsa_kmp.md": [
-    "/assets/dsa_kmp.d40e3086.js",
+    "/assets/dsa_kmp.9586ebe7.js",
     "/assets/dsa_kmp.40a2edf0.css"
   ],
-  "assets/dsa_kmp.d40e3086.js-unocss-hash.css": [
-    "/assets/dsa_kmp.d40e3086.js",
+  "assets/dsa_kmp.9586ebe7.js-unocss-hash.css": [
+    "/assets/dsa_kmp.9586ebe7.js",
     "/assets/dsa_kmp.40a2edf0.css"
   ],
   "contents/posts/misc/essay_blogging-nontech.md": [
-    "/assets/essay_blogging-nontech.2e0d5a97.js"
+    "/assets/essay_blogging-nontech.c12113be.js"
   ],
   "contents/posts/misc/essay_blogging-tech.md": [
-    "/assets/essay_blogging-tech.abc1ff3d.js"
+    "/assets/essay_blogging-tech.b6471fdc.js"
   ],
   "contents/posts/comp/front_tailwindcss-tentative.md": [
-    "/assets/front_tailwindcss-tentative.d08f6721.js",
+    "/assets/front_tailwindcss-tentative.f1096083.js",
     "/assets/front_tailwindcss-tentative.689dbadc.css"
   ],
-  "assets/front_tailwindcss-tentative.d08f6721.js-unocss-hash.css": [
-    "/assets/front_tailwindcss-tentative.d08f6721.js",
+  "assets/front_tailwindcss-tentative.f1096083.js-unocss-hash.css": [
+    "/assets/front_tailwindcss-tentative.f1096083.js",
     "/assets/front_tailwindcss-tentative.689dbadc.css"
   ],
   "contents/posts/ling/lang_pku-bell-manchu-inscription.md": [
-    "/assets/lang_pku-bell-manchu-inscription.d4a38506.js",
+    "/assets/lang_pku-bell-manchu-inscription.3c41dbee.js",
     "/assets/lang_pku-bell-manchu-inscription.378d7619.css"
   ],
-  "assets/lang_pku-bell-manchu-inscription.d4a38506.js-unocss-hash.css": [
-    "/assets/lang_pku-bell-manchu-inscription.d4a38506.js",
+  "assets/lang_pku-bell-manchu-inscription.3c41dbee.js-unocss-hash.css": [
+    "/assets/lang_pku-bell-manchu-inscription.3c41dbee.js",
     "/assets/lang_pku-bell-manchu-inscription.378d7619.css"
   ],
   "contents/posts/ling/phil_common-designs.md": [
-    "/assets/phil_common-designs.89c0a0f3.js"
+    "/assets/phil_common-designs.205a7307.js"
   ],
   "contents/posts/ling/phon_phon-perception-exp-beijing-mandarin.md": [
-    "/assets/phon_phon-perception-exp-beijing-mandarin.27c2b0f5.js",
+    "/assets/phon_phon-perception-exp-beijing-mandarin.ba2bfee7.js",
     "/assets/phon_phon-perception-exp-beijing-mandarin.447c28bb.css"
   ],
-  "assets/phon_phon-perception-exp-beijing-mandarin.27c2b0f5.js-unocss-hash.css": [
-    "/assets/phon_phon-perception-exp-beijing-mandarin.27c2b0f5.js",
+  "assets/phon_phon-perception-exp-beijing-mandarin.ba2bfee7.js-unocss-hash.css": [
+    "/assets/phon_phon-perception-exp-beijing-mandarin.ba2bfee7.js",
     "/assets/phon_phon-perception-exp-beijing-mandarin.447c28bb.css"
   ],
   "contents/posts/comp/soft_bibli-with-md.md": [
-    "/assets/soft_bibli-with-md.816655b8.js"
+    "/assets/soft_bibli-with-md.fc86d4d0.js"
   ],
   "contents/posts/misc/test_test-content.md": [
-    "/assets/test_test-content.6487a01e.js",
+    "/assets/test_test-content.a8af894f.js",
     "/assets/test_test-content.11c4b662.css"
   ],
-  "assets/test_test-content.6487a01e.js-unocss-hash.css": [
-    "/assets/test_test-content.6487a01e.js",
+  "assets/test_test-content.a8af894f.js-unocss-hash.css": [
+    "/assets/test_test-content.a8af894f.js",
     "/assets/test_test-content.11c4b662.css"
   ],
   "contents/posts/misc/test_test-content-advanced.md": [
-    "/assets/test_test-content-advanced.c9de9997.js"
+    "/assets/test_test-content-advanced.cc447ed4.js"
   ],
   "contents/posts/misc/test_test-vertical.md": [
-    "/assets/test_test-vertical.6023801d.js"
+    "/assets/test_test-vertical.cfc121b9.js"
   ],
   "contents/posts/roam/travel_21-chongqing.md": [
-    "/assets/travel_21-chongqing.e9ac35ff.js"
+    "/assets/travel_21-chongqing.661acc84.js"
   ],
   "src/pages/categories/[category].vue": [
-    "/assets/_category_.0ccc1cef.js",
+    "/assets/_category_.024f3d63.js",
     "/assets/_category_.17522947.css"
   ],
-  "assets/_category_.0ccc1cef.js-unocss-hash.css": [
-    "/assets/_category_.0ccc1cef.js",
+  "assets/_category_.024f3d63.js-unocss-hash.css": [
+    "/assets/_category_.024f3d63.js",
     "/assets/_category_.17522947.css"
   ],
   "~icons/mdi/arrow-left": [
-    "/assets/_...all_.f0975654.js",
+    "/assets/_...all_.a019a17d.js",
     "/assets/_...all_.8843a8d4.css"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_.f0975654.js",
+    "/assets/_...all_.a019a17d.js",
     "/assets/_...all_.8843a8d4.css"
   ],
-  "assets/_...all_.f0975654.js-unocss-hash.css": [
-    "/assets/_...all_.f0975654.js",
+  "assets/_...all_.a019a17d.js-unocss-hash.css": [
+    "/assets/_...all_.a019a17d.js",
     "/assets/_...all_.8843a8d4.css"
   ],
   "../../../../../notes/test-issues.md": [
-    "/assets/test-issues.2c188c0c.js"
+    "/assets/test-issues.87b08f33.js"
   ],
   "../../../../../notes/saussure-general-linguistics.md": [
-    "/assets/saussure-general-linguistics.82ef9b55.js",
-    "/assets/saussure-general-linguistics.87f8b262.css"
+    "/assets/saussure-general-linguistics.de6fa8ac.js",
+    "/assets/about-zh-Hans.0377cd3f.css"
   ],
-  "assets/saussure-general-linguistics.82ef9b55.js-unocss-hash.css": [
-    "/assets/saussure-general-linguistics.82ef9b55.js",
-    "/assets/saussure-general-linguistics.87f8b262.css"
+  "assets/saussure-general-linguistics.de6fa8ac.js-unocss-hash.css": [
+    "/assets/saussure-general-linguistics.de6fa8ac.js",
+    "/assets/about-zh-Hans.0377cd3f.css"
   ],
   "../../../../../notes/cpp-practice-of-programming.md": [
-    "/assets/cpp-practice-of-programming.55867d7c.js",
+    "/assets/cpp-practice-of-programming.43b16295.js",
     "/assets/cpp-practice-of-programming.6ab79a21.css"
   ],
-  "assets/cpp-practice-of-programming.55867d7c.js-unocss-hash.css": [
-    "/assets/cpp-practice-of-programming.55867d7c.js",
+  "assets/cpp-practice-of-programming.43b16295.js-unocss-hash.css": [
+    "/assets/cpp-practice-of-programming.43b16295.js",
     "/assets/cpp-practice-of-programming.6ab79a21.css"
   ],
   "../../../../../sheets/favorites-stackoverflow.md": [
-    "/assets/favorites-stackoverflow.8c68c245.js",
+    "/assets/favorites-stackoverflow.708d999d.js",
     "/assets/favorites-stackoverflow.ab63ee11.css"
   ],
-  "assets/favorites-stackoverflow.8c68c245.js-unocss-hash.css": [
-    "/assets/favorites-stackoverflow.8c68c245.js",
+  "assets/favorites-stackoverflow.708d999d.js-unocss-hash.css": [
+    "/assets/favorites-stackoverflow.708d999d.js",
     "/assets/favorites-stackoverflow.ab63ee11.css"
   ],
   "../../../../../notes/intro-chomskyan-generative-syntax.md": [
-    "/assets/intro-chomskyan-generative-syntax.0d60365f.js",
+    "/assets/intro-chomskyan-generative-syntax.814e51eb.js",
     "/assets/intro-chomskyan-generative-syntax.f725c518.css"
   ],
-  "assets/intro-chomskyan-generative-syntax.0d60365f.js-unocss-hash.css": [
-    "/assets/intro-chomskyan-generative-syntax.0d60365f.js",
+  "assets/intro-chomskyan-generative-syntax.814e51eb.js-unocss-hash.css": [
+    "/assets/intro-chomskyan-generative-syntax.814e51eb.js",
     "/assets/intro-chomskyan-generative-syntax.f725c518.css"
   ],
   "../../../../../notes/jpn-lyrics-gloss-c.md": [
-    "/assets/jpn-lyrics-gloss-c.aa096f88.js",
+    "/assets/jpn-lyrics-gloss-c.cc84d888.js",
     "/assets/jpn-lyrics-gloss-c.8df82e11.css"
   ],
-  "assets/jpn-lyrics-gloss-c.aa096f88.js-unocss-hash.css": [
-    "/assets/jpn-lyrics-gloss-c.aa096f88.js",
+  "assets/jpn-lyrics-gloss-c.cc84d888.js-unocss-hash.css": [
+    "/assets/jpn-lyrics-gloss-c.cc84d888.js",
     "/assets/jpn-lyrics-gloss-c.8df82e11.css"
   ],
   "../../../../../notes/jpn-lyrics-gloss-a.md": [
-    "/assets/jpn-lyrics-gloss-a.2bc9d13d.js"
+    "/assets/jpn-lyrics-gloss-a.d0a92a5b.js"
   ],
   "../../../../../notes/rust-postmortem.md": [
-    "/assets/rust-postmortem.29c1d8b8.js",
+    "/assets/rust-postmortem.75dd6372.js",
     "/assets/rust-postmortem.cbcdf903.css"
   ],
-  "assets/rust-postmortem.29c1d8b8.js-unocss-hash.css": [
-    "/assets/rust-postmortem.29c1d8b8.js",
+  "assets/rust-postmortem.75dd6372.js-unocss-hash.css": [
+    "/assets/rust-postmortem.75dd6372.js",
     "/assets/rust-postmortem.cbcdf903.css"
+  ],
+  "../../../../../notes/jpn-lyrics-gloss-b.md": [
+    "/assets/jpn-lyrics-gloss-b.9648861b.js",
+    "/assets/jpn-lyrics-gloss-b.29d09032.css"
+  ],
+  "assets/jpn-lyrics-gloss-b.9648861b.js-unocss-hash.css": [
+    "/assets/jpn-lyrics-gloss-b.9648861b.js",
+    "/assets/jpn-lyrics-gloss-b.29d09032.css"
   ],
   "src/layouts/404.vue": [
     "/assets/404.3138da0c.js",
@@ -2424,11 +2432,11 @@
     "/assets/404.4ebbbec4.css"
   ],
   "src/layouts/home.vue": [
-    "/assets/home.7f095e33.js",
+    "/assets/home.1b3181cf.js",
     "/assets/home.9e7456ff.css"
   ],
-  "assets/home.7f095e33.js-unocss-hash.css": [
-    "/assets/home.7f095e33.js",
+  "assets/home.1b3181cf.js-unocss-hash.css": [
+    "/assets/home.1b3181cf.js",
     "/assets/home.9e7456ff.css"
   ]
 }
