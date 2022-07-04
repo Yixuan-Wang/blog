@@ -51,7 +51,7 @@ if (!import.meta.env.SSR) {
 <template>
   <header class="flex flex-col justify-start items-start gap-2 mt-4 mb-8">
     <h1>
-      {{ props.frontmatter.title }} / {{ route.hash }}
+      {{ props.frontmatter.title }}
     </h1>
     <ArticleHeader
       :article="(route.meta as unknown as Article)"
