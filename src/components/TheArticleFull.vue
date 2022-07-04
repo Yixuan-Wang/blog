@@ -34,12 +34,24 @@ useHead({
     } as any,
   ],
 })
+
+if (!import.meta.env.SSR) {
+  onMounted(() => {
+    if(route.hash) {
+      const anchor = route.hash.slice(1);
+      const el = document.getElementById(anchor);
+      if (el) {
+        nextTick(() => el.scrollIntoView());
+      }
+    }
+  })
+}
 </script>
 
 <template>
   <header class="flex flex-col justify-start items-start gap-2 mt-4 mb-8">
     <h1>
-      {{ props.frontmatter.title }}
+      {{ props.frontmatter.title }} / {{ route.hash }}
     </h1>
     <ArticleHeader
       :article="(route.meta as unknown as Article)"
