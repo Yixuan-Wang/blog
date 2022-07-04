@@ -2191,11 +2191,11 @@
   ],
   "src/pages/tags.vue": [
     "/assets/tags.fda032af.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "assets/tags.fda032af.js-unocss-hash.css": [
     "/assets/tags.fda032af.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "src/components/TheTaxonomy.vue": [
     "/assets/TheTaxonomy.b6bd8e92.js",
@@ -2207,27 +2207,27 @@
   ],
   "src/pages/genre/notes.vue": [
     "/assets/notes.79e13754.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "assets/notes.79e13754.js-unocss-hash.css": [
     "/assets/notes.79e13754.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "src/pages/genre/posts.vue": [
     "/assets/posts.41895255.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "assets/posts.41895255.js-unocss-hash.css": [
     "/assets/posts.41895255.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "src/pages/genre/sheets.vue": [
     "/assets/sheets.c9f292d6.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "assets/sheets.c9f292d6.js-unocss-hash.css": [
     "/assets/sheets.c9f292d6.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "~icons/mdi/typewriter": [
     "/assets/index.ef2159b8.js",
@@ -2342,11 +2342,11 @@
   ],
   "src/pages/categories/[category].vue": [
     "/assets/_category_.cf97eba8.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "assets/_category_.cf97eba8.js-unocss-hash.css": [
     "/assets/_category_.cf97eba8.js",
-    "/assets/tags.232ba356.css"
+    "/assets/posts.136065b2.css"
   ],
   "~icons/mdi/arrow-left": [
     "/assets/_...all_.885b5983.js",
