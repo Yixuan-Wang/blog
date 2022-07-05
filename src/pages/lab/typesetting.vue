@@ -44,7 +44,7 @@ useTitle(computed(() => `${t("typesetting.typesetting")} | Pak`));
           >
             <input v-model="store.accentColors[key]" class="bg-transparent w-[2em] h-[1.5em]" type="color">
             <span class="font-mono">{{ store.accentColors[key].toUpperCase() }}</span>
-            <span @click="resetColors(key as keyof typeof ACCENT_COLORS)"><mdi-restore /></span>
+            <span @click="resetColors(key as keyof typeof ACCENT_COLORS)"><div i-mdi-restore /></span>
           </div>
         </div>
       </section>

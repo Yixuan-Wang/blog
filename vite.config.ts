@@ -6,13 +6,11 @@ import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import loadVersion from 'vite-plugin-package-version'
 import Layouts from 'vite-plugin-vue-layouts'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Markdown from 'vite-plugin-md'
+import Markdown from 'vite-plugin-vue-markdown'
 import yaml from '@rollup/plugin-yaml'
-import UnoCSS from 'unocss/vite'
+import Unocss from 'unocss/vite'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 
 import MdShiki from 'markdown-it-shiki'
@@ -39,7 +37,8 @@ import { getMeta } from './generated/markdown-meta'
 // @ts-ignore
 import MdRuby from './generated/markdown-it-ruby'
 
-import UnoConfig from '.uno.config.js'
+// @ts-ignore
+import { UnoConfig } from "./uno.config.js";
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') })
 
@@ -58,6 +57,7 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      'build/': `${path.resolve(__dirname, 'build')}/`
     },
   },
   plugins: [
@@ -112,7 +112,6 @@ export default defineConfig(({ mode }) => ({
 
         if (route?.meta?.alias)
           (route as unknown as RouteRecordRaw).alias = route!.meta!.alias as string
-
         return route
       },
       // extendRoute(route) {
@@ -151,20 +150,7 @@ export default defineConfig(({ mode }) => ({
 
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-
-      // custom resolvers
-      resolvers: [
-        // auto import icons
-        // https://github.com/antfu/unplugin-icons
-        IconsResolver({
-          componentPrefix: '',
-          // enabledCollections: ['carbon']
-        }),
-      ],
     }),
-
-    // https://github.com/antfu/unplugin-icons
-    Icons(),
 
     yaml({
       safe: false,
@@ -175,7 +161,7 @@ export default defineConfig(({ mode }) => ({
     /* WindiCSS({
       safelist: markdownWrapperClasses,
     }), */
-    UnoCSS(UnoConfig),
+    Unocss(UnoConfig),
 
     // https://github.com/antfu/vite-plugin-md
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
@@ -270,6 +256,10 @@ export default defineConfig(({ mode }) => ({
     fs: {
       strict: true,
     },
+  },
+
+  ssr: {
+    noExternal: ["build/uno"]
   },
 
   // https://github.com/antfu/vite-ssg

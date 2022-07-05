@@ -1,1 +1,1 @@
-<template><mdi-file /></template>
+<template><div i-mdi-file /></template>

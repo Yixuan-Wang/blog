@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import { darkMode, toggleDarkMode } from "~/logic/dark";
+import { colorMode, nextColorMode } from "~/logic/dark";
 import { useToggleLocales } from "~/logic/locale";
 
 const toggleLocales = useToggleLocales(useI18n)!;
@@ -18,28 +18,28 @@ const version = import.meta.env.PACKAGE_VERSION;
             <carbon-campsite />
           </router-link>
         </button> -->
-        <button>
+        <button btn-icon>
           <LinkSocial href="https://github.com/Yixuan-Wang" title="GitHub">
-            <mdi-github />
+            <div i-mdi-github />
           </LinkSocial>
         </button>
-        <button>
+        <button btn-icon>
           <LinkSocial
             href="https://www.zhihu.com/people/tom-wang-19-44"
             title="Zhihu"
           >
-            <ant-design-zhihu-circle-filled />
+            <div i-extra-zhihu />
           </LinkSocial>
         </button>
-        <button>
+        <button btn-icon>
           <LinkSocial
             href="https://twitter.com/tom_yixuan_wang"
             title="Twitter"
           >
-            <mdi-twitter />
+            <div i-mdi-twitter />
           </LinkSocial>
         </button>
-        <button class="button_container">
+        <button btn-icon class="button_container">
           <div class="button_prompt">
             <p
               class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
@@ -48,30 +48,30 @@ const version = import.meta.env.PACKAGE_VERSION;
             </p>
           </div>
           <router-link to="/about">
-            <mdi-information />
+            <div i-mdi-information />
           </router-link>
         </button>
       </nav>
       <nav class="flex justify-between items-center gap-2">
-        <button class="button_container">
+        <button btn-icon class="button_container">
           <div class="button_prompt">
             <span
               class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
             >{{ locale }}</span>
           </div>
           <a :title="t('button.toggleLocale')" @click="toggleLocales()">
-            <mdi-earth />
+            <div i-mdi-earth />
           </a>
         </button>
         <!-- <button>
           <router-link to="/about" :title="t('button.about')">
-            <mdi-information />
+            <div i-mdi-information />
           </router-link>
         </button> -->
-        <button :title="t('button.toggleDark')" @click="toggleDarkMode()">
-          <mdi-brightness-auto v-if="darkMode === 'auto'" />
-          <mdi-brightness-7 v-else-if="darkMode === 'light'" />
-          <mdi-brightness-4 v-else />
+        <button btn-icon :title="t('button.toggleDark')" @click="nextColorMode()">
+          <div i-mdi-brightness-auto v-if="colorMode === 'auto'" />
+          <div i-mdi-brightness-7 v-else-if="colorMode === 'light'" />
+          <div i-mdi-brightness-4 v-else />
         </button>
       </nav>
     </footer>

@@ -16,15 +16,21 @@ import { useSwitch } from "./switch";
  * Reactive dark mode with auto data persistence.
  *
  */
-export function useDarkMode() {
+/* export function useDarkMode() {
   if (!import.meta.env.SSR) {
     const preferredDark = useMediaQuery("(prefers-color-scheme: dark)");
     const darkMode = useStorage<string>("color-scheme", "auto", window?.localStorage, { window, listenToStorageChanges: true });
 
     const onChanged = (v: string) => {
-      const el = window?.document.querySelector("html");
-      if (v === "dark" || (v === "auto" && preferredDark.value)) el?.classList.add("dark");
-      else el?.classList.remove("dark");
+      const el = document.documentElement;
+      if (v === "dark" || (v === "auto" && preferredDark.value)) {
+        alert("add dark");
+        el.className = "dark";
+      }
+      else {
+        alert("remove dark")
+        el.className = "";
+      }
     };
 
     watch(darkMode, onChanged, { flush: "post" });
@@ -37,4 +43,14 @@ export function useDarkMode() {
 }
 
 export const darkMode = useDarkMode();
-export const toggleDarkMode = useSwitch(["auto", "light", "dark"], darkMode!);
+export const toggleDarkMode = useSwitch(["auto", "light", "dark"], darkMode!); */
+export const actualColorMode = useColorMode({
+  modes: {
+      auto: "auto",
+  },
+  storageKey: "color-"
+});
+
+export const { state: colorMode, next: nextColorMode } = useCycleList(["auto", "light", "dark"]);
+colorMode.value = actualColorMode.value;
+syncRef(colorMode, actualColorMode);

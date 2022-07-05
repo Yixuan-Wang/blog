@@ -9,7 +9,7 @@ const lang = props.article.frontmatter.lang ?? "zh-Hans";
 </script>
 
 <template>
-  <article class="flex flex-col items-start gap-1 rounded" :lang="lang">
+  <article class="flex flex-col items-start gap-1 transition-lively" :lang="lang">
     <div>
       <router-link class="card-article-text" :to="`${article.path}`">
         <h2 class="mb-0.5 text-xl font-bold transition-lively">

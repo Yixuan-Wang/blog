@@ -1,1 +1,1 @@
-<template><mdi-note /></template>
+<template><div btn-icon i-mdi-note /></template>

@@ -15,7 +15,7 @@ useHead({
     class="mt-2 text-lg hover:text-acc transition-lively"
     @click="router.back"
   >
-    <mdi-arrow-left />
+    <div i-mdi-arrow-left />
   </button>
 </template>
 

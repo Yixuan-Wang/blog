@@ -17,9 +17,9 @@ html:not(.dark) {
 html.dark {
   --color-accent:     var(--accent-dark-accent, #FFE900);
   --color-secondary:  var(--accent-dark-secondary, #f86b1d);
-  --color-background: #253137;
-  --color-foreground: #f5f5f5;
-  --color-dim:        #B2BBBE;
+  --color-background: #0F1419;
+  --color-foreground: #9DA5B4;
+  --color-dim:        #595959;
 }
 
 html {
@@ -52,13 +52,12 @@ body {
   max-width: 75ch;
 }
 
-svg {
+/* svg {
   width: 1.25em;
   height: 1.25em;
   display: inline;
   vertical-align: sub;
-  /* text-bottom; */
-}
+} */
 
 #nprogress {
   pointer-events: none;
@@ -119,8 +118,7 @@ button {
   overflow-x: auto;
 }
 
-.transition-lively,
-button {
+/* .transition-lively {
   -webkit-transition-property: background-color, border-color, color, fill, stroke, opacity, -webkit-box-shadow, -webkit-transform, filter, backdrop-filter;
   -o-transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, -webkit-box-shadow, transform, -webkit-transform, filter, backdrop-filter;
@@ -132,8 +130,7 @@ button {
   transition-duration: 200ms;
 }
 
-.transition-lively:hover,
-button:hover {
+.transition-lively:hover {
   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   -o-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -141,3 +138,4 @@ button:hover {
   -o-transition-duration: 300ms;
   transition-duration: 300ms;
 }
+ */

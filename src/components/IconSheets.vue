@@ -1,1 +1,1 @@
-<template><mdi-table-large /></template>
+<template><div i-mdi-table-large /></template>

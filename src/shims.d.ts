@@ -32,9 +32,3 @@ declare module "@yixuan-wang/component-leipzig" {
   const _: any;
   export = _;
 }
-
-declare module ".uno.config.js" {
-  import type { UserConfig } from "unocss";
-  const _: UserConfig;
-  export = _;
-}

@@ -11,25 +11,26 @@ const lang = props.article.frontmatter.lang ?? "zh-Hans";
 
 <template>
   <div class="flex flex-wrap gap-x-1 gap-y-0.5 justify-start items-center">
-    <span v-if="!hide?.genre" class="flex justify-center text-lg">
-      <router-link :to="`/${article.genre}`">
-        <BadgeGenre
-          class="transition-lively hover:text-acc"
-          :genre="article.genre"
-        />
-      </router-link>
+    <span v-if="!hide?.genre" class="flex justify-center">
+      <button btn-icon>
+        <router-link :to="`/${article.genre}`">
+          <BadgeGenre
+            :genre="article.genre"
+          />
+        </router-link>
+      </button>
     </span>
     <span class="flex gap-1 justify-center items-center">
-      <BaseChip class="ring-inset ring-2 ring-fgd">
+      <BaseChip>
         <time>{{ d(article.frontmatter.date, "short", "iso") }}</time>
       </BaseChip>
-      <BaseChip v-if="lang !== locale" class="ring-inset ring-2 ring-fgd">{{
+      <BaseChip v-if="lang !== locale">{{
         lang
       }}</BaseChip>
     </span>
     <span class="flex gap-1 justify-center items-center">
       <BaseChip
-        class="ring-inset ring-2 ring-acc text-acc hover:bg-acc hover:text-bgd"
+        class="text-acc hover:bg-acc hover:text-bgd"
       >
         <router-link :to="`/categories/${article.frontmatter.category}`">
           {{ t(`categories.${article.frontmatter.category}`) }}
@@ -40,7 +41,7 @@ const lang = props.article.frontmatter.lang ?? "zh-Hans";
       <BaseChip
         v-for="tag in article.frontmatter.tags"
         :key="tag"
-        class="ring-inset ring-2 ring-sec text-sec hover:bg-sec hover:text-bgd"
+        class="text-sec hover:bg-sec hover:text-bgd"
       >
         <router-link :to="{ path: '/tags', query: { tag } }">
           @{{ tag }}
@@ -51,7 +52,7 @@ const lang = props.article.frontmatter.lang ?? "zh-Hans";
       <BaseChip
         v-for="keyword in article.frontmatter.keywords"
         :key="keyword"
-        class="text-dim !px-0"
+        class="text-dim"
       >
         <span> #{{ keyword }} </span>
       </BaseChip>

@@ -18,7 +18,7 @@ useHead({
     <article
       class="flex items-start gap-2 items-center rounded"
     >
-      <span><mdi-typewriter /></span>
+      <span><div i-mdi-typewriter /></span>
       <h2 class="transition-lively">
         <router-link to="/lab/typesetting">
           {{ t('typesetting.typesetting') }}

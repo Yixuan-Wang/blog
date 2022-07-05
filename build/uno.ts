@@ -1,11 +1,13 @@
 import { createGenerator } from "@unocss/core";
+import type { VitePluginConfig } from "unocss/vite";
 import { presetUno } from "@unocss/preset-uno";
-// @ts-ignore
-import UnoConfig from "../../.uno.config";
+import presetAttributify from "@unocss/preset-attributify";
 
 export const uno = createGenerator({
-  ...UnoConfig,
-  presets: [presetUno()],
+  presets: [presetUno(), presetAttributify()],
+  rules: [
+    ["small-caps", { "font-variant-caps": "small-caps" }],
+  ]
 });
 
 export async function unoify(html: string) {

@@ -1,35 +1,34 @@
 <template>
   <header class="flex justify-between items-center my-4 gap-2">
     <nav
-      class="inline-block px-2 py-1 rounded bg-acc text-bgd font-bold transition-lively hover:bg-sec"
+      class="inline-block px-2 py-1 rounded transition-lively"
+      text="bgd"
+      bg="acc hover:sec"
+      font="mono bold"
     >
       <router-link to="/">
-        Pak
+        pαk
       </router-link>
     </nav>
     <nav class="flex justify-between items-center gap-3">
-      <button>
+      <button transition-lively class="hover:text-sec">
         <router-link to="/archive">
-          <mdi-text-box />
-          <!-- <mdi-text-box /> -->
+          <div i-mdi-text-box />
         </router-link>
       </button>
-      <button>
+      <button transition-lively class="hover:text-sec">
         <router-link to="/posts">
-          <icon-posts />
-          <!-- <mdi-text-box /> -->
+          <div i-mdi-file />
         </router-link>
       </button>
-      <button>
+      <button transition-lively class="hover:text-sec">
         <router-link to="/sheets">
-          <icon-sheets />
-          <!-- <mdi-dns /> -->
+          <div i-mdi-table-large />
         </router-link>
       </button>
-      <button>
+      <button transition-lively class="hover:text-sec">
         <router-link to="/notes">
-          <icon-notes />
-          <!-- <mdi-inbox /> -->
+          <div i-mdi-folder />
         </router-link>
       </button>
     </nav>

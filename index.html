@@ -19,6 +19,8 @@
       const setting = localStorage.getItem("color-scheme") || "auto"
       if (setting === "dark" || (prefersDark && setting !== "light"))
         document.documentElement.className = "dark";
+      else
+        document.documentElement.className = "";
 
       const colors = localStorage.getItem("typesetting::accent_color");
       if (colors) {

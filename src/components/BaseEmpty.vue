@@ -4,7 +4,7 @@ const { t } = useI18n();
 
 <template>
   <div class="flex flex-col gap-1">
-    <mdi-broom class="text-4xl" />
+    <div i-mdi-broom class="text-4xl" />
     <h2 class="text-lg">
       {{ t("empty") }}
     </h2>

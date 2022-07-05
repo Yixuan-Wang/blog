@@ -1,11 +1,17 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   genre: string
 }>();
+
+let className: string;
+switch (props.genre) {
+  case "posts": className = "i-mdi-file"; break;
+  case "sheets": className = "i-mdi-table-large"; break;
+  case "notes": className = "i-mdi-folder"; break;
+  default: className = ""; break;
+}
 </script>
 
 <template>
-  <IconPosts v-if="genre === 'posts'" />
-  <IconSheets v-else-if="genre === 'sheets'" />
-  <IconNotes v-else-if="genre === 'notes'" />
+  <div :class="className" />
 </template>
