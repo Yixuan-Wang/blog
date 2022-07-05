@@ -2,26 +2,25 @@
 import { useStore } from "~/stores/store";
 import { ACCENT_COLORS } from "~/logic/typesetting";
 const store = useStore();
-const { t } = useI18n();
 
 const resetColors = (key: keyof typeof ACCENT_COLORS) => {
   store.accentColors[key] = ACCENT_COLORS[key];
 };
 
-useTitle(computed(() => `${t("typesetting.typesetting")} | Pak`));
+useTitle("排版 | Pak");
 </script>
 
 <template>
   <h1 class="mt-4 mb-8">
-    {{ t('typesetting.typesetting') }}
+    排版
   </h1>
 
   <article id="md">
     <ClientOnly>
       <section>
-        <h2>{{ t('typesetting.typography') }}</h2>
+        <h2>字体</h2>
 
-        <h3>{{ t('typesetting.webfont') }}</h3>
+        <h3>网络字体</h3>
         <div>
           <div
             v-for="key in Object.keys(store.webfont)"
@@ -33,8 +32,8 @@ useTitle(computed(() => `${t("typesetting.typesetting")} | Pak`));
           </div>
         </div>
 
-        <h2>{{ t('typesetting.colors') }}</h2>
-        <h3>{{ t('typesetting.accent') }}</h3>
+        <h2>色彩</h2>
+        <h3>主题色</h3>
         <div>
           <div
             v-for="key in Object.keys(store.accentColors)"

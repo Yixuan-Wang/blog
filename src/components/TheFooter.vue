@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import { colorMode, nextColorMode } from "~/logic/dark";
-import { useToggleLocales } from "~/logic/locale";
 
-const toggleLocales = useToggleLocales(useI18n)!;
-
-const { t, locale } = useI18n();
 const version = import.meta.env.PACKAGE_VERSION;
 </script>
 
@@ -13,11 +8,6 @@ const version = import.meta.env.PACKAGE_VERSION;
   <client-only>
     <footer class="flex justify-between items-center py-4">
       <nav class="flex justify-between items-center gap-2">
-        <!-- <button>
-          <router-link to="/" :title="t('button.home')">
-            <carbon-campsite />
-          </router-link>
-        </button> -->
         <button btn-icon>
           <LinkSocial href="https://github.com/Yixuan-Wang" title="GitHub">
             <div i-mdi-github />
@@ -53,22 +43,7 @@ const version = import.meta.env.PACKAGE_VERSION;
         </button>
       </nav>
       <nav class="flex justify-between items-center gap-2">
-        <button btn-icon class="button_container">
-          <div class="button_prompt">
-            <span
-              class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
-            >{{ locale }}</span>
-          </div>
-          <a :title="t('button.toggleLocale')" @click="toggleLocales()">
-            <div i-mdi-earth />
-          </a>
-        </button>
-        <!-- <button>
-          <router-link to="/about" :title="t('button.about')">
-            <div i-mdi-information />
-          </router-link>
-        </button> -->
-        <button btn-icon :title="t('button.toggleDark')" @click="nextColorMode()">
+        <button btn-icon title="颜色模式" @click="nextColorMode()">
           <div i-mdi-brightness-auto v-if="colorMode === 'auto'" />
           <div i-mdi-brightness-7 v-else-if="colorMode === 'light'" />
           <div i-mdi-brightness-4 v-else />

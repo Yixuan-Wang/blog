@@ -14,6 +14,7 @@
     "@vueuse/head": "^0.7.5",
     "@yixuan-wang/component-leipzig": "^0.0.0",
     "axios": "^0.21.3",
+    "dayjs": "^1.11.3",
     "gray-matter": "^4.0.3",
     "katex": "^0.13.18",
     "lodash-es": "^4.17.21",
@@ -28,14 +29,12 @@
     "vite-plugin-md": "^0.18.1",
     "vue": "^3.2.23",
     "vue-demi": "^0.11.3",
-    "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.7.0",
     "@iconify-json/mdi": "^1.1.24",
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "@intlify/vite-plugin-vue-i18n": "^2.4.0",
     "@rollup/plugin-yaml": "^3.1.0",
     "@types/lodash-es": "^4.17.5",
     "@types/markdown-it": "^12.2.3",

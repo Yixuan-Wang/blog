@@ -1,12 +1,10 @@
 <script setup lang="ts">
-// @ts-ignore
-const props = defineProps<{
+import dayjs from "dayjs"
+
+defineProps<{
   article: Article
   hide?: Record<keyof Article, boolean>
 }>();
-
-const { t, d, locale } = useI18n();
-const lang = props.article.frontmatter.lang ?? "zh-Hans";
 </script>
 
 <template>
@@ -22,18 +20,15 @@ const lang = props.article.frontmatter.lang ?? "zh-Hans";
     </span>
     <span class="flex gap-1 justify-center items-center">
       <BaseChip>
-        <time>{{ d(article.frontmatter.date, "short", "iso") }}</time>
+        <time>{{ dayjs(article.timestamp).format("YYYY/MM/DD") }}</time>
       </BaseChip>
-      <BaseChip v-if="lang !== locale">{{
-        lang
-      }}</BaseChip>
     </span>
     <span class="flex gap-1 justify-center items-center">
       <BaseChip
         class="text-acc hover:bg-acc hover:text-bgd"
       >
         <router-link :to="`/categories/${article.frontmatter.category}`">
-          {{ t(`categories.${article.frontmatter.category}`) }}
+          {{ article.frontmatter.category }}
         </router-link>
       </BaseChip>
     </span>

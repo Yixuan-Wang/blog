@@ -12,7 +12,6 @@ useHead({
 
 const store = useStore();
 
-const { t } = useI18n();
 const selection = reactive<Record<string, boolean>>({
   posts: true,
   sheets: true,
@@ -52,8 +51,7 @@ const resetColors = (color: string[]) => {
       />
     </div>
     <div
-      class="p-2 self-start rounded flex gap-2"
-      border="2 fgd"
+      class="self-start rounded flex gap-2"
     >
       <button
         v-for="genre of Object.keys(selection)"
@@ -76,17 +74,17 @@ const resetColors = (color: string[]) => {
     >
       <router-link
         to="/archive"
-        class="px-2 flex gap-1 items-center"
+        class="flex gap-1 items-center"
       >
         <div i-mdi-text-box class="text-lg" />
-        <span>{{ t('archive') }}……</span>
+        <span>归档……</span>
       </router-link>
     </button>
     <div
       v-if="selectionOthers.friends"
-      class="py-2"
     >
-      <li class="px-2 grid grid-cols-[auto_auto_1fr] gap-2 items-center">
+      <h2 font="bold" text="lg" mb-4>朋友们</h2>
+      <li class="px-2 grid grid-cols-[auto_auto_1fr] gap-3 items-center">
         <CardFriend
           v-for="friend in friends"
           :key="friend.name"

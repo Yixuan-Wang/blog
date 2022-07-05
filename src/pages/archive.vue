@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { t } = useI18n();
 const selection = reactive({
   posts: true,
   sheets: true,
@@ -7,10 +6,8 @@ const selection = reactive({
 });
 const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection]);
 
-const pageName = computed(() => t("archive"));
-
 useHead({
-  title: computed(() => `${pageName.value} | Pak`),
+  title: "归档 | Pak",
   meta: [
     { name: "description", content: "All articles on Pak." },
   ],
@@ -19,7 +16,7 @@ useHead({
 
 <template>
   <TheTimeline
-    :name="pageName"
+    name="归档"
     :filter="filter"
   />
 </template>

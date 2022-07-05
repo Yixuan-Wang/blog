@@ -1,8 +1,6 @@
 <script setup lang="ts">
-const { t } = useI18n();
-
 useHead({
-  title: computed(() => `${t("lab")} | Pak`),
+  title: "实验室 | Pak",
   meta: [
     { name: "description", content: "Experiments on Pak" },
   ],
@@ -11,7 +9,7 @@ useHead({
 
 <template>
   <h1 class="mt-4 mb-8">
-    {{ t('lab') }}
+    实验室
   </h1>
 
   <div class="flex flex-rows gap-2">
@@ -21,7 +19,7 @@ useHead({
       <span><div i-mdi-typewriter /></span>
       <h2 class="transition-lively">
         <router-link to="/lab/typesetting">
-          {{ t('typesetting.typesetting') }}
+          排版
         </router-link>
       </h2>
     </article>

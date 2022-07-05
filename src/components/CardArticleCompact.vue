@@ -1,18 +1,17 @@
 <script setup lang="ts">
-// @ts-ignore
+import dayjs from "dayjs";
 const props = defineProps<{
-  article: Article
-  hide?: Record<keyof Article, boolean>
+  article: Article;
+  hide?: Record<keyof Article, boolean>;
 }>();
 
-const { d } = useI18n();
 const lang = props.article.frontmatter.lang ?? "zh-Hans";
 </script>
 
 <template>
   <article class="flex items-start gap-2 items-center rounded" :lang="lang">
     <time class="font-mono">{{
-      d(article.frontmatter.date, "monthDay", "iso")
+      dayjs(article.frontmatter.date).format("MM/DD")
     }}</time>
     <h2 class="transition-lively">
       <router-link :to="article.path">

@@ -11,7 +11,6 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-vue-markdown'
 import yaml from '@rollup/plugin-yaml'
 import Unocss from 'unocss/vite'
-import VueI18n from '@intlify/vite-plugin-vue-i18n'
 
 import MdShiki from 'markdown-it-shiki'
 import MdKatex from '@iktakahiro/markdown-it-katex'
@@ -168,8 +167,6 @@ export default defineConfig(({ mode }) => ({
     Markdown({
       wrapperClasses: markdownWrapperClasses,
       markdownItSetup(md) {
-        // https://prismjs.com/
-        // md.use(Prism as any)
         const uslugify = (s: string) => uslug(s)
         md.use(MdSpan)
         md.use(MdContainer, '~')
@@ -188,7 +185,7 @@ export default defineConfig(({ mode }) => ({
         md.use(MdAttrs)
         md.use(MdShiki as any, {
           theme: {
-            dark: 'nord',
+            dark: 'one-dark-pro',
             light: 'github-light',
           },
         })
@@ -243,13 +240,6 @@ export default defineConfig(({ mode }) => ({
         ],
       },
     }), */
-
-    // https://github.com/intlify/vite-plugin-vue-i18n
-    VueI18n({
-      runtimeOnly: true,
-      compositionOnly: true,
-      include: [path.resolve(__dirname, 'locales/**')],
-    }),
   ],
 
   server: {
