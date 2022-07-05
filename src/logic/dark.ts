@@ -9,12 +9,6 @@ import { useStorage, useMediaQuery } from "@vueuse/core";
 import { tryOnMounted } from "@vueuse/shared";
 import { useSwitch } from "./switch";
 
-export enum DarkMode {
-  Auto = -1,
-  Light,
-  Dark
-}
-
 // export const isDark = useDark()
 // export const toggleDark = useToggle(isDark)
 
@@ -23,28 +17,18 @@ export enum DarkMode {
  *
  */
 export function useDarkMode() {
-  // const {
-  //   selector = 'html',
-  //   attribute = 'class',
-  //   valueDark = 'dark',
-  //   valueLight = '',
-  //   window = defaultWindow,
-  //   storage = defaultWindow?.localStorage,
-  //   storageKey = 'darkmode',
-  //   listenToStorageChanges = true,
-  // } = options
-
   if (!import.meta.env.SSR) {
     const preferredDark = useMediaQuery("(prefers-color-scheme: dark)");
-    const darkMode = useStorage<number>("darkmode", DarkMode.Auto, window?.localStorage, { window, listenToStorageChanges: true });
+    const darkMode = useStorage<string>("color-scheme", "auto", window?.localStorage, { window, listenToStorageChanges: true });
 
-    const onChanged = (v: number) => {
+    const onChanged = (v: string) => {
       const el = window?.document.querySelector("html");
-      el?.classList.toggle("dark", v === DarkMode.Dark || (v === DarkMode.Auto && preferredDark.value));
+      if (v === "dark" || (v === "auto" && preferredDark.value)) el?.classList.add("dark");
+      else el?.classList.remove("dark");
     };
 
     watch(darkMode, onChanged, { flush: "post" });
-    watch(preferredDark, () => darkMode.value === DarkMode.Auto && onChanged(darkMode.value));
+    watch(preferredDark, () => darkMode.value === "auto" && onChanged(darkMode.value));
 
     tryOnMounted(() => onChanged(darkMode.value));
 
@@ -53,4 +37,4 @@ export function useDarkMode() {
 }
 
 export const darkMode = useDarkMode();
-export const toggleDarkMode = useSwitch([DarkMode.Auto, DarkMode.Light, DarkMode.Dark], darkMode!);
+export const toggleDarkMode = useSwitch(["auto", "light", "dark"], darkMode!);

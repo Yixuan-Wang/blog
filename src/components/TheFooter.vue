@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import { darkMode, DarkMode, toggleDarkMode } from "~/logic/dark";
+import { darkMode, toggleDarkMode } from "~/logic/dark";
 import { useToggleLocales } from "~/logic/locale";
 
 const toggleLocales = useToggleLocales(useI18n)!;
@@ -69,8 +69,8 @@ const version = import.meta.env.PACKAGE_VERSION;
           </router-link>
         </button> -->
         <button :title="t('button.toggleDark')" @click="toggleDarkMode()">
-          <mdi-brightness-auto v-if="darkMode === DarkMode.Auto" />
-          <mdi-brightness-7 v-else-if="darkMode === DarkMode.Light" />
+          <mdi-brightness-auto v-if="darkMode === 'auto'" />
+          <mdi-brightness-7 v-else-if="darkMode === 'light'" />
           <mdi-brightness-4 v-else />
         </button>
       </nav>
