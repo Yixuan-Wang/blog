@@ -15,7 +15,6 @@ const lang = props.article.frontmatter.lang ?? "zh-Hans";
       d(article.frontmatter.date, "monthDay", "iso")
     }}</time>
     <h2 class="transition-lively">
-      F
       <router-link :to="article.path">
         {{ article.frontmatter.title }}
       </router-link>
