@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { useStore } from '~/stores/store'
-import { friends } from '/others/friends.yaml'
+import { useStore } from "~/stores/store";
+import { friends } from "/others/friends.yaml";
 
 useHead({
-  title: 'Pak',
+  title: "Pak",
   meta: [
-    { name: 'description', content: 'Yixuan Wang\'s personal blog' },
+    { name: "description", content: "Yixuan Wang's personal blog" },
   ],
-})
+});
 
-const store = useStore()
+const store = useStore();
 
-const { t } = useI18n()
+const { t } = useI18n();
 const selection = reactive<Record<string, boolean>>({
   posts: true,
   sheets: true,
   notes: true,
-})
+});
 const selectionOthers = reactive<Record<string, boolean>>({
   friends: true,
-})
+});
 
-const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection])
-const articles = computed(() => store.articles.filter(filter.value))
+const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection]);
+const articles = computed(() => store.articles.filter(filter.value));
 
-const colors = [['#ee3f4d', '#bf3553'], ['#f86b1d', '#fb8b05'], ['#f9a633', '#fcb70a'], ['#229453', '#41b349'], ['#12aa9c', '#57c3c2'], ['#1177b0', '#0f59a4'], ['#813c85', '#ad6598']]
+const colors = [["#ee3f4d", "#bf3553"], ["#f86b1d", "#fb8b05"], ["#f9a633", "#fcb70a"], ["#229453", "#41b349"], ["#12aa9c", "#57c3c2"], ["#1177b0", "#0f59a4"], ["#813c85", "#ad6598"]];
 const resetColors = (color: [string, string]) => {
-  store.accentColors['light-accent'] = color[0]
-  store.accentColors['light-secondary'] = color[1]
-  store.accentColors['dark-accent'] = color[0]
-  store.accentColors['dark-secondary'] = color[1]
-}
+  store.accentColors["light-accent"] = color[0];
+  store.accentColors["light-secondary"] = color[1];
+  store.accentColors["dark-accent"] = color[0];
+  store.accentColors["dark-secondary"] = color[1];
+};
 </script>
 
 <template>

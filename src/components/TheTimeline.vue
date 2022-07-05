@@ -1,34 +1,31 @@
 <script setup lang="ts">
-import { groupBy } from 'lodash-es'
-import { useStore } from '~/stores/store'
+import { groupBy } from "lodash-es";
+import { useStore } from "~/stores/store";
 
 const props = defineProps<{
   name: string
   filter: (a: Article) => boolean
-}>()
-const store = useStore()
+}>();
+const store = useStore();
 
-const getYear = (timestamp: number) => new Date(timestamp).getFullYear()
+const getYear = (timestamp: number) => new Date(timestamp).getFullYear();
 
-const articleGroups = computed(() => groupBy(
-  store.articles.filter(props.filter),
-  (article: Article) => getYear(article.timestamp),
-))
-const years = computed(() => Object.keys(articleGroups.value).sort((a, b) => Number(b) - Number(a)))
+const articleGroups = computed(() =>
+  groupBy(store.articles.filter(props.filter), (article: Article) =>
+    getYear(article.timestamp),
+  ),
+);
+const years = computed(() =>
+  Object.keys(articleGroups.value).sort((a, b) => Number(b) - Number(a)),
+);
 </script>
 
 <template>
   <h1 class="mt-4 mb-8">
     {{ name }}
   </h1>
-  <div
-    class="flex flex-col gap-8"
-  >
-    <section
-      v-for="year in years"
-      :key="year"
-      class="flex flex-col gap-2"
-    >
+  <div class="flex flex-col gap-8">
+    <section v-for="year in years" :key="year" class="flex flex-col gap-2">
       <div>
         <h2 class="font-bold text-xl mb-1">
           {{ year }}

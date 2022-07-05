@@ -1,6 +1,8 @@
 <template>
   <header class="flex justify-between items-center my-4 gap-2">
-    <nav class="inline-block px-2 py-1 rounded bg-acc text-bgd font-bold transition-lively hover:bg-sec">
+    <nav
+      class="inline-block px-2 py-1 rounded bg-acc text-bgd font-bold transition-lively hover:bg-sec"
+    >
       <router-link to="/">
         Pak
       </router-link>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const router = useRouter()
+const router = useRouter();
 
 useHead({
-  title: '404 | Pak',
+  title: "404 | Pak",
   meta: [
-    { name: 'description', content: '404' },
+    { name: "description", content: "404" },
   ],
-})
+});
 </script>
 
 <template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <template>
   <main>
     <h1 class="mt-4 mb-8">
-      {{ t('not-found') }}
+      {{ t("not-found") }}
     </h1>
     <router-view />
   </main>

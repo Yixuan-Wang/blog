@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { darkMode, DarkMode, toggleDarkMode } from '~/logic/dark'
-import { useToggleLocales } from '~/logic/locale'
+import { useI18n } from "vue-i18n";
+import { darkMode, DarkMode, toggleDarkMode } from "~/logic/dark";
+import { useToggleLocales } from "~/logic/locale";
 
-const toggleLocales = useToggleLocales(useI18n)!
+const toggleLocales = useToggleLocales(useI18n)!;
 
-const { t, locale } = useI18n()
-const version = import.meta.env.PACKAGE_VERSION
+const { t, locale } = useI18n();
+const version = import.meta.env.PACKAGE_VERSION;
 </script>
 
 <template>
@@ -24,18 +24,26 @@ const version = import.meta.env.PACKAGE_VERSION
           </LinkSocial>
         </button>
         <button>
-          <LinkSocial href="https://www.zhihu.com/people/tom-wang-19-44" title="Zhihu">
+          <LinkSocial
+            href="https://www.zhihu.com/people/tom-wang-19-44"
+            title="Zhihu"
+          >
             <ant-design-zhihu-circle-filled />
           </LinkSocial>
         </button>
         <button>
-          <LinkSocial href="https://twitter.com/tom_yixuan_wang" title="Twitter">
+          <LinkSocial
+            href="https://twitter.com/tom_yixuan_wang"
+            title="Twitter"
+          >
             <mdi-twitter />
           </LinkSocial>
         </button>
         <button class="button_container">
           <div class="button_prompt">
-            <p class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono">
+            <p
+              class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
+            >
               v{{ version }}
             </p>
           </div>
@@ -47,7 +55,9 @@ const version = import.meta.env.PACKAGE_VERSION
       <nav class="flex justify-between items-center gap-2">
         <button class="button_container">
           <div class="button_prompt">
-            <span class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono">{{ locale }}</span>
+            <span
+              class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
+            >{{ locale }}</span>
           </div>
           <a :title="t('button.toggleLocale')" @click="toggleLocales()">
             <mdi-earth />
@@ -58,12 +68,9 @@ const version = import.meta.env.PACKAGE_VERSION
             <mdi-information />
           </router-link>
         </button> -->
-        <button
-          :title="t('button.toggleDark')"
-          @click="toggleDarkMode()"
-        >
-          <mdi-brightness-auto v-if="darkMode === DarkMode.Auto " />
-          <mdi-brightness-7 v-else-if="darkMode === DarkMode.Light " />
+        <button :title="t('button.toggleDark')" @click="toggleDarkMode()">
+          <mdi-brightness-auto v-if="darkMode === DarkMode.Auto" />
+          <mdi-brightness-7 v-else-if="darkMode === DarkMode.Light" />
           <mdi-brightness-4 v-else />
         </button>
       </nav>

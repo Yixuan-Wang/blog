@@ -1,22 +1,17 @@
 <script setup lang="ts">
-const { t } = useI18n()
-const filter = (article: Article) => article.genre === 'posts'
+const { t } = useI18n();
+const filter = (article: Article) => article.genre === "posts";
 
-const genreName = computed(() => t('genre.posts'))
+const genreName = computed(() => t("genre.posts"));
 
 useHead({
   title: computed(() => `${genreName.value} | Pak`),
-  meta: [
-    { name: 'description', content: 'Posts on Pak' },
-  ],
-})
+  meta: [{ name: "description", content: "Posts on Pak" }],
+});
 </script>
 
 <template>
-  <TheTaxonomy
-    :name="genreName"
-    :filter="filter"
-  />
+  <TheTaxonomy :name="genreName" :filter="filter" />
 </template>
 
 <route lang="yaml">

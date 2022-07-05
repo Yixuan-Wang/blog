@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useStore } from '~/stores/store'
-import { ACCENT_COLORS } from '~/logic/typesetting'
-const store = useStore()
-const { t } = useI18n()
+import { useStore } from "~/stores/store";
+import { ACCENT_COLORS } from "~/logic/typesetting";
+const store = useStore();
+const { t } = useI18n();
 
 const resetColors = (key: keyof typeof ACCENT_COLORS) => {
-  store.accentColors[key] = ACCENT_COLORS[key]
-}
+  store.accentColors[key] = ACCENT_COLORS[key];
+};
 
-useTitle(computed(() => `${t('typesetting.typesetting')} | Pak`))
+useTitle(computed(() => `${t("typesetting.typesetting")} | Pak`));
 </script>
 
 <template>

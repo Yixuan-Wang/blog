@@ -2,7 +2,7 @@
 defineProps<{
   articles: Article[]
   compact?: boolean
-}>()
+}>();
 </script>
 
 <template>

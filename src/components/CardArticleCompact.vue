@@ -3,19 +3,19 @@
 const props = defineProps<{
   article: Article
   hide?: Record<keyof Article, boolean>
-}>()
+}>();
 
-const { d } = useI18n()
-const lang = props.article.frontmatter.lang ?? 'zh-Hans'
+const { d } = useI18n();
+const lang = props.article.frontmatter.lang ?? "zh-Hans";
 </script>
 
 <template>
-  <article
-    class="flex items-start gap-2 items-center rounded"
-    :lang="lang"
-  >
-    <time class="font-mono">{{ d(article.frontmatter.date, 'monthDay', 'iso') }}</time>
+  <article class="flex items-start gap-2 items-center rounded" :lang="lang">
+    <time class="font-mono">{{
+      d(article.frontmatter.date, "monthDay", "iso")
+    }}</time>
     <h2 class="transition-lively">
+      F
       <router-link :to="article.path">
         {{ article.frontmatter.title }}
       </router-link>

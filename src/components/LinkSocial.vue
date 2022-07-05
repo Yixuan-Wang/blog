@@ -2,7 +2,7 @@
 defineProps<{
   href: string
   title: string
-}>()
+}>();
 </script>
 
 <template>

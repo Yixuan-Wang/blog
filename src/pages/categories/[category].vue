@@ -1,21 +1,24 @@
 <script setup lang="ts">
-const { params } = toRefs(useRoute())
-const { t } = useI18n()
-const filter = (article: Article) => article.frontmatter.category === params.value?.category as string ?? ''
+const { params } = toRefs(useRoute());
+const { t } = useI18n();
+const filter = (article: Article) =>
+  article.frontmatter.category === (params.value?.category as string) ?? "";
 
-const categoryName = computed(() => t(`categories.${params.value.category}`, params.value.category as string))
+const categoryName = computed(() =>
+  t(`categories.${params.value.category}`, params.value.category as string),
+);
 
 useHead({
   title: computed(() => `${categoryName.value} | Pak`),
   meta: [
-    { name: 'description', content: `Articles about ${categoryName.value} on Pak` },
+    {
+      name: "description",
+      content: `Articles about ${categoryName.value} on Pak`,
+    },
   ],
-})
+});
 </script>
 
 <template>
-  <TheTaxonomy
-    :name="categoryName"
-    :filter="filter"
-  />
+  <TheTaxonomy :name="categoryName" :filter="filter" />
 </template>

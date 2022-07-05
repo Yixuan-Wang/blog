@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <template>
   <div class="flex flex-col gap-1">
     <mdi-broom class="text-4xl" />
     <h2 class="text-lg">
-      {{ t('empty') }}
+      {{ t("empty") }}
     </h2>
     <p class="text-dim whitespace-pre-wrap">
-      {{ t('empty-aphorism') }}
+      {{ t("empty-aphorism") }}
     </p>
   </div>
 </template>

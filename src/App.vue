@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { initLocale } from './logic/locale'
-initLocale(useI18n)
+import { initLocale } from "./logic/locale";
+initLocale(useI18n);
 </script>
 
 <template>

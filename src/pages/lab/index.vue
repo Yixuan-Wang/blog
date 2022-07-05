@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 
 useHead({
-  title: computed(() => `${t('lab')} | Pak`),
+  title: computed(() => `${t("lab")} | Pak`),
   meta: [
-    { name: 'description', content: 'Experiments on Pak' },
+    { name: "description", content: "Experiments on Pak" },
   ],
-})
+});
 </script>
 
 <template>

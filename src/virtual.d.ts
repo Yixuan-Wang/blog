@@ -1,4 +1,4 @@
-declare module '*/friends.yaml' {
+declare module "*/friends.yaml" {
   export interface Friend {
     name: string
     avatar: string
@@ -6,5 +6,5 @@ declare module '*/friends.yaml' {
     link: string
   }
 
-  export const friends: Friend[]
+  export const friends: Friend[];
 }

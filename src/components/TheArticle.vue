@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { unoify } from '~/logic/uno'
+import { unoify } from "~/logic/uno";
 
 // @ts-ignore
 const props = defineProps<{
@@ -11,24 +11,18 @@ const props = defineProps<{
     keywords?: string[]
   }
   inner: string
-}>()
+}>();
 
 if (!import.meta.env.SSR) {
   onBeforeMount(async() => {
-    useStyleTag(await unoify(props.inner))
-  })
+    useStyleTag(await unoify(props.inner));
+  });
 }
 </script>
 
 <template>
-  <article
-    v-if="props.frontmatter.title"
-    class="text-left"
-  >
-    <TheArticleFull
-      :frontmatter="props.frontmatter"
-      :inner="inner"
-    />
+  <article v-if="props.frontmatter.title" class="text-left">
+    <TheArticleFull :frontmatter="props.frontmatter" :inner="inner" />
   </article>
   <div v-else v-html="inner"></div>
 </template>
