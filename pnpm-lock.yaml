@@ -15,6 +15,7 @@ specifiers:
   '@vitejs/plugin-vue': ^1.6.0
   '@vue/compiler-sfc': ^3.2.23
   '@vue/server-renderer': ^3.2.23
+  '@vueuse/components': ^8.7.5
   '@vueuse/core': ^7.5.5
   '@vueuse/head': ^0.7.5
   '@yixuan-wang/component-leipzig': ^0.0.0
@@ -95,6 +96,7 @@ devDependencies:
   '@vitejs/plugin-vue': 1.10.2_vite@2.9.13
   '@vue/compiler-sfc': 3.2.26
   '@vue/server-renderer': 3.2.26_vue@3.2.26
+  '@vueuse/components': 8.7.5_vue@3.2.26
   critters: 0.0.16
   cross-env: 7.0.3
   dotenv: 10.0.0
@@ -837,7 +839,6 @@ packages:
 
   /@types/web-bluetooth/0.0.14:
     resolution: {integrity: sha512-5d2RhCard1nQUC3aHcq/gHzWYO6K0WJmAbjO7mQJgCQKtZpgXxv1rOM6O/dBDhDYYVutk1sciOgNSe+5YyfM8A==}
-    dev: false
 
   /@typescript-eslint/eslint-plugin/4.33.0_gke2q5ozljtsxf7l6wexixdg54:
     resolution: {integrity: sha512-aINiAxGVdOl1eJyVjaWn/YcVAq4Gi/Yo35qHGCnqbWVz61g39D0h23veY/MA0rFFGfxK7TySg2uwDeNv+JgVpg==}
@@ -1257,6 +1258,17 @@ packages:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
     dev: false
 
+  /@vueuse/components/8.7.5_vue@3.2.26:
+    resolution: {integrity: sha512-hlERb/d/meyJXMzMKEhvRaxggBoU/Y2FE97PREHfLxfnM0sip7YvS+k1HgEyx1sYo7pX39XVqd9UZIvXJ2+93Q==}
+    dependencies:
+      '@vueuse/core': 8.7.5_vue@3.2.26
+      '@vueuse/shared': 8.7.5_vue@3.2.26
+      vue-demi: 0.11.4_vue@3.2.26
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
+
   /@vueuse/core/7.5.5_vue@3.2.26:
     resolution: {integrity: sha512-RBDqmIoGfak4h3xdXa/Av+ibkb8NY044wEy6+PG2FAWNaID8/FkqmSFjbxogrbmpSX1yZ1PBHrM8DUp/FrIpbg==}
     peerDependencies:
@@ -1288,7 +1300,6 @@ packages:
       '@vueuse/shared': 8.7.5_vue@3.2.26
       vue: 3.2.26
       vue-demi: 0.11.4_vue@3.2.26
-    dev: false
 
   /@vueuse/head/0.7.5_vue@3.2.26:
     resolution: {integrity: sha512-L+XQ5Act0nT/ZyO8Qo10J4FyM1qPOyQb6MT4MMn6+AITzrStpmKs/nUDDLJKD/rCcNWl/65XbdQm4T2vKp3VOQ==}
@@ -1299,7 +1310,6 @@ packages:
 
   /@vueuse/metadata/8.7.5:
     resolution: {integrity: sha512-emJZKRQSaEnVqmlu39NpNp8iaW+bPC2kWykWoWOZMSlO/0QVEmO/rt8A5VhOEJTKLX3vwTevqbiRy9WJRwVOQg==}
-    dev: false
 
   /@vueuse/shared/7.5.5_vue@3.2.26:
     resolution: {integrity: sha512-mzzTsotHQRPnPAChy8iCv6ek/90CKYhAFyMRgNsMxpT0afZJkbMO/X0OaOu/1NuGbgb8UVjlsWKmCUgKTOF5hA==}
@@ -1328,7 +1338,6 @@ packages:
     dependencies:
       vue: 3.2.26
       vue-demi: 0.11.4_vue@3.2.26
-    dev: false
 
   /@yixuan-wang/component-leipzig/0.0.0:
     resolution: {integrity: sha512-c6IT9dXgT7P1yI7LDyjoTYhwW6lmxQIAIKOpn+F4cPp4zTEZjjwaSh0jnkINTBnAOKtmls48TIPRSx53PzR39Q==}

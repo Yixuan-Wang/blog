@@ -29,18 +29,28 @@ const version = import.meta.env.PACKAGE_VERSION;
             <div i-mdi-twitter />
           </LinkSocial>
         </button>
-        <button btn-icon class="button_container">
-          <div class="button_prompt">
+        <base-dropdown container-class="justify-center">
+          <button btn-icon>
+            <router-link to="/about">
+              <div i-mdi-information />
+            </router-link>
+          </button>
+          <template #dropdown>
             <p
               class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
             >
               v{{ version }}
             </p>
+          </template>
+        </base-dropdown>
+        <!-- <button btn-icon class="button_container">
+          <div class="button_prompt">
+            
           </div>
           <router-link to="/about">
             <div i-mdi-information />
           </router-link>
-        </button>
+        </button> -->
       </nav>
       <nav class="flex justify-between items-center gap-2">
         <button btn-icon title="颜色模式" @click="nextColorMode()">
@@ -63,21 +73,5 @@ button {
 
 button:hover {
   color: var(--color-accent);
-}
-
-.button_container {
-  position: relative;
-}
-.button_container .button_prompt {
-  position: absolute;
-  left: -4em;
-  right: -4em;
-  top: -100%;
-  text-align: center;
-  visibility: hidden;
-}
-
-.button_container:hover .button_prompt {
-  visibility: visible;
 }
 </style>

@@ -46,6 +46,7 @@
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.2.23",
     "@vue/server-renderer": "^3.2.23",
+    "@vueuse/components": "^8.7.5",
     "critters": "^0.0.16",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
