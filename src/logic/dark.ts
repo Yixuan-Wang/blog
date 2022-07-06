@@ -5,6 +5,8 @@ export const actualColorMode = useColorMode({
   storageKey: "color-scheme"
 });
 
+export const storedColorMode = useStorage("color-scheme", "auto");
+
 export const { state: colorMode, next: nextColorMode } = useCycleList(["auto", "light", "dark"]);
-colorMode.value = actualColorMode.value;
+syncRef(storedColorMode, colorMode);
 syncRef(colorMode, actualColorMode);
