@@ -7,7 +7,7 @@ useHead({
 });
 </script>
 
-<template> 
+<template>
   <TheTaxonomy name="文章" :filter="filter" />
 </template>
 

@@ -45,7 +45,7 @@ const version = import.meta.env.PACKAGE_VERSION;
         </base-dropdown>
         <!-- <button btn-icon class="button_container">
           <div class="button_prompt">
-            
+
           </div>
           <router-link to="/about">
             <div i-mdi-information />
@@ -54,9 +54,9 @@ const version = import.meta.env.PACKAGE_VERSION;
       </nav>
       <nav class="flex justify-between items-center gap-2">
         <button btn-icon title="颜色模式" @click="nextColorMode()">
-          <div i-mdi-brightness-auto v-if="colorMode === 'auto'" />
-          <div i-mdi-brightness-7 v-else-if="colorMode === 'light'" />
-          <div i-mdi-brightness-4 v-else />
+          <div v-if="colorMode === 'auto'" i-mdi-brightness-auto />
+          <div v-else-if="colorMode === 'light'" i-mdi-brightness-7 />
+          <div v-else i-mdi-brightness-4 />
         </button>
       </nav>
     </footer>

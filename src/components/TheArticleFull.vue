@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { useHead } from "@vueuse/head";
 const props = defineProps<{
   frontmatter: {
     title: string
@@ -13,38 +13,38 @@ const props = defineProps<{
     // }
   }
   inner: string
-}>()
+}>();
 
-const route = useRoute()
+const route = useRoute();
 
 useHead({
   title: `${props.frontmatter.title} | Pak`,
   meta: [
     {
-      name: 'description',
+      name: "description",
       content: (route.meta as unknown as Article).excerpt,
     },
   ],
   link: [
     {
-      rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css',
+      rel: "stylesheet",
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css",
       integrity:
-        'sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET',
-      crossorigin: 'anonymous',
+        "sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET",
+      crossorigin: "anonymous",
     } as any,
   ],
-})
+});
 
 if (!import.meta.env.SSR) {
   onMounted(() => {
     if (route.hash) {
-      const anchor = route.hash.slice(1)
-      const el = document.getElementById(anchor)
+      const anchor = route.hash.slice(1);
+      const el = document.getElementById(anchor);
       if (el)
-        nextTick(() => el.scrollIntoView())
+        nextTick(() => el.scrollIntoView());
     }
-  })
+  });
 }
 </script>
 

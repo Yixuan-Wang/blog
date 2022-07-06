@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 const props = defineProps<{
-  article: Article;
-  hide?: Record<keyof Article, boolean>;
+  article: Article
+  hide?: Record<keyof Article, boolean>
 }>();
 
 const lang = props.article.frontmatter.lang ?? "zh-Hans";

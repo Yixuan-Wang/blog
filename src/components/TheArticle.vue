@@ -3,18 +3,18 @@ import { useHead } from "@vueuse/head";
 // @ts-ignore
 const props = defineProps<{
   frontmatter: {
-    title: string;
-    date: string;
-    category: string;
-    tags: string[];
-    keywords?: string[];
-  };
-  inner: string;
+    title: string
+    date: string
+    category: string
+    tags: string[]
+    keywords?: string[]
+  }
+  inner: string
 }>();
 
 const route = useRoute();
 
-if(props.frontmatter.title) {
+if (props.frontmatter.title) {
   useHead({
     title: `${props.frontmatter.title} | Pak`,
     meta: [
@@ -36,11 +36,11 @@ if(props.frontmatter.title) {
 }
 
 if (!import.meta.env.SSR) {
-  nextTick(async () => {
+  nextTick(async() => {
     const { unoify } = await import("build/uno");
     const css = await unoify(props.inner);
     useStyleTag(css);
-  })
+  });
 }
 
 if (!import.meta.env.SSR) {

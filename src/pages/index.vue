@@ -83,7 +83,9 @@ const resetColors = (color: string[]) => {
     <div
       v-if="selectionOthers.friends"
     >
-      <h2 font="bold" text="lg" mb-4>朋友们</h2>
+      <h2 font="bold" text="lg" mb-4>
+        朋友们
+      </h2>
       <li class="px-2 grid grid-cols-[auto_auto_1fr] gap-3 items-center">
         <CardFriend
           v-for="friend in friends"

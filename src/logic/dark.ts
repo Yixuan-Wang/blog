@@ -1,8 +1,8 @@
 export const actualColorMode = useColorMode({
   modes: {
-      auto: "auto",
+    auto: "auto",
   },
-  storageKey: "color-scheme"
+  storageKey: "color-scheme",
 });
 
 export const storedColorMode = useStorage("color-scheme", "auto");

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { OnClickOutside } from "@vueuse/components";
 const props = defineProps<{
-  containerClass?: string;
+  containerClass?: string
 }>();
-/* 
+/*
 const emit = defineEmits(['update:modelValue'])
 
 const dropdownOpen = useVModel(props, 'modelValue', emit) */
