@@ -52,6 +52,17 @@ if (!import.meta.env.SSR) {
     }
   });
 }
+
+const toc = reactive<[string, string][]>([]);
+if (!import.meta.env.SSR) {
+  onMounted(() => {
+    if (route.fullPath.startsWith("/notes")) {
+      const anchors = Array.from(document.querySelectorAll("#md article[note] h2:first-child"));
+      const tocs = anchors.map(anchor => [anchor.id, (anchor as HTMLElement).innerText]) as [string, string][];
+      toc.push(...tocs);
+    }
+  });
+}
 </script>
 
 <template>
@@ -65,6 +76,19 @@ if (!import.meta.env.SSR) {
       </h1>
       <ArticleHeader :article="(route.meta as unknown as Article)" />
     </header>
+    <nav v-if="toc" m="t-4 b-8">
+      <ul>
+        <li
+          v-for="item in toc"
+          :key="item[0]"
+          font="serif bold"
+        >
+          <a :href="`#${item[0]}`">
+            :: {{ item[1] }}
+          </a>
+        </li>
+      </ul>
+    </nav>
     <article id="md" v-html="inner">
     </article>
   </article>

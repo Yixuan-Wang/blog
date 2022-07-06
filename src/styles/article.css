@@ -49,6 +49,11 @@
   font-family: var(--font-serif);
   font-weight: bold;
 }
+
+#md article[note] {
+  margin: 1.25em 0em 1.25em 0em;
+}
+
 #md h2 {
   font-size: 1.5em;
 }

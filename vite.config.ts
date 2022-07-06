@@ -205,8 +205,9 @@ export default defineConfig(({ mode }) => ({
       },
       transforms: {
         after(code) {
-          code = `<TheArticle :frontmatter="frontmatter" inner="${escapeHTML(code)}"></TheArticle>`
-          return code
+          code = code.replaceAll("<!-- $note -->", "<article note>").replaceAll("<!-- $endnote -->", "</article>");
+          code = `<TheArticle :frontmatter="frontmatter" inner="${escapeHTML(code)}"></TheArticle>`;
+          return code;
         },
       },
       exclude: ['README.md'],

@@ -32,7 +32,7 @@ async function fetchSourceIssues(usedLabels: string[]) {
         if (format === "md") {
           const comments = await getComments(configSourceIssues, issue.number);
           content = `${issue.body}\n${comments
-            .map(comment => comment.body)
+            .map(comment => genre === "notes" ? `\n\n<!-- $note -->\n\n ${comment.body} \n\n<!-- $endnote -->\n\n` : comment.body)
             .join("\n<hr class=\"talk-separator\" />\n\n")}`;
         }
         else {
