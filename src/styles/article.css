@@ -1,15 +1,3 @@
-#md {
-  /* a, a>svg {
-		transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-	*/
-  /* .katex-display {
-		overflow-x: auto;
-		overflow-y: visible;
-}
-	*/
-}
-
 #md a,
 #md a * {
   text-decoration-skip-ink: auto;
@@ -259,6 +247,7 @@
   margin: unset;
 }
 
-#md leipzig-glossing {
-  padding: 1em;
+#md leipzig-gloss {
+  display: block;
+  margin: 1em 0;
 }
