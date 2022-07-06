@@ -1,67 +1,67 @@
-import path from 'path'
-import fs from 'fs'
-import { loadEnv, defineConfig } from 'vite'
-import dotenv from 'dotenv'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import loadVersion from 'vite-plugin-package-version'
-import Layouts from 'vite-plugin-vue-layouts'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Markdown from 'vite-plugin-vue-markdown'
-import yaml from '@rollup/plugin-yaml'
-import Unocss from 'unocss/vite'
+import path from "path";
+import fs from "fs";
+import { loadEnv, defineConfig } from "vite";
+import dotenv from "dotenv";
+import Vue from "@vitejs/plugin-vue";
+import Pages from "vite-plugin-pages";
+import loadVersion from "vite-plugin-package-version";
+import Layouts from "vite-plugin-vue-layouts";
+import Components from "unplugin-vue-components/vite";
+import AutoImport from "unplugin-auto-import/vite";
+import Markdown from "vite-plugin-vue-markdown";
+import yaml from "@rollup/plugin-yaml";
+import Unocss from "unocss/vite";
 
-import MdShiki from 'markdown-it-shiki'
-import MdKatex from '@iktakahiro/markdown-it-katex'
-import MdLinkAttributes from 'markdown-it-link-attributes'
+import MdShiki from "markdown-it-shiki";
+import MdKatex from "@iktakahiro/markdown-it-katex";
+import MdLinkAttributes from "markdown-it-link-attributes";
 // @ts-ignore
-import MdFootnote from 'markdown-it-footnote'
+import MdFootnote from "markdown-it-footnote";
 // @ts-ignore
-import MdAnchor from 'markdown-it-anchor'
+import MdAnchor from "markdown-it-anchor";
 // @ts-ignore
-import MdContainer from 'markdown-it-container'
+import MdContainer from "markdown-it-container";
 // @ts-ignore
-import MdAttrs from 'markdown-it-attrs'
+import MdAttrs from "markdown-it-attrs";
 // @ts-ignore
-import MdSpan from 'markdown-it-bracketed-spans'
+import MdSpan from "markdown-it-bracketed-spans";
 // @ts-ignore
-import uslug from 'uslug'
+import uslug from "uslug";
 
-import type { RouteRecordRaw } from 'vue-router'
-import { isString } from '@vueuse/core'
+import type { RouteRecordRaw } from "vue-router";
+import { isString } from "@vueuse/core";
 
-import IssuesPagesPlugin from './generated/issues/issues'
-import { getMeta } from './generated/markdown-meta'
+import IssuesPagesPlugin from "./generated/issues/issues";
+import { getMeta } from "./generated/markdown-meta";
 // @ts-ignore
-import MdRuby from './generated/markdown-it-ruby'
+import MdRuby from "./generated/markdown-it-ruby";
 
 // @ts-ignore
 import { UnoConfig } from "./uno.config.js";
 
-dotenv.config({ path: path.resolve(process.cwd(), '.env.local') })
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
-const markdownWrapperClasses = '' // 'prose prose-sm m-auto text-left'
+const markdownWrapperClasses = ""; // 'prose prose-sm m-auto text-left'
 
 function escapeHTML(unsafe: string) {
   return unsafe
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;')
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
-      'build/': `${path.resolve(__dirname, 'build')}/`
+      "~/": `${path.resolve(__dirname, "src")}/`,
+      "build/": `${path.resolve(__dirname, "build")}/`,
     },
   },
   plugins: [
     IssuesPagesPlugin({
-      usedLabels: [loadEnv(mode, process.cwd()).VITE_ENV === 'development' ? '++' : '+'],
+      usedLabels: [loadEnv(mode, process.cwd()).VITE_ENV === "development" ? "++" : "+"],
     }),
 
     loadVersion(),
@@ -72,19 +72,19 @@ export default defineConfig(({ mode }) => ({
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ["vue", "md"],
       pagesDir: [
-        { dir: 'src/pages', baseRoute: '' },
-        { dir: 'contents/posts/**', baseRoute: 'posts/' },
-        { dir: 'contents/others', baseRoute: '' },
+        { dir: "src/pages", baseRoute: "" },
+        { dir: "contents/posts/**", baseRoute: "posts/" },
+        { dir: "contents/others", baseRoute: "" },
       ],
       extendRoute(route) {
-        if (route.name?.includes('_')) {
-          route.name = route.name.replace(/.+_/, '')
-          route.path = route.path.replace(/\/[^/]+_/, '/')
-          const md = fs.readFileSync(path.resolve(__dirname, route.component.slice(1)), 'utf-8')
-          const meta = getMeta(md, { name: route.name, path: route.path, genre: 'posts' })
-          route.meta = Object.assign(route.meta ?? {}, meta) // To avoid copy
+        if (route.name?.includes("_")) {
+          route.name = route.name.replace(/.+_/, "");
+          route.path = route.path.replace(/\/[^/]+_/, "/");
+          const md = fs.readFileSync(path.resolve(__dirname, route.component.slice(1)), "utf-8");
+          const meta = getMeta(md, { name: route.name, path: route.path, genre: "posts" });
+          route.meta = Object.assign(route.meta ?? {}, meta); // To avoid copy
         }
         // console.log(route)
         // if (!route.path.match(/(posts|sheets|notes)\/.+/)) {
@@ -106,12 +106,12 @@ export default defineConfig(({ mode }) => ({
             = (isString(alias)
               ? [alias]
               : alias
-            ).map(al => `/${route!.meta!.genre}/${al}`)
+            ).map(al => `/${route!.meta!.genre}/${al}`);
         }
 
         if (route?.meta?.alias)
-          (route as unknown as RouteRecordRaw).alias = route!.meta!.alias as string
-        return route
+          (route as unknown as RouteRecordRaw).alias = route!.meta!.alias as string;
+        return route;
       },
       // extendRoute(route) {
       //   console.log(route)
@@ -131,11 +131,11 @@ export default defineConfig(({ mode }) => ({
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: [
-        'vue',
-        'vue-router',
-        'vue-i18n',
-        '@vueuse/head',
-        '@vueuse/core',
+        "vue",
+        "vue-router",
+        "vue-i18n",
+        "@vueuse/head",
+        "@vueuse/core",
       ],
       dts: true,
     }),
@@ -143,7 +143,7 @@ export default defineConfig(({ mode }) => ({
     // https://github.com/antfu/unplugin-vue-components
     Components({
       // allow auto load markdown components under `./src/components/`
-      extensions: ['vue', 'md'],
+      extensions: ["vue", "md"],
 
       dts: true,
 
@@ -153,7 +153,7 @@ export default defineConfig(({ mode }) => ({
 
     yaml({
       safe: false,
-      exclude: ['locales/**'],
+      exclude: ["locales/**"],
     }),
 
     // https://github.com/antfu/vite-plugin-windicss
@@ -167,41 +167,41 @@ export default defineConfig(({ mode }) => ({
     Markdown({
       wrapperClasses: markdownWrapperClasses,
       markdownItSetup(md) {
-        const uslugify = (s: string) => uslug(s)
-        md.use(MdSpan)
-        md.use(MdContainer, '~')
-        md.use(MdContainer, '%')
-        md.use(MdContainer, '+', {
+        const uslugify = (s: string) => uslug(s);
+        md.use(MdSpan);
+        md.use(MdContainer, "~");
+        md.use(MdContainer, "%");
+        md.use(MdContainer, "+", {
           render: (tokens: any, idx: any) => {
-            const m = tokens[idx].info.trim().match(/^\+\s+\[(.*)\]$/)
+            const m = tokens[idx].info.trim().match(/^\+\s+\[(.*)\]$/);
 
             if (tokens[idx].nesting === 1)
-              return `<details><summary>${m[1]}</summary>\n`
+              return `<details><summary>${m[1]}</summary>\n`;
               // return `<details><summary>${md.utils.escapeHtml(m[1])}</summary>\n`
             else
-              return '</details>\n'
+              return "</details>\n";
           },
-        })
-        md.use(MdAttrs)
+        });
+        md.use(MdAttrs);
         md.use(MdShiki as any, {
           theme: {
-            dark: 'one-dark-pro',
-            light: 'github-light',
+            dark: "one-dark-pro",
+            light: "github-light",
           },
-        })
-        md.use(MdKatex)
-        md.use(MdRuby)
+        });
+        md.use(MdKatex);
+        md.use(MdRuby);
         md.use(MdLinkAttributes as any, {
           pattern: /^https?:\/\//,
           attrs: {
-            target: '_blank',
-            rel: 'noopener',
+            target: "_blank",
+            rel: "noopener",
           },
-        })
+        });
         md.use(MdAnchor, {
           slugify: uslugify,
-        })
-        md.use(MdFootnote)
+        });
+        md.use(MdFootnote);
       },
       transforms: {
         after(code) {
@@ -210,7 +210,7 @@ export default defineConfig(({ mode }) => ({
           return code;
         },
       },
-      exclude: ['README.md'],
+      exclude: ["README.md"],
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
@@ -250,23 +250,23 @@ export default defineConfig(({ mode }) => ({
   },
 
   ssr: {
-    noExternal: ["build/uno"]
+    noExternal: ["build/uno"],
   },
 
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
+    script: "async",
+    formatting: "minify",
   },
 
   optimizeDeps: {
     include: [
-      'vue',
-      'vue-router',
-      '@vueuse/core',
+      "vue",
+      "vue-router",
+      "@vueuse/core",
     ],
     exclude: [
-      'vue-demi',
+      "vue-demi",
     ],
   },
-}))
+}));
