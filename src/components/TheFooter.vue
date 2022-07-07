@@ -29,6 +29,11 @@ const version = import.meta.env.PACKAGE_VERSION;
             <div i-mdi-twitter />
           </LinkSocial>
         </button>
+        <button btn-icon title="RSS">
+          <a href="/feed.xml">
+            <div i-mdi-rss-box />
+          </a>
+        </button>
         <base-dropdown container-class="justify-center">
           <button btn-icon>
             <router-link to="/about">
@@ -53,6 +58,11 @@ const version = import.meta.env.PACKAGE_VERSION;
         </button> -->
       </nav>
       <nav class="flex justify-between items-center gap-2">
+        <button btn-icon title="排版">
+          <router-link to="/lab/typesetting">
+            <div i-mdi-typewriter />
+          </router-link>
+        </button>
         <button btn-icon title="颜色模式" @click="nextColorMode()">
           <div v-if="colorMode === 'auto'" i-mdi-brightness-auto />
           <div v-else-if="colorMode === 'light'" i-mdi-brightness-7 />
