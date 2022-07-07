@@ -6,10 +6,10 @@ import type { useStore } from "~/stores/store";
 type TheStore = ReturnType<typeof useStore>;
 export const WEBFONTS = ["Noto Sans", "Noto Serif", "Noto Sans CJK SC", "Noto Serif CJK SC", "JetBrains Mono"];
 export const ACCENT_COLORS = {
-  "light-accent": "#003A70",
-  "light-secondary": "#61649F",
-  "dark-accent": "#FFE900",
-  "dark-secondary": "#F86B1D",
+  "light-accent": "#2177B8",
+  "light-secondary": "#003A70",
+  "dark-accent": "#FBB929",
+  "dark-secondary": "#FFE900",
 };
 
 function initWebfont(webfont: Ref<Record<string, boolean>>) {

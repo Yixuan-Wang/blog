@@ -7,16 +7,16 @@
 }
 
 html:not(.dark) {
-  --color-accent:     var(--accent-light-accent, #003A70);
-  --color-secondary:  var(--accent-light-secondary, #61649f);
+  --color-accent:     var(--accent-light-accent, #2177B8);
+  --color-secondary:  var(--accent-light-secondary, #003A70);
   --color-background: #F5F5F5;
   --color-foreground: #1D252D;
   --color-dim:        #737C7B;
 }
 
 html.dark {
-  --color-accent:     var(--accent-dark-accent, #FFE900);
-  --color-secondary:  var(--accent-dark-secondary, #f86b1d);
+  --color-accent:     var(--accent-dark-accent, #FBB929);
+  --color-secondary:  var(--accent-dark-secondary, #FFE900);
   --color-background: #0F1419;
   --color-foreground: #9DA5B4;
   --color-dim:        #595959;

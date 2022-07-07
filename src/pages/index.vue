@@ -47,6 +47,7 @@ const resetColors = (color: string[]) => {
         :key="color[0]"
         :style="{ backgroundColor: actualColorMode === 'light' ? color[0] : color[2] }"
         i-mdi-circle
+        class="cursor-pointer"
         @click="resetColors(color)"
       />
     </div>
