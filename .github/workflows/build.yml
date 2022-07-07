@@ -45,7 +45,7 @@ jobs:
           cache: pnpm
 
       - name: Install Node Packages
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
         # install packages, ignore lockfile
 
       - name: Create Env
