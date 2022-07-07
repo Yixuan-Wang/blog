@@ -26,7 +26,6 @@
     "markdown-it-footnote": "^3.0.3",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.8",
-    "vite-plugin-md": "^0.18.1",
     "vue": "^3.2.23",
     "vue-demi": "^0.11.3",
     "vue-router": "^4.0.11"
