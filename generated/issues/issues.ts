@@ -14,6 +14,7 @@ interface SourceIssues {
 
 const mapSourceIssues = new Map<string, SourceIssues>();
 const generatedRoutes: string[] = [];
+const articleMeta: Article[] = [];
 
 async function fetchSourceIssues(usedLabels: string[]) {
   const configSourceIssues = {
@@ -73,6 +74,7 @@ async function fetchSourceIssues(usedLabels: string[]) {
             genre: value.genre,
             date: value.timestamp,
           });
+          articleMeta.push(meta);
           generatedRoutes.push(`{
 name: ${JSON.stringify(value.key)},
 path: ${JSON.stringify(value.path)},
@@ -99,7 +101,7 @@ export default function IssuesPagesPlugin({
       await fetchSourceIssues(usedLabels);
     },
     resolveId(id) {
-      if (id === "virtual:generated-issues-pages" || mapSourceIssues.has(id))
+      if (id === "virtual:generated-issues-pages" || id === "virtual:generated-issues-meta" || mapSourceIssues.has(id))
         return id;
     },
     load(id) {
@@ -108,6 +110,9 @@ export default function IssuesPagesPlugin({
         export default routes
         `;
       }
+      if (id === "virtual:generated-issues-meta")
+        return JSON.stringify(articleMeta);
+
       if (mapSourceIssues.has(id)) return mapSourceIssues.get(id)!.content;
     },
   };

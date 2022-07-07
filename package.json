@@ -4,7 +4,7 @@
   "version": "3.0.0-alpha.3",
   "scripts": {
     "dev": "vite --port 3333 --open",
-    "build": "cross-env NODE_ENV=production vite-ssg build",
+    "build": "cross-env NODE_ENV=production vite-ssg build && mv public/feed.* dist/",
     "local": "rm contents && rsync -rv --exclude=.git ../contents contents && pnpm run build; rm -rf contents && ln -s ../contents contents",
     "preview": "vite preview",
     "lint": "eslint src --fix"
@@ -51,6 +51,8 @@
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
+    "fast-glob": "^3.2.11",
+    "feed": "^4.2.2",
     "https-localhost": "^4.6.5",
     "markdown-it-link-attributes": "^3.0.0",
     "markdown-it-shiki": "^0.3.0",

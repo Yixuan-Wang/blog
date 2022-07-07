@@ -32,6 +32,7 @@ import type { RouteRecordRaw } from "vue-router";
 import { isString } from "@vueuse/core";
 
 import IssuesPagesPlugin from "./generated/issues/issues";
+import { FeedPlugin, FsMetaPlugin } from "./generated/feed";
 import { getMeta } from "./generated/markdown-meta";
 // @ts-ignore
 import MdRuby from "./generated/markdown-it-ruby";
@@ -63,6 +64,14 @@ export default defineConfig(({ mode }) => ({
     IssuesPagesPlugin({
       usedLabels: [loadEnv(mode, process.cwd()).VITE_ENV === "development" ? "++" : "+"],
     }),
+
+    FsMetaPlugin({
+      files: {
+        posts: "contents/posts/**/*.md",
+      },
+    }),
+
+    FeedPlugin(),
 
     loadVersion(),
 
