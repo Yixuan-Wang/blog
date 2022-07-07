@@ -1,4 +1,4 @@
-name: Release
+name: Build
 
 on:
   workflow_dispatch:
@@ -7,8 +7,8 @@ on:
       - contents-update
       - contents-issues-update
   push:
-    tags:
-      - 'v*'
+    branches:    
+      - main
   
 
 jobs:
