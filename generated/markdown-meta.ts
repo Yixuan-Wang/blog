@@ -1,4 +1,5 @@
-import matter from 'gray-matter'
+import matter from "gray-matter";
+import dayjs from "./day";
 
 export function getMeta(raw: string, mixin: {
   name: string
@@ -6,9 +7,9 @@ export function getMeta(raw: string, mixin: {
   genre: string
   date?: string
 }): Article {
-  const result = matter(raw, { excerpt_separator: '<!-- more -->' })
-  result.excerpt = result.excerpt?.trim()
-  const date = mixin?.date ?? result.data.date
+  const result = matter(raw, { excerpt_separator: "<!-- more -->" });
+  result.excerpt = result.excerpt?.trim();
+  const date = mixin?.date ?? result.data.date;
 
   return {
     name: mixin.name,
@@ -17,8 +18,8 @@ export function getMeta(raw: string, mixin: {
       ...result.data as Frontmatter,
       date,
     },
-    excerpt: result.excerpt ?? '',
+    excerpt: result.excerpt ?? "",
     genre: mixin.genre,
-    timestamp: new Date(date).getTime(),
-  }
+    timestamp: dayjs(date).toDate().getTime(),
+  };
 }

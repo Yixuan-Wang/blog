@@ -5,6 +5,7 @@ import fg from "fast-glob";
 import { Feed } from "feed";
 import type { Item } from "feed";
 import { Plugin } from "vite";
+import dayjs from "../day";
 import { getMeta } from "../markdown-meta";
 
 const AUTHOR = {
@@ -42,7 +43,7 @@ export function FsMetaPlugin(option: { files: Record<string, string> }): Plugin 
           const name = path.basename(p, ".md").replace(/.+_/, "");
           const meta = getMeta(md, {
             name,
-            path: `${genre}/name`,
+            path: `/${genre}/${name}`,
             genre,
           });
           articleMeta.push(meta);
@@ -68,7 +69,7 @@ export function FeedPlugin(): Plugin {
       title: article.frontmatter.title,
       id: article.path,
       link,
-      date: new Date(article.timestamp),
+      date: dayjs.tz(article.timestamp).toDate(),
       content: `<p>${article.excerpt}</p><p><a href="${link}">Full Article...</a></p>`,
       category: article.frontmatter.tags.map(tag => ({ name: tag, domain: article.frontmatter.category })),
     };
