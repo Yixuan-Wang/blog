@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.yixuan-wang.site/</id>
+    <title>Pak</title>
+    <updated>2022-07-07T15:27:55.096Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Yixuan Wang</name>
+        <uri>https://yixuan-wang.site</uri>
+    </author>
+    <link rel="alternate" href="https://blog.yixuan-wang.site/"/>
+    <link rel="self" href="https://blog.yixuan-wang.site/feed.atom"/>
+    <subtitle>This is a blоg, not a blog.</subtitle>
+    <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
+    <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
+    <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[In Rust We Bust]]></title>
+        <id>/notes/rust-postmortem</id>
+        <link href="https://blog.yixuan-wang.site/notes/rust-postmortem"/>
+        <updated>2022-07-06T02:37:40.000Z</updated>
+        <content type="html"><![CDATA[<p>Rust 语言的踩坑记录。</p><p><a href="https://blog.yixuan-wang.site/notes/rust-postmortem">Full Article...</a></p>]]></content>
+        <category label="rust"/>
+        <category label="pl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[日语歌词标注之甲]]></title>
+        <id>/notes/jpn-lyrics-gloss-a</id>
+        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a"/>
+        <updated>2022-07-05T14:11:22.000Z</updated>
+        <content type="html"><![CDATA[<p>偏向民谣性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a">Full Article...</a></p>]]></content>
+        <category label="lyrics"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[日语歌词标注之乙]]></title>
+        <id>/notes/jpn-lyrics-gloss-b</id>
+        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b"/>
+        <updated>2022-07-05T14:09:23.000Z</updated>
+        <content type="html"><![CDATA[<p>偏向流行 / 另类摇滚性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b">Full Article...</a></p>]]></content>
+        <category label="lyrics"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[日语歌词标注之丙]]></title>
+        <id>/notes/jpn-lyrics-gloss-c</id>
+        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c"/>
+        <updated>2022-07-05T14:08:24.000Z</updated>
+        <content type="html"><![CDATA[<p>诶？是二次元？</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c">Full Article...</a></p>]]></content>
+        <category label="lyrics"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[StackOverflow 问题收藏夹]]></title>
+        <id>/sheets/favorites-stackoverflow</id>
+        <link href="https://blog.yixuan-wang.site/sheets/favorites-stackoverflow"/>
+        <updated>2022-07-04T05:13:07.000Z</updated>
+        <content type="html"><![CDATA[<p>让程序员开心的 StackOverflow 问题，抄了又抄。</p><p><a href="https://blog.yixuan-wang.site/sheets/favorites-stackoverflow">Full Article...</a></p>]]></content>
+        <category label="utils"/>
+        <category label="pl"/>
+        <category label="tex"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[徐烈炯《生成语法理论》读书笔记]]></title>
+        <id>/notes/intro-chomskyan-generative-syntax</id>
+        <link href="https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax"/>
+        <updated>2022-02-25T04:37:28.000Z</updated>
+        <content type="html"><![CDATA[<p>徐烈炯《生成语法理论：标准理论到最简方案》一书简要介绍 Chomsky 生成语法理论（主要是句法）及其流变。此为本书的读书笔记。</p><p><a href="https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax">Full Article...</a></p>]]></content>
+        <category label="syntax"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[北京话语音学感知实验两项]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2022-01-30T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>语音学及实验语音学两门课的期末实验。研究了北京话 j - zh 声母和 an - ang 韵母的感知问题。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="phonetics"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[页面高级内容测试]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2022-01-29T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>页面高级内容渲染效果的测试。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="test"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[汉语方言的七分法]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2021-12-27T06:12:00.000Z</updated>
+        <content type="html"><![CDATA[<p>汉语方言传统上采用七分法。 官话是唯一的北方方言，湘语和赣语是带有北方方言特征的南方方言，吴语、客家话、粤语和闽语是南方方言。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="comparative"/>
+        <category label="dialectology"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[索绪尔《普通语言学教程》读书笔记]]></title>
+        <id>/notes/saussure-general-linguistics</id>
+        <link href="https://blog.yixuan-wang.site/notes/saussure-general-linguistics"/>
+        <updated>2021-09-10T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>现代语言学及结构主义语言学开山之作《普通语言学教程》的读书笔记。</p><p><a href="https://blog.yixuan-wang.site/notes/saussure-general-linguistics">Full Article...</a></p>]]></content>
+        <category label="lang-phil"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[莱比锡标注法]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2021-08-03T15:14:00.000Z</updated>
+        <content type="html"><![CDATA[<p>莱比锡标注法（Leipzig Glossing Rules）是以语素为单位，标注语料形态的体系。本文简单翻译其规则，方便查阅。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="comparative"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[重庆]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2021-07-18T08:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>2021 年暑假重庆之行的游记。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="travel"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[程设 C++ 笔记]]></title>
+        <id>/notes/cpp-practice-of-programming</id>
+        <link href="https://blog.yixuan-wang.site/notes/cpp-practice-of-programming"/>
+        <updated>2021-06-26T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>程设课的 C++ 笔记。上半学期是语法及 STL，下半学期是算法基础。</p><p><a href="https://blog.yixuan-wang.site/notes/cpp-practice-of-programming">Full Article...</a></p>]]></content>
+        <category label="cpp"/>
+        <category label="pl"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Issues 测试]]></title>
+        <id>/notes/test-issues</id>
+        <link href="https://blog.yixuan-wang.site/notes/test-issues"/>
+        <updated>2021-02-19T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Issues API 的测试。</p><p><a href="https://blog.yixuan-wang.site/notes/test-issues">Full Article...</a></p>]]></content>
+        <category label="test"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[页面内容测试]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2021-02-14T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>页面内容渲染效果的测试，兼作 Markdown 参考。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="test"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tailwind CSS 初探]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2021-02-04T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Tailwind CSS 从真香到放弃的个人经历。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="frontend"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在 Markdown 中引用参考文献]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-12-30T15:05:00.000Z</updated>
+        <content type="html"><![CDATA[<p>借助 Pandoc，在 Markdown 中引用参考文献非常方便。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="softwares"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[北大钟亭的满文铭文]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-10-12T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>北大钟亭里的那口钟是清朝的遗物，在北侧刻有满文铭文。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="language"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[搭建博客的技术性思考]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-10-11T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>搭建静态博客时考虑的技术的的问题。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="essay"/>
+        <category label="frontend"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[搭建博客的非技术性思考]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-10-05T07:31:57.000Z</updated>
+        <content type="html"><![CDATA[<p>搭建博客时考虑的非技术的、形而上的问题。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="essay"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[人类语言的共性]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-09-30T06:22:00.000Z</updated>
+        <content type="html"><![CDATA[<p>人类语言存在一些共性的本质特征。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="lang-phil"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[二叉搜索树的删除结点操作]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-09-18T02:48:00.000Z</updated>
+        <content type="html"><![CDATA[<p>二叉搜索树删除结点的操作实际上是一种旋转。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="dsa"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[汉语方言的鼻音韵尾数量]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-07-16T03:48:00.000Z</updated>
+        <content type="html"><![CDATA[<p>汉语普通话有两个鼻音韵尾音位，吴语苏州话有一个，粤语广府话有三个。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="comparative"/>
+        <category label="dialectology"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[KMP 算法]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-06-11T13:39:02.000Z</updated>
+        <content type="html"><![CDATA[<p>KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="dsa"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[竖排显示测试]]></title>
+        <id>posts/name</id>
+        <link href="https://blog.yixuan-wang.siteposts/name"/>
+        <updated>2020-05-05T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>学习层叠样式表时的玩耍：竖排《千字文》。</p><p><a href="https://blog.yixuan-wang.siteposts/name">Full Article...</a></p>]]></content>
+        <category label="test"/>
+        <category label="frontend"/>
+    </entry>
+</feed>
