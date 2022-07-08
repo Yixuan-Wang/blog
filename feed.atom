@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-07-07T17:21:11.195Z</updated>
+    <updated>2022-07-08T05:00:39.743Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -15,6 +15,14 @@
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
     <entry>
+        <title type="html"><![CDATA[日语歌词标注之甲]]></title>
+        <id>/notes/jpn-lyrics-gloss-a</id>
+        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a"/>
+        <updated>2022-07-08T04:59:40.000Z</updated>
+        <content type="html"><![CDATA[<p>偏向民谣性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a">Full Article...</a></p>]]></content>
+        <category label="lyrics"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[In Rust We Bust]]></title>
         <id>/notes/rust-postmortem</id>
         <link href="https://blog.yixuan-wang.site/notes/rust-postmortem"/>
@@ -22,14 +30,6 @@
         <content type="html"><![CDATA[<p>Rust 语言的踩坑记录。</p><p><a href="https://blog.yixuan-wang.site/notes/rust-postmortem">Full Article...</a></p>]]></content>
         <category label="rust"/>
         <category label="pl"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[日语歌词标注之甲]]></title>
-        <id>/notes/jpn-lyrics-gloss-a</id>
-        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a"/>
-        <updated>2022-07-05T14:11:22.000Z</updated>
-        <content type="html"><![CDATA[<p>偏向民谣性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a">Full Article...</a></p>]]></content>
-        <category label="lyrics"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之乙]]></title>
