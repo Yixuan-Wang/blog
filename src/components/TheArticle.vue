@@ -58,7 +58,7 @@ if (!import.meta.env.SSR) {
   onMounted(() => {
     if (route.fullPath.startsWith("/notes")) {
       const anchors = Array.from(document.querySelectorAll("#md article[note] h2:first-child"));
-      const tocs = anchors.map(anchor => [anchor.id, (anchor as HTMLElement).innerText]) as [string, string][];
+      const tocs = anchors.map(anchor => [anchor.id, (anchor as HTMLElement).innerHTML]) as [string, string][];
       toc.push(...tocs);
     }
   });
@@ -84,7 +84,7 @@ if (!import.meta.env.SSR) {
           font="serif bold"
         >
           <a :href="`#${item[0]}`">
-            :: {{ item[1] }}
+            :: <span v-html="item[1]"></span>
           </a>
         </li>
       </ul>

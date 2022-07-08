@@ -54,6 +54,10 @@ body {
   max-width: 75ch;
 }
 
+code, pre {
+  font-family: var(--font-mono);
+}
+
 /* svg {
   width: 1.25em;
   height: 1.25em;
