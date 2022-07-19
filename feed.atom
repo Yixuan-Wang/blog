@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-07-17T10:34:52.828Z</updated>
+    <updated>2022-07-19T10:57:49.070Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[日语歌词标注之甲]]></title>
         <id>/notes/jpn-lyrics-gloss-a</id>
         <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a"/>
-        <updated>2022-07-17T10:33:54.000Z</updated>
+        <updated>2022-07-19T10:56:44.000Z</updated>
         <content type="html"><![CDATA[<p>偏向民谣性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a">Full Article...</a></p>]]></content>
         <category label="lyrics"/>
     </entry>
