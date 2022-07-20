@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-07-20T02:38:12.632Z</updated>
+    <updated>2022-07-20T07:31:51.042Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -18,7 +18,7 @@
         <title type="html"><![CDATA[Rust 语言伪经]]></title>
         <id>/notes/apocrypha-rs</id>
         <link href="https://blog.yixuan-wang.site/notes/apocrypha-rs"/>
-        <updated>2022-07-20T02:37:16.000Z</updated>
+        <updated>2022-07-20T07:30:47.000Z</updated>
         <content type="html"><![CDATA[<p>某汉语 Rust 教程没能正确告诉你的内容。</p><p><a href="https://blog.yixuan-wang.site/notes/apocrypha-rs">Full Article...</a></p>]]></content>
         <category label="pl"/>
         <category label="rust"/>
