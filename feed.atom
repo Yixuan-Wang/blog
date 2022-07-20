@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-07-20T02:11:51.529Z</updated>
+    <updated>2022-07-20T02:38:12.632Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,15 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[Rust 语言伪经]]></title>
+        <id>/notes/apocrypha-rs</id>
+        <link href="https://blog.yixuan-wang.site/notes/apocrypha-rs"/>
+        <updated>2022-07-20T02:37:16.000Z</updated>
+        <content type="html"><![CDATA[<p>某汉语 Rust 教程没能正确告诉你的内容。</p><p><a href="https://blog.yixuan-wang.site/notes/apocrypha-rs">Full Article...</a></p>]]></content>
+        <category label="pl"/>
+        <category label="rust"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之乙]]></title>
         <id>/notes/jpn-lyrics-gloss-b</id>
