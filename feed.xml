@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Sat, 30 Jul 2022 07:47:18 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 Jul 2022 09:19:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -19,7 +19,7 @@
             <title><![CDATA[In Rust We Thrust]]></title>
             <link>https://blog.yixuan-wang.site/notes/rust-magics</link>
             <guid>/notes/rust-magics</guid>
-            <pubDate>Sat, 30 Jul 2022 07:45:58 GMT</pubDate>
+            <pubDate>Sat, 30 Jul 2022 09:18:29 GMT</pubDate>
             <content:encoded><![CDATA[<p>Rust 语言的一些奇技淫巧。</p><p><a href="https://blog.yixuan-wang.site/notes/rust-magics">Full Article...</a></p>]]></content:encoded>
             <category domain="comp">rust</category>
             <category domain="comp">pl</category>
