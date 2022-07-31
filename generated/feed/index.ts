@@ -64,13 +64,13 @@ export function FsMetaPlugin(option: { files: Record<string, string> }): Plugin 
 export function FeedPlugin(): Plugin {
   const feedItems: Item[] = [];
   function generateFeed(article: Article) {
-    const link = `https://blog.yixuan-wang.site${article.path}`;
+    const link = `https://blog.yixuan-wang.site${article.path}.html`;
     const item: Item = {
       title: article.frontmatter.title,
       id: article.path,
       link,
       date: dayjs.tz(article.timestamp).toDate(),
-      content: `<p>${article.excerpt}</p><p><a href="${link}">Full Article...</a></p>`,
+      content: `<p>${article.excerpt}</p><p><a href="${link}.html">Full Article...</a></p>`,
       category: article.frontmatter.tags.map(tag => ({ name: tag, domain: article.frontmatter.category })),
     };
     feedItems.push(item);
