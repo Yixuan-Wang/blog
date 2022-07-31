@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-07-30T16:52:49.221Z</updated>
+    <updated>2022-07-31T09:15:30.943Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -15,6 +15,15 @@
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
     <entry>
+        <title type="html"><![CDATA[Rust 语言伪经]]></title>
+        <id>/notes/apocrypha-rs</id>
+        <link href="https://blog.yixuan-wang.site/notes/apocrypha-rs"/>
+        <updated>2022-07-31T09:14:15.000Z</updated>
+        <content type="html"><![CDATA[<p>某汉语 Rust 教程没能正确告诉你的内容。</p><p><a href="https://blog.yixuan-wang.site/notes/apocrypha-rs">Full Article...</a></p>]]></content>
+        <category label="pl"/>
+        <category label="rust"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[In Rust We Thrust]]></title>
         <id>/notes/rust-magics</id>
         <link href="https://blog.yixuan-wang.site/notes/rust-magics"/>
@@ -22,15 +31,6 @@
         <content type="html"><![CDATA[<p>Rust 语言的一些奇技淫巧。</p><p><a href="https://blog.yixuan-wang.site/notes/rust-magics">Full Article...</a></p>]]></content>
         <category label="rust"/>
         <category label="pl"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Rust 语言伪经]]></title>
-        <id>/notes/apocrypha-rs</id>
-        <link href="https://blog.yixuan-wang.site/notes/apocrypha-rs"/>
-        <updated>2022-07-20T07:31:55.000Z</updated>
-        <content type="html"><![CDATA[<p>某汉语 Rust 教程没能正确告诉你的内容。</p><p><a href="https://blog.yixuan-wang.site/notes/apocrypha-rs">Full Article...</a></p>]]></content>
-        <category label="pl"/>
-        <category label="rust"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之乙]]></title>
