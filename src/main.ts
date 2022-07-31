@@ -52,9 +52,19 @@ export const createApp = ViteSSG(
     Object.values(import.meta.globEager("./modules/*.ts")).map(i =>
       i.install?.(ctx),
     );
-    const { app, routes } = ctx;
+    const { app, routes, router } = ctx;
     const pinia = createPinia();
     app.use(pinia);
+
+    if (!import.meta.env.SSR) {
+      router.beforeEach((to) => {
+        if (to.fullPath.match(/\/(posts|sheets|notes)\//) && !to.fullPath.endsWith(".html")) {
+          return to.fullPath.endsWith("/")
+            ? `${to.fullPath}index.html`
+            : `${to.fullPath}.html`;
+        }
+      });
+    }
 
     // if (import.meta.env.SSR)
     //   initialState.pinia = pinia.state.value
