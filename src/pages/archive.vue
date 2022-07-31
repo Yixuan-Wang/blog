@@ -20,3 +20,9 @@ useHead({
     :filter="filter"
   />
 </template>
+
+<route lang="yaml">
+meta:
+  alias:
+    - /archive.html
+</route>

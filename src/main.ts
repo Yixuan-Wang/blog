@@ -25,7 +25,18 @@ import { initTypesetting } from "./logic/typesetting";
 
 // console.log(Component)
 
-const routes = setupLayouts([...generatedRoutes, ...generatedIssuesRoutes]);
+const rawRoutes = setupLayouts([...generatedRoutes, ...generatedIssuesRoutes]);
+const routes = rawRoutes.map((i) => {
+  const paths = [i.path, ...(i.alias ?? [])];
+  return {
+    ...i,
+    alias: paths.map(path =>
+      path.endsWith("/")
+        ? `${i.path}index.html`
+        : `${i.path}.html`,
+    ),
+  };
+});
 
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
   if (savedPosition) return savedPosition;

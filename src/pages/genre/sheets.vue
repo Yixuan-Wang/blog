@@ -13,5 +13,7 @@ useHead({
 
 <route lang="yaml">
 meta:
-  alias: /sheets
+  alias:
+    - /sheets
+    - /sheets.html
 </route>
