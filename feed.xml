@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Wed, 03 Aug 2022 02:17:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 Aug 2022 04:08:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -19,7 +19,7 @@
             <title><![CDATA[Rust 语言伪经]]></title>
             <link>https://blog.yixuan-wang.site/notes/apocrypha-rs.html</link>
             <guid>/notes/apocrypha-rs</guid>
-            <pubDate>Wed, 03 Aug 2022 02:15:54 GMT</pubDate>
+            <pubDate>Thu, 04 Aug 2022 04:07:14 GMT</pubDate>
             <content:encoded><![CDATA[<p>某汉语 Rust 教程没能正确告诉你的内容。</p><p><a href="https://blog.yixuan-wang.site/notes/apocrypha-rs.html">Full Article...</a></p>]]></content:encoded>
             <category domain="comp">pl</category>
             <category domain="comp">rust</category>
