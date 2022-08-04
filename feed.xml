@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Thu, 04 Aug 2022 14:50:26 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 Aug 2022 16:59:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,6 +15,14 @@
         </image>
         <copyright>CC BY-NC-SA 4.0 © Yixuan Wang</copyright>
         <atom:link href="https://blog.yixuan-wang.site/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[徐烈炯《生成语法理论》读书笔记]]></title>
+            <link>https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax.html</link>
+            <guid>/notes/intro-chomskyan-generative-syntax</guid>
+            <pubDate>Thu, 04 Aug 2022 16:58:29 GMT</pubDate>
+            <content:encoded><![CDATA[<p>徐烈炯《生成语法理论：标准理论到最简方案》一书简要介绍 Chomsky 生成语法理论（主要是句法）及其流变。此为本书的读书笔记。</p><p><a href="https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax.html">Full Article...</a></p>]]></content:encoded>
+            <category domain="ling">syntax</category>
+        </item>
         <item>
             <title><![CDATA[Rust 语言伪经]]></title>
             <link>https://blog.yixuan-wang.site/notes/apocrypha-rs.html</link>
@@ -84,14 +92,6 @@
             <pubDate>Tue, 05 Jul 2022 14:08:24 GMT</pubDate>
             <content:encoded><![CDATA[<p>诶？是二次元？</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html">Full Article...</a></p>]]></content:encoded>
             <category domain="misc">lyrics</category>
-        </item>
-        <item>
-            <title><![CDATA[徐烈炯《生成语法理论》读书笔记]]></title>
-            <link>https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax.html</link>
-            <guid>/notes/intro-chomskyan-generative-syntax</guid>
-            <pubDate>Fri, 25 Feb 2022 04:37:28 GMT</pubDate>
-            <content:encoded><![CDATA[<p>徐烈炯《生成语法理论：标准理论到最简方案》一书简要介绍 Chomsky 生成语法理论（主要是句法）及其流变。此为本书的读书笔记。</p><p><a href="https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax.html">Full Article...</a></p>]]></content:encoded>
-            <category domain="ling">syntax</category>
         </item>
         <item>
             <title><![CDATA[北京话语音学感知实验两项]]></title>
