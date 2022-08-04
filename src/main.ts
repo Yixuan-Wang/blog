@@ -56,12 +56,14 @@ export const createApp = ViteSSG(
     const pinia = createPinia();
     app.use(pinia);
 
-    if (!import.meta.env.SSR) {
+    if (!import.meta.env.SSR && !import.meta.env.DEV) {
       router.beforeEach((to) => {
-        if (to.fullPath.match(/\/(posts|sheets|notes)\//) && !to.fullPath.endsWith(".html")) {
-          return to.fullPath.endsWith("/")
-            ? `${to.fullPath}index.html`
-            : `${to.fullPath}.html`;
+        if (to.fullPath.match(/\/(posts|sheets|notes)\//) && !to.path.endsWith(".html")) {
+          const path = to.path.endsWith("/")
+            ? `${to.path}index.html`
+            : `${to.path}.html`;
+          const { query, hash, params } = to;
+          return { path, query, params, hash };
         }
       });
     }
