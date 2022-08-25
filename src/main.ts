@@ -15,6 +15,7 @@ import "uno.css";
 // import 'virtual:windi-base.css'
 // import 'virtual:windi-components.css'
 // your custom styles here
+import "./styles/shiki.css";
 import "./styles/main.css";
 import "./styles/article.css";
 import { initTypesetting } from "./logic/typesetting";

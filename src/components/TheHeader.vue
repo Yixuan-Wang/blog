@@ -40,10 +40,6 @@ button {
   padding: 0.25rem;
   font-size: 1.125rem; /* 18px */
   line-height: 1.75rem; /* 28px */
-  color: var(--color-accent);
-}
-
-button:hover {
-  color: var(--color-secondary);
+  color: rgba(var(--color-accent));
 }
 </style>

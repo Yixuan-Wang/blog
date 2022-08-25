@@ -37,25 +37,40 @@ const resetColors = (color: string[]) => {
   <h1 class="mt-4">
     Pak
   </h1>
+  <p class="font-bold text-lg">
+    Yixuan Wang's Blog
+  </p>
   <p class="mb-8 italic">
     This is a blоg, not a blοg.
   </p>
-  <div class="flex flex-col gap-8">
-    <div class="p-2 flex gap-1 ring-2 ring-fgd self-start rounded">
+  <div class="flex flex-col gap-6">
+    <div
+      class="p-2 flex gap-1 rounded hover:bg-$color transition-lively self-start items-center"
+      style="--color: rgba(var(--color-accent), 0.125)"
+    >
+      <div class="text-acc transition-lively mr-1">
+        <div i-mdi-palette />
+      </div>
       <div
         v-for="color in colors"
         :key="color[0]"
-        :style="{ backgroundColor: actualColorMode === 'light' ? color[0] : color[2] }"
+        class="cursor-pointer bg-$accent hover:bg-$secondary transition-lively"
+        :style="{ '--accent': actualColorMode === 'light' ? color[0] : color[2], '--secondary': actualColorMode === 'light' ? color[1] : color[3] } as any"
         i-mdi-circle
         @click="resetColors(color)"
       />
     </div>
     <div
-      class="self-start rounded flex gap-2"
+      class="self-start rounded flex gap-2 p-2 rounded hover:bg-$color transition-lively"
+      style="--color: rgba(var(--color-accent), 0.125)"
     >
+      <div class="text-acc transition-lively">
+        <div i-mdi-filter />
+      </div>
       <button
         v-for="genre of Object.keys(selection)"
         :key="genre"
+        class="transition-lively"
         @click="selection[genre] = !selection[genre]"
       >
         <BadgeGenre :class="{ 'genre-hide': !selection[genre] }" :genre="genre" />
@@ -74,7 +89,8 @@ const resetColors = (color: string[]) => {
     >
       <router-link
         to="/archive"
-        class="flex gap-1 items-center"
+        class="flex gap-1 items-center transition-lively p-2 rounded bg-none hover:bg-$color"
+        style="--color: rgba(var(--color-accent), 0.125)"
       >
         <div i-mdi-text-box class="text-lg" />
         <span>归档……</span>
@@ -82,10 +98,9 @@ const resetColors = (color: string[]) => {
     </button>
     <div
       v-if="selectionOthers.friends"
+      class="px-2 py-4 flex flex-row gap-2 rounded hover:bg-$color transition-lively"
+      style="--color: rgba(var(--color-accent), 0.125)"
     >
-      <h2 font="bold" text="lg" mb-4>
-        朋友们
-      </h2>
       <li class="px-2 grid grid-cols-[auto_auto_1fr] gap-3 items-center">
         <CardFriend
           v-for="friend in friends"
@@ -99,10 +114,10 @@ const resetColors = (color: string[]) => {
 
 <style scoped>
 button:hover {
-  color: var(--color-accent);
+  color: rgba(var(--color-accent));
 }
 .genre-hide {
-  color: var(--color-dim);
+  color: rgba(var(--color-dim));
   opacity: 0.75;
 }
 </style>

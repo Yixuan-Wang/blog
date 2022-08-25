@@ -1,6 +1,6 @@
 import { storeToRefs } from "pinia";
 import type { Ref } from "vue";
-import { mapTo } from "./helpers";
+import { hexToRgb, mapTo } from "./helpers";
 import type { useStore } from "~/stores/store";
 
 type TheStore = ReturnType<typeof useStore>;
@@ -59,7 +59,7 @@ function initWebfont(webfont: Ref<Record<string, boolean>>) {
 
 function initAccentColor(accentColors: Ref<Record<string, string>>) {
   watchEffect(() => {
-    const accentColorDefinition = Object.entries(accentColors.value).map(([key, color]) => `--accent-${key}: ${color};`).join("\n");
+    const accentColorDefinition = Object.entries(accentColors.value).map(([key, color]) => `--accent-${key}: ${hexToRgb(color)};`).join("\n");
     useStyleTag(`:root {
       ${accentColorDefinition}
     }`);

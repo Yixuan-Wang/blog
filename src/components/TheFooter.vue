@@ -35,16 +35,16 @@ const version = import.meta.env.PACKAGE_VERSION;
           </a>
         </button>
         <base-dropdown container-class="justify-center">
-          <button btn-icon>
-            <router-link to="/about">
-              <div i-mdi-information />
-            </router-link>
+          <button btn-icon title="关于">
+            <div i-mdi-information />
           </button>
           <template #dropdown>
             <p
               class="inline-block px-1.5 py-0.5 rounded bg-acc text-bgd text-sm font-mono"
             >
-              v{{ version }}
+              <router-link to="/about">
+                v{{ version }}
+              </router-link>
             </p>
           </template>
         </base-dropdown>
@@ -78,10 +78,10 @@ button {
   padding: 0.125rem;
   font-size: 1.125rem; /* 18px */
   line-height: 1.75rem;
-  color: var(--color-foreground);
+  color: rgba(var(--color-foreground));
 }
 
 button:hover {
-  color: var(--color-accent);
+  color: rgba(var(--color-accent));
 }
 </style>

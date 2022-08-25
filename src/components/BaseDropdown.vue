@@ -32,6 +32,6 @@ const toggleDropdown = () => {
 .dropdown-inner {
   position: absolute;
   width: max-content;
-  bottom: calc(100% + 0.5em);
+  bottom: calc(100% + 0.125em);
 }
 </style>

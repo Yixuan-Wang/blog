@@ -1,12 +1,13 @@
-#md a,
-#md a * {
-  text-decoration-skip-ink: auto;
-  color: var(--color-accent);
+#md a {
+  color: rgba(var(--color-accent));
+  background-color: rgba(var(--color-accent), 0.125);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5ch;
   transition: all 0.2s ease-in;
 }
-#md a:hover,
-#md a *:hover {
-  color: var(--color-secondary);
+#md a:hover {
+  color: rgba(var(--color-secondary));
+  background-color: rgba(var(--color-secondary), 0.25);
   transition: all 0.3s ease-out;
 }
 
@@ -54,8 +55,8 @@
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 #md h2 a:hover {
-  color: var(--color-accent);
-  box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 var(--color-accent) inset;
+  color: rgba(var(--color-accent));
+  box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 rgba(var(--color-accent)) inset;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 #md h3 {
@@ -89,27 +90,24 @@
 #md .\~:last-child {
   margin-bottom: 0;
 }
-#md a {
-  text-decoration: underline;
-  text-decoration-skip-ink: auto;
-}
+
 #md time,
 #md .wordcount,
 #md .series-header {
   margin-right: 1.5em;
-  color: var(--color-foreground);
+  color: rgba(var(--color-foreground));
   /*gray-light*/
 }
 #md hr {
   border: 0;
   height: 0;
-  border-bottom: 1px solid var(--color-foreground);
+  border-bottom: 1px solid rgba(var(--color-foreground));
   /*gray-lightest*/
 }
 #md #article hr {
   width: 62%;
   margin-bottom: 1em;
-  border-bottom-color: var(--color-foreground);
+  border-bottom-color: rgba(var(--color-foreground));
 }
 #md .footnotes-sep {
   margin-top: 2em;
@@ -150,11 +148,11 @@
 }
 
 #md mark {
-  background-color: var(--color-accent);
+  background-color: rgba(var(--color-accent));
   /* secondary */
 }
 #md blockquote {
-  border-left: 4px solid var(--color-foreground);
+  border-left: 4px solid rgba(var(--color-foreground));
   /*gray-lightest*/
   padding-left: 1em;
   margin-left: 0em;
@@ -166,22 +164,28 @@
 #md cite {
   font-size: 0.95em;
 }
-#md pre pre {
+#md pre {
   border-radius: 0.25rem;
   padding: 1em;
   max-width: 100%;
   overflow: auto;
 }
 #md p code,
-#md kbd {
+#md p kbd {
   font-size: 0.95rem;
-  padding: 0.2em;
 }
 #md code,
 #md pre,
 #md kbd {
   font-family: var(--font-mono);
   line-height: 154%;
+}
+
+#md kbd:not(a kbd),
+#md code:not(pre code, a code) {
+  background-color: rgba(var(--color-dim), 0.25);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5ch;
 }
 
 #md pre {
@@ -196,7 +200,7 @@
   border-spacing: 0;
 }
 #md table th {
-  border-bottom: 2px solid var(--color-foreground);
+  border-bottom: 2px solid rgba(var(--color-foreground));
 }
 #md table th,
 #md table td {
@@ -206,10 +210,10 @@
   outline: none;
 }
 #md details summary {
-  color: var(--color-accent);
+  color: rgba(var(--color-accent));
 }
 #md details[open] summary {
-  color: var(--color-secondary);
+  color: rgba(var(--color-secondary));
 }
 #md details {
   margin: 1em 0;
@@ -228,8 +232,8 @@
 }
 
 #md .\~[class="~"] {
-  background-color: var(--color-foreground);
-  color: var(--color-background);
+  background-color: rgba(var(--color-foreground));
+  color: rgba(var(--color-background));
 }
 
 #md .\~ * {

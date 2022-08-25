@@ -6,27 +6,33 @@ const props = defineProps<{
 }>();
 
 const lang = props.article.frontmatter.lang ?? "zh-Hans";
+
+const titleEl = ref();
+const isHovered = useElementHover(titleEl);
 </script>
 
 <template>
-  <article class="flex items-start gap-2 items-center rounded" :lang="lang">
-    <time class="font-mono">{{
+  <article class="flex items-start gap-2 rounded transition-lively" :lang="lang">
+    <time class="font-mono py-1 lg:py-0.5">{{
       dayjs(article.frontmatter.date).format("MM/DD")
     }}</time>
-    <h2 class="transition-lively">
-      <router-link :to="article.path">
+    <h2 ref="titleEl" class="inline-flex lg:items-center flex-col lg:flex-row gap-0.5 px-1 py-1 lg:py-0.5 rounded hover:bg-$color transition-lively" style="--color: rgba(var(--color-accent), 0.125)">
+      <router-link class="px-0.5" :to="article.path">
         {{ article.frontmatter.title }}
       </router-link>
+      <span v-show="isHovered" class="inline-flex">
+        <ArticleHeaderChips :article="article" :hide="hide" />
+      </span>
     </h2>
   </article>
 </template>
 
 <style scoped>
 article:hover h2 {
-  color: var(--color-accent);
+  color: rgba(var(--color-accent));
 }
 
 .card-article-text:hover h2 {
-  color: var(--color-secondary);
+  color: rgba(var(--color-secondary));
 }
 </style>

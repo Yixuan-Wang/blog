@@ -7,19 +7,23 @@
 }
 
 html:not(.dark) {
-  --color-accent:     var(--accent-light-accent, #2177B8);
-  --color-secondary:  var(--accent-light-secondary, #003A70);
-  --color-background: #F5F5F5;
-  --color-foreground: #1D252D;
-  --color-dim:        #737C7B;
+  --color-accent-default: 33, 119, 184;
+  --color-accent:     var(--accent-light-accent, var(--color-accent-default));
+  --color-secondary-default: 0, 58, 112;
+  --color-secondary:  var(--accent-light-secondary, var(--color-secondary-default));
+  --color-background: 245, 245, 245;
+  --color-foreground: 29, 37, 45;
+  --color-dim:        115, 125, 124;
 }
 
 html.dark {
-  --color-accent:     var(--accent-dark-accent, #FBB929);
-  --color-secondary:  var(--accent-dark-secondary, #FFE900);
-  --color-background: #0F1419;
-  --color-foreground: #9DA5B4;
-  --color-dim:        #595959;
+  --color-accent-default: 251, 185, 41;
+  --color-accent:     var(--accent-dark-accent, var(--color-accent-default));
+  --color-secondary-default: 255, 233, 0;
+  --color-secondary:  var(--accent-dark-secondary, var(--color-secondary-default));
+  --color-background: 15, 20, 25;
+  --color-foreground: 157, 165, 180;
+  --color-dim:        205, 209, 211;
 }
 
 html {
@@ -34,17 +38,9 @@ html {
   overflow-y: auto;
   overflow-y: overlay;
 
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: rgba(var(--color-background));
+  color: rgba(var(--color-foreground));
   font-family: var(--font-sans);
-}
-
-html.dark .shiki-light {
-  display: none;
-}
-
-html:not(.dark) .shiki-dark {
-  display: none;
 }
 
 body {
@@ -70,7 +66,7 @@ code, pre {
 }
 
 #nprogress .bar {
-  background-color: var(--color-accent);
+  background-color: rgba(var(--color-accent));
   opacity: 0.75;
 
   position: fixed;
@@ -89,19 +85,18 @@ code, pre {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
-  border: solid var(--color-accent) 1px;
+  background: rgba(var(--color-accent));
+  border: solid rgba(var(--color-accent)) 1px;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background-color: rgba(var(--color-secondary));
+  border-color: rgba(var(--color-secondary));
 }
 
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-background);
+  background-color: rgba(var(--color-accent), 0.25);
 }
 
 h1 {

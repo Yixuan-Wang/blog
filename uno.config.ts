@@ -12,11 +12,11 @@ export const UnoConfig: VitePluginConfig = {
       mono: "var(--font-mono)",
     },
     colors: {
-      acc: "var(--color-accent)",
-      sec: "var(--color-secondary)",
-      bgd: "var(--color-background)",
-      fgd: "var(--color-foreground)",
-      dim: "var(--color-dim)",
+      acc: "rgba(var(--color-accent))",
+      sec: "rgba(var(--color-secondary))",
+      bgd: "rgba(var(--color-background))",
+      fgd: "rgba(var(--color-foreground))",
+      dim: "rgba(var(--color-dim))",
     },
   },
   shortcuts: [
@@ -29,6 +29,7 @@ export const UnoConfig: VitePluginConfig = {
   presets: [
     presetWind(),
     presetAttributify(),
+    // @ts-ignore
     presetIcons({
       extraProperties: {
         "display": "inline-block",

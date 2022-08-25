@@ -193,10 +193,7 @@ export default defineConfig(({ mode }) => ({
         });
         md.use(MdAttrs);
         md.use(MdShiki as any, {
-          theme: {
-            dark: "one-dark-pro",
-            light: "github-light",
-          },
+          theme: "one-dark-pro",
         });
         md.use(MdKatex);
         md.use(MdRuby);

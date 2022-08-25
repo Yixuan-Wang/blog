@@ -14,7 +14,7 @@ defineProps<{
         :article="article"
       />
     </ul>
-    <ul v-else class="flex flex-col gap-6">
+    <ul v-else class="flex flex-col gap-2">
       <CardArticleDetailed
         v-for="(article, index) in articles"
         :key="index"
