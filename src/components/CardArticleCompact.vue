@@ -17,10 +17,10 @@ const isHovered = useElementHover(titleEl);
       dayjs(article.frontmatter.date).format("MM/DD")
     }}</time>
     <h2 ref="titleEl" class="inline-flex lg:items-center flex-col lg:flex-row gap-0.5 px-1 py-1 lg:py-0.5 rounded hover:bg-$color transition-lively" style="--color: rgba(var(--color-accent), 0.125)">
-      <router-link class="px-0.5" :to="article.path">
+      <router-link class="pl-0.5 pr-1" :to="article.path">
         {{ article.frontmatter.title }}
       </router-link>
-      <span v-show="isHovered" class="inline-flex">
+      <span v-show="isHovered" class="inline-flex gap-1">
         <ArticleHeaderChips :article="article" :hide="hide" />
       </span>
     </h2>
