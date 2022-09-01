@@ -182,7 +182,7 @@
 }
 
 #md kbd:not(a kbd),
-#md code:not(pre code, a code) {
+#md code:not(pre *, a *) {
   background-color: rgba(var(--color-dim), 0.25);
   border-radius: 0.25rem;
   padding: 0.125rem 0.5ch;
