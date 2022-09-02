@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Tue, 30 Aug 2022 04:01:57 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Sep 2022 14:21:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -16,19 +16,19 @@
         <copyright>CC BY-NC-SA 4.0 © Yixuan Wang</copyright>
         <atom:link href="https://blog.yixuan-wang.site/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
+            <title><![CDATA[日语歌词标注之乙]]></title>
+            <link>https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b.html</link>
+            <guid>/notes/jpn-lyrics-gloss-b</guid>
+            <pubDate>Fri, 02 Sep 2022 14:19:44 GMT</pubDate>
+            <content:encoded><![CDATA[<p>偏向流行 / 另类摇滚性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b.html">Full Article...</a></p>]]></content:encoded>
+            <category domain="misc">lyrics</category>
+        </item>
+        <item>
             <title><![CDATA[日语歌词标注之丙]]></title>
             <link>https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html</link>
             <guid>/notes/jpn-lyrics-gloss-c</guid>
             <pubDate>Tue, 30 Aug 2022 04:00:50 GMT</pubDate>
             <content:encoded><![CDATA[<p>比较老的日语流行歌。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html">Full Article...</a></p>]]></content:encoded>
-            <category domain="misc">lyrics</category>
-        </item>
-        <item>
-            <title><![CDATA[日语歌词标注之乙]]></title>
-            <link>https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b.html</link>
-            <guid>/notes/jpn-lyrics-gloss-b</guid>
-            <pubDate>Tue, 30 Aug 2022 02:34:27 GMT</pubDate>
-            <content:encoded><![CDATA[<p>偏向流行 / 另类摇滚性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b.html">Full Article...</a></p>]]></content:encoded>
             <category domain="misc">lyrics</category>
         </item>
         <item>
