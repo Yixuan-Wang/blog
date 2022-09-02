@@ -56,17 +56,15 @@ if (!import.meta.env.SSR) {
 const toc = reactive<[string, string][]>([]);
 if (!import.meta.env.SSR) {
   onMounted(() => {
-    if (route.fullPath.startsWith("/notes")) {
-      const anchors = Array.from(document.querySelectorAll("#md article[note] h2:first-child"));
-      const tocs = anchors.map(anchor => [anchor.id, (anchor as HTMLElement).innerHTML]) as [string, string][];
-      toc.push(...tocs);
-    }
+    const anchors = Array.from(document.querySelectorAll("#md h2"));
+    const tocs = anchors.map(anchor => [anchor.id, (anchor as HTMLElement).innerHTML]) as [string, string][];
+    toc.push(...tocs);
   });
 }
 </script>
 
 <template>
-  <article class="text-left">
+  <article class="text-left relative">
     <header
       v-if="frontmatter.title"
       class="flex flex-col justify-start items-start gap-2 mt-4 mb-8"
@@ -76,20 +74,40 @@ if (!import.meta.env.SSR) {
       </h1>
       <ArticleHeader :article="(route.meta as unknown as Article)" />
     </header>
-    <nav v-if="toc" m="t-4 b-8">
-      <ul>
-        <li
-          v-for="item in toc"
-          :key="item[0]"
-          font="serif bold"
-        >
-          <a :href="`#${item[0]}`">
-            :: <span v-html="item[1]"></span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div class="lg:sticky lg:top-4">
+      <nav v-if="toc" id="toc">
+        <ul class="flex flex-col gap-1">
+          <li
+            v-for="item in toc"
+            :key="item[0]"
+            font="serif bold"
+            text="hover:acc"
+            class="transition-lively"
+          >
+            <a :href="`#${item[0]}`">
+              <div i-mdi-circle-medium /><span v-html="item[1]"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div m="b-8" />
     <article id="md" v-html="inner">
     </article>
   </article>
 </template>
+
+<style>
+@media (min-width: 1024px) {
+  #toc {
+    position: absolute;
+    left: 100%;
+    padding: 0 .5em;
+    min-width: max-content;
+    max-width: calc(calc(calc(100vw - 100%) / 2) - 2em);
+    margin-left: 1em;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}
+</style>
