@@ -1,1 +1,0 @@
-import{P as o,G as t,o as r,c as a,b as c,a as s}from"./app.1ea1cda7.js";const n={},_=s("h1",{class:"mt-4 mb-8"}," \u9519\u8BEF\uFF1A\u56DB\u3007\u56DB ",-1);function m(l,i){const e=t("router-view");return r(),a("main",null,[_,c(e)])}var f=o(n,[["render",m]]);export{f as default};
