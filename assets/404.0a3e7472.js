@@ -1,0 +1,1 @@
+import{R as o,c as t,b as r,a,o as c,J as s}from"./app.5fa76bb0.js";const n={},_=a("h1",{class:"mt-4 mb-8"}," \u9519\u8BEF\uFF1A\u56DB\u3007\u56DB ",-1);function m(l,i){const e=s("router-view");return c(),t("main",null,[_,r(e)])}var f=o(n,[["render",m]]);export{f as default};

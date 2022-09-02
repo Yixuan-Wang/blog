@@ -1,0 +1,1 @@
+import{_ as t}from"./TheTaxonomy.d33d5768.js";import{d as a,u as s,o as c,f as r}from"./app.5fa76bb0.js";const i=a({__name:"notes",setup(m){const o=e=>e.genre==="notes";return s({title:"\u7B14\u8BB0 | Pak",meta:[{name:"description",content:"Notes on Pak"}]}),(e,_)=>{const n=t;return c(),r(n,{name:"\u7B14\u8BB0",filter:o})}}});export{i as default};
