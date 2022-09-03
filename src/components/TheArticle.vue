@@ -103,8 +103,7 @@ if (!import.meta.env.SSR) {
     position: absolute;
     left: 100%;
     padding: 0 .5em;
-    min-width: max-content;
-    max-width: calc(calc(calc(100vw - 100%) / 2) - 2em);
+    width: calc(calc(calc(100vw - 100%) / 2) - 2em);
     margin-left: 1em;
     max-height: 50vh;
     overflow-y: auto;
