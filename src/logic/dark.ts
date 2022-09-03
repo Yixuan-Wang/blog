@@ -1,7 +1,5 @@
 export const actualColorMode = useColorMode({
-  modes: {
-    auto: "auto",
-  },
+  emitAuto: true,
   storageKey: "color-scheme",
 });
 
