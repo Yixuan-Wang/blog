@@ -2,6 +2,7 @@
 import { useStore } from "~/stores/store";
 import { friends } from "/others/friends.yaml";
 import { actualColorMode } from "~/logic/dark";
+import { ACCENT_COLORS } from "~/logic/typesetting";
 
 useHead({
   title: "Pak",
@@ -24,7 +25,7 @@ const selectionOthers = reactive<Record<string, boolean>>({
 const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection]);
 const articles = computed(() => store.articles.filter(filter.value));
 
-const colors = [["#de1c31", "#c21f30", "#ee3f4d", "#ed5a65"], ["#f86b1d", "#f5391c", "#f86b1d", "#fa7e23"], ["#f9a633", "#fb8b05", "#f9a633", "#fcb70a"], ["#229453", "#207f4c", "#229453", "#41b349"], ["#29b7cb", "#1491a8", "#29b7cb", "#51c4d3"], ["#1177b0", "#0f59a4", "#1177b0", "#2983bb"], ["#983680", "#681752", "#983680", "#a35c8f"]];
+const colors = [[ACCENT_COLORS["light-accent"], ACCENT_COLORS["light-secondary"], ACCENT_COLORS["dark-accent"], ACCENT_COLORS["dark-secondary"]], ["#de1c31", "#c21f30", "#ee3f4d", "#ed5a65"], ["#f86b1d", "#f5391c", "#f86b1d", "#fa7e23"], ["#f9a633", "#fb8b05", "#f9a633", "#fcb70a"], ["#229453", "#207f4c", "#229453", "#41b349"], ["#29b7cb", "#1491a8", "#29b7cb", "#51c4d3"], ["#1177b0", "#0f59a4", "#1177b0", "#2983bb"], ["#983680", "#681752", "#983680", "#a35c8f"]];
 const resetColors = (color: string[]) => {
   store.accentColors["light-accent"] = color[0];
   store.accentColors["light-secondary"] = color[1];
@@ -52,11 +53,11 @@ const resetColors = (color: string[]) => {
         <div i-mdi-palette />
       </div>
       <div
-        v-for="color in colors"
+        v-for="color, idx in colors"
         :key="color[0]"
         class="cursor-pointer bg-$accent hover:bg-$secondary transition-lively"
         :style="{ '--accent': actualColorMode === 'light' ? color[0] : color[2], '--secondary': actualColorMode === 'light' ? color[1] : color[3] } as any"
-        i-mdi-circle
+        :class="{ 'i-mdi-circle-outline': idx === 0, 'i-mdi-circle': idx !== 0 }"
         @click="resetColors(color)"
       />
     </div>
