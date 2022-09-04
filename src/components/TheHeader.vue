@@ -11,23 +11,23 @@
       </router-link>
     </nav>
     <nav class="flex justify-between items-center gap-3">
-      <button transition-lively class="hover:text-sec">
-        <router-link to="/archive">
+      <button title="Archive" transition-lively class="hover:text-sec">
+        <router-link title="Archive" to="/archive">
           <div i-mdi-text-box />
         </router-link>
       </button>
-      <button transition-lively class="hover:text-sec">
-        <router-link to="/posts">
+      <button title="Posts" transition-lively class="hover:text-sec">
+        <router-link title="Posts" to="/posts">
           <div i-mdi-file />
         </router-link>
       </button>
-      <button transition-lively class="hover:text-sec">
-        <router-link to="/sheets">
+      <button title="Sheets" transition-lively class="hover:text-sec">
+        <router-link title="Sheets" to="/sheets">
           <div i-mdi-table-large />
         </router-link>
       </button>
-      <button transition-lively class="hover:text-sec">
-        <router-link to="/notes">
+      <button title="Notes" transition-lively class="hover:text-sec">
+        <router-link title="Notes" to="/notes">
           <div i-mdi-folder />
         </router-link>
       </button>

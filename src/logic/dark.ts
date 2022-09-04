@@ -1,10 +1,9 @@
-export const actualColorMode = useColorMode({
+export const colorMode = useColorMode({
   emitAuto: true,
   storageKey: "color-scheme",
 });
 
-export const storedColorMode = useStorage("color-scheme", "auto");
+const preferDark = usePreferredDark();
+export const actualColorMode = computed(() => colorMode.value === "auto" ? (preferDark.value ? "dark" : "light") : colorMode.value);
 
-export const { state: colorMode, next: nextColorMode } = useCycleList(["auto", "light", "dark"]);
-syncRef(storedColorMode, colorMode);
-syncRef(colorMode, actualColorMode);
+export const { next: nextColorMode } = useCycleList(["auto", "light", "dark"], { initialValue: colorMode });
