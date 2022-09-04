@@ -72,19 +72,25 @@ const resetColors = (color: string[]) => {
         v-for="genre of Object.keys(selection)"
         :key="genre"
         class="transition-lively"
+        :title="`Show ${genre}`"
         @click="selection[genre] = !selection[genre]"
       >
         <BadgeGenre :class="{ 'genre-hide': !selection[genre] }" :genre="genre" />
       </button>
       <button
+        title="Show friends"
         @click="selectionOthers.friends = !selectionOthers.friends"
       >
         <div i-mdi-account-multiple :class="{ 'genre-hide': !selectionOthers.friends }" />
       </button>
     </div>
-    <ListArticleCard
-      :articles="articles.slice(0, 10)"
-    />
+    <template
+      v-if="articles.length != 0"
+    >
+      <ListArticleCard
+        :articles="articles.slice(0, 10)"
+      />
+    </template>
     <button
       v-if="articles.length >= 10 && Object.values(selection).every(v => v)"
     >
@@ -102,14 +108,19 @@ const resetColors = (color: string[]) => {
       class="px-2 py-4 flex flex-row gap-2 rounded hover:bg-$color transition-lively"
       style="--color: rgba(var(--color-accent), 0.125)"
     >
-      <li class="px-2 grid grid-cols-[auto_auto_1fr] gap-3 items-center">
+      <div class="px-2 grid grid-cols-[auto_auto_1fr] gap-3 items-center">
         <CardFriend
           v-for="friend in friends"
           :key="friend.name"
           :friend="friend"
         />
-      </li>
+      </div>
     </div>
+    <template
+      v-else-if="articles.length == 0"
+    >
+      <BaseEmpty />
+    </template>
   </div>
 </template>
 

@@ -7,20 +7,20 @@ defineProps<{
 
 <template>
   <section v-if="articles.length">
-    <ul v-if="compact" class="flex flex-col gap-2">
+    <div v-if="compact" class="flex flex-col gap-2">
       <CardArticleCompact
         v-for="(article, index) in articles"
         :key="index"
         :article="article"
       />
-    </ul>
-    <ul v-else class="flex flex-col gap-2">
+    </div>
+    <div v-else class="flex flex-col gap-2">
       <CardArticleDetailed
         v-for="(article, index) in articles"
         :key="index"
         :article="article"
       />
-    </ul>
+    </div>
   </section>
   <section v-else>
     <BaseEmpty />
