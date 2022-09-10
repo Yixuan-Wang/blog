@@ -4,7 +4,7 @@ const host = computed(() => (el.value?.parentNode as ShadowRoot)?.host);
 const visible = useElementVisibility(computed(() => host.value?.parentElement));
 
 const css = computed(() => host.value?.innerHTML);
-const { load, unload } = useStyleTag(css, { manual: true });
+const { load, unload } = useStyleTag(css, { immediate: false });
 watch(visible, val => val ? load() : unload());
 </script>
 
