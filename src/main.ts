@@ -5,6 +5,8 @@ import generatedRoutes from "virtual:generated-pages";
 import generatedIssuesRoutes from "virtual:generated-issues-pages";
 import { setupLayouts } from "virtual:generated-layouts";
 import type { RouterScrollBehavior } from "vue-router";
+import mitt from "mitt";
+import { defineCustomElement } from "vue";
 import { useStore } from "./stores/store";
 import App from "./App.vue";
 
@@ -75,8 +77,15 @@ export const createApp = ViteSSG(
     //   pinia.state.value = initialState.pinia || {}
 
     if (!import.meta.env.SSR) {
-      // @ts-nocheck
+      // @ts-ignore
       await import("@yixuan-wang/component-leipzig");
+
+      import("./components/custom/HoverStyle.ce.vue") // @ts-ignore
+        .then(sfc => customElements.define("hover-style", defineCustomElement(sfc.default)));
+
+      Object.defineProperty(globalThis, "mitt", {
+        value: mitt(),
+      });
     }
 
     const store = useStore(pinia);

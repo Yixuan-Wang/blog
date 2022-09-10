@@ -39,6 +39,7 @@ specifiers:
   markdown-it-footnote: ^3.0.3
   markdown-it-link-attributes: ^3.0.0
   markdown-it-shiki: ^0.3.0
+  mitt: ^3.0.0
   nprogress: ^0.2.0
   pinia: ^2.0.0-rc.8
   pnpm: ^6.24.3
@@ -75,6 +76,7 @@ dependencies:
   markdown-it-bracketed-spans: 1.0.1
   markdown-it-container: 3.0.0
   markdown-it-footnote: 3.0.3
+  mitt: 3.0.0
   nprogress: 0.2.0
   pinia: 2.0.9_574dfmtrel4kuahrwjatx66fli
   vue: 3.2.26
@@ -4548,6 +4550,10 @@ packages:
   /minimist/1.2.5:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
+
+  /mitt/3.0.0:
+    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
+    dev: false
 
   /mlly/0.5.14:
     resolution: {integrity: sha512-DgRgNUSX9NIxxCxygX4Xeg9C7GX7OUx1wuQ8cXx9o9LE0e9wrH+OZ9fcnrlEedsC/rtqry3ZhUddC759XD/L0w==}

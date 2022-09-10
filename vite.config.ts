@@ -158,6 +158,8 @@ export default defineConfig(({ mode }) => ({
 
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+
+      exclude: [/\.custom\.vue$/],
     }),
 
     yaml({

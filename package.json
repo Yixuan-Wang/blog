@@ -23,6 +23,7 @@
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
+    "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.8",
     "vue": "^3.2.23",

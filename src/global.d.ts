@@ -1,4 +1,6 @@
-declare global {
+import type Mitt from "mitt";
+
+export declare global {
   interface Frontmatter {
     title: string
     date: string
@@ -25,6 +27,7 @@ declare global {
     blog: string
     link: string
   }
-}
 
-export {};
+  // eslint-disable-next-line vars-on-top, no-var
+  var mitt: ReturnType<typeof Mitt>;
+}
