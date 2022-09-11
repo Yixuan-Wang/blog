@@ -180,6 +180,9 @@
   font-family: var(--font-mono);
   line-height: 154%;
 }
+#md ruby {
+  line-height: 175%;
+}
 
 #md kbd:not(a kbd),
 #md code:not(pre *, a *) {
