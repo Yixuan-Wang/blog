@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-09-11T06:16:24.022Z</updated>
+    <updated>2022-09-11T06:20:01.481Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,14 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[日语歌词标注之丙]]></title>
+        <id>/notes/jpn-lyrics-gloss-c</id>
+        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html"/>
+        <updated>2022-09-11T06:18:59.000Z</updated>
+        <content type="html"><![CDATA[<p>比较老的日语流行歌。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html">Full Article...</a></p>]]></content>
+        <category label="lyrics"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之乙]]></title>
         <id>/notes/jpn-lyrics-gloss-b</id>
@@ -28,14 +36,6 @@
         <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a.html"/>
         <updated>2022-09-10T18:46:30.000Z</updated>
         <content type="html"><![CDATA[<p>偏向民谣性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a.html">Full Article...</a></p>]]></content>
-        <category label="lyrics"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[日语歌词标注之丙]]></title>
-        <id>/notes/jpn-lyrics-gloss-c</id>
-        <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html"/>
-        <updated>2022-08-30T04:00:50.000Z</updated>
-        <content type="html"><![CDATA[<p>比较老的日语流行歌。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html">Full Article...</a></p>]]></content>
         <category label="lyrics"/>
     </entry>
     <entry>
