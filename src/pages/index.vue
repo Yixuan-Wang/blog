@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useStore } from "~/stores/store";
+import { useArticles } from "~/stores/articles";
 import { friends } from "/others/friends.yaml";
 import { actualColorMode } from "~/logic/dark";
 import { ACCENT_COLORS } from "~/logic/typesetting";
@@ -12,6 +13,7 @@ useHead({
 });
 
 const store = useStore();
+const storeArticles = useArticles();
 
 const selection = reactive<Record<string, boolean>>({
   posts: true,
@@ -23,7 +25,7 @@ const selectionOthers = reactive<Record<string, boolean>>({
 });
 
 const filter = computed(() => (a: Article) => selection?.[a.genre as keyof typeof selection]);
-const articles = computed(() => store.articles.filter(filter.value));
+const articles = computed(() => storeArticles.articles.filter(filter.value));
 
 const colors = [[ACCENT_COLORS["light-accent"], ACCENT_COLORS["light-secondary"], ACCENT_COLORS["dark-accent"], ACCENT_COLORS["dark-secondary"]], ["#de1c31", "#c21f30", "#ee3f4d", "#ed5a65"], ["#f86b1d", "#f5391c", "#f86b1d", "#fa7e23"], ["#f9a633", "#fb8b05", "#f9a633", "#fcb70a"], ["#229453", "#207f4c", "#229453", "#41b349"], ["#29b7cb", "#1491a8", "#29b7cb", "#51c4d3"], ["#1177b0", "#0f59a4", "#1177b0", "#2983bb"], ["#983680", "#681752", "#983680", "#a35c8f"]];
 const resetColors = (color: string[]) => {
@@ -137,4 +139,5 @@ button:hover {
 <route lang="yaml">
 meta:
   layout: home
+  taxonomy: true
 </route>

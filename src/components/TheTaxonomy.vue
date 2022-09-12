@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStore } from "~/stores/store";
+import { useArticles } from "~/stores/articles";
 // @ts-ignore
 const props = withDefaults(
   defineProps<{
@@ -13,7 +13,7 @@ const props = withDefaults(
   },
 );
 
-const store = useStore();
+const store = useArticles();
 const articles = computed(() =>
   store.articles.filter(props.filter).sort(props.sort),
 );

@@ -1,11 +1,9 @@
-import { acceptHMRUpdate, defineStore } from "pinia";
-import type { RouteRecordRaw } from "vue-router";
+import { acceptHMRUpdate, defineStore, skipHydrate } from "pinia";
 import { WEBFONTS, ACCENT_COLORS } from "~/logic/typesetting";
 import { mapTo } from "~/logic/helpers";
 
 export const useStore = defineStore("store", () => {
-  const articles = ref<Article[]>([]);
-  const title = ref("");
+  const title = skipHydrate(ref(""));
 
   const webfont = ref<Record<string, boolean>>(mapTo(WEBFONTS, false));
   const accentColors = ref<Record<string, string>>(ACCENT_COLORS);
@@ -21,20 +19,11 @@ export const useStore = defineStore("store", () => {
     title.value = text ? `${text} | Pak` : "Pak";
   };
 
-  const generateArticles = (routes: RouteRecordRaw[]) => {
-    articles.value = routes
-      .filter(({ path }) => path.match(/(posts|sheets|notes)\/.+/))
-      ?.map(route => route!.children![0]!.meta! as unknown as Article)
-      .sort((a: Article, b: Article) => b.timestamp - a.timestamp);
-  };
-
   return {
-    articles,
     title,
     webfont,
     accentColors,
     setTitle,
-    generateArticles,
   };
 });
 

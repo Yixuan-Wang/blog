@@ -16,4 +16,5 @@ meta:
   alias:
     - /posts
     - /posts.html
+  taxonomy: true
 </route>

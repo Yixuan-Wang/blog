@@ -25,4 +25,5 @@ useHead({
 meta:
   alias:
     - /archive.html
+  taxonomy: true
 </route>

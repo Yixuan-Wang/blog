@@ -7,8 +7,11 @@ import { setupLayouts } from "virtual:generated-layouts";
 import type { RouterScrollBehavior } from "vue-router";
 import mitt from "mitt";
 import { defineCustomElement } from "vue";
-import { useStore } from "./stores/store";
 import App from "./App.vue";
+
+import { useStore } from "./stores/store";
+import { useArticles } from "./stores/articles";
+import { initTypesetting } from "./logic/typesetting";
 
 // windicss layers
 import "@unocss/reset/tailwind.css";
@@ -20,7 +23,6 @@ import "uno.css";
 import "./styles/shiki.css";
 import "./styles/main.css";
 import "./styles/article.css";
-import { initTypesetting } from "./logic/typesetting";
 // windicss utilities should be the last style import
 // import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
@@ -55,9 +57,14 @@ export const createApp = ViteSSG(
     Object.values(import.meta.globEager("./modules/*.ts")).map(i =>
       i.install?.(ctx),
     );
-    const { app, routes, router } = ctx;
+    const { app, routes, router, initialState } = ctx;
     const pinia = createPinia();
     app.use(pinia);
+
+    if (import.meta.env.SSR)
+      initialState.pinia = pinia.state.value;
+    else
+      pinia.state.value = initialState.pinia || {};
 
     if (!import.meta.env.SSR && !import.meta.env.DEV) {
       router.beforeEach((to) => {
@@ -70,11 +77,6 @@ export const createApp = ViteSSG(
         }
       });
     }
-
-    // if (import.meta.env.SSR)
-    //   initialState.pinia = pinia.state.value
-    // else
-    //   pinia.state.value = initialState.pinia || {}
 
     if (!import.meta.env.SSR) {
       // @ts-ignore
@@ -89,7 +91,14 @@ export const createApp = ViteSSG(
     }
 
     const store = useStore(pinia);
-    store.generateArticles(routes);
     if (!import.meta.env.SSR) initTypesetting(store);
+
+    router.beforeEach((to, from, next) => {
+      if (to.meta?.taxonomy) {
+        const articleStore = useArticles(pinia);
+        articleStore.generateArticles(routes);
+      }
+      next();
+    });
   },
 );

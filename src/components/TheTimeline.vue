@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { groupBy } from "lodash-es";
-import { useStore } from "~/stores/store";
+import { useArticles } from "~/stores/articles";
 
 const props = defineProps<{
   name: string
   filter: (a: Article) => boolean
 }>();
-const store = useStore();
+const storeArticles = useArticles();
 
 const getYear = (timestamp: number) => new Date(timestamp).getFullYear();
 
 const articleGroups = computed(() =>
-  groupBy(store.articles.filter(props.filter), (article: Article) =>
+  groupBy(storeArticles.articles.filter(props.filter), (article: Article) =>
     getYear(article.timestamp),
   ),
 );

@@ -16,4 +16,5 @@ meta:
   alias:
     - /notes
     - /notes.html
+  taxonomy: true
 </route>

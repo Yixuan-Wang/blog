@@ -19,3 +19,8 @@ useHead({
 <template>
   <TheTaxonomy :name="categoryName" :filter="filter" />
 </template>
+
+<route lang="yaml">
+meta:
+  taxonomy: true
+</route>

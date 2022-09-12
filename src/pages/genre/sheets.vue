@@ -16,4 +16,5 @@ meta:
   alias:
     - /sheets
     - /sheets.html
+  taxonomy: true
 </route>
