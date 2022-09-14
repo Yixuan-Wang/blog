@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-09-14T16:56:26.966Z</updated>
+    <updated>2022-09-14T16:57:22.143Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,14 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[Awesome CLI Toys]]></title>
+        <id>/sheets/cli-util</id>
+        <link href="https://blog.yixuan-wang.site/sheets/cli-util.html"/>
+        <updated>2022-09-14T07:21:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Some nice CLI utilities that can cure your internal mental consumption.</p><p><a href="https://blog.yixuan-wang.site/sheets/cli-util.html">Full Article...</a></p>]]></content>
+        <category label="softwares"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之丙]]></title>
         <id>/notes/jpn-lyrics-gloss-c</id>
