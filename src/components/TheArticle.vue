@@ -2,13 +2,7 @@
 import { useHead } from "@vueuse/head";
 // @ts-ignore
 const props = defineProps<{
-  frontmatter: {
-    title: string
-    date: string
-    category: string
-    tags: string[]
-    keywords?: string[]
-  }
+  frontmatter: Frontmatter
   inner: string
 }>();
 
@@ -92,7 +86,7 @@ if (!import.meta.env.SSR) {
       </nav>
     </div>
     <div m="b-8" />
-    <article id="md" v-html="inner">
+    <article id="md" :lang="frontmatter?.lang ?? 'zh-Hans'" v-html="inner">
     </article>
   </article>
 </template>

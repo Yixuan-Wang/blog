@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <span class="flex gap-1 justify-center items-center">
+  <span class="flex gap-0.5 justify-center items-center">
     <BaseChip
       class="text-acc hover:bg-acc hover:text-bgd"
     >
@@ -16,7 +16,7 @@ defineProps<{
       </router-link>
     </BaseChip>
   </span>
-  <span class="flex gap-1 justify-center items-center">
+  <span class="flex gap-0.5 justify-center items-center">
     <BaseChip
       v-for="tag in article.frontmatter.tags"
       :key="tag"
@@ -27,7 +27,10 @@ defineProps<{
       </router-link>
     </BaseChip>
   </span>
-  <span class="flex gap-1 justify-center items-center">
+  <BaseChip v-if="article.frontmatter.lang" class="text-fgd">
+    <span>:{{ article.frontmatter.lang }}</span>
+  </BaseChip>
+  <span class="flex gap-0.5 justify-center items-center">
     <BaseChip
       v-for="keyword in article.frontmatter.keywords"
       :key="keyword"

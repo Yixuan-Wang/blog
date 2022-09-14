@@ -68,6 +68,7 @@ export default defineConfig(({ mode }) => ({
     FsMetaPlugin({
       files: {
         posts: "contents/posts/**/*.md",
+        sheets: "contents/sheets/**/*.md",
       },
     }),
 
@@ -85,14 +86,16 @@ export default defineConfig(({ mode }) => ({
       pagesDir: [
         { dir: "src/pages", baseRoute: "" },
         { dir: "contents/posts/**", baseRoute: "posts/" },
+        { dir: "contents/sheets/**", baseRoute: "sheets/" },
         { dir: "contents/others", baseRoute: "" },
       ],
       extendRoute(route) {
         if (route.name?.includes("_")) {
           route.name = route.name.replace(/.+_/, "");
           route.path = route.path.replace(/\/[^/]+_/, "/");
+          const genre = route.path.match(/\/([^/]+)\//)?.[1] ?? "posts";
           const md = fs.readFileSync(path.resolve(__dirname, route.component.slice(1)), "utf-8");
-          const meta = getMeta(md, { name: route.name, path: route.path, genre: "posts" });
+          const meta = getMeta(md, { name: route.name, path: route.path, genre });
           route.meta = Object.assign(route.meta ?? {}, meta); // To avoid copy
         }
         // console.log(route)

@@ -20,7 +20,7 @@ const isHovered = useElementHover(titleEl);
       <router-link class="pl-0.5 pr-1" :to="article.path">
         {{ article.frontmatter.title }}
       </router-link>
-      <span v-show="isHovered" class="inline-flex gap-1">
+      <span v-show="isHovered" class="inline-flex lg:gap-0.5">
         <ArticleHeaderChips :article="article" :hide="hide" />
       </span>
     </h2>

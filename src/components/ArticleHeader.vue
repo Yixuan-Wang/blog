@@ -18,7 +18,7 @@ defineProps<{
         </router-link>
       </div>
     </span>
-    <span class="flex gap-1 justify-center items-center">
+    <span class="flex gap-0.5 justify-center items-center">
       <BaseChip>
         <time>{{ dayjs(article.timestamp).format("YYYY/MM/DD") }}</time>
       </BaseChip>
