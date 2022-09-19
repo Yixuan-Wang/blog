@@ -67,7 +67,7 @@ export function FeedPlugin(): Plugin {
     const link = `https://blog.yixuan-wang.site${article.path}.html`;
     const item: Item = {
       title: article.frontmatter.title,
-      id: article.path,
+      id: `${article.path.slice(1).replaceAll("/", "_")}_${dayjs(article.timestamp).format()}`,
       link,
       date: dayjs.tz(article.timestamp).toDate(),
       content: `<p>${article.excerpt}</p><p><a href="${link}">Full Article...</a></p>`,
