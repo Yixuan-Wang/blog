@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-09-14T17:03:42.005Z</updated>
+    <updated>2022-09-19T12:53:41.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -16,7 +16,7 @@
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
     <entry>
         <title type="html"><![CDATA[Awesome CLI Toys]]></title>
-        <id>/sheets/cli-util</id>
+        <id>sheets_cli-util_2022-09-14T07:21:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/sheets/cli-util.html"/>
         <updated>2022-09-14T07:21:00.000Z</updated>
         <content type="html"><![CDATA[<p>Some nice CLI utilities that can cure your internal mental consumption.</p><p><a href="https://blog.yixuan-wang.site/sheets/cli-util.html">Full Article...</a></p>]]></content>
@@ -24,7 +24,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之丙]]></title>
-        <id>/notes/jpn-lyrics-gloss-c</id>
+        <id>notes_jpn-lyrics-gloss-c_2022-09-11T06:18:59+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html"/>
         <updated>2022-09-11T06:18:59.000Z</updated>
         <content type="html"><![CDATA[<p>比较老的日语流行歌。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-c.html">Full Article...</a></p>]]></content>
@@ -32,7 +32,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之乙]]></title>
-        <id>/notes/jpn-lyrics-gloss-b</id>
+        <id>notes_jpn-lyrics-gloss-b_2022-09-11T06:15:30+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b.html"/>
         <updated>2022-09-11T06:15:30.000Z</updated>
         <content type="html"><![CDATA[<p>偏向另类摇滚性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-b.html">Full Article...</a></p>]]></content>
@@ -40,7 +40,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[日语歌词标注之甲]]></title>
-        <id>/notes/jpn-lyrics-gloss-a</id>
+        <id>notes_jpn-lyrics-gloss-a_2022-09-10T18:46:30+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a.html"/>
         <updated>2022-09-10T18:46:30.000Z</updated>
         <content type="html"><![CDATA[<p>偏向民谣性质的日语歌歌词标注。</p><p><a href="https://blog.yixuan-wang.site/notes/jpn-lyrics-gloss-a.html">Full Article...</a></p>]]></content>
@@ -48,7 +48,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[徐烈炯《生成语法理论》读书笔记]]></title>
-        <id>/notes/intro-chomskyan-generative-syntax</id>
+        <id>notes_intro-chomskyan-generative-syntax_2022-08-04T16:58:29+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax.html"/>
         <updated>2022-08-04T16:58:29.000Z</updated>
         <content type="html"><![CDATA[<p>徐烈炯《生成语法理论：标准理论到最简方案》一书简要介绍 Chomsky 生成语法理论（主要是句法）及其流变。此为本书的读书笔记。</p><p><a href="https://blog.yixuan-wang.site/notes/intro-chomskyan-generative-syntax.html">Full Article...</a></p>]]></content>
@@ -56,7 +56,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Rust 语言伪经]]></title>
-        <id>/notes/apocrypha-rs</id>
+        <id>notes_apocrypha-rs_2022-08-04T11:44:50+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/apocrypha-rs.html"/>
         <updated>2022-08-04T11:44:50.000Z</updated>
         <content type="html"><![CDATA[<p>某汉语 Rust 教程没能正确告诉你的内容。</p><p><a href="https://blog.yixuan-wang.site/notes/apocrypha-rs.html">Full Article...</a></p>]]></content>
@@ -65,7 +65,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[StackOverflow 问题收藏夹]]></title>
-        <id>/sheets/favorites-stackoverflow</id>
+        <id>sheets_favorites-stackoverflow_2022-08-01T06:58:08+00:00</id>
         <link href="https://blog.yixuan-wang.site/sheets/favorites-stackoverflow.html"/>
         <updated>2022-08-01T06:58:08.000Z</updated>
         <content type="html"><![CDATA[<p>让程序员开心的 StackOverflow 问题，抄了又抄。</p><p><a href="https://blog.yixuan-wang.site/sheets/favorites-stackoverflow.html">Full Article...</a></p>]]></content>
@@ -75,7 +75,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[In Rust We Thrust]]></title>
-        <id>/notes/rust-magics</id>
+        <id>notes_rust-magics_2022-07-30T16:51:36+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/rust-magics.html"/>
         <updated>2022-07-30T16:51:36.000Z</updated>
         <content type="html"><![CDATA[<p>Rust 语言的一些奇技淫巧。</p><p><a href="https://blog.yixuan-wang.site/notes/rust-magics.html">Full Article...</a></p>]]></content>
@@ -84,7 +84,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[How NOT to Rust 讲座笔记]]></title>
-        <id>/posts/how-not-to-rust</id>
+        <id>posts_how-not-to-rust_2022-07-10T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/how-not-to-rust.html"/>
         <updated>2022-07-10T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>TUNA 讲座 How NOT to Rust 的简单笔记，作为种草 Rust 的纪念。</p><p><a href="https://blog.yixuan-wang.site/posts/how-not-to-rust.html">Full Article...</a></p>]]></content>
@@ -93,7 +93,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[In Rust We Bust]]></title>
-        <id>/notes/rust-postmortem</id>
+        <id>notes_rust-postmortem_2022-07-06T02:37:40+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/rust-postmortem.html"/>
         <updated>2022-07-06T02:37:40.000Z</updated>
         <content type="html"><![CDATA[<p>Rust 语言的踩坑记录。</p><p><a href="https://blog.yixuan-wang.site/notes/rust-postmortem.html">Full Article...</a></p>]]></content>
@@ -102,7 +102,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[北京话语音学感知实验两项]]></title>
-        <id>/posts/phon-perception-exp-beijing-mandarin</id>
+        <id>posts_phon-perception-exp-beijing-mandarin_2022-01-30T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/phon-perception-exp-beijing-mandarin.html"/>
         <updated>2022-01-30T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>语音学及实验语音学两门课的期末实验。研究了北京话 j - zh 声母和 an - ang 韵母的感知问题。</p><p><a href="https://blog.yixuan-wang.site/posts/phon-perception-exp-beijing-mandarin.html">Full Article...</a></p>]]></content>
@@ -110,7 +110,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[页面高级内容测试]]></title>
-        <id>/posts/test-content-advanced</id>
+        <id>posts_test-content-advanced_2022-01-29T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/test-content-advanced.html"/>
         <updated>2022-01-29T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>页面高级内容渲染效果的测试。</p><p><a href="https://blog.yixuan-wang.site/posts/test-content-advanced.html">Full Article...</a></p>]]></content>
@@ -118,7 +118,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[汉语方言的七分法]]></title>
-        <id>/posts/dialect-zho-septipartite</id>
+        <id>posts_dialect-zho-septipartite_2021-12-27T06:12:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/dialect-zho-septipartite.html"/>
         <updated>2021-12-27T06:12:00.000Z</updated>
         <content type="html"><![CDATA[<p>汉语方言传统上采用七分法。 官话是唯一的北方方言，湘语和赣语是带有北方方言特征的南方方言，吴语、客家话、粤语和闽语是南方方言。</p><p><a href="https://blog.yixuan-wang.site/posts/dialect-zho-septipartite.html">Full Article...</a></p>]]></content>
@@ -127,7 +127,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[索绪尔《普通语言学教程》读书笔记]]></title>
-        <id>/notes/saussure-general-linguistics</id>
+        <id>notes_saussure-general-linguistics_2021-09-10T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/saussure-general-linguistics.html"/>
         <updated>2021-09-10T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>现代语言学及结构主义语言学开山之作《普通语言学教程》的读书笔记。</p><p><a href="https://blog.yixuan-wang.site/notes/saussure-general-linguistics.html">Full Article...</a></p>]]></content>
@@ -135,7 +135,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[莱比锡标注法]]></title>
-        <id>/posts/leipzig-glossing</id>
+        <id>posts_leipzig-glossing_2021-08-03T15:14:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/leipzig-glossing.html"/>
         <updated>2021-08-03T15:14:00.000Z</updated>
         <content type="html"><![CDATA[<p>莱比锡标注法（Leipzig Glossing Rules）是以语素为单位，标注语料形态的体系。本文简单翻译其规则，方便查阅。</p><p><a href="https://blog.yixuan-wang.site/posts/leipzig-glossing.html">Full Article...</a></p>]]></content>
@@ -143,7 +143,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[重庆]]></title>
-        <id>/posts/21-chongqing</id>
+        <id>posts_21-chongqing_2021-07-18T08:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/21-chongqing.html"/>
         <updated>2021-07-18T08:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>2021 年暑假重庆之行的游记。</p><p><a href="https://blog.yixuan-wang.site/posts/21-chongqing.html">Full Article...</a></p>]]></content>
@@ -151,7 +151,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[程设 C++ 笔记]]></title>
-        <id>/notes/cpp-practice-of-programming</id>
+        <id>notes_cpp-practice-of-programming_2021-06-26T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/cpp-practice-of-programming.html"/>
         <updated>2021-06-26T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>程设课的 C++ 笔记。上半学期是语法及 STL，下半学期是算法基础。</p><p><a href="https://blog.yixuan-wang.site/notes/cpp-practice-of-programming.html">Full Article...</a></p>]]></content>
@@ -160,7 +160,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Issues 测试]]></title>
-        <id>/notes/test-issues</id>
+        <id>notes_test-issues_2021-02-19T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/notes/test-issues.html"/>
         <updated>2021-02-19T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>Issues API 的测试。</p><p><a href="https://blog.yixuan-wang.site/notes/test-issues.html">Full Article...</a></p>]]></content>
@@ -168,7 +168,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[页面内容测试]]></title>
-        <id>/posts/test-content</id>
+        <id>posts_test-content_2021-02-14T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/test-content.html"/>
         <updated>2021-02-14T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>页面内容渲染效果的测试，兼作 Markdown 参考。</p><p><a href="https://blog.yixuan-wang.site/posts/test-content.html">Full Article...</a></p>]]></content>
@@ -176,7 +176,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Tailwind CSS 初探]]></title>
-        <id>/posts/tailwindcss-tentative</id>
+        <id>posts_tailwindcss-tentative_2021-02-04T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/tailwindcss-tentative.html"/>
         <updated>2021-02-04T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>Tailwind CSS 从真香到放弃的个人经历。</p><p><a href="https://blog.yixuan-wang.site/posts/tailwindcss-tentative.html">Full Article...</a></p>]]></content>
@@ -184,7 +184,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[在 Markdown 中引用参考文献]]></title>
-        <id>/posts/bibli-with-md</id>
+        <id>posts_bibli-with-md_2020-12-30T15:05:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/bibli-with-md.html"/>
         <updated>2020-12-30T15:05:00.000Z</updated>
         <content type="html"><![CDATA[<p>借助 Pandoc，在 Markdown 中引用参考文献非常方便。</p><p><a href="https://blog.yixuan-wang.site/posts/bibli-with-md.html">Full Article...</a></p>]]></content>
@@ -192,7 +192,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[北大钟亭的满文铭文]]></title>
-        <id>/posts/pku-bell-manchu-inscription</id>
+        <id>posts_pku-bell-manchu-inscription_2020-10-12T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/pku-bell-manchu-inscription.html"/>
         <updated>2020-10-12T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>北大钟亭里的那口钟是清朝的遗物，在北侧刻有满文铭文。</p><p><a href="https://blog.yixuan-wang.site/posts/pku-bell-manchu-inscription.html">Full Article...</a></p>]]></content>
@@ -200,7 +200,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[搭建博客的技术性思考]]></title>
-        <id>/posts/blogging-tech</id>
+        <id>posts_blogging-tech_2020-10-11T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/blogging-tech.html"/>
         <updated>2020-10-11T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>搭建静态博客时考虑的技术的的问题。</p><p><a href="https://blog.yixuan-wang.site/posts/blogging-tech.html">Full Article...</a></p>]]></content>
@@ -209,7 +209,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[搭建博客的非技术性思考]]></title>
-        <id>/posts/blogging-nontech</id>
+        <id>posts_blogging-nontech_2020-10-05T07:31:57+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/blogging-nontech.html"/>
         <updated>2020-10-05T07:31:57.000Z</updated>
         <content type="html"><![CDATA[<p>搭建博客时考虑的非技术的、形而上的问题。</p><p><a href="https://blog.yixuan-wang.site/posts/blogging-nontech.html">Full Article...</a></p>]]></content>
@@ -217,7 +217,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[人类语言的共性]]></title>
-        <id>/posts/common-designs</id>
+        <id>posts_common-designs_2020-09-30T06:22:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/common-designs.html"/>
         <updated>2020-09-30T06:22:00.000Z</updated>
         <content type="html"><![CDATA[<p>人类语言存在一些共性的本质特征。</p><p><a href="https://blog.yixuan-wang.site/posts/common-designs.html">Full Article...</a></p>]]></content>
@@ -225,7 +225,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[二叉搜索树的删除结点操作]]></title>
-        <id>/posts/del-bst</id>
+        <id>posts_del-bst_2020-09-18T02:48:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/del-bst.html"/>
         <updated>2020-09-18T02:48:00.000Z</updated>
         <content type="html"><![CDATA[<p>二叉搜索树删除结点的操作实际上是一种旋转。</p><p><a href="https://blog.yixuan-wang.site/posts/del-bst.html">Full Article...</a></p>]]></content>
@@ -233,7 +233,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[汉语方言的鼻音韵尾数量]]></title>
-        <id>/posts/zho-nasal-coda</id>
+        <id>posts_zho-nasal-coda_2020-07-16T03:48:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/zho-nasal-coda.html"/>
         <updated>2020-07-16T03:48:00.000Z</updated>
         <content type="html"><![CDATA[<p>汉语普通话有两个鼻音韵尾音位，吴语苏州话有一个，粤语广府话有三个。</p><p><a href="https://blog.yixuan-wang.site/posts/zho-nasal-coda.html">Full Article...</a></p>]]></content>
@@ -242,7 +242,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[KMP 算法]]></title>
-        <id>/posts/kmp</id>
+        <id>posts_kmp_2020-06-11T13:39:02+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/kmp.html"/>
         <updated>2020-06-11T13:39:02.000Z</updated>
         <content type="html"><![CDATA[<p>KMP 算法是利用重复片段进行优化的，无回溯的字符串匹配算法。</p><p><a href="https://blog.yixuan-wang.site/posts/kmp.html">Full Article...</a></p>]]></content>
@@ -250,7 +250,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[竖排显示测试]]></title>
-        <id>/posts/test-vertical</id>
+        <id>posts_test-vertical_2020-05-05T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/test-vertical.html"/>
         <updated>2020-05-05T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>学习层叠样式表时的玩耍：竖排《千字文》。</p><p><a href="https://blog.yixuan-wang.site/posts/test-vertical.html">Full Article...</a></p>]]></content>
