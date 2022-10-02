@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Thu, 29 Sep 2022 18:19:34 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 02 Oct 2022 14:17:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -22,6 +22,7 @@
             <pubDate>Sat, 24 Sep 2022 16:10:00 GMT</pubDate>
             <content:encoded><![CDATA[<p>关于标准高地德语音系的一些关键问题。</p><p><a href="https://blog.yixuan-wang.site/posts/german-phonology.html">Full Article...</a></p>]]></content:encoded>
             <category domain="ling">language</category>
+            <category domain="ling">phonology</category>
         </item>
         <item>
             <title><![CDATA[Awesome CLI Toys]]></title>
