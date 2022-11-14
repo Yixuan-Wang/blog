@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-10-22T07:02:56.026Z</updated>
+    <updated>2022-11-14T09:11:29.655Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,14 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[Colorless Green Ideas (0): What is Linguistics]]></title>
+        <id>posts_colorless-green-ideas-0_2022-11-14T00:00:00+00:00</id>
+        <link href="https://blog.yixuan-wang.site/posts/colorless-green-ideas-0.html"/>
+        <updated>2022-11-14T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Some thoughts on what is LANGUAGE SCIENCE, literally.</p><p><a href="https://blog.yixuan-wang.site/posts/colorless-green-ideas-0.html">Full Article...</a></p>]]></content>
+        <category label="language-science"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[德语音系要点]]></title>
         <id>posts_german-phonology_2022-09-24T16:10:00+00:00</id>
