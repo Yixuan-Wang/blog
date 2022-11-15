@@ -1,1 +1,0 @@
-import{d as t,f as s,o as a,b as o,g as e,h as n,i as r,F as c}from"./app.4b3717e8.js";import m from"./about.fd6de41a.js";import"./TheArticle.dc05974d.js";const i=e("h1",{class:"mt-4 mb-8"}," \u5173\u4E8E ",-1),_={id:"md"},E=t({setup(u){return s({title:"\u5173\u4E8E | Pak"}),(d,p)=>(a(),o(c,null,[i,e("section",_,[n(r(m))])],64))}});export{E as default};
