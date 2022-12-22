@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-11-15T07:28:36.677Z</updated>
+    <updated>2022-12-22T05:46:46.851Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,15 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[Tymnastics (1): 标签联合动态派发]]></title>
+        <id>posts_ts-tagged-union-dispatch_2022-11-14T00:00:00+00:00</id>
+        <link href="https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html"/>
+        <updated>2022-11-14T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>在 TypeScript 的标签联合（Tagged Union）上类型安全地动态派发。</p><p><a href="https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html">Full Article...</a></p>]]></content>
+        <category label="pl"/>
+        <category label="typescript"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Colorless Green Ideas (0): What is Linguistics]]></title>
         <id>posts_colorless-green-ideas-0_2022-11-14T00:00:00+00:00</id>
