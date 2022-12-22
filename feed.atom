@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-12-22T05:49:40.100Z</updated>
+    <updated>2022-12-22T05:56:35.357Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -16,9 +16,9 @@
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
     <entry>
         <title type="html"><![CDATA[Tymnastics (1): 标签联合动态派发]]></title>
-        <id>posts_ts-tagged-union-dispatch_2022-11-14T00:00:00+00:00</id>
+        <id>posts_ts-tagged-union-dispatch_2022-12-22T00:00:00+00:00</id>
         <link href="https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html"/>
-        <updated>2022-11-14T00:00:00.000Z</updated>
+        <updated>2022-12-22T00:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>在 TypeScript 的标签联合（Tagged Union）上类型安全地动态派发。</p><p><a href="https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html">Full Article...</a></p>]]></content>
         <category label="pl"/>
         <category label="typescript"/>

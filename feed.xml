@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Thu, 22 Dec 2022 05:49:40 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 22 Dec 2022 05:56:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -18,8 +18,8 @@
         <item>
             <title><![CDATA[Tymnastics (1): 标签联合动态派发]]></title>
             <link>https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html</link>
-            <guid>posts_ts-tagged-union-dispatch_2022-11-14T00:00:00+00:00</guid>
-            <pubDate>Mon, 14 Nov 2022 00:00:00 GMT</pubDate>
+            <guid>posts_ts-tagged-union-dispatch_2022-12-22T00:00:00+00:00</guid>
+            <pubDate>Thu, 22 Dec 2022 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<p>在 TypeScript 的标签联合（Tagged Union）上类型安全地动态派发。</p><p><a href="https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html">Full Article...</a></p>]]></content:encoded>
             <category domain="comp">pl</category>
             <category domain="comp">typescript</category>
