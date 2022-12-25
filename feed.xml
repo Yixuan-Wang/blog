@@ -4,7 +4,7 @@
         <title>Pak</title>
         <link>https://blog.yixuan-wang.site/</link>
         <description>This is a blоg, not a blog.</description>
-        <lastBuildDate>Thu, 22 Dec 2022 05:56:35 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 25 Dec 2022 19:17:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,6 +15,14 @@
         </image>
         <copyright>CC BY-NC-SA 4.0 © Yixuan Wang</copyright>
         <atom:link href="https://blog.yixuan-wang.site/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[死生]]></title>
+            <link>https://blog.yixuan-wang.site/posts/mortality.html</link>
+            <guid>posts_mortality_2022-12-24T00:00:00+00:00</guid>
+            <pubDate>Sat, 24 Dec 2022 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>等会去码头整点薯条。</p><p><a href="https://blog.yixuan-wang.site/posts/mortality.html">Full Article...</a></p>]]></content:encoded>
+            <category domain="litr">essay</category>
+        </item>
         <item>
             <title><![CDATA[Tymnastics (1): 标签联合动态派发]]></title>
             <link>https://blog.yixuan-wang.site/posts/ts-tagged-union-dispatch.html</link>
