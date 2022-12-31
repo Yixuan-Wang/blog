@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-12-25T19:17:38.731Z</updated>
+    <updated>2022-12-31T15:29:37.374Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,15 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[夏から秋へ]]></title>
+        <id>posts_from-summer-to-autumn_2022-12-31T14:00:00+00:00</id>
+        <link href="https://blog.yixuan-wang.site/posts/from-summer-to-autumn.html"/>
+        <updated>2022-12-31T14:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>来自 2022 年夏天的创作。北京。一个天气温和得有点反常的夏天。</p><p><a href="https://blog.yixuan-wang.site/posts/from-summer-to-autumn.html">Full Article...</a></p>]]></content>
+        <category label="poetry"/>
+        <category label="essay"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[死生]]></title>
         <id>posts_mortality_2022-12-24T00:00:00+00:00</id>
