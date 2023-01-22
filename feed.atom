@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2022-12-31T15:29:37.374Z</updated>
+    <updated>2023-01-22T02:33:11.882Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,14 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[《深海》]]></title>
+        <id>posts_movie-deep-sea_2023-01-17T00:00:00+00:00</id>
+        <link href="https://blog.yixuan-wang.site/posts/movie-deep-sea.html"/>
+        <updated>2023-01-17T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>电影《深海》的观后感和影评类似物。这是一部很很沉重压抑的电影。</p><p><a href="https://blog.yixuan-wang.site/posts/movie-deep-sea.html">Full Article...</a></p>]]></content>
+        <category label="essay"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[夏から秋へ]]></title>
         <id>posts_from-summer-to-autumn_2022-12-31T14:00:00+00:00</id>
