@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yixuan-wang.site/</id>
     <title>Pak</title>
-    <updated>2023-01-22T02:33:11.882Z</updated>
+    <updated>2023-02-05T09:28:19.331Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Yixuan Wang</name>
@@ -14,6 +14,14 @@
     <logo>https://blog.yixuan-wang.site/favicon.svg</logo>
     <icon>https://blog.yixuan-wang.site/favicon.svg</icon>
     <rights>CC BY-NC-SA 4.0 © Yixuan Wang</rights>
+    <entry>
+        <title type="html"><![CDATA[WSL 2 端口转发到局域网]]></title>
+        <id>posts_wsl-port-forward-lan_2023-02-05T08:45:00+00:00</id>
+        <link href="https://blog.yixuan-wang.site/posts/wsl-port-forward-lan.html"/>
+        <updated>2023-02-05T08:45:00.000Z</updated>
+        <content type="html"><![CDATA[<p>WSL 2 运行于独立的局域网内，需要一些操作才能将 WSL 2 的端口暴露到 Windows 宿主机所在的局域网。</p><p><a href="https://blog.yixuan-wang.site/posts/wsl-port-forward-lan.html">Full Article...</a></p>]]></content>
+        <category label="network"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[《深海》]]></title>
         <id>posts_movie-deep-sea_2023-01-17T00:00:00+00:00</id>
