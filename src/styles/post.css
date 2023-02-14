@@ -1,0 +1,190 @@
+@import url("./post-fontface.css");
+
+#md {
+  @apply
+    flex flex-col gap-4 flex-wrap
+  ;
+}
+
+#md h2 {
+  @apply
+    py-2
+    font-bold text-3xl
+  ;
+}
+
+#md h3 {
+  @apply
+    py-1
+    font-bold text-2xl
+  ;
+}
+
+#md h4,
+#md h5,
+#md h6 {
+  @apply
+    font-bold text-xl
+  ;
+}
+
+#md hr {
+  @apply
+    border-b-1 border-b-solid
+  ;
+}
+
+/* Blockquote */
+
+#md blockquote {
+  @apply
+    pl-3 py-2
+    flex flex-col gap-3 max-w-full
+    border-l-4 border-l-solid border-muted
+  ;
+}
+
+/* Definition list */
+#md dl {
+  @apply
+    flex flex-col max-w-full
+  ;
+}
+
+#md dt {
+  @apply
+    font-bold
+  ;
+}
+
+#md dd {
+  @apply
+    ml-3 mb-2;
+  ;
+}
+
+/* Ordered list */
+
+#md ol {
+  @apply
+    flex flex-col gap-1 max-w-full
+    list-inside list-decimal
+  ;
+}
+
+#md ul {
+  @apply
+    flex flex-col gap-1 max-w-full
+    list-inside list-disc
+  ;
+}
+
+#md li::marker {
+  @apply
+    text-muted
+  ;
+}
+
+#md li > ol {
+  @apply list-inside list-alpha;
+}
+
+#md li > ol > li > ol {
+  @apply list-inside list-roman;
+}
+
+#md li > ol > li > ol ol {
+  @apply list-inside list-decimal;
+}
+
+#md li > p {
+  @apply
+    inline
+  ;
+}
+
+#md li > ol,
+#md li > ul,
+#md li > pre,
+#md li > div,
+#md li > blockquote {
+  @apply
+    ml-3 mt-1
+  ;
+}
+
+#md table {
+  @apply
+    max-w-full w-fit overflow-x-auto
+    text-left
+    border-y-2 border-y-solid border-front
+  ;
+}
+
+#md table th {
+  @apply
+    border-b-1 border-b-solid border-front
+  ;
+}
+
+#md table td,
+#md table th {
+  @apply p-1;
+}
+
+#md details summary::marker {
+  color: rgb(var(--color-muted));
+}
+
+#md details {
+  @apply
+    max-w-full;
+}
+
+#md details > :not(summary) {
+  @apply
+    my-3
+  ;
+}
+
+#md pre {
+  @apply
+    p-3 rounded max-w-full
+    overflow-x-auto
+  ;
+}
+
+#md p {
+  @apply
+    max-w-full
+  ;
+}
+
+#md a {
+  @apply
+    text-one-front
+    ub-one border-op-50
+    transition-lively
+  ;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #md a:hover {
+    @apply
+      text-one border-one border-solid;
+  }
+}
+
+#md a:active {
+  @apply
+    text-one border-one border-solid;
+}
+
+#md ruby {
+  line-height: 175%;
+}
+
+#md mark {
+  @apply
+    bg-one-back;
+}

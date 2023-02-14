@@ -1,0 +1,38 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import postInfo from "post:info";
+import postImport from "post:import";
+
+import "src/styles/post.css";
+import PostMeta from "src/components/PostMeta.astro";
+
+export async function getStaticPaths() {
+  return Object.values(postInfo).map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params as {
+  slug: string;
+};
+
+const { default: Content, excerpt, metadata: meta } = await postImport[slug]();
+---
+
+<LayoutDefault title={meta.title} description={excerpt}>
+  <Fragment slot="head">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+      crossorigin="anonymous"
+    />
+  </Fragment>
+  <Fragment slot="headline">
+    <PostMeta meta={meta} />
+  </Fragment>
+  <main id="md" lang={meta.lang ?? "zh-Hans"}>
+    <Content>
+      <Fragment slot="foldout">
+        <!-- <p class="my-4">Hi! from foldout.</p> -->
+      </Fragment>
+    </Content>
+  </main>
+</LayoutDefault>

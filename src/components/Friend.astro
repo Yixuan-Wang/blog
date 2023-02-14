@@ -1,0 +1,40 @@
+---
+export interface Props {
+  friend: friend.Friend;
+}
+
+const {
+  friend: { name, avatar, link },
+} = Astro.props;
+const outlink = { rel: "noopener", target: "_blank" };
+---
+
+<Fragment>
+  <img class="rounded-1/2 w-8 h-8" src={avatar} alt={`Avatar of ${name}`} />
+  <div>{name}</div>
+  <div class="friends-list flex flex-row gap-1.5 items-center">
+    <a title={`GitHub of ${name}`} href={link.github} {...outlink}
+      ><div class="i-mdi-github"></div></a
+    >
+    {
+      link.homepage ? (
+        <a title={`Home Page of ${name}`} href={link.homepage} {...outlink}>
+          <div class="i-mdi-home" />
+        </a>
+      ) : null
+    }
+    {
+      link.blog ? (
+        <a title={`Blog of ${name}`} href={link.blog} {...outlink}>
+          <div class="i-mdi-blog" />
+        </a>
+      ) : null
+    }
+  </div>
+</Fragment>
+
+<style>
+  .friends-list > * {
+    @apply text-one-front @hover-text-one transition-lively;
+  }
+</style>

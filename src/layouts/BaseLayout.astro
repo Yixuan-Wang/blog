@@ -1,0 +1,30 @@
+---
+import "src/styles/main.css";
+
+import TheFooter from "src/components/TheFooter.astro";
+import TheHeader from "src/components/TheHeader.astro";
+---
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <style is:inline id="style-color-palette"></style>
+    <script src="src/logic/init-page"></script>
+    <slot name="head">
+      <title>Pak</title>
+      <meta name="description" content="Yixuan Wang's personal blog." />
+    </slot>
+  </head>
+  <body class="cloak">
+    <TheHeader />
+    <div id="the-main">
+      <slot />
+    </div>
+    <TheFooter />
+  </body>
+</html>

@@ -1,0 +1,27 @@
+---
+// import LeipzigGlossing from "./raw/LeipzigGlossing.svelte";
+import parse from "./leipzig-glossing/index";
+
+const html = await Astro.slots.render("default");
+const result = parse(html);
+---
+
+<div class="leipzig-gloss">
+  <div class="leipzig-gloss-grid" set:html={result} />
+</div>
+
+<style>
+  .leipzig-gloss {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .leipzig-gloss-grid {
+    display: grid;
+    grid-auto-columns: minmax(max-content, min-content);
+    column-gap: 1rem;
+    overflow-x: visible;
+    justify-content: start;
+    justify-items: left;
+  }
+</style>

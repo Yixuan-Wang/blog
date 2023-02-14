@@ -1,0 +1,43 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+
+import PostInfo, { timeDesc } from "post:info";
+import PostInfoFull from "src/components/PostInfoFull.astro";
+
+import ColorPalette from "src/components/ColorPalette.astro";
+import FriendList from "src/components/FriendList.astro";
+---
+
+<BaseLayout title="Pak">
+  <header class="flex flex-col">
+    <h1 class="text-6xl font-bold text-one">Pak</h1>
+    <p class="text-3xl font-bold mb-3 text-one-front">Yixuan Wang's Blog</p>
+    <p class="text-xl font-mono">mem::forget(linguist);</p>
+  </header>
+
+  <section class="flex flex-col gap-3">
+    <h2 class="text-2xl font-bold text-one-front">Explore</h2>
+    <section class="card flex flex-col gap-2 bg-one-back transition-lively">
+      <h3 class="text-xl font-bold text-one-front">Color Palettes</h3>
+      <ColorPalette />
+    </section>
+
+    <section class="card flex flex-col gap-2 bg-one-back transition-lively">
+      <h3 class="text-xl font-bold text-one-front">Friends</h3>
+      <FriendList />
+    </section>
+  </section>
+
+  <section class="flex flex-col gap-3">
+    <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
+    {timeDesc.map((key) => <PostInfoFull info={PostInfo[key]} />)}
+  </section>
+</BaseLayout>
+
+<style is:global>
+  #the-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

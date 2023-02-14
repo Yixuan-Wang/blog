@@ -1,0 +1,24 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import postInfo, { allTag } from "post:info";
+import PostInfoFull from "src/components/PostInfoFull.astro";
+
+export async function getStaticPaths() {
+  return Object.keys(allTag).map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params as {
+  tag: string;
+};
+---
+
+<LayoutDefault
+  title={`@${tag}`}
+  description={`Tag @${tag} on Yixuan Wang's blog.`}
+>
+  <Fragment slot="head"></Fragment>
+  <Fragment slot="headline"></Fragment>
+  <div class="flex flex-col gap-5">
+    {allTag[tag].map((slug) => <PostInfoFull info={postInfo[slug]} />)}
+  </div>
+</LayoutDefault>

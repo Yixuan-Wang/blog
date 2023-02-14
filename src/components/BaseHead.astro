@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title?: string
+  description?: string
+}
+
+const title = Astro.props.title ? `${Astro.props.title} | Pak` : "Pak";
+const { description } = Astro.props;
+---
+
+<title>{ title }</title>
+<meta property="og:title" content={title} />
+{description
+  ? (
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
+    )
+  : <></>
+}

@@ -1,0 +1,24 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import postInfo, { allSeries } from "post:info";
+import PostInfoFull from "src/components/PostInfoFull.astro";
+
+export async function getStaticPaths() {
+  return Object.keys(allSeries).map((series) => ({ params: { series } }));
+}
+
+const { series } = Astro.params as {
+  series: string;
+};
+---
+
+<LayoutDefault
+  title={series}
+  description={`Series ${series} on Yixuan Wang's blog.`}
+>
+  <Fragment slot="head"></Fragment>
+  <Fragment slot="headline"></Fragment>
+  <div class="flex flex-col gap-5">
+    {allSeries[series].map((slug) => <PostInfoFull info={postInfo[slug]} />)}
+  </div>
+</LayoutDefault>

@@ -1,0 +1,16 @@
+{
+  "ignoreDeprecations": "5.0",
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ],
+      "@/*": [
+        "contents/*"
+      ]
+    }
+  }
+}

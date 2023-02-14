@@ -1,0 +1,32 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import postInfo, { allCategory } from "post:info";
+import PostInfoFull from "src/components/PostInfoFull.astro";
+
+// import PostMeta from "src/components/PostMeta.astro";
+
+export async function getStaticPaths() {
+  return Object.keys(allCategory).map((category) => ({ params: { category } }));
+}
+
+const { category } = Astro.params as {
+  category: string;
+};
+
+// const { default: Content, excerpt, metadata: meta } = await postImport[slug]();
+---
+
+<LayoutDefault
+  title={category}
+  description={`Category ${category} on Yixuan Wang's blog.`}
+>
+  <Fragment slot="head"></Fragment>
+  <Fragment slot="headline"></Fragment>
+  <div class="flex flex-col gap-5">
+    {
+      allCategory[category].map((slug) => (
+        <PostInfoFull info={postInfo[slug]} />
+      ))
+    }
+  </div>
+</LayoutDefault>

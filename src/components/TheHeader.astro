@@ -1,0 +1,24 @@
+<header id="the-header">
+  <nav>
+    <a href={new URL("/", Astro.site)} title="Home"
+      ><div class="i-mdi-circle"></div></a
+    >
+  </nav>
+  <div class="flex-1"></div>
+  <nav class="gap-3">
+    <a title="Archive" href={new URL("/archive", Astro.site)}>
+      <div class="i-mdi-archive"></div>
+    </a>
+    <!-- <button title="Posts">
+      <div class="i-mdi-file"></div>
+    </button> -->
+  </nav>
+</header>
+
+<style is:global>
+  #the-header nav > a,
+  #the-header nav > button {
+    @apply text-lg
+      text-one @hover-text-one-front active:text-one-front transition-lively;
+  }
+</style>

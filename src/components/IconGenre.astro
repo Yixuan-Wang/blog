@@ -1,0 +1,27 @@
+---
+import type { Genre } from "src/utils/meta";
+
+export interface Props {
+  genre: Genre;
+}
+
+const { genre } = Astro.props;
+let className: string;
+
+switch (genre) {
+  case "article":
+    className = "i-mdi-file";
+    break;
+  case "sheet":
+    className = "i-mdi-table-large";
+    break;
+  case "note":
+    className = "i-mdi-folder";
+    break;
+  default:
+    className = "i-mdi-file";
+    break;
+}
+---
+
+<div class={className}></div>

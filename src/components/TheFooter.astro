@@ -1,0 +1,35 @@
+---
+import ColorScheme from "./ColorScheme.svelte";
+---
+
+<footer id="the-footer">
+  <nav class="gap-2">
+    <button title="GitHub"
+      ><a
+        href="https://github.com/Yixuan-Wang"
+        rel="noopener"
+        target="_blank"
+        title="GitHub"><div class="i-mdi-github"></div></a
+      ></button
+    >
+    <button title="RSS"
+      ><a
+        href={new URL("/feed.xml", Astro.site)}
+        rel="noopener"
+        target="_blank"
+        title="RSS"><div class="i-mdi-rss-box"></div></a
+      ></button
+    >
+  </nav>
+  <div class="flex-1"></div>
+  <nav class="gap-2">
+    <ColorScheme client:idle />
+  </nav>
+</footer>
+
+<style is:global>
+  #the-footer button {
+    @apply text-lg
+    @hover-text-one active:text-one transition-lively;
+  }
+</style>

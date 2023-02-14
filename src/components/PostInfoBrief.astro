@@ -1,0 +1,30 @@
+---
+import { lightFormat } from "date-fns";
+import { decideTimeFromStatus } from "src/utils/time";
+
+export interface Props {
+  info: post.PostInfo;
+}
+
+const {
+  info: { slug, meta },
+} = Astro.props;
+---
+
+<article class="flex flex-row flex-wrap flex-gap-[0_1rem] items-baseline">
+  <span class="font-mono">
+    <time>{lightFormat(decideTimeFromStatus(meta), "MM/dd")}</time>
+  </span>
+  <a
+    class="@hover-text-one-front font-mono transition-lively"
+    href={new URL(`category/${meta.taxonomy.category}`, Astro.site)}
+  >
+    <span>{meta.taxonomy.category}</span>
+  </a>
+  <a
+    class="@hover-text-one-front transition-lively"
+    href={new URL(`post/${slug}`, Astro.site)}
+  >
+    <span class="ub">{meta.title}</span>
+  </a>
+</article>

@@ -1,0 +1,105 @@
+---
+import ColorPaletteButton from "src/components/ColorPaletteButton.svelte";
+import type { ColorPaletteSetting } from "src/logic/color-palette";
+import DEFAULT_COLOR_PALETTE from "src/logic/color-palette-default.json";
+
+const prebuiltColorPalettes: ColorPaletteSetting[] = [
+  {
+    one: {
+      mode: "oklch",
+      l: 0.5766,
+      c: 0.195,
+      h: 23.81,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.562,
+      c: 0.165,
+      h: 8.58,
+    },
+  },
+  {
+    one: {
+      mode: "oklch",
+      l: 0.6926,
+      c: 0.191,
+      h: 44.02,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.6458,
+      c: 0.172,
+      h: 32.27,
+    },
+  },
+  {
+    one: {
+      mode: "oklch",
+      l: 0.7686,
+      c: 0.165,
+      h: 75.08,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.8106,
+      c: 0.173,
+      h: 86.94,
+    },
+  },
+  {
+    one: {
+      mode: "oklch",
+      l: 0.5676,
+      c: 0.138,
+      h: 148.33,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.566,
+      c: 0.148,
+      h: 122.67,
+    },
+  },
+  {
+    one: {
+      mode: "oklch",
+      l: 0.6967,
+      c: 0.122,
+      h: 217.58,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.6796,
+      c: 0.109,
+      h: 196.34,
+    },
+  },
+  DEFAULT_COLOR_PALETTE as ColorPaletteSetting,
+  {
+    one: {
+      mode: "oklch",
+      l: 0.6138,
+      c: 0.179,
+      h: 296.66,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.5898,
+      c: 0.172,
+      h: 276.38,
+    },
+  },
+];
+---
+
+<div class="px-2 py-1 flex flex-row gap-2 items-center">
+  {
+    prebuiltColorPalettes.map((color, index) => (
+      <ColorPaletteButton
+        client:idle
+        palette={color}
+        title={`Color Palette ${index}`}
+      />
+    ))
+  }
+</div>

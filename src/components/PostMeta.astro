@@ -1,0 +1,54 @@
+---
+import { lightFormat } from "date-fns";
+import { decideTimeFromStatus } from "src/utils/time";
+import IconGenre from "./IconGenre.astro";
+
+export interface Props {
+  meta: post.PostMeta;
+}
+
+const { meta } = Astro.props;
+---
+
+<div
+  class="py-0.5 flex flex-row flex-wrap items-baseline"
+  style="gap: 0.25rem 0.5rem;"
+>
+  <div class="self-center">
+    <IconGenre genre={meta.genre} />
+  </div>
+  <div class="inline-chip">
+    <time>{lightFormat(decideTimeFromStatus(meta), "yyyy/MM/dd")}</time>
+  </div>
+  <a href={new URL(`category/${meta.taxonomy.category}`, Astro.site)}
+    ><div
+      class="text-one-front ub-one-front @hover-text-one @hover-border-one inline-chip transition-lively"
+    >
+      {meta.taxonomy.category}
+    </div></a
+  >
+  {
+    meta.taxonomy.tags.map((tag) => (
+      <a href={new URL(`tag/${tag}`, Astro.site)}>
+        <div class="text-two-front ub-two-front @hover-text-two @hover-border-two inline-chip transition-lively">
+          @{tag}
+        </div>
+      </a>
+    ))
+  }
+  {
+    meta.taxonomy.series ? (
+      <a href={new URL(`series/${meta.taxonomy.series[0]}`, Astro.site)}>
+        <div class="inline-chip ub border-b-dotted @hover-text-one @hover-border-one transition-lively">
+          {meta.taxonomy.series[0]}[{meta.taxonomy.series[1]}]
+        </div>
+      </a>
+    ) : null
+  }
+  {meta.lang ? <div class="inline-chip">{meta.lang}</div> : null}
+  {
+    meta.taxonomy.keywords.map((keyword) => (
+      <div class="inline-chip">#{keyword}</div>
+    ))
+  }
+</div>
