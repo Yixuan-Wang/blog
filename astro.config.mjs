@@ -141,7 +141,7 @@ export default defineConfig({
         id: "blog-yixuan-wang-v4",
         copyright: "CC BY-NC-SA 4.0 © Yixuan Wang",
         description: "Yixuan Wang's personal blog.",
-        favicon: new URL("/favicon.svg", process.env["BUILD_SITE_URL"]).toString(),
+        favicon: new URL(`${process.env["BUILD_BASE_URL"]}favicon.svg`, process.env["BUILD_SITE_URL"]).toString(),
         author: {
           name: "Yixuan Wang",
         },

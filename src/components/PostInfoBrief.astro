@@ -17,13 +17,13 @@ const {
   </span>
   <a
     class="@hover-text-one-front font-mono transition-lively"
-    href={new URL(`category/${meta.taxonomy.category}`, Astro.site)}
+    href={new URL(`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`, Astro.site)}
   >
     <span>{meta.taxonomy.category}</span>
   </a>
   <a
     class="@hover-text-one-front transition-lively"
-    href={new URL(`post/${slug}`, Astro.site)}
+    href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}
   >
     <span class="ub">{meta.title}</span>
   </a>

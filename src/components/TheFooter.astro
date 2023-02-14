@@ -14,7 +14,7 @@ import ColorScheme from "./ColorScheme.svelte";
     >
     <button title="RSS"
       ><a
-        href={new URL("/feed.xml", Astro.site)}
+        href={new URL(`${import.meta.env.BASE_URL}feed.xml`, Astro.site)}
         rel="noopener"
         target="_blank"
         title="RSS"><div class="i-mdi-rss-box"></div></a

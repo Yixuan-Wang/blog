@@ -12,7 +12,7 @@ const {
 
 <article class="card flex flex-col gap-1 @hover-bg-one-back transition-lively">
   <article class="text-2xl font-bold @hover-text-one-front transition-lively">
-    <a class="ub" href={new URL(`post/${slug}`, Astro.site)}>{meta.title}</a>
+    <a class="ub" href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}>{meta.title}</a>
   </article>
   <p>{excerpt}</p>
   <PostMeta meta={meta} />
