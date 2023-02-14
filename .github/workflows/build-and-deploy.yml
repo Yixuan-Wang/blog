@@ -51,14 +51,6 @@ jobs:
       - name: Install Node Packages
         run: pnpm install
 
-      # - name: Create Env
-      #   env:
-      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      #   # used to pull issues
-      #   run: |
-      #     touch .env.local
-      #     echo ACCESS_TOKEN=$ACCESS_TOKEN > .env.local
-
       - name: Build
         env:
           BUILD_SITE_URL: "https://blog.yixuan-wang.site"
@@ -69,18 +61,22 @@ jobs:
           GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: pnpm run build
 
-      # - name: Deploy GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./dist
-      #     publish_branch: gh-pages
-      #     cname: blog.yixuan-wang.site
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: blog-next-build-next
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Donwload Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: blog-next-build-next
+          path: ./dist
+
       - name: Deploy Server
         uses: easingthemes/ssh-deploy@v2
         with:
