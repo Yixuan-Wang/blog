@@ -1,1 +1,0 @@
-import{_ as n}from"./TheTaxonomy.796c7ac9.js";import{d as a,f as s,o as c,j as r}from"./app.e1fadd5b.js";const u=a({setup(m){const t=e=>e.genre==="sheets";return s({title:"\u6E05\u5355 | Pak",meta:[{name:"description",content:"Sheets on Pak"}]}),(e,_)=>{const o=n;return c(),r(o,{name:"\u6E05\u5355",filter:t})}}});export{u as default};
