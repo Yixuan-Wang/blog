@@ -73,7 +73,7 @@ const pipeline = {
       output: "html",
       trust: true,
     }),
-  anaylyzeComponents: unified().use(rehypeFindComponents),
+  analyzeComponents: unified().use(rehypeFindComponents),
   compileHtmlToAstro: unified().use(rehypeAstroJsx, {
     hookEscape: [
       element => (element.properties?.className as string[])?.includes("math"),
@@ -107,7 +107,7 @@ export function parseMarkdown(content: string, options: OptionsParseMarkdown) {
     pipeline.compileMarkdownToHtml.runSync(mdast),
   );
 
-  const components = Array.from(pipeline.anaylyzeComponents.stringify(hast));
+  const components = Array.from(pipeline.analyzeComponents.stringify(hast));
   const getFileNameFromComponent = toGetFileNameFromComponent(
     options.componentBase,
   );
