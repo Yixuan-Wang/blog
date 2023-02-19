@@ -10,7 +10,7 @@ export interface ConfigIntergrationFeed {
 }
 
 function convertPostToFeedItem(site: string, { slug, meta, excerpt }: post.Post): Item {
-  const link = new URL(`${process.env["BUILD_BASE_URL"]}post/${slug}`, site).toString();
+  const link = new URL(`post/${slug}`, new URL(process.env["BUILD_BASE_URL"]!, site)).toString();
   return {
     title: meta.title,
     id: slug,
