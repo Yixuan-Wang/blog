@@ -2,7 +2,7 @@ import path, { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 
-dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 import { defineConfig } from "astro/config";
 
@@ -31,8 +31,8 @@ const _dirname =
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env["BUILD_SITE_URL"],
-  base: process.env["BUILD_BASE_URL"],
+  site: process.env["PUBLIC_BUILD_SITE_URL"],
+  base: process.env["PUBLIC_BUILD_BASE_URL"],
   build: {
     format: "file",
   },
@@ -141,7 +141,7 @@ export default defineConfig({
         id: "blog-yixuan-wang-v4",
         copyright: "CC BY-NC-SA 4.0 © Yixuan Wang",
         description: "Yixuan Wang's personal blog.",
-        favicon: new URL(`${process.env["BUILD_BASE_URL"]}favicon.svg`, process.env["BUILD_SITE_URL"]).toString(),
+        favicon: new URL(`${process.env["PUBLIC_BUILD_BASE_URL"]}favicon.svg`, process.env["PUBLIC_BUILD_SITE_URL"]).toString(),
         author: {
           name: "Yixuan Wang",
         },

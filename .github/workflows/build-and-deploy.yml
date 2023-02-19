@@ -53,8 +53,8 @@ jobs:
 
       - name: Build
         env:
-          BUILD_SITE_URL: "https://blog.yixuan-wang.site"
-          BUILD_BASE_URL: "/next"
+          PUBLIC_BUILD_SITE_URL: "https://blog.yixuan-wang.site"
+          PUBLIC_BUILD_BASE_URL: "/next"
           CONTENTS_DIR: "contents"
           GITHUB_USER: "Yixuan-Wang"
           GITHUB_REPO: "blog-contents"

@@ -15,16 +15,22 @@ import TheHeader from "src/components/TheHeader.astro";
     <meta property="og:type" content="website" />
     <style is:inline id="style-color-palette"></style>
     <script src="src/logic/init-page"></script>
+    <meta name="giscus:backlink" content={Astro.url}>
     <slot name="head">
       <title>Pak</title>
       <meta name="description" content="Yixuan Wang's personal blog." />
     </slot>
   </head>
   <body class="cloak">
-    <TheHeader />
-    <div id="the-main">
-      <slot />
+    <div id="app">
+      <TheHeader />
+      <div id="the-main">
+        <slot />
+      </div>
+      <TheFooter />
     </div>
-    <TheFooter />
+    <div style="position:sticky;bottom:0;">
+      <div id="the-bottom-sheet"></div>
+    </div>
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
-import ColorScheme from "./ColorScheme.svelte";
+import ColorSchemeButton from "./ColorSchemeButton.svelte";
+import CommentButton from "./CommentButton.astro";
 ---
 
 <footer id="the-footer">
@@ -23,7 +24,8 @@ import ColorScheme from "./ColorScheme.svelte";
   </nav>
   <div class="flex-1"></div>
   <nav class="gap-2">
-    <ColorScheme client:idle />
+    <CommentButton />
+    <ColorSchemeButton client:idle />
   </nav>
 </footer>
 

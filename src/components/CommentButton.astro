@@ -1,0 +1,27 @@
+---
+import Comment from "src/components/Comment.svelte";
+import Storage from "src/components/Storage.svelte";
+---
+
+<Storage client:idle targetSelector="#the-bottom-sheet" filled={true}>
+  <Fragment slot="storage">
+    <section
+      class="md:mx-3 p-4 rounded-t relative flex flex-col gap-3 text-[#F5F5F5] bg-[#222222] h-[50vh] overflow-y-auto overflow-y-overlay"
+      style="box-shadow: 0 0 4px rgb(var(--color-one));"
+    >
+      <h3 class="text-xl font-bold">Comments</h3>
+      <button
+        name="close"
+        title="Close"
+        class="absolute top-4 right-3"
+        onclick="this.dispatchEvent(new Event('component-storage:push',{bubbles:true}))"
+      ><div class="i-mdi-close"></div></button>
+      <Comment client:visible />
+    </section>
+  </Fragment>
+  <Fragment slot="handle">
+    <button
+      onclick="this.dispatchEvent(new Event('component-storage:toggle',{bubbles:true}))"
+    ><div class="i-mdi-comment"></div></button>
+  </Fragment>
+</Storage>

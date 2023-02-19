@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
-  import type { ColorScheme, ColorSchemeSetting } from "src/logic/color-scheme";
+  import { onMount } from "svelte";
+  import type { ColorSchemeSetting } from "src/logic/color-scheme";
 
   let colorSchemeSetting: ColorSchemeSetting = "auto";
   let handleClick = () => {};

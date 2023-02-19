@@ -14,15 +14,25 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
+}
+
+body > * {
+  max-width: 65ch;
+  margin: auto;
+}
+
+#app {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto 1fr auto;
   gap: 2rem;
 
-  height: 100%;
-  max-width: 65ch;
-
-  margin: auto;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
 }
 
 body.cloak {
@@ -50,6 +60,12 @@ body.cloak {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+#the-bottom-sheet {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 :root {
