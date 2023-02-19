@@ -54,7 +54,7 @@ jobs:
       - name: Build
         env:
           PUBLIC_BUILD_SITE_URL: "https://blog.yixuan-wang.site"
-          PUBLIC_BUILD_BASE_URL: "/next"
+          PUBLIC_BUILD_BASE_URL: "/"
           CONTENTS_DIR: "contents"
           GITHUB_USER: "Yixuan-Wang"
           GITHUB_REPO: "blog-contents"
@@ -64,7 +64,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: blog-next-build-next
+          name: blog-build
           path: ./dist
 
   deploy:
@@ -74,7 +74,7 @@ jobs:
       - name: Donwload Artifact
         uses: actions/download-artifact@v3
         with:
-          name: blog-next-build-next
+          name: blog-build
           path: ./dist
 
       - name: Deploy Server
@@ -84,4 +84,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.MIRROR_HOST }}
           REMOTE_USER: ${{ secrets.MIRROR_USER }}
           SOURCE: dist/.
-          TARGET: ${{ secrets.MIRROR_TARGET_NEXT }}
+          TARGET: ${{ secrets.MIRROR_TARGET }}
