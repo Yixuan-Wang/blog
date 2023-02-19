@@ -1,8 +1,5 @@
 ---
 import "src/styles/main.css";
-
-import TheFooter from "src/components/TheFooter.astro";
-import TheHeader from "src/components/TheHeader.astro";
 ---
 
 <!DOCTYPE html>
@@ -23,11 +20,7 @@ import TheHeader from "src/components/TheHeader.astro";
   </head>
   <body class="cloak">
     <div id="app">
-      <TheHeader />
-      <div id="the-main">
-        <slot />
-      </div>
-      <TheFooter />
+      <slot />
     </div>
     <div style="position:sticky;bottom:0;">
       <div id="the-bottom-sheet"></div>

@@ -1,25 +1,31 @@
 ---
 import BaseHead from "src/components/BaseHead.astro";
 import BaseHeadline from "src/components/BaseHeadline.astro";
-import BaseLayout from "./BaseLayout.astro";
 
+import TheFooter from "src/components/TheFooter.astro";
+import TheHeader from "src/components/TheHeader.astro";
+import BaseLayout from "./BaseLayout.astro";
 export interface Props {
   title: string
   description: string
+  noComments?: boolean
 }
 
-const { title, description } = Astro.props;
+const { title, description, noComments } = Astro.props;
 ---
 
 <BaseLayout>
-  <Fragment slot="head">
-    <BaseHead title={title} description={description} />
-    <slot name="head" />
-  </Fragment>
+  <TheHeader />
+  <div id="the-main">
+    <Fragment slot="head">
+      <BaseHead title={title} description={description} />
+      <slot name="head" />
+    </Fragment>
 
-  <BaseHeadline headline={title}>
-    <slot name="headline" />
-  </BaseHeadline>
-
-  <slot />
+    <BaseHeadline headline={title}>
+      <slot name="headline" />
+    </BaseHeadline>
+    <slot />
+  </div>
+  <TheFooter {noComments} />
 </BaseLayout>

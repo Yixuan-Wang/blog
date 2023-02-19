@@ -1,0 +1,19 @@
+---
+import TheFooter from "src/components/TheFooter.astro";
+import TheHeader from "src/components/TheHeader.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+  noComments?: boolean
+}
+
+const { noComments } = Astro.props;
+---
+
+<BaseLayout>
+  <TheHeader />
+  <div id="the-main">
+    <slot />
+  </div>
+  <TheFooter {noComments} />
+</BaseLayout>

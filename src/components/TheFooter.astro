@@ -1,6 +1,12 @@
 ---
 import ColorSchemeButton from "./ColorSchemeButton.svelte";
 import CommentButton from "./CommentButton.astro";
+
+export interface Props {
+  noComments?: boolean
+}
+
+const { noComments } = Astro.props;
 ---
 
 <footer id="the-footer">
@@ -24,7 +30,7 @@ import CommentButton from "./CommentButton.astro";
   </nav>
   <div class="flex-1"></div>
   <nav class="gap-2">
-    <CommentButton />
+    {noComments ? null : <CommentButton />}
     <ColorSchemeButton client:idle />
   </nav>
 </footer>
