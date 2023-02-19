@@ -1,21 +1,24 @@
 @import url("./post-fontface.css");
 
-#md {
-  @apply
-    flex flex-col gap-4 flex-wrap
-  ;
+#md > * {
+  @apply my-4;
+}
+
+#md > :first-child,
+#md > :last-child {
+  @apply my-0;
 }
 
 #md h2 {
   @apply
-    py-2
+    mt-6
     font-bold text-3xl
   ;
 }
 
 #md h3 {
   @apply
-    py-1
+    mt-5
     font-bold text-2xl
   ;
 }
@@ -39,9 +42,18 @@
 #md blockquote {
   @apply
     pl-3 py-2
-    flex flex-col gap-3 max-w-full
+    max-w-full
     border-l-4 border-l-solid border-muted
   ;
+}
+
+#md blockquote > * {
+  @apply my-3;
+}
+
+#md blockquote > :first-child,
+#md blockquote > :last-child {
+  @apply my-0;
 }
 
 /* Definition list */
@@ -67,16 +79,28 @@
 
 #md ol {
   @apply
-    flex flex-col gap-1 max-w-full
+    max-w-full
     list-inside list-decimal
   ;
 }
 
 #md ul {
   @apply
-    flex flex-col gap-1 max-w-full
+    max-w-full
     list-inside list-disc
   ;
+}
+
+#md ul > *,
+#md ol > * {
+  @apply my-1;
+}
+
+#md ul > :first-child,
+#md ul > :last-child,
+#md ol > :first-child,
+#md ol > :last-child {
+  @apply my-0;
 }
 
 #md li::marker {
