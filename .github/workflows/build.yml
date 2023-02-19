@@ -2,13 +2,13 @@ name: Build
 
 on:
   workflow_dispatch:
-  repository_dispatch: 
-    types: 
-      - contents-update
-      - contents-issues-update
-  push:
-    branches:    
-      - main
+  # repository_dispatch: 
+  #   types: 
+  #     - contents-update
+  #     - contents-issues-update
+  # push:
+  #   branches:    
+  #     - main
   
 
 jobs:

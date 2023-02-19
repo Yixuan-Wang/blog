@@ -40,6 +40,8 @@ import MdRuby from "./generated/markdown-it-ruby";
 // @ts-ignore
 import { UnoConfig } from "./uno.config.js";
 
+import Inspect from "vite-plugin-inspect";
+
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 const markdownWrapperClasses = ""; // 'prose prose-sm m-auto text-left'
@@ -223,6 +225,8 @@ export default defineConfig(({ mode }) => ({
       },
       exclude: ["README.md"],
     }),
+
+    Inspect(),
 
     // https://github.com/antfu/vite-plugin-pwa
     /* VitePWA({
