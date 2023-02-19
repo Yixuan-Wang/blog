@@ -16,6 +16,11 @@ import FriendList from "src/components/FriendList.astro";
   </header>
 
   <section class="flex flex-col gap-3">
+    <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
+    {timeDesc.slice(0, 10).map(key => <PostInfoFull info={PostInfo[key]} />)}
+  </section>
+
+  <section class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Explore</h2>
     <section class="card flex flex-col gap-2 bg-one-back transition-lively">
       <h3 class="text-xl font-bold text-one-front">Color Palettes</h3>
@@ -26,11 +31,6 @@ import FriendList from "src/components/FriendList.astro";
       <h3 class="text-xl font-bold text-one-front">Friends</h3>
       <FriendList />
     </section>
-  </section>
-
-  <section class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
-    {timeDesc.map(key => <PostInfoFull info={PostInfo[key]} />)}
   </section>
 </BaseLayout>
 
