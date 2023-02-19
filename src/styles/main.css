@@ -105,3 +105,20 @@ html:not(.dark) {
   background-color: rgb(var(--color-one-back), 75%);
   color: rgb(var(--color-one-front));
 }
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-one));
+  border: solid rgba(var(--color-one)) 1px;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(var(--color-two));
+  border-color: rgba(var(--color-two));
+}
