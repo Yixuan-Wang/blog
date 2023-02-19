@@ -20,12 +20,6 @@ const rehypeAstroJsx: Plugin<[Options?], Root> = (_options) => {
         node.properties = node.properties ?? {};
         node.properties["is:global"] = true;
       }
-
-      if (node.tagName === "leipzig-gloss" || node.tagName === "hover-style") {
-        node.tagName = "div";
-        node.properties = {};
-        node.children = [];
-      }
     });
 
     /* tree.children.forEach((node, index) => {
