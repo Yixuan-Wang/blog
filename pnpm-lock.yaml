@@ -24,6 +24,7 @@ specifiers:
   feed: ^4.2.2
   fp-ts: ^2.13.1
   gray-matter: ^4.0.3
+  hast-util-to-text: ^3.1.2
   nanostores: ^0.7.1
   ora: ^6.1.2
   rehype-katex: ^6.0.2
@@ -53,6 +54,7 @@ dependencies:
   culori: 2.0.4
   date-fns: 2.29.3
   fp-ts: 2.13.1
+  hast-util-to-text: 3.1.2
   nanostores: 0.7.1
   svelte: 3.55.1
 
@@ -2884,7 +2886,6 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       '@types/unist': 2.0.6
-    dev: true
 
   /hast-util-parse-selector/3.1.1:
     resolution: {integrity: sha512-jdlwBjEexy1oGz0aJ2f4GKMaVKkA9jwjr4MjAAI22E5fM/TXVZHuS5OpONtdeIkRKqAaryQ2E9xNQxijoThSZA==}
@@ -2944,7 +2945,6 @@ packages:
       '@types/unist': 2.0.6
       hast-util-is-element: 2.1.3
       unist-util-find-after: 4.0.1
-    dev: true
 
   /hast-util-whitespace/2.0.1:
     resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==}
@@ -5107,7 +5107,6 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
       unist-util-is: 5.1.1
-    dev: true
 
   /unist-util-generated/2.0.0:
     resolution: {integrity: sha512-TiWE6DVtVe7Ye2QxOVW9kqybs6cZexNwTwSMVgkfjEReqy/xwGpAXb99OxktoWwmL+Z+Epb0Dn8/GNDYP1wnUw==}

@@ -1,7 +1,7 @@
 @import url("./post-fontface.css");
 
 #md > * {
-  @apply my-4;
+  @apply my-4 relative;
 }
 
 #md > :first-child,

@@ -234,10 +234,11 @@ export default _;`;
       enforce: "post",
       transform(code, id) {
         if (modules.has(id)) {
-          const { meta, excerpt } = modules.get(id)!;
+          const { meta, excerpt, toc } = modules.get(id)!;
           code += `
 export const metadata = ${JSON.stringify(meta)};
 export const excerpt = ${JSON.stringify(excerpt)};
+export const toc = ${JSON.stringify(toc)};
 `;
 
           return {

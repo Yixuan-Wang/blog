@@ -14,6 +14,7 @@ declare global {
       excerpt: string;
       content: PostContent;
       meta: PostMeta;
+      toc: [string, string][];
     }
 
     interface PostInfo {

@@ -21,6 +21,7 @@ import rehypeStringify from "rehype-stringify";
 import matter from "gray-matter";
 import shiki from "shiki";
 import rehypeAstroJsx from "../plugins/rehype-astro-jsx";
+import rehypeExtractToc from "../plugins/rehype-extract-toc";
 import rehypeFindComponents from "../plugins/rehype-find-components";
 import rehypeRuby from "../plugins/rehype-ruby";
 import remarkDirectiveFallback from "../plugins/remark-directive-fallback";
@@ -74,6 +75,7 @@ const pipeline = {
       trust: true,
     }),
   analyzeComponents: unified().use(rehypeFindComponents),
+  analyzeToc: unified().use(rehypeExtractToc),
   compileHtmlToAstro: unified().use(rehypeAstroJsx, {
     hookEscape: [
       element => (element.properties?.className as string[])?.includes("math"),
@@ -108,6 +110,7 @@ export function parseMarkdown(content: string, options: OptionsParseMarkdown) {
   );
 
   const components = Array.from(pipeline.analyzeComponents.stringify(hast));
+  const toc = pipeline.analyzeToc.stringify(hast);
   const getFileNameFromComponent = toGetFileNameFromComponent(
     options.componentBase,
   );
@@ -120,5 +123,6 @@ export function parseMarkdown(content: string, options: OptionsParseMarkdown) {
   return {
     componentImport,
     jsx,
+    toc,
   };
 }

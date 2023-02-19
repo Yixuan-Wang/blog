@@ -50,7 +50,7 @@ export function emitModuleFromSource(
           if (process.env.POST_DRAFT !== "true" && meta.status === Status.DRAFT)
             return;
 
-          const { componentImport, jsx } = parseMarkdown(rawContent, {
+          const { componentImport, jsx, toc } = parseMarkdown(rawContent, {
             componentBase: config.componentBase,
             info: {
               slug,
@@ -69,6 +69,7 @@ export function emitModuleFromSource(
               astro,
             },
             meta,
+            toc,
           } satisfies post.Post);
 
           PROVIDER_COUNTER += 1;
