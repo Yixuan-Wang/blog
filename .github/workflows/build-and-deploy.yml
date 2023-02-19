@@ -78,10 +78,11 @@ jobs:
           path: ./dist
 
       - name: Deploy Server
-        uses: easingthemes/ssh-deploy@v2
+        uses: burnett01/rsync-deployments@5.2.1
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.MIRROR_HOST }}
-          REMOTE_USER: ${{ secrets.MIRROR_USER }}
-          SOURCE: dist/.
-          TARGET: ${{ secrets.MIRROR_TARGET }}
+          switches: -avzr --delete
+          path: dist/.
+          remote_path: ${{ secrets.MIRROR_TARGET }}
+          remote_host: ${{ secrets.MIRROR_HOST }}
+          remote_user: ${{ secrets.MIRROR_USER }}
+          remote_key: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
