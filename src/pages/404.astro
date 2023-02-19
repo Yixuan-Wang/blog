@@ -1,0 +1,16 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import NotFound from "@/meta/404.html?raw";
+---
+
+<LayoutDefault
+  title="404"
+  description="Page not found."
+>
+  <p class="pb-4">
+    <button title="Back" onclick="history.back()">
+      <div class="i-mdi-arrow-left" />
+    </button>
+  </p>
+  <Fragment set:html={NotFound}></Fragment>
+</LayoutDefault>
