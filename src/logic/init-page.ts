@@ -4,18 +4,19 @@ import ColorPaletteDefault from "src/logic/color-palette-default.json";
 import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";
 
 /* Color Scheme Init */
-const colorSchemeSetting =
-  (localStorage.getItem("color-scheme") as unknown as ColorSchemeSetting) ??
-  "auto";
+const colorSchemeSetting
+  = (localStorage.getItem("color-scheme") as unknown as ColorSchemeSetting)
+  ?? "auto";
 const colorSchemePreference: ColorScheme = window.matchMedia(
-  "(prefers-color-scheme: dark)"
+  "(prefers-color-scheme: dark)",
 ).matches
   ? "dark"
   : "light";
-const colorScheme =
-  colorSchemeSetting === "auto" ? colorSchemePreference : colorSchemeSetting;
+const colorScheme
+  = colorSchemeSetting === "auto" ? colorSchemePreference : colorSchemeSetting;
 
-if (colorScheme === "dark") document.documentElement.classList.add("dark");
+if (colorScheme === "dark")
+  document.documentElement.classList.add("dark");
 
 /* Color Palette Init */
 const colorPaletteSetting = localStorage.getItem("color-palette");
@@ -23,7 +24,7 @@ const colorPalette: ColorPaletteSetting = colorPaletteSetting
   ? JSON.parse(colorPaletteSetting)
   : (ColorPaletteDefault as ColorPaletteSetting);
 const colorPaletteStyleTag = generateColorPaletteStyleTag(colorPalette);
-document.getElementById("style-color-palette")!.innerHTML =
-  colorPaletteStyleTag;
+document.getElementById("style-color-palette")!.innerHTML
+  = colorPaletteStyleTag;
 
 document.body.classList.remove("cloak");

@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  friend: friend.Friend;
+  friend: friend.Friend
 }
 
 const {
@@ -17,18 +17,22 @@ const outlink = { rel: "noopener", target: "_blank" };
       ><div class="i-mdi-github"></div></a
     >
     {
-      link.homepage ? (
+      link.homepage
+        ? (
         <a title={`Home Page of ${name}`} href={link.homepage} {...outlink}>
           <div class="i-mdi-home" />
         </a>
-      ) : null
+          )
+        : null
     }
     {
-      link.blog ? (
+      link.blog
+        ? (
         <a title={`Blog of ${name}`} href={link.blog} {...outlink}>
           <div class="i-mdi-blog" />
         </a>
-      ) : null
+          )
+        : null
     }
   </div>
 </Fragment>

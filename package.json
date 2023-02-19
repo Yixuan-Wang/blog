@@ -90,6 +90,7 @@
           ]
         }
       }
-    ]
+    ],
+    "ignorePatterns": ["*.yaml", "*.yml", "contents"]
   }
 }

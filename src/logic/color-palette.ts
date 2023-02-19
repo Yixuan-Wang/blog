@@ -3,8 +3,8 @@ import type { ColorOklch } from "culori/fn";
 import ColorPaletteDefault from "./color-palette-default.json";
 
 export interface ColorPaletteSetting {
-  one: ColorOklch;
-  two: ColorOklch;
+  one: ColorOklch
+  two: ColorOklch
 }
 
 export const colorPalette = persistentAtom<ColorPaletteSetting>(
@@ -13,5 +13,5 @@ export const colorPalette = persistentAtom<ColorPaletteSetting>(
   {
     encode: JSON.stringify,
     decode: JSON.parse,
-  }
+  },
 );

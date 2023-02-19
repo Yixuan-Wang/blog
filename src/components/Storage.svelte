@@ -25,24 +25,20 @@
   }
 
   function pop() {
-    console.log("component-storage:pop");
     filled = false;
     content.forEach(node => targetElement?.append(node));
   }
 
   function push() {
-    console.log("component-storage:push");
     filled = true;
     content.forEach(node => storageElement?.append(node));
   }
 
   function toggle() {
-    console.log("component-storage:toggle");
     filled ? pop() : push();
   }
 
   function listen(element: Element) {
-    console.log(element);
     element.addEventListener("component-storage:pop", pop);
     element.addEventListener("component-storage:push", push);
     element.addEventListener("component-storage:toggle", toggle);

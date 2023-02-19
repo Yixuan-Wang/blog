@@ -8,10 +8,10 @@ import { decideTimeFromStatus } from "~/utils/time";
 
 const years = new Collector<string, string[], string>(
   () => [],
-  (container, value) => container.push(value)
+  (container, value) => container.push(value),
 );
-timeDesc.forEach((key) =>
-  years.add(getYear(decideTimeFromStatus(PostInfo[key].meta)).toString(), key)
+timeDesc.forEach(key =>
+  years.add(getYear(decideTimeFromStatus(PostInfo[key].meta)).toString(), key),
 );
 ---
 
@@ -21,12 +21,12 @@ timeDesc.forEach((key) =>
 >
   <div class="flex flex-col gap-8">
     {
-      Array.from(years.collector.keys()).map((year) => (
+      Array.from(years.collector.keys()).map(year => (
         <section>
           <h2 class="text-3xl font-bold text-one-front">{year}</h2>
           <p class="pb-4">{years.collector.get(year)!.length}</p>
           <div class="flex flex-col gap-2">
-            {years.collector.get(year)!.map((key) => (
+            {years.collector.get(year)!.map(key => (
               <PostInfoBrief info={PostInfo[key]} />
             ))}
           </div>

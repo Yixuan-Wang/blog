@@ -4,7 +4,7 @@ import { decideTimeFromStatus } from "src/utils/time";
 import IconGenre from "./IconGenre.astro";
 
 export interface Props {
-  meta: post.PostMeta;
+  meta: post.PostMeta
 }
 
 const { meta } = Astro.props;
@@ -28,7 +28,7 @@ const { meta } = Astro.props;
     </div></a
   >
   {
-    meta.taxonomy.tags.map((tag) => (
+    meta.taxonomy.tags.map(tag => (
       <a href={new URL(`${import.meta.env.BASE_URL}tag/${tag}`, Astro.site)}>
         <div class="text-two-front ub-two-front @hover-text-two @hover-border-two inline-chip transition-lively">
           @{tag}
@@ -37,17 +37,19 @@ const { meta } = Astro.props;
     ))
   }
   {
-    meta.taxonomy.series ? (
+    meta.taxonomy.series
+      ? (
       <a href={new URL(`${import.meta.env.BASE_URL}series/${meta.taxonomy.series[0]}`, Astro.site)}>
         <div class="inline-chip ub border-b-dotted @hover-text-one @hover-border-one transition-lively">
           {meta.taxonomy.series[0]}[{meta.taxonomy.series[1]}]
         </div>
       </a>
-    ) : null
+        )
+      : null
   }
   {meta.lang ? <div class="inline-chip">{meta.lang}</div> : null}
   {
-    meta.taxonomy.keywords.map((keyword) => (
+    meta.taxonomy.keywords.map(keyword => (
       <div class="inline-chip">#{keyword}</div>
     ))
   }

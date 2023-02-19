@@ -6,20 +6,20 @@ export type ColorScheme = "dark" | "light";
 
 export const colorSchemeSetting = persistentAtom<ColorSchemeSetting>(
   "color-scheme",
-  "auto"
+  "auto",
 );
 
 /* const mediaPrefersColorScheme = window.matchMedia(
   "(prefers-color-scheme: dark)"
 ); */
 export const colorSchemePreference = atom<ColorScheme>(
-  "light"
+  "light",
   /* mediaPrefersColorScheme.matches ? "dark" : "light" */
 );
 
 export const registerPreference = (
   mediaPrefersDark: MediaQueryList,
-  hook?: (event: MediaQueryListEvent) => void
+  hook?: (event: MediaQueryListEvent) => void,
 ) => {
   colorSchemePreference.set(mediaPrefersDark.matches ? "dark" : "light");
   const handler = (event: MediaQueryListEvent) => {
@@ -35,5 +35,5 @@ export const registerPreference = (
 
 export const colorScheme = computed(
   [colorSchemeSetting, colorSchemePreference],
-  (setting, preference) => (setting === "auto" ? preference : setting)
+  (setting, preference) => (setting === "auto" ? preference : setting),
 );

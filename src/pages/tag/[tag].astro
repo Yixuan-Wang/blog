@@ -4,11 +4,11 @@ import postInfo, { allTag } from "post:info";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(allTag).map((tag) => ({ params: { tag } }));
+  return Object.keys(allTag).map(tag => ({ params: { tag } }));
 }
 
 const { tag } = Astro.params as {
-  tag: string;
+  tag: string
 };
 ---
 
@@ -19,6 +19,6 @@ const { tag } = Astro.params as {
   <Fragment slot="head"></Fragment>
   <Fragment slot="headline"></Fragment>
   <div class="flex flex-col gap-5">
-    {allTag[tag].map((slug) => <PostInfoFull info={postInfo[slug]} />)}
+    {allTag[tag].map(slug => <PostInfoFull info={postInfo[slug]} />)}
   </div>
 </LayoutDefault>

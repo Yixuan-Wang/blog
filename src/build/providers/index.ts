@@ -255,7 +255,8 @@ export const excerpt = ${JSON.stringify(excerpt)};
     name: "astro:content-provider",
     hooks: {
       "astro:config:setup": function ({ updateConfig }) {
-        if (process.env.npm_lifecycle_event === "preview") return;
+        if (process.env.npm_lifecycle_event === "preview")
+          return;
         // No SSR mode.
 
         emitModulesJoinHandle = emitModules(providers, config, modules);
@@ -266,7 +267,8 @@ export const excerpt = ${JSON.stringify(excerpt)};
         });
       },
       "astro:config:done": async function () {
-        if (process.env.npm_lifecycle_event === "preview") return;
+        if (process.env.npm_lifecycle_event === "preview")
+          return;
         await emitModulesJoinHandle;
       },
     },

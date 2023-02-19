@@ -14,7 +14,8 @@ export class Collector<K, C, V> {
   }
 
   add(key: K, value: V) {
-    if (!this.collector.has(key)) this.collector.set(key, this.init());
+    if (!this.collector.has(key))
+      this.collector.set(key, this.init());
 
     this.collect(this.collector.get(key)!, value);
   }

@@ -44,13 +44,11 @@ export function emitModuleFromSource(
           const excerpt = (excerptRaw as string).trim();
           const meta = provider.generatePostMeta(frontmatter, info);
 
-
           if (process.env.POST_DRAFT === "only" && meta.status !== Status.DRAFT)
             return;
 
           if (process.env.POST_DRAFT !== "true" && meta.status === Status.DRAFT)
             return;
-
 
           const { componentImport, jsx } = parseMarkdown(rawContent, {
             componentBase: config.componentBase,
@@ -61,7 +59,7 @@ export function emitModuleFromSource(
             },
           });
 
-          const astro = "---\n" + componentImport + "\n---\n" + jsx;
+          const astro = `---\n${componentImport}\n---\n${jsx}`;
 
           modules.set(moduleName, {
             slug,
@@ -73,10 +71,10 @@ export function emitModuleFromSource(
             meta,
           } satisfies post.Post);
 
-          
           PROVIDER_COUNTER += 1;
-        } catch (err) {
-          console.error(chalk.bgRed(" ERROR "), ` Compile failed for ${chalk.underline(slug)}`)
+        }
+        catch (err) {
+          console.error(chalk.bgRed(" ERROR "), ` Compile failed for ${chalk.underline(slug)}`);
           console.error(err);
         }
       },

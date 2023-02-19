@@ -60,7 +60,7 @@ export function formatRgb(rgb: ColorRgb): [number, number, number] {
 
 export function polyfillOklch(oklch: ColorOklch): string {
   return formatRgb(clipRgb(convertOklabToRgb(convertLchToLab(oklch)))).join(
-    ","
+    ",",
   );
 }
 
@@ -91,9 +91,9 @@ const calcColorDimNormal = (o: ColorOklch): ColorOklch => ({
 });
 
 export interface CalcColorFunctions {
-  accent: (o: ColorOklch) => ColorOklch;
-  back: (o: ColorOklch) => ColorOklch;
-  front: (o: ColorOklch) => ColorOklch;
+  accent: (o: ColorOklch) => ColorOklch
+  back: (o: ColorOklch) => ColorOklch
+  front: (o: ColorOklch) => ColorOklch
 }
 
 const calcColorFunctions: Record<ColorScheme, CalcColorFunctions> = {

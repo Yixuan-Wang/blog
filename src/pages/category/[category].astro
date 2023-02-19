@@ -6,11 +6,11 @@ import PostInfoFull from "src/components/PostInfoFull.astro";
 // import PostMeta from "src/components/PostMeta.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(allCategory).map((category) => ({ params: { category } }));
+  return Object.keys(allCategory).map(category => ({ params: { category } }));
 }
 
 const { category } = Astro.params as {
-  category: string;
+  category: string
 };
 
 // const { default: Content, excerpt, metadata: meta } = await postImport[slug]();
@@ -24,7 +24,7 @@ const { category } = Astro.params as {
   <Fragment slot="headline"></Fragment>
   <div class="flex flex-col gap-5">
     {
-      allCategory[category].map((slug) => (
+      allCategory[category].map(slug => (
         <PostInfoFull info={postInfo[slug]} />
       ))
     }

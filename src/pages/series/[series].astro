@@ -4,11 +4,11 @@ import postInfo, { allSeries } from "post:info";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(allSeries).map((series) => ({ params: { series } }));
+  return Object.keys(allSeries).map(series => ({ params: { series } }));
 }
 
 const { series } = Astro.params as {
-  series: string;
+  series: string
 };
 ---
 
@@ -19,6 +19,6 @@ const { series } = Astro.params as {
   <Fragment slot="head"></Fragment>
   <Fragment slot="headline"></Fragment>
   <div class="flex flex-col gap-5">
-    {allSeries[series].map((slug) => <PostInfoFull info={postInfo[slug]} />)}
+    {allSeries[series].map(slug => <PostInfoFull info={postInfo[slug]} />)}
   </div>
 </LayoutDefault>
