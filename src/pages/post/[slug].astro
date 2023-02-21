@@ -53,14 +53,15 @@ const { default: Content, excerpt, metadata: meta, toc } = await postImport[slug
   }
   #toc {
     @apply
-      flex flex-col w-fit items-start
+      flex flex-col w-full items-start
+      overflow-y-auto
       lg:(
-        absolute left-full ml-4 overflow-y-auto
+        absolute left-full ml-4 w-fit
       )
     ;
     gap: 0.25rem 0;
-    max-height: 50vh;
-    max-height: 50dvh;
+    max-height: 25vh;
+    max-height: 25dvh;
   }
 
   @media (min-width: 1024px) {
@@ -68,6 +69,8 @@ const { default: Content, excerpt, metadata: meta, toc } = await postImport[slug
       min-width: max-content;
       max-width: calc(calc(calc(100vw - 100%) / 2) - 2.5rem);
       max-width: calc(calc(calc(100dvw - 100%) / 2) - 2.5rem);
+      max-height: 50vh;
+      max-height: 50dvh;
     }
   }
 
