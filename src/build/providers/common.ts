@@ -1,4 +1,5 @@
 import { formatISO, parseISO } from "date-fns";
+import { Genre } from "../../utils/meta";
 
 export function generatePostMetaCommons(frontmatter: post.FrontmatterRaw) {
   const alias = frontmatter.alias
@@ -13,11 +14,19 @@ export function generatePostMetaCommons(frontmatter: post.FrontmatterRaw) {
 
   const series = frontmatter.series ?? null;
 
+  let genre = Genre.ARTICLE;
+  if (frontmatter.genre) {
+    const rawGenre = frontmatter.genre.toUpperCase();
+    if (rawGenre in Genre)
+      genre = Genre[rawGenre as keyof typeof Genre];
+  }
+
   const { category, tags, title } = frontmatter;
 
   return {
     alias,
     lang,
+    genre,
     taxonomy: {
       category,
       keywords,

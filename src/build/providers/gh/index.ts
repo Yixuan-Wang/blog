@@ -18,7 +18,6 @@ interface ProviderGhOptions {
 }
 
 interface ProviderGhExtra {
-  genre: Genre
   status: Option<Status>
   updatedAt: string
 }
@@ -26,16 +25,10 @@ interface ProviderGhExtra {
 const FRIEND_PAGE = 2;
 
 function parseGhIssueLabels(labels: string[]) {
-  let genre = Genre.ARTICLE;
   let status: Option<Status> = none;
 
   for (const label of labels) {
-    if (label.startsWith("@")) {
-      const rawGenre = label.slice(1).toUpperCase();
-      if (rawGenre in Genre)
-        genre = Genre[rawGenre as keyof typeof Genre];
-    }
-    else if (label.startsWith("%")) {
+    if (label.startsWith("%")) {
       switch (label) {
         case "%tbc":
           status = some(Status.TBC);
@@ -50,7 +43,6 @@ function parseGhIssueLabels(labels: string[]) {
     }
   }
   return {
-    genre,
     status,
   };
 }
@@ -162,8 +154,6 @@ export default function ProviderGh(
     frontmatter: post.FrontmatterRaw,
     extra: ProviderGhExtra,
   ): post.PostMeta => {
-    const { genre } = extra;
-
     const status = pipe(
       extra.status,
       getOrElse<Status>(() => {
@@ -179,7 +169,6 @@ export default function ProviderGh(
     const updated = frontmatter.updated ? vagueDateToISO(frontmatter.updated) : extra.updatedAt;
 
     return {
-      genre,
       status,
       timeline: { created, updated },
       ...generatePostMetaCommons(frontmatter),

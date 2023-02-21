@@ -100,13 +100,6 @@ export default function ProviderFs(
       ? vagueDateToISO(frontmatter.updated)
       : info.lastModified;
 
-    let genre = Genre.ARTICLE;
-    if (frontmatter.genre) {
-      const rawGenre = frontmatter.genre.toUpperCase();
-      if (rawGenre in Genre)
-        genre = Genre[rawGenre as keyof typeof Genre];
-    }
-
     let status: Status = Status.FINISHED;
     if (frontmatter.draft)
       status = Status.DRAFT;
@@ -114,7 +107,6 @@ export default function ProviderFs(
       status = Status.OUTDATED;
 
     return {
-      genre,
       status,
       timeline: { created, updated },
       ...generatePostMetaCommons(frontmatter),
