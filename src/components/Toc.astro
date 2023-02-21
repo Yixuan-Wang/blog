@@ -1,0 +1,58 @@
+---
+export interface Props {
+  toc: [string, string][]
+}
+
+const { toc } = Astro.props;
+---
+
+<section id="toc-container">
+  <aside id="toc">
+    <a id="toc-to-top" href="#"><div class="i-mdi-arrow-up-circle"></div></a>
+    {
+      toc.map(([heading, id]) => (
+        <span class="font-bold">
+          <a href={`#${id}`}>{heading}</a>
+        </span>
+      ))
+    }
+  </aside>
+</section>
+
+<style>
+  #toc-container {
+    @apply relative lg:(sticky top-6) w-full ;
+  }
+  #toc {
+    @apply
+      flex flex-col w-full items-start
+      overflow-y-auto
+      lg:(
+        absolute left-full ml-4 w-fit
+      )
+    ;
+    gap: 0.25rem 0;
+    max-height: 25vh;
+    max-height: 25dvh;
+  }
+
+  @media (min-width: 1024px) {
+    #toc {
+      min-width: max-content;
+      max-width: calc(calc(calc(100vw - 100%) / 2) - 2.5rem);
+      max-width: calc(calc(calc(100dvw - 100%) / 2) - 2.5rem);
+      max-height: 50vh;
+      max-height: 50dvh;
+    }
+  }
+
+  #toc a {
+    border: none !important;
+    padding: unset;
+  }
+
+  #toc-to-top {
+    @apply lt-lg:hidden;
+  }
+
+</style>
