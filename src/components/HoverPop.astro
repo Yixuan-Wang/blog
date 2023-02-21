@@ -12,18 +12,22 @@ const onmouseenter = `if(window.matchMedia("(pointer: fine)").matches) {
 }`;
 
 const onmouseleave = `if(window.matchMedia("(pointer: fine)").matches) {
-  this.querySelector('.hoverpop-content').style.display='none';
+  const content = this.querySelector('.hoverpop-content');
+  if (!content.getAttribute("pinned")) content.style.display='none';
 }`;
 
-const onmousedown = `this.parentElement.querySelector('.hoverpop-content').style.display='block';`;
-
-const onmouseup = `this.parentElement.querySelector('.hoverpop-content').style.display='none';`;
-/* declare const that: HTMLElement;
-that.style.display = "none"; */
+const onclick = `const content = this.parentElement.querySelector('.hoverpop-content');
+if (content.getAttribute("pinned")) {
+  content.attributes.removeNamedItem("pinned")
+  content.style.display='none';
+} else {
+  content.setAttribute("pinned","pinned")
+  content.style.display='block';
+}`;
 ---
 
 <div {id} class="hoverpop-container" {style} {onmouseenter} {onmouseleave}>
-  <div class="hoverpop-handle" {onmousedown} {onmouseup}>
+  <div class="hoverpop-handle" {onclick}>
     <slot name="handle"></slot>
   </div>
   <div class="hoverpop-content">
