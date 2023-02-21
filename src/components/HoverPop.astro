@@ -1,0 +1,51 @@
+---
+
+export interface Props {
+  id?: string;
+  style?: string;
+}
+
+const { id, style } = Astro.props;
+
+const onmouseenter = `if(window.matchMedia("(pointer: fine)").matches) {
+  this.querySelector('.hoverpop-content').style.display='block';
+}`;
+
+const onmouseleave = `if(window.matchMedia("(pointer: fine)").matches) {
+  this.querySelector('.hoverpop-content').style.display='none';
+}`;
+
+const onmousedown = `this.parentElement.querySelector('.hoverpop-content').style.display='block';`;
+
+const onmouseup = `this.parentElement.querySelector('.hoverpop-content').style.display='none';`;
+/* declare const that: HTMLElement;
+that.style.display = "none"; */
+---
+
+<div {id} class="hoverpop-container" {style} {onmouseenter} {onmouseleave}>
+  <div class="hoverpop-handle" {onmousedown} {onmouseup}>
+    <slot name="handle"></slot>
+  </div>
+  <div class="hoverpop-content">
+    <slot name="content"></slot>
+  </div>
+</div>
+
+<style>
+.hoverpop-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.hoverpop-handle {
+  display: contents;
+}
+
+.hoverpop-content {
+  position: absolute;
+  display: none;
+  width: max-content;
+  bottom: calc(100% + 0.25rem);
+}
+</style>

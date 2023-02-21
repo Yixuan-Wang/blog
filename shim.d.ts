@@ -26,3 +26,8 @@ declare module "@/meta/friends.yaml" {
   const friends: friend.Friend[];
   export { friends };
 }
+
+declare module "virtual:site-meta" {
+  const siteMeta: siteMeta.SiteMeta;
+  export default siteMeta;
+}

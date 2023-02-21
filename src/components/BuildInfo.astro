@@ -1,0 +1,34 @@
+---
+import HoverPop from "./HoverPop.astro";
+import siteMeta from "virtual:site-meta";
+const { version, buildTimestamp } = siteMeta;
+---
+
+<HoverPop id="build-info">
+  <button slot="handle" title="Build Info"
+    ><div class="i-mdi-ship-wheel"></div></button
+  >
+  <Fragment slot="content">
+    <div
+      class="px-1.5 py-1 flex flex-col gap-0.5 rounded bg-one-back text-one-front font-mono"
+    >
+      <span class="text-sm">v{version}</span>
+      <span class="inline-flex items-center gap-0.5 text-xs">
+        <span>{
+          import.meta.env.PUBLIC_BUILT_BY !== "manual" ? (
+            <div class="i-mdi-robot" style="height:0.75rem;width:0.75rem;" />
+          ) : (
+            <div class="i-mdi-face-man" style="height:0.75rem;width:0.75rem;" />
+          )
+        }</span>
+        <span>{buildTimestamp}</span>
+      </span>
+    </div>
+  </Fragment>
+</HoverPop>
+
+<style>
+  :global(#build-info) {
+    @apply justify-start lg:justify-center;
+  }
+</style>

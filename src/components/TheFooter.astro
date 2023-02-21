@@ -1,4 +1,5 @@
 ---
+import BuildInfo from "./BuildInfo.astro";
 import ColorSchemeButton from "./ColorSchemeButton.svelte";
 import CommentButton from "./CommentButton.astro";
 
@@ -27,6 +28,7 @@ const { noComments } = Astro.props;
         title="RSS"><div class="i-mdi-rss-box"></div></a
       ></button
     >
+    <BuildInfo />
   </nav>
   <div class="flex-1"></div>
   <nav class="gap-2">

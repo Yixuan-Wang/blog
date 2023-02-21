@@ -55,6 +55,7 @@ jobs:
         env:
           PUBLIC_BUILD_SITE_URL: "https://blog.yixuan-wang.site"
           PUBLIC_BUILD_BASE_URL: "/"
+          PUBLIC_BUILT_BY: "ci"
           CONTENTS_DIR: "contents"
           GITHUB_USER: "Yixuan-Wang"
           GITHUB_REPO: "blog-contents"

@@ -88,6 +88,13 @@ declare global {
       homepage?: string;
     }
   }
+
+  namespace siteMeta {
+    interface SiteMeta {
+      version: string;
+      buildTimestamp: string;
+    }
+  }
 }
 
 export {};
