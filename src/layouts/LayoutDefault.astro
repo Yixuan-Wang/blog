@@ -15,13 +15,13 @@ const { title, description, noComments } = Astro.props;
 ---
 
 <BaseLayout>
+  <Fragment slot="head">
+    <BaseHead title={title} description={description} />
+    <slot name="head" />
+  </Fragment>
+
   <TheHeader />
   <div id="the-main">
-    <Fragment slot="head">
-      <BaseHead title={title} description={description} />
-      <slot name="head" />
-    </Fragment>
-
     <BaseHeadline headline={title}>
       <slot name="headline" />
     </BaseHeadline>
