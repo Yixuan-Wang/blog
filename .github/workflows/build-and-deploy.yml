@@ -37,16 +37,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - name: Setup `pnpm`
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: pnpm
+
+      - name: Setup `pnpm`
+        run: npm i -g pnpm
 
       - name: Install Node Packages
         run: pnpm install
