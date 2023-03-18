@@ -1,5 +1,6 @@
 ---
 import PostMeta from "./PostMeta.astro";
+import { Status, STATUS_META } from "~/logic/status";
 
 export interface Props {
   info: post.PostInfo
@@ -11,9 +12,10 @@ const {
 ---
 
 <article class="card flex flex-col gap-1 @hover-bg-one-back transition-lively">
-  <article class="text-2xl font-bold @hover-text-one-front transition-lively">
+  <h2 class="inline-flex gap-1 text-2xl font-bold @hover-text-one-front transition-lively">
     <a class="ub" href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}>{meta.title}</a>
-  </article>
+    { meta.status !== Status.FINISHED ? <span class="text-sm"><div class={STATUS_META[meta.status].icon}></div></span> : null }
+  </h2>
   <p>{excerpt}</p>
   <PostMeta meta={meta} />
 </article>

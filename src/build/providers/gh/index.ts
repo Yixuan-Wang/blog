@@ -5,7 +5,8 @@ import {
   from as rxFrom,
   mergeMap as rxMergeMap,
 } from "rxjs";
-import { Genre, Status } from "../../../utils/meta";
+import { Genre } from "../../../utils/meta";
+import { Status } from "../../../logic/status";
 import { generatePostMetaCommons, vagueDateToISO } from "../common";
 import type { Provider, ProviderSource } from "../module";
 import api, { type GhComment, type GhIssue } from "./api";

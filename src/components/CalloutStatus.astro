@@ -1,0 +1,30 @@
+---
+import { Status, STATUS_META } from "src/logic/status";
+import TimeElapsed from "./TimeElapsed.svelte";
+import { parseISO } from "date-fns";
+
+type NontrivialStatus = Exclude<Status, Status.FINISHED>;
+
+export interface Props {
+  status: NontrivialStatus
+  updated: string
+};
+
+const { status, updated } = Astro.props;
+
+const { heading, icon, description } = STATUS_META[status];
+---
+
+<aside class="card flex flex-col gap-1 bg-two-back ">
+  <div role="heading" class="flex flex-row items-center gap-1 text-two-front text-lg">
+    <div class={icon}></div>
+    <span class="font-bold">{heading}</span>
+  </div>
+  <p>
+    <span set:html={description} />
+    { status === Status.OUTDATED || status === Status.STALE
+      ? <span>Last updated on <TimeElapsed client:idle time={parseISO(updated)} />.</span>
+      : null
+    }
+  </p>
+</aside>

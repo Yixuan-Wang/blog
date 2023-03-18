@@ -1,5 +1,6 @@
 import type { Option } from "fp-ts/lib/Option";
-import type { Genre, Status } from "./utils/meta";
+import type { Genre } from "./utils/meta";
+import type { Status } from "./logic/status";
 
 declare global {
   type Like<T, N> = T & { readonly __tag: N };

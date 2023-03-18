@@ -12,7 +12,8 @@ import { formatISO } from "date-fns";
 import type { HmrContext } from "vite";
 import type { Provider, ProviderSource } from "../module";
 import { generatePostMetaCommons, vagueDateToISO } from "../common";
-import { Genre, Status } from "../../../utils/meta";
+import { Genre } from "../../../utils/meta";
+import { Status } from "../../../logic/status";
 
 interface ProviderFsOptions {
   fileSystem?: typeof fs

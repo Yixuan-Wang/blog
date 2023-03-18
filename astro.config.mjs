@@ -72,8 +72,8 @@ export default defineConfig({
         // @ts-ignore
         presetIcons({
           extraProperties: {
-            width: "1.25rem",
-            height: "1.25rem",
+            width: "1.25em",
+            height: "1.25em",
           },
         }),
         presetWebFonts({

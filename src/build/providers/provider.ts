@@ -2,7 +2,7 @@ import * as Either from "fp-ts/Either";
 import { pipe } from "fp-ts/lib/function";
 import chalk from "chalk";
 import ora from "ora";
-import { Status } from "../../utils/meta";
+import { Status } from "../../logic/status";
 import { parseFrontmatter, parseMarkdown } from "./parser";
 import type { Provider, ProviderSource } from "./module";
 import type { ConfigPostProvider } from ".";

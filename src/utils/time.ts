@@ -1,5 +1,5 @@
 import { parseISO } from "date-fns";
-import { Status } from "./meta";
+import { Status } from "../logic/status";
 
 export function decideTimeFromStatus({ timeline, status }: post.PostMeta) {
   let time: string;
