@@ -1,0 +1,121 @@
+---
+import PostInfo, { allSeries, allTag, timeDesc } from "post:info";
+import { category as categoryInfo } from "@/meta/category.yaml";
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import { GENRE_META } from "~/logic/genre";
+
+interface Taxonomy {
+  title: string
+  icon: string
+  path?: string
+  level: number
+  mono?: boolean
+}
+
+const taxonomies: Taxonomy[] = [
+  {
+    title: "Archive",
+    icon: "i-mdi-archive",
+    path: "archive",
+    level: 0,
+  },
+  {
+    title: "Category",
+    icon: "i-mdi-google-circles",
+    path: "category",
+    level: 0,
+  },
+  ...Object.entries(categoryInfo).map(([category, info]) => ({
+    title: info.name,
+    icon: "i-mdi-google-circles-extended",
+    path: `category/${category}`,
+    level: 1,
+  })),
+  {
+    title: "Recent",
+    icon: "i-mdi-clock-outline",
+    level: 0,
+  },
+  ...timeDesc.slice(0, 10).map(path => ({
+    title: PostInfo[path].meta.title,
+    icon: GENRE_META[PostInfo[path].meta.genre].icon,
+    path: `post/${PostInfo[path].slug}`,
+    level: 1,
+  })),
+  {
+    title: "Series",
+    icon: "i-mdi-basket",
+    level: 0,
+  },
+  ...Object.entries(allSeries).sort(([_1, a], [_2, b]) => b.length - a.length).map(([series, _]) => ({
+    title: series,
+    icon: "i-mdi-basket",
+    path: `series/${series}`,
+    level: 1,
+    mono: true,
+  })),
+  {
+    title: "Tags",
+    icon: "i-mdi-tag",
+    level: 0,
+  },
+  ...Object.entries(allTag).sort(([_1, a], [_2, b]) => b.length - a.length).slice(0, 10).map(([tag, _]) => ({
+    title: `@${tag}`,
+    icon: "i-mdi-tag",
+    path: `tag/${tag}`,
+    level: 1,
+    mono: true,
+  })),
+  {
+    title: "...More Tags",
+    icon: "i-mdi-tag",
+    path: "category",
+    level: 1,
+  },
+];
+---
+
+<LayoutDefault
+  title="Taxonomy"
+  description="Taxonomy of Yixuan Wang's blog posts."
+  noComments={true}
+>
+  <section class="flex flex-col gap-2">
+    {taxonomies.map((taxonomy) => {
+      const { title, icon, path, level } = taxonomy;
+      if (path) {
+        const href = new URL(`${import.meta.env.BASE_URL}${path}`, Astro.site);
+        return (
+          <section
+            class:list={["taxonomy-entry", "taxonomy-link", { "font-mono": taxonomy.mono }]}
+            style={{ paddingLeft: `${level}rem` }}
+          >
+            <span><a {href} {title}><div class={icon}></div></a></span>
+            <span><a {href}>{title}</a></span>
+          </section>
+        );
+      }
+      else {
+        return (
+          <section
+            class:list={["taxonomy-entry", { "font-mono": taxonomy.mono }]}
+            style={{ paddingLeft: `${level}rem` }}
+          >
+            <span><div class={icon}></div></span>
+            <span>{title}</span>
+          </section>
+        );
+      }
+    })}
+  </section>
+</LayoutDefault>
+
+<style>
+  .taxonomy-entry {
+    @apply flex flex-row items-center gap-2;
+  }
+
+  .taxonomy-link {
+    @apply @hover-text-one transition-lively;
+  }
+</style>

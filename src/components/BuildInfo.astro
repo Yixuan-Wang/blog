@@ -1,6 +1,6 @@
 ---
-import HoverPop from "./HoverPop.astro";
 import siteMeta from "virtual:site-meta";
+import HoverPop from "./HoverPop.astro";
 const { version, buildTimestamp } = siteMeta;
 ---
 
@@ -15,11 +15,13 @@ const { version, buildTimestamp } = siteMeta;
       <span class="text-sm font-bold">v{version}</span>
       <span class="inline-flex items-center gap-0.5 text-xs">
         <span>{
-          import.meta.env.PUBLIC_BUILT_BY !== "manual" ? (
+          import.meta.env.PUBLIC_BUILT_BY !== "manual"
+            ? (
             <div class="i-mdi-robot" />
-          ) : (
+              )
+            : (
             <div class="i-mdi-face-man" />
-          )
+              )
         }</span>
         <span>{buildTimestamp}</span>
       </span>

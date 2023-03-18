@@ -1,15 +1,15 @@
 import type { Plugin } from "vite";
 
 interface ConfigPluginSiteMeta {
-  version: string;
-  buildTimestamp: number;
+  version: string
+  buildTimestamp: number
 }
 
 export default function PluginSiteMeta({
   version,
   buildTimestamp,
 }: ConfigPluginSiteMeta): Plugin {
-  const MODULE_ID = "virtual:site-meta"
+  const MODULE_ID = "virtual:site-meta";
   return {
     name: "site-meta",
     resolveId(id) {
@@ -19,9 +19,9 @@ export default function PluginSiteMeta({
     load(id) {
       if (id === MODULE_ID) {
         const code = `const siteMeta={version:${JSON.stringify(
-          version
+          version,
         )},buildTimestamp:${JSON.stringify(
-          buildTimestamp
+          buildTimestamp,
         )},};export default siteMeta;`;
         return code;
       }

@@ -35,7 +35,7 @@ const { default: Content, excerpt, metadata: meta, toc } = await postImport[slug
     { toc ? <Toc {toc} /> : null }
     <Content>
       <Fragment slot="foldout">
-        { meta.status != Status.FINISHED ? <CalloutStatus status={meta.status} updated={meta.timeline.updated} /> : null }
+        { meta.status !== Status.FINISHED ? <CalloutStatus status={meta.status} updated={meta.timeline.updated} /> : null }
         <!-- <p class="my-4">Hi! from foldout.</p> -->
       </Fragment>
     </Content>

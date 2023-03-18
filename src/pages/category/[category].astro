@@ -1,7 +1,9 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
 import postInfo, { allCategory } from "post:info";
-import PostInfoFull from "src/components/PostInfoFull.astro";
+import { category as categoryInfo } from "@/meta/category.yaml";
+import PostInfoBrief from "~/components/PostInfoBrief.astro";
+import TagList from "~/components/TagList.astro";
 
 // import PostMeta from "src/components/PostMeta.astro";
 
@@ -17,16 +19,21 @@ const { category } = Astro.params as {
 ---
 
 <LayoutDefault
-  title={category}
-  description={`Category ${category} on Yixuan Wang's blog.`}
+  title={categoryInfo[category].name}
+  description={categoryInfo[category].description}
 >
   <Fragment slot="head"></Fragment>
-  <Fragment slot="headline"></Fragment>
-  <div class="flex flex-col gap-5">
-    {
-      allCategory[category].map(slug => (
-        <PostInfoFull info={postInfo[slug]} />
-      ))
-    }
-  </div>
+  <Fragment slot="headline">
+    <p>{categoryInfo[category].description}</p>
+  </Fragment>
+  <main class="flex flex-col gap-5">
+    <TagList category={category} />
+    <section class="flex flex-col gap-2">
+      {
+        allCategory[category].map(slug => (
+          <PostInfoBrief hideCategory={true} info={postInfo[slug]} />
+        ))
+      }
+    </section>
+  </main>
 </LayoutDefault>

@@ -1,5 +1,5 @@
 import { formatISO, parseISO } from "date-fns";
-import { Genre } from "../../utils/meta";
+import { Genre } from "../../logic/genre";
 
 export function generatePostMetaCommons(frontmatter: post.FrontmatterRaw) {
   const alias = frontmatter.alias

@@ -1,5 +1,5 @@
 import type { Option } from "fp-ts/lib/Option";
-import type { Genre } from "./utils/meta";
+import type { Genre } from "./logic/genre";
 import type { Status } from "./logic/status";
 
 declare global {
@@ -88,6 +88,11 @@ declare global {
       blog?: string;
       homepage?: string;
     }
+  }
+
+  interface Category {
+    name: string;
+    description: string;
   }
 
   namespace siteMeta {

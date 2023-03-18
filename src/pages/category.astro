@@ -1,0 +1,35 @@
+---
+import { allCategory } from "post:info";
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import { category as categoryInfo } from "@/meta/category.yaml";
+import SeriesList from "~/components/SeriesList.astro";
+import TagList from "~/components/TagList.astro";
+
+---
+
+<LayoutDefault
+  title="Category"
+  description="Categories on Yixuan Wang's blog."
+  noComments={true}
+>
+  <div class="flex flex-col gap-8">
+    {
+      Object.keys(allCategory).map(category => (
+        <section class="flex flex-col gap-4">
+          <div>
+            <h2 id={category} class="text-3xl font-bold text-one-front">
+              <a href={new URL(`${import.meta.env.BASE_URL}category/${category}`, Astro.site)}>{categoryInfo[category]?.name ?? category}</a>
+            </h2>
+            <div class="flex flex-col">
+              <span class="font-mono">{category}</span>
+              <span class="font-mono">{allCategory[category]!.length}</span>
+              <p>{categoryInfo[category]?.description ?? ""}</p>
+            </div>
+          </div>
+          <TagList category={category} />
+          <SeriesList category={category} />
+        </section>
+      ))
+    }
+  </div>
+</LayoutDefault>

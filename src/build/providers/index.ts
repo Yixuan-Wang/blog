@@ -78,6 +78,16 @@ export default function PostProvider(
             (container, [index, slug]) => container.splice(index, 0, slug),
           );
 
+          const mapCategoryTag = new Collector<string, Set<string>, string>(
+            () => new Set(),
+            (container, value) => container.add(value),
+          );
+
+          const mapCategorySeries = new Collector<string, Set<string>, string>(
+            () => new Set(),
+            (container, value) => container.add(value),
+          );
+
           for (const { slug, excerpt, meta } of modules.values()) {
             info[slug] = {
               slug,
@@ -86,12 +96,17 @@ export default function PostProvider(
             };
             time[slug] = decideTimeFromStatus(meta);
             allCategory.add(meta.taxonomy.category, slug);
-            meta.taxonomy.tags.forEach(tag => allTag.add(tag, slug));
+            meta.taxonomy.tags.forEach((tag) => {
+              allTag.add(tag, slug);
+              mapCategoryTag.add(meta.taxonomy.category, tag);
+            });
+
             if (meta.taxonomy.series) {
               allSeries.add(meta.taxonomy.series[0], [
                 meta.taxonomy.series[1],
                 slug,
               ]);
+              mapCategorySeries.add(meta.taxonomy.category, meta.taxonomy.series[0]);
             }
           }
 
@@ -110,13 +125,11 @@ export default function PostProvider(
           const code = `
 const _ = ${JSON.stringify(info)};
 export const timeDesc = ${JSON.stringify(timeDesc)};
-export const allCategory = ${JSON.stringify(
-            Object.fromEntries(allCategory.collector),
-          )};
-export const allTag = ${JSON.stringify(Object.fromEntries(allTag.collector))};
-export const allSeries = ${JSON.stringify(
-            Object.fromEntries(allSeries.collector),
-          )};
+export const allCategory = ${allCategory.stringify()};
+export const allTag = ${allTag.stringify()};
+export const allSeries = ${allSeries.stringify()};
+export const mapCategoryTag = ${mapCategoryTag.stringify()};
+export const mapCategorySeries = ${mapCategorySeries.stringify()};
 export default _;`;
 
           return {

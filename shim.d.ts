@@ -14,6 +14,8 @@ declare module "post:info" {
   export const allCategory: Record<string, string[]>;
   export const allTag: Record<string, string[]>;
   export const allSeries: Record<string, string[]>;
+  export const mapCategoryTag: Record<string, Set<string>>;
+  export const mapCategorySeries: Record<string, Set<string>>;
   export default _;
 }
 
@@ -25,6 +27,11 @@ declare module "post:import" {
 declare module "@/meta/friends.yaml" {
   const friends: friend.Friend[];
   export { friends };
+}
+
+declare module "@/meta/category.yaml" {
+  const category: Record<string, Category>;
+  export { category };
 }
 
 declare module "virtual:site-meta" {

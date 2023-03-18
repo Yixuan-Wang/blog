@@ -1,7 +1,7 @@
 ---
 import { lightFormat } from "date-fns";
-import { decideTimeFromStatus } from "src/utils/time";
-import IconGenre from "./IconGenre.astro";
+import { decideTimeFromStatus } from "~/utils/time";
+import { GENRE_META } from "~/logic/genre";
 
 export interface Props {
   meta: post.PostMeta
@@ -14,7 +14,7 @@ const { meta } = Astro.props;
   class="py-0.5 flex flex-row flex-wrap items-baseline gap-y-1 gap-x-2"
 >
   <div class="self-start">
-    <IconGenre genre={meta.genre} />
+    <div class={GENRE_META[meta.genre].icon} />
   </div>
   <div class="inline-chip">
     <time>{lightFormat(decideTimeFromStatus(meta), "yyyy/MM/dd")}</time>

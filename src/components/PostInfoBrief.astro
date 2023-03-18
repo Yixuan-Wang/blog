@@ -1,14 +1,16 @@
 ---
 import { lightFormat } from "date-fns";
 import { decideTimeFromStatus } from "src/utils/time";
-import { Status, STATUS_META } from "~/logic/status";
+import { STATUS_META, Status } from "~/logic/status";
 
 export interface Props {
   info: post.PostInfo
+  hideCategory?: boolean
 }
 
 const {
   info: { slug, meta },
+  hideCategory,
 } = Astro.props;
 ---
 
@@ -16,12 +18,18 @@ const {
   <span class="font-mono">
     <time>{lightFormat(decideTimeFromStatus(meta), "MM/dd")}</time>
   </span>
-  <a
-    class="lt-sm:hidden @hover-text-one-front font-mono transition-lively"
-    href={new URL(`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`, Astro.site)}
-  >
-    <span>{meta.taxonomy.category}</span>
-  </a>
+  {
+    !hideCategory
+      ? (
+      <a
+        class="lt-sm:hidden @hover-text-one-front font-mono transition-lively"
+        href={new URL(`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`, Astro.site)}
+      >
+        <span>{meta.taxonomy.category}</span>
+      </a>
+        )
+      : null
+  }
   <a
     class="inline-flex gap-1 @hover-text-one-front transition-lively"
     href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}

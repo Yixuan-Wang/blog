@@ -1,18 +1,18 @@
 ---
-import { Status, STATUS_META } from "src/logic/status";
-import TimeElapsed from "./TimeElapsed.svelte";
+import { STATUS_META, Status } from "src/logic/status";
 import { parseISO } from "date-fns";
+import TimeElapsed from "./TimeElapsed.svelte";
 
 type NontrivialStatus = Exclude<Status, Status.FINISHED>;
 
 export interface Props {
   status: NontrivialStatus
   updated: string
-};
+}
 
 const { status, updated } = Astro.props;
 
-const { heading, icon, description } = STATUS_META[status];
+const { title: heading, icon, description } = STATUS_META[status];
 ---
 
 <aside class="card flex flex-col gap-1 bg-two-back ">

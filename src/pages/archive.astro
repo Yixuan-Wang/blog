@@ -25,7 +25,7 @@ timeDesc.forEach(key =>
       Array.from(years.collector.keys()).map(year => (
         <section>
           <h2 class="text-3xl font-bold text-one-front">{year}</h2>
-          <p class="pb-4">{years.collector.get(year)!.length}</p>
+          <p class="pb-4 font-mono">{years.collector.get(year)!.length}</p>
           <div class="flex flex-col gap-2">
             {years.collector.get(year)!.map(key => (
               <PostInfoBrief info={PostInfo[key]} />
