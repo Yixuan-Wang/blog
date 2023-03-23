@@ -1,10 +1,16 @@
 ---
 import ColorPaletteButton from "src/components/ColorPaletteButton.svelte";
+import Hover from "src/components/Hover.astro";
 import type { ColorPaletteSetting } from "src/logic/color-palette";
 import DEFAULT_COLOR_PALETTE from "src/logic/color-palette-default.json";
 
-const prebuiltColorPalettes: ColorPaletteSetting[] = [
+interface PrebuildColorPalette extends ColorPaletteSetting {
+  name: string
+}
+
+const prebuiltColorPalettes: PrebuildColorPalette[] = [
   {
+    name: "Passion",
     one: {
       mode: "oklch",
       l: 0.5766,
@@ -19,6 +25,7 @@ const prebuiltColorPalettes: ColorPaletteSetting[] = [
     },
   },
   {
+    name: "Courage",
     one: {
       mode: "oklch",
       l: 0.6926,
@@ -33,20 +40,22 @@ const prebuiltColorPalettes: ColorPaletteSetting[] = [
     },
   },
   {
+    name: "Joy",
     one: {
       mode: "oklch",
-      l: 0.7686,
-      c: 0.165,
-      h: 75.08,
+      l: 0.8222,
+      c: 0.169,
+      h: 80.91,
     },
     two: {
       mode: "oklch",
-      l: 0.8106,
-      c: 0.173,
-      h: 86.94,
+      l: 0.8775,
+      c: 0.166,
+      h: 93.16,
     },
   },
   {
+    name: "Renewal",
     one: {
       mode: "oklch",
       l: 0.5676,
@@ -61,6 +70,7 @@ const prebuiltColorPalettes: ColorPaletteSetting[] = [
     },
   },
   {
+    name: "Tranquility",
     one: {
       mode: "oklch",
       l: 0.6967,
@@ -74,8 +84,12 @@ const prebuiltColorPalettes: ColorPaletteSetting[] = [
       h: 196.34,
     },
   },
-  DEFAULT_COLOR_PALETTE as ColorPaletteSetting,
   {
+    name: "Wisdom",
+    ...DEFAULT_COLOR_PALETTE as ColorPaletteSetting,
+  },
+  {
+    name: "Creativity",
     one: {
       mode: "oklch",
       l: 0.6138,
@@ -95,11 +109,20 @@ const prebuiltColorPalettes: ColorPaletteSetting[] = [
 <div class="px-2 py-1 flex flex-row gap-2 items-center">
   {
     prebuiltColorPalettes.map((color, index) => (
-      <ColorPaletteButton
-        client:idle
-        palette={color}
-        title={`Color Palette ${index}`}
-      />
+      <Hover>
+        <ColorPaletteButton
+          slot="handle"
+          client:idle
+          palette={color}
+          title={color.name}
+        />
+        <div
+          slot="content"
+          class="px-1.5 py-1 rounded bg-two-front text-two-back text-sm"
+        >
+          <span>{color.name}</span>
+        </div>
+      </HoverPop>
     ))
   }
 </div>

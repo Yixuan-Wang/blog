@@ -68,7 +68,6 @@ const calcColorAccentNormal = (o: ColorOklch): ColorOklch => o;
 const calcColorAccentReverse = (o: ColorOklch): ColorOklch => ({
   ...o,
   l: 0.57 + o.l * 0.125,
-  c: o.c * 1.125,
 });
 const calcColorFadeReverse = (o: ColorOklch): ColorOklch => ({
   ...o,
@@ -77,7 +76,7 @@ const calcColorFadeReverse = (o: ColorOklch): ColorOklch => ({
 const calcColorDimReverse = (o: ColorOklch): ColorOklch => ({
   ...o,
   l: 0.32 + o.l * 0.25,
-  c: o.c * 0.5,
+  c: o.c * 0.25,
 });
 const calcColorFadeNormal = (o: ColorOklch): ColorOklch => ({
   ...o,
