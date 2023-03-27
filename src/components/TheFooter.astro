@@ -1,7 +1,7 @@
 ---
-import BuildInfo from "./BuildInfo.astro";
-import ColorSchemeButton from "./ColorSchemeButton.svelte";
-import CommentButton from "./CommentButton.astro";
+import TheFooterBuildInfo from "./TheFooterBuildInfo.astro";
+import TheFooterColorSchemeButton from "./TheFooterColorSchemeButton.svelte";
+import TheFooterCommentButton from "./TheFooterCommentButton.astro";
 
 export interface Props {
   noComments?: boolean
@@ -28,12 +28,12 @@ const { noComments } = Astro.props;
         title="RSS"><div class="i-mdi-rss-box"></div></a
       ></button
     >
-    <BuildInfo />
+    <TheFooterBuildInfo />
   </nav>
   <div class="flex-1"></div>
   <nav class="gap-2">
-    {noComments ? null : <CommentButton />}
-    <ColorSchemeButton client:idle />
+    {noComments ? null : <TheFooterCommentButton />}
+    <TheFooterColorSchemeButton client:idle />
   </nav>
 </footer>
 

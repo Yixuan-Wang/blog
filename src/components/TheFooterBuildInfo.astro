@@ -1,10 +1,10 @@
 ---
 import siteMeta from "virtual:site-meta";
-import HoverPop from "./HoverPop.astro";
+import BaseHoverPinnable from "./BaseHoverPinnable.astro";
 const { version, buildTimestamp } = siteMeta;
 ---
 
-<HoverPop id="build-info">
+<BaseHoverPinnable id="build-info">
   <button slot="handle" title="Build Info"
     ><div class="i-mdi-ship-wheel"></div></button
   >
@@ -27,7 +27,7 @@ const { version, buildTimestamp } = siteMeta;
       </span>
     </div>
   </Fragment>
-</HoverPop>
+</BaseHoverPinnable>
 
 <style>
   :global(#build-info) {
