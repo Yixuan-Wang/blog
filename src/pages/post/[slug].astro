@@ -5,7 +5,7 @@ import postImport from "post:import";
 
 import "src/styles/post.css";
 import PostMeta from "src/components/PostMeta.astro";
-import Toc from "~/components/Toc.astro";
+import TheToc from "~/components/TheToc.astro";
 import CalloutStatus from "~/components/CalloutStatus.astro";
 import { Status } from "~/logic/status";
 
@@ -32,7 +32,7 @@ const { default: Content, excerpt, metadata: meta, toc } = await postImport[slug
     <PostMeta meta={meta} />
   </Fragment>
   <main id="md" lang={meta.lang ?? "zh-Hans"}>
-    { toc ? <Toc {toc} /> : null }
+    { toc ? <TheToc {toc} /> : null }
     <Content>
       <Fragment slot="foldout">
         { meta.status !== Status.FINISHED ? <CalloutStatus status={meta.status} updated={meta.timeline.updated} /> : null }

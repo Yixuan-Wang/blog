@@ -38,9 +38,10 @@ const { toc } = Astro.props;
 
   @media (min-width: 1024px) {
     #toc {
-      min-width: max-content;
-      max-width: calc(calc(calc(100vw - 100%) / 2) - 2.5rem);
-      max-width: calc(calc(calc(100dvw - 100%) / 2) - 2.5rem);
+      min-width: min-content;
+      width: calc(calc(calc(100vw - 100%) / 2) - 2.5rem);
+      width: calc(calc(calc(100dvw - 100%) / 2) - 2.5rem);
+      max-width: max-content;
       max-height: 50vh;
       max-height: 50dvh;
     }
