@@ -19,7 +19,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 
 import matter from "gray-matter";
-import shiki from "shiki";
+import shiki, { BUNDLED_LANGUAGES } from "shiki";
 import rehypeAstroJsx from "../plugins/rehype-astro-jsx";
 import rehypeExtractToc from "../plugins/rehype-extract-toc";
 import rehypeFindComponents from "../plugins/rehype-find-components";
@@ -28,6 +28,7 @@ import remarkDirectiveFallback from "../plugins/remark-directive-fallback";
 import remarkDirectivePlainContainers from "../plugins/remark-directive-plain-containers";
 import remarkRuby from "../plugins/remark-ruby";
 import remarkShiki from "../plugins/remark-shiki";
+import languages from "../highlights";
 
 export function parseFrontmatter(source: string) {
   const { data, excerpt, content } = matter(source, {
@@ -59,6 +60,7 @@ const pipeline = {
     .use(remarkShiki, {
       highlighter: await shiki.getHighlighter({
         theme: "one-dark-pro",
+        langs: [...BUNDLED_LANGUAGES, ...languages],
       }),
     })
     .use(remarkDirectivePlainContainers)
