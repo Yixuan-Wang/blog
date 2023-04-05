@@ -35,7 +35,7 @@ jobs:
           node-version: 18
 
       - name: Setup `pnpm`
-        run: npm i -g pnpm
+        run: npm i -g pnpm@8
 
       - name: Cache `pnpm` Modules
         uses: actions/cache@v3
