@@ -14,7 +14,11 @@ const { toc } = Astro.props;
         <span class="font-bold">
           <a href={`#${id}`}>{heading}</a>
         </span>
-      ))
+      )).reduce((list, line) => {
+        if (list.length) list.push((<span class="display-none" role="separator">|</span>), line);
+        else list.push(line);
+        return list;
+      }, [])
     }
   </aside>
 </section>
