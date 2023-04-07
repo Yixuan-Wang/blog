@@ -44,7 +44,7 @@ export class Collector<K, C, V> {
     }
 
     if (!peek) {
-      return {};
+      return `{}`;
     }
     else if (peek instanceof Set) {
       const pairs = [];
