@@ -3,7 +3,7 @@ import ColorPaletteButton from "src/components/ColorPaletteButton.svelte";
 import BaseHover from "src/components/BaseHover.astro";
 import type { ColorPaletteSetting } from "src/logic/color-palette";
 import { polyfillOklch, calcColorFunctions } from "src/logic/color";
-import DEFAULT_COLOR_PALETTE from "src/logic/color-palette-default.json";
+import { DEFAULT_COLOR_PALETTE } from "src/logic/color-palette-default";
 
 interface PrebuildColorPalette extends ColorPaletteSetting {
   name: string

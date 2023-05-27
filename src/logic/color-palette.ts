@@ -1,6 +1,6 @@
 import { persistentAtom } from "@nanostores/persistent";
 import type { ColorOklch } from "culori/fn";
-import ColorPaletteDefault from "./color-palette-default.json";
+import { DEFAULT_COLOR_PALETTE } from "./color-palette-default";
 
 export interface ColorPaletteSetting {
   one: ColorOklch
@@ -9,7 +9,7 @@ export interface ColorPaletteSetting {
 
 export const colorPalette = persistentAtom<ColorPaletteSetting>(
   "color-palette",
-  ColorPaletteDefault as ColorPaletteSetting,
+  DEFAULT_COLOR_PALETTE as ColorPaletteSetting,
   {
     encode: JSON.stringify,
     decode: JSON.parse,

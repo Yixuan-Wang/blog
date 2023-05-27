@@ -4,7 +4,7 @@
     calcColorFunctions,
     type ColorOklch,
   } from "src/logic/color";
-  import DEFAULT_COLOR_PALETTE from "src/logic/color-palette-default.json";
+  import { DEFAULT_COLOR_PALETTE } from "src/logic/color-palette-default";
   import {
     colorPalette,
     type ColorPaletteSetting,
