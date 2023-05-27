@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { ColorSchemeSetting } from "src/logic/color-scheme";
+  import type { ColorSchemeSetting } from "~/stores/color-scheme";
 
   let colorSchemeSetting: ColorSchemeSetting = "auto";
   let handleClick = () => {};
@@ -10,7 +10,7 @@
       colorSchemeSetting: store,
       registerPreference,
       colorScheme,
-    } = await import("src/logic/color-scheme");
+    } = await import("~/stores/color-scheme");
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     colorSchemeSetting = store.get();
 

@@ -1,0 +1,19 @@
+/*? Typeface Variables */
+#md h2,
+#md h3,
+#md h4,
+#md h5,
+#md h6,
+#md hr {
+  font-family: var(--font-post-heading, var(--font-sans));
+}
+
+#md {
+  font-family: var(--font-post-content, var(--font-sans));
+}
+
+#md pre,
+#md code,
+#md kbd {
+  font-family: var(--font-mono);
+}

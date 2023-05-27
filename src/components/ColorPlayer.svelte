@@ -9,7 +9,7 @@
   } from "src/logic/color";
   import type { ColorRgb, ColorOklch } from "src/logic/color";
   import { onMount } from "svelte";
-  import type { ColorScheme } from "src/logic/color-scheme";
+  import type { ColorScheme } from "~/stores/color-scheme";
 
   const colors = [
     "#e1545a",
@@ -79,7 +79,7 @@
 
   const oklch = colors.map((color) => convertRgbToOklch(parseHex(color)));
   onMount(async () => {
-    const { colorScheme } = await import("src/logic/color-scheme");
+    const { colorScheme } = await import("~/stores/color-scheme");
     colorScheme.listen(setColorFunc);
     setColorFunc(colorScheme.get());
     /* const L = oklch.map(lighten);

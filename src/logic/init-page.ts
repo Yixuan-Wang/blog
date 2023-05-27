@@ -1,4 +1,4 @@
-import type { ColorScheme, ColorSchemeSetting } from "src/logic/color-scheme";
+import type { ColorScheme, ColorSchemeSetting } from "~/stores/color-scheme";
 import type { ColorPaletteSetting } from "src/stores/color-palette";
 import { DEFAULT_COLOR_PALETTE } from "src/logic/color-palette-default";
 import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";

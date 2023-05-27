@@ -1,7 +1,9 @@
 ---
+import BaseHoverPinnable from "./BaseHoverPinnable.astro";
 import TheFooterBuildInfo from "./TheFooterBuildInfo.astro";
 import TheFooterColorSchemeButton from "./TheFooterColorSchemeButton.svelte";
 import TheFooterCommentButton from "./TheFooterCommentButton.astro";
+import TheFooterTypesettingFontfaceButton from "./TheFooterTypesettingFontfaceButton.svelte";
 
 export interface Props {
   noComments?: boolean
@@ -41,5 +43,9 @@ const { noComments } = Astro.props;
   #the-footer button {
     @apply text-lg
     @hover-text-one active:text-one transition-lively;
+  }
+
+  #the-footer button[pinned] {
+    @apply text-one;
   }
 </style>

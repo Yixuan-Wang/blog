@@ -7,7 +7,7 @@ import {
   parseHex,
   serializeHex,
 } from "culori/fn";
-import type { ColorScheme } from "./color-scheme";
+import type { ColorScheme } from "../stores/color-scheme";
 
 /* export function convertLabToLch(oklab: ColorOklab): ColorOklch {
   const { l, a, b } = oklab;

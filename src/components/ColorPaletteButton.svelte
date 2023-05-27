@@ -9,7 +9,7 @@
     colorPalette,
     type ColorPaletteSetting,
   } from "src/stores/color-palette";
-  import { colorScheme } from "src/logic/color-scheme";
+  import { colorScheme } from "~/stores/color-scheme";
   import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";
 
   export let palette: ColorPaletteSetting =

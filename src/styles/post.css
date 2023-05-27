@@ -1,4 +1,4 @@
-@import url("./post-fontface.css");
+@import url("./post-typeface.css");
 
 #md > * {
   @apply my-4 relative;
