@@ -192,7 +192,7 @@
 
 #md p {
   @apply
-    max-w-full
+    max-w-full lh-7
   ;
 }
 
@@ -217,7 +217,7 @@
 }
 
 #md ruby {
-  line-height: 175%;
+  @apply lh-8;
 }
 
 #md mark {
