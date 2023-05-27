@@ -5,11 +5,11 @@
 #md h5,
 #md h6,
 #md hr {
-  font-family: var(--font-post-heading, var(--font-sans));
+  font-family: var(--font-serif);
 }
 
 #md {
-  font-family: var(--font-post-content, var(--font-sans));
+  font-family: var(--font-sans);
 }
 
 #md pre,
