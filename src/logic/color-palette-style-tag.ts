@@ -1,5 +1,5 @@
 import { calcColorFunctions, polyfillOklch as p } from "./color";
-import type { ColorPaletteSetting } from "./color-palette";
+import type { ColorPaletteSetting } from "../stores/color-palette";
 
 export function generateColorPaletteStyleTag(
   setting: ColorPaletteSetting,

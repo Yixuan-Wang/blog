@@ -1,6 +1,6 @@
 import { persistentAtom } from "@nanostores/persistent";
 import type { ColorOklch } from "culori/fn";
-import { DEFAULT_COLOR_PALETTE } from "./color-palette-default";
+import { DEFAULT_COLOR_PALETTE } from "src/logic/color-palette-default";
 
 export interface ColorPaletteSetting {
   one: ColorOklch

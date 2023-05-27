@@ -32,17 +32,19 @@ export default defineConfig({
     presetUno({
       preflight: false,
     }),
-    // @ts-ignore
     presetIcons({
       extraProperties: {
         width: "1.25em",
         height: "1.25em",
       },
     }),
+    // @ts-ignore
     presetWebFonts({
+      provider: "google",
       fonts: {
         sans: ["Inter:400,700", "Noto Sans CJK SC:400,700"],
-        mono: ["JetBrains Mono:400"],
+        serif: ["Source Serif 4"],
+        mono: ["JetBrains Mono:400,700"],
       },
     }),
   ],
@@ -67,5 +69,6 @@ export default defineConfig({
     ],
   ],
   rules: [["small-caps", { "font-variant-caps": "small-caps" }]],
+  // @ts-ignore
   transformers: [transformerDirectives(), transformerVariantGroup()],
 });

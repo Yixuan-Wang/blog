@@ -8,7 +8,7 @@
   import {
     colorPalette,
     type ColorPaletteSetting,
-  } from "src/logic/color-palette";
+  } from "src/stores/color-palette";
   import { colorScheme } from "src/logic/color-scheme";
   import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";
 
