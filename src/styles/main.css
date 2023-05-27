@@ -93,8 +93,6 @@ body.cloak {
 }
 
 html {
-  font-family: var(--font-sans);
-
   background-color: rgb(var(--color-back), 100%);
   color: rgb(var(--color-front), 100%);
 }
@@ -115,6 +113,10 @@ html:not(.dark) {
   /* neutral-900 */
   --color-muted: 163, 163, 163;
   /* neutral-400 */
+}
+
+body {
+  font-family: var(--font-sans);
 }
 
 ::selection {
