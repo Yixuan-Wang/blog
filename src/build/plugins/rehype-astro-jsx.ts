@@ -16,9 +16,9 @@ const rehypeAstroJsx: Plugin<[Options?], Root> = (_options) => {
         node.properties["is:raw"] = true;
       } */
 
-      if (node.tagName === "style") {
+      if (node.tagName === "style" || node.tagName === "script") {
         node.properties = node.properties ?? {};
-        node.properties["is:global"] = true;
+        node.properties["is:inline"] = true;
       }
     });
 
