@@ -38,6 +38,7 @@ export default defineConfig({
     Unocss({
       mode: "dist-chunk",
       injectEntry: process.env.NODE_ENV === "development",
+      injectReset: true,
     }),
     PostProvider({
       providers: [
