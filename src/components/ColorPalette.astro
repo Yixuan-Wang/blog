@@ -2,6 +2,7 @@
 import ColorPaletteButton from "src/components/ColorPaletteButton.svelte";
 import BaseHover from "src/components/BaseHover.astro";
 import type { ColorPaletteSetting } from "src/logic/color-palette";
+import { polyfillOklch, calcColorFunctions } from "src/logic/color";
 import DEFAULT_COLOR_PALETTE from "src/logic/color-palette-default.json";
 
 interface PrebuildColorPalette extends ColorPaletteSetting {
@@ -118,7 +119,11 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
         />
         <div
           slot="content"
-          class="px-1.5 py-1 rounded bg-two-front text-two-back text-sm"
+          class="px-1.5 py-1 rounded text-sm"
+          style={{
+            "color": `rgba(${polyfillOklch(calcColorFunctions.light.back(color.two))})`,
+            "background-color": `rgba(${polyfillOklch(calcColorFunctions.light.front(color.two))})`,
+          }}
         >
           <span>{color.name}</span>
         </div>
