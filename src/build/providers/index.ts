@@ -3,7 +3,7 @@ import { exit } from "node:process";
 import chalk from "chalk";
 import type { AstroIntegration } from "astro";
 import type { Plugin } from "vite";
-import { compareDesc } from "date-fns";
+import { compareDesc, parseISO } from "date-fns";
 import { Collector } from "../../utils/collector";
 import { decideTimeFromStatus } from "../../utils/time";
 import { emitModuleFromSource, emitModules } from "./provider";

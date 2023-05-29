@@ -57,6 +57,8 @@ jobs:
           GITHUB_USER: "Yixuan-Wang"
           GITHUB_REPO: "blog-contents"
           GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          NOTION_ACCESS_TOKEN: ${{ secrets.NOTION_ACCESS_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: pnpm run build
 
       - name: Upload Artifact
