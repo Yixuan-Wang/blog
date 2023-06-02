@@ -61,6 +61,7 @@ export default defineConfig({
       ],
     ],
     ["chip", ["rounded", "px-1.5", "py-0.75", "text-sm", "font-mono"]],
+    ["tip", ["px-1.5", "py-1", "rounded", "text-sm", "bg-one-back", "text-one-front"]],
     ["inline-chip", ["text-sm", "font-mono"]],
     ["card", ["p-4", "rounded"]],
     [

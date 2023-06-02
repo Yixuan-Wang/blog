@@ -1,0 +1,29 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import TypesettingTypeface from "src/components/TypesettingTypeface.svelte";
+import TypesettingFontFamily from "src/components/TypesettingFontFamily.svelte";
+
+import "src/styles/post.css";
+---
+
+<LayoutDefault
+  title="Typesetting"
+  description="Typesetting configuration of Yixuan Wang's blog."
+  noComments={true}
+>
+  <main class="flex flex-col gap-4">
+    <section id="md" class="card bg-one-back">
+      <div></div>
+      <h2 class="mt-0!">Demo</h2>
+      <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={new URL(`${import.meta.env.BASE_URL}post/test-content`, Astro.site)}>expedita exercitationem!</a></p>
+    </section>
+    <section class="flex flex-col gap-3">
+      <h2 class="text-2xl font-bold text-one-front">Typeface</h2>
+      <TypesettingTypeface client:only />
+    </section>
+    <section class="flex flex-col gap-3">
+      <h2 class="text-2xl font-bold text-one-front">Font Family</h2>
+      <TypesettingFontFamily client:only />
+    </section>
+  </main>
+</LayoutDefault>

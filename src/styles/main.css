@@ -1,3 +1,5 @@
+@import url(./preflight-manual.css);
+
 html {
   height: 100%;
   width: 100%;
@@ -69,9 +71,9 @@ body.cloak {
 }
 
 :root {
-  --font-sans: "Inter", "Noto Sans CJK SC", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Avenir Next", "Helvetica Neue", sans-serif;
-  --font-serif: "Source Serif 4", "Noto Serif CJK SC", "New York", "Roboto Slab", Cambria, Georgia, Times, "Times New Roman", serif;
-  --font-mono: "JetBrains Mono", "Noto Sans CJK SC", DengXian, "SF Mono", "Droid Sans Mono", Menlo, "Cascadia Code", Consolas, Courier, "Courier New", monospace;
+  --font-sans: var(--font-custom-sans, "Inter", "Noto Sans CJK SC"), "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  --font-serif: var(--font-custom-serif, "Source Serif 4", "Noto Serif CJK SC"), "New York", "Roboto Slab", Cambria, Georgia, Times, "Times New Roman", serif;
+  --font-mono: var(--font-custom-mono, "JetBrains Mono", "Noto Sans CJK SC"), DengXian, "SF Mono", "Droid Sans Mono", Menlo, "Cascadia Code", Consolas, Courier, "Courier New", monospace;
 }
 
 :root:not(.dark) {
@@ -117,6 +119,10 @@ html:not(.dark) {
 
 body {
   font-family: var(--font-sans);
+}
+
+input {
+  @apply ring-2 ring-one focus:(ring-two outline-none) lh-6 rounded py-1 px-2 bg-transparent;
 }
 
 ::selection {

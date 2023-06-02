@@ -196,6 +196,11 @@
   ;
 }
 
+#md aside p {
+  @apply lh-6;
+}
+
+
 #md a {
   @apply
     text-one-front

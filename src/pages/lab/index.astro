@@ -1,0 +1,20 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+---
+
+<LayoutDefault
+  title="Lab"
+  description="Experiments on Yixuan Wang's blog."
+  noComments={true}
+>
+  <main class="grid grid-cols-[auto_1fr] gap-1 items-center">
+    <div class="i-mdi-typewriter" />
+    <a href={new URL(`${import.meta.env.BASE_URL}lab/typesetting`, Astro.site)}>Typesetting</a>
+  </main>
+</LayoutDefault>
+
+<style>
+  a {
+    @apply px-2 py-1 rounded text-one transition-lively @hover-text-two @hover-bg-two-back;
+  }
+</style>
