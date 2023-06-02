@@ -39,7 +39,7 @@ export default defineConfig({
     Unocss({
       mode: "dist-chunk",
       injectEntry: process.env.NODE_ENV === "development",
-      injectReset: true,
+      injectReset: "@unocss/reset/tailwind.css",
     }),
     PostProvider({
       providers: [

@@ -8,45 +8,45 @@ export interface Props {
 const { id, style } = Astro.props;
 
 const onmouseenter = `if(window.matchMedia("(pointer: fine)").matches) {
-  this.querySelector('.hoverpop-content').style.display='block';
+  this.querySelector('.hover-component-content').style.display='block';
 }`;
 
 const onmouseleave = `if(window.matchMedia("(pointer: fine)").matches) {
-  const content = this.querySelector('.hoverpop-content');
+  const content = this.querySelector('.hover-component-content');
   if (!content.getAttribute("pinned")) content.style.display='none';
 }`;
 
 const onmousedown = `if(!window.matchMedia("(pointer: fine)").matches) {
-  this.querySelector('.hoverpop-content').style.display='block';
+  this.querySelector('.hover-component-content').style.display='block';
 }`;
 
 const onmouseup = `if(!window.matchMedia("(pointer: fine)").matches) {
-  const content = this.querySelector('.hoverpop-content');
+  const content = this.querySelector('.hover-component-content');
   if (!content.getAttribute("pinned")) content.style.display='none';
 }`;
 ---
 
-<div {id} class="hoverpop-container" {style} {onmouseenter} {onmouseleave}>
-  <div class="hoverpop-handle" {onmousedown} {onmouseup}>
+<div {id} class="hover-component-container" {style} {onmouseenter} {onmouseleave}>
+  <div class="hover-component-handle" {onmousedown} {onmouseup}>
     <slot name="handle"></slot>
   </div>
-  <div class="hoverpop-content">
+  <div class="hover-component-content">
     <slot name="content"></slot>
   </div>
 </div>
 
 <style>
-.hoverpop-container {
+.hover-component-container {
   position: relative;
   display: inline-flex;
   justify-content: center;
 }
 
-.hoverpop-handle {
+.hover-component-handle {
   display: contents;
 }
 
-.hoverpop-content {
+.hover-component-content {
   position: absolute;
   display: none;
   width: max-content;

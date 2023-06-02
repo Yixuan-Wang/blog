@@ -1,9 +1,8 @@
 ---
-import BaseHoverPinnable from "./BaseHoverPinnable.astro";
+import BaseHover from "./BaseHover.astro";
 import TheFooterBuildInfo from "./TheFooterBuildInfo.astro";
 import TheFooterColorSchemeButton from "./TheFooterColorSchemeButton.svelte";
 import TheFooterCommentButton from "./TheFooterCommentButton.astro";
-import TheFooterTypesettingFontfaceButton from "./TheFooterTypesettingFontfaceButton.svelte";
 
 export interface Props {
   noComments?: boolean
@@ -13,29 +12,47 @@ const { noComments } = Astro.props;
 ---
 
 <footer id="the-footer">
-  <nav class="gap-2">
-    <button title="GitHub"
-      ><a
-        href="https://github.com/Yixuan-Wang"
-        rel="noopener"
-        target="_blank"
-        title="GitHub"><div class="i-mdi-github"></div></a
-      ></button
-    >
-    <button title="RSS"
-      ><a
-        href={new URL(`${import.meta.env.BASE_URL}feed.xml`, Astro.site)}
-        rel="noopener"
-        target="_blank"
-        title="RSS"><div class="i-mdi-rss-box"></div></a
-      ></button
-    >
+  <nav id="the-footer-start" class="gap-2">
+    <BaseHover>
+      <button slot="handle" title="GitHub">
+        <a
+          href="https://github.com/Yixuan-Wang"
+          rel="noopener"
+          target="_blank"
+          title="GitHub"
+        >
+          <div class="i-mdi-github" />
+        </a>
+      </button>
+      <div slot="content" class="tip">GitHub</div>
+    </BaseHover>
+    <BaseHover>
+      <button slot="handle" title="RSS">
+        <a
+          href={new URL(`${import.meta.env.BASE_URL}feed.xml`, Astro.site)}
+          rel="noopener"
+          target="_blank"
+          title="RSS"
+        >
+          <div class="i-mdi-rss-box" />
+        </a>
+      </button>
+      <div slot="content" class="tip">RSS</div>
+    </BaseHover>
     <TheFooterBuildInfo />
   </nav>
   <div class="flex-1"></div>
-  <nav class="gap-2">
-    {noComments ? null : <TheFooterCommentButton />}
-    <TheFooterColorSchemeButton client:idle />
+  <nav id="the-footer-end" class="gap-2">
+    {noComments ? null : 
+      <BaseHover>
+        <TheFooterCommentButton slot="handle" />
+        <div slot="content" class="tip">Comments</div>
+      </BaseHover>
+    }
+    <BaseHover>
+      <TheFooterColorSchemeButton slot="handle" client:only />
+      <div slot="content" class="tip">Color Scheme</div>
+    </BaseHover>
   </nav>
 </footer>
 
@@ -47,5 +64,13 @@ const { noComments } = Astro.props;
 
   #the-footer button[pinned] {
     @apply text-one;
+  }
+
+  #the-footer-start .hover-component-container {
+    @apply justify-start lg:justify-center;
+  }
+
+  #the-footer-end .hover-component-container {
+    @apply justify-end lg:justify-center;
   }
 </style>

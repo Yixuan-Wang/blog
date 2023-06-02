@@ -1,4 +1,6 @@
 ---
+import BaseHover from './BaseHover.astro';
+
 export interface Props {
   friend: friend.Friend
 }
@@ -13,24 +15,34 @@ const outlink = { rel: "noopener", target: "_blank" };
   <img class="rounded-1/2 w-8 h-8" src={avatar} alt={`Avatar of ${name}`} />
   <div>{name}</div>
   <div class="friends-list flex flex-row gap-1.5 items-center">
-    <a title={`GitHub of ${name}`} href={link.github} {...outlink}
-      ><div class="i-mdi-github"></div></a
-    >
+    <BaseHover>
+      <a slot="handle" title={`GitHub of ${name}`} href={link.github} {...outlink}
+      >
+        <div class="i-mdi-github"></div>
+      </a>
+      <div slot="content" class="tip">GitHub</div>
+    </BaseHover>
     {
       link.homepage
         ? (
-        <a title={`Home Page of ${name}`} href={link.homepage} {...outlink}>
-          <div class="i-mdi-home" />
-        </a>
+        <BaseHover>
+          <a slot="handle" title={`Home Page of ${name}`} href={link.homepage} {...outlink}>
+            <div class="i-mdi-home" />
+          </a>
+          <div slot="content" class="tip">Home Page</div>
+        </BaseHover>
           )
         : null
     }
     {
       link.blog
         ? (
-        <a title={`Blog of ${name}`} href={link.blog} {...outlink}>
-          <div class="i-mdi-blog" />
-        </a>
+        <BaseHover>
+          <a slot="handle" title={`Blog of ${name}`} href={link.blog} {...outlink}>
+            <div class="i-mdi-blog" />
+          </a>
+          <div slot="content" class="tip">Blog</div>
+        </BaseHover>
           )
         : null
     }
@@ -38,7 +50,7 @@ const outlink = { rel: "noopener", target: "_blank" };
 </Fragment>
 
 <style>
-  .friends-list > * {
+  .friends-list a {
     @apply text-one-front @hover-text-one transition-lively;
   }
 </style>
