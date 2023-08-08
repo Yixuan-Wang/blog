@@ -17,7 +17,7 @@ import Unocss from "unocss/astro";
 import PostProvider from "./src/build/providers";
 import ProviderFs from "./src/build/providers/fs";
 import ProviderGh from "./src/build/providers/gh";
-import ProviderNtn from "./src/build/providers/ntn";
+// import ProviderNtn from "./src/build/providers/ntn";
 
 import Feed from "./src/build/feed";
 import SiteMeta from "./src/build/site-meta";
@@ -57,14 +57,14 @@ export default defineConfig({
             includedLabels: [process.env.POST_FILTER_GH ?? "+"],
           })]
         ),
-        ...(
-          process.env.POST_NO_NTN === "true"
-          ? []
-          : [ProviderNtn({
-            accessToken: process.env.NOTION_ACCESS_TOKEN,
-            databaseId: process.env.NOTION_DATABASE_ID,
-          })]
-        )
+        // ...(
+        //   process.env.POST_NO_NTN === "true"
+        //   ? []
+        //   : [ProviderNtn({
+        //     accessToken: process.env.NOTION_ACCESS_TOKEN,
+        //     databaseId: process.env.NOTION_DATABASE_ID,
+        //   })]
+        // )
       ],
       componentBase: "~/components/runtime",
     }),
