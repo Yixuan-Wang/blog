@@ -14,6 +14,9 @@ concurrency:
   group: "build"
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +30,7 @@ jobs:
         with:
           repository: Yixuan-Wang/blog-contents
           ref: v4
-          path: contents
+          path: data
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -35,18 +38,26 @@ jobs:
           node-version: 18
 
       - name: Setup `pnpm`
-        run: npm i -g pnpm@8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
       - name: Cache `pnpm` Modules
         uses: actions/cache@v3
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install Node Packages
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build
         env:
@@ -57,8 +68,6 @@ jobs:
           GITHUB_USER: "Yixuan-Wang"
           GITHUB_REPO: "blog-contents"
           GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          NOTION_ACCESS_TOKEN: ${{ secrets.NOTION_ACCESS_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: pnpm run build
 
       - name: Upload Artifact
@@ -84,5 +93,5 @@ jobs:
           path: dist/.
           remote_path: ${{ secrets.MIRROR_TARGET }}
           remote_host: ${{ secrets.MIRROR_HOST }}
-          remote_user: ${{ secrets.MIRROR_USER }}
+          remote_user: github
           remote_key: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
