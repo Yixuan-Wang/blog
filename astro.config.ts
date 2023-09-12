@@ -44,7 +44,7 @@ export default defineConfig({
     PostProvider({
       providers: [
         ProviderFs({
-          baseDir: path.resolve(_dirname, process.env.CONTENTS_DIR ?? "data/contents"),
+          baseDir: path.resolve(_dirname, process.env.POSTS_DIR ?? "data/posts"),
           patterns: [[process.env.POST_FILTER_FS ?? "**/*.md", "!README.md"]],
         }),
         ...(
