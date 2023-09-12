@@ -9,6 +9,8 @@ on:
   push:
     branches:
       - v4
+    tags:
+      - "v*"
 
 concurrency:
   group: "build"
