@@ -51,9 +51,9 @@ export default defineConfig({
           process.env.POST_NO_GH === "true"
           ? []
           : [ProviderGh({
-            userName: process.env.GITHUB_USER,
-            repoName: process.env.GITHUB_REPO,
-            accessToken: process.env.GITHUB_ACCESS_TOKEN,
+            userName: process.env.GITHUB_USER!,
+            repoName: process.env.GITHUB_REPO!,
+            accessToken: process.env.GITHUB_ACCESS_TOKEN!,
             includedLabels: [process.env.POST_FILTER_GH ?? "+"],
           })]
         ),

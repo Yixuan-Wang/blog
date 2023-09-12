@@ -2,7 +2,7 @@ import type { Plugin } from "vite";
 
 interface ConfigPluginSiteMeta {
   version: string
-  buildTimestamp: number
+  buildTimestamp: string
 }
 
 export default function PluginSiteMeta({
