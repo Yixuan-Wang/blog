@@ -13,10 +13,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/svelte": "^2.0.1",
+    "@astrojs/svelte": "^4.0.2",
     "@giscus/svelte": "^2.2.6",
     "@nanostores/persistent": "^0.7.0",
-    "astro": "^2.2.1",
+    "astro": "^3.0.12",
     "culori": "^2.0.4",
     "date-fns": "^2.29.3",
     "fp-ts": "^2.13.1",
