@@ -44,7 +44,7 @@ export default defineConfig({
     PostProvider({
       providers: [
         ProviderFs({
-          baseDir: path.resolve(_dirname, process.env.CONTENTS_DIR ?? "contents"),
+          baseDir: path.resolve(_dirname, process.env.CONTENTS_DIR ?? "data/contents"),
           patterns: [[process.env.POST_FILTER_FS ?? "**/*.md", "!README.md"]],
         }),
         ...(
@@ -94,10 +94,7 @@ export default defineConfig({
     resolve: {
       alias: {
         "~/": `${path.resolve(_dirname, "src")}/`,
-        "@/": `${path.resolve(
-          _dirname,
-          process.env.CONTENTS_DIR ?? "contents"
-        )}/`,
+        "@/": `${path.resolve(_dirname,"data")}/`,
       },
     },
   }
