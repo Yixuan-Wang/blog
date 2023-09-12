@@ -11,9 +11,12 @@ const {
 const outlink = { rel: "noopener", target: "_blank" };
 ---
 
-<Fragment>
-  <img class="rounded-1/2 w-8 h-8" src={avatar} alt={`Avatar of ${name}`} />
-  <div>{name}</div>
+<article 
+  class="card flex flex-col gap-1 @hover:bg-one-back transition-lively"
+  role="link"
+>
+  <img class="rounded-1/2 w-8 h-8 row-[1/3]" src={avatar} alt={`Avatar of ${name}`} />
+  <h2 class="font-mono transition-lively">{name}</h2>
   <div class="friends-list flex flex-row gap-1.5 items-center">
     <BaseHover>
       <a slot="handle" title={`GitHub of ${name}`} href={link.github} {...outlink}
@@ -47,9 +50,24 @@ const outlink = { rel: "noopener", target: "_blank" };
         : null
     }
   </div>
-</Fragment>
+</article>
+</div>
 
 <style>
+  @media (hover: hover) and (pointer: fine) {
+    article:hover h2 {
+      @apply text-one-front;
+    }
+  }
+
+  .friends-list :global(.hover-component-container) {
+    @apply justify-center;
+  }
+
+  .friends-list :global(.hover-component-content) {
+    @apply top-[calc(100%+0.25rem)] bottom-unset;
+  }
+
   .friends-list a {
     @apply text-one-front @hover-text-one transition-lively;
   }

@@ -6,6 +6,6 @@ import { friends } from "@/meta/friends.yaml";
 const friendsSorted = friends.sort((a, b) => sortUnicode(a.name, b.name));
 ---
 
-<div class="p-1 grid grid-cols-[auto_auto_1fr] grid-gap-2 items-center">
+<div class="p-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 grid-gap-1 items-center relative">
   {friendsSorted.map(friend => <BaseFriend {friend} />)}
 </div>

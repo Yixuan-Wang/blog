@@ -11,11 +11,24 @@ const {
 } = Astro.props;
 ---
 
-<article class="card flex flex-col gap-1 @hover-bg-one-back transition-lively">
-  <h2 class="inline-flex gap-1 text-2xl font-bold @hover-text-one-front transition-lively">
-    <a href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}>{meta.title}</a>
-    { meta.status !== Status.FINISHED ? <span class="text-sm"><div class={STATUS_META[meta.status].icon}></div></span> : null }
-  </h2>
-  <p>{excerpt}</p>
-  <PostMeta meta={meta} />
-</article>
+<a
+  class="contents"
+  href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}
+>
+  <article class="card flex flex-col gap-1 bg-transparent cursor-pointer @hover-bg-one-back transition-lively">
+    <h2 class="inline-flex gap-1 text-2xl font-bold font-post-heading transition-lively">
+      <span>{meta.title}</span>
+      { meta.status !== Status.FINISHED ? <span class="text-sm"><div class={STATUS_META[meta.status].icon}></div></span> : null }
+    </h2>
+    <p class="font-post-content">{excerpt}</p>
+    <PostMeta meta={meta} />
+  </article>
+</a>
+
+<style>
+  @media (hover: hover) and (pointer: fine) {
+    article:hover h2 {
+      @apply text-one-front;
+    }
+  }
+</style>

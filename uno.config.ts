@@ -11,6 +11,8 @@ export default defineConfig({
       sans: "var(--font-sans)",
       serif: "var(--font-serif)",
       mono: "var(--font-mono)",
+      "post-heading": "var(--font-post-heading)",
+      "post-content": "var(--font-post-content)",
     },
     colors: {
       one: {

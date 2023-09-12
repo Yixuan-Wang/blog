@@ -27,17 +27,16 @@ import FriendList from "src/components/FriendList.astro";
   </section>
 
   <section class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Explore</h2>
-    <section class="card flex flex-col gap-2 bg-one-back transition-lively">
-      <h3 class="text-xl font-bold text-one-front">Color Palettes</h3>
-      <ColorPalette />
-    </section>
-
-    <section class="card flex flex-col gap-2 bg-one-back transition-lively">
-      <h3 class="text-xl font-bold text-one-front">Friends</h3>
-      <FriendList />
-    </section>
+    <h2 class="text-2xl font-bold text-one-front">Friends</h2>
+    <FriendList />
   </section>
+
+  <section class="flex flex-col gap-3">
+    <h2 class="text-2xl font-bold text-one-front">Color Palettes</h2>
+    <ColorPalette />
+  </section>
+
+  <div role="none" class="mb-10"></div>
 </LayoutEmpty>
 
 <style is:global>
