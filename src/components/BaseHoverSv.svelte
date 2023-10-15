@@ -25,16 +25,16 @@
 </script>
 
 <div
-  class="hover-component-container relative inline-flex justify-center"
+  class="hover-component-container"
   {style}
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
 >
-  <div class="hover-component-handle contents" on:click={handleClick} on:keypress={handleClick}>
+  <div class="hover-component-handle" on:click={handleClick} on:keypress={handleClick}>
     <slot name="handle" />
   </div>
   {#if isOpen}
-  <div class="hover-component-content absolute w-max bottom-[calc(100%+0.25rem)]">
+  <div class="hover-component-content">
     <slot name="content" />
   </div>
   {/if}

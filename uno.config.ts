@@ -71,7 +71,9 @@ export default defineConfig({
       ([, c]) => `pb-0.25 border-b-1 border-b-${c ?? "current"}`,
     ],
   ],
-  rules: [["small-caps", { "font-variant-caps": "small-caps" }]],
+  rules: [
+    ["small-caps", { "font-variant-caps": "small-caps" }]
+  ],
   // @ts-ignore
   transformers: [transformerDirectives(), transformerVariantGroup()],
 });

@@ -146,3 +146,24 @@ input {
   background-color: rgba(var(--color-two));
   border-color: rgba(var(--color-two));
 }
+
+.hover-component-container {
+  @apply relative inline-flex justify-center;
+}
+
+.hover-component-handle {
+  @apply contents;
+}
+
+.hover-component-content {
+  @apply absolute hidden w-max bottom-[calc(100%+0.5rem)] animate-fade-in animate-duration-150;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
