@@ -27,6 +27,7 @@ const translations = {
     --pagefind-ui-background: transparent;
     --pagefind-ui-border: rgb(var(--color-one-front));
     --pagefind-ui-tag: rgb(var(--color-one-front));
+    --pagefind-ui-font: var(--font-sans);
   }
 
   .pagefind-ui mark {
@@ -39,5 +40,13 @@ const translations = {
 
   .pagefind-ui li > div {
     @apply mt-0!;
+  }
+
+  .pagefind-ui .pagefind-ui__result-title {
+    font-family: var(--font-post-heading);
+  }
+
+  .pagefind-ui .pagefind-ui__result-excerpt {
+    font-family: var(--font-post-content);
   }
 </style>
