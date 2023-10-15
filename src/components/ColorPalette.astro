@@ -6,7 +6,7 @@ import { polyfillOklch, calcColorFunctions } from "src/logic/color";
 import { DEFAULT_COLOR_PALETTE } from "src/logic/color-palette-default";
 
 interface PrebuildColorPalette extends ColorPaletteSetting {
-  name: string
+  name: string;
 }
 
 const prebuiltColorPalettes: PrebuildColorPalette[] = [
@@ -14,8 +14,8 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     name: "Red",
     one: {
       mode: "oklch",
-      l: 0.5766,
-      c: 0.195,
+      l: 0.6100,
+      c: 0.215,
       h: 23.81,
     },
     two: {
@@ -41,6 +41,21 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     },
   },
   {
+    name: "Tangerine",
+    one: {
+        mode: "oklch",
+        l: 0.7100,
+        c: 0.215,
+        h: 70.00,
+    },
+    two: {
+        mode: "oklch",
+        l: 0.7600,
+        c: 0.230,
+        h: 77.50,
+    },
+  },
+  {
     name: "Yellow",
     one: {
       mode: "oklch",
@@ -56,6 +71,21 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     },
   },
   {
+    name: "Lime",
+    one: {
+        mode: "oklch",
+        l: 0.8010,
+        c: 0.198,
+        h: 110.52,
+    },
+    two: {
+        mode: "oklch",
+        l: 0.8512,
+        c: 0.185,
+        h: 118.45,
+    },
+  },
+  {
     name: "Green",
     one: {
       mode: "oklch",
@@ -68,6 +98,21 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
       l: 0.566,
       c: 0.148,
       h: 122.67,
+    },
+  },
+  {
+    name: "Teal",
+    one: {
+      mode: "oklch",
+      l: 0.5626,
+      c: 0.113,
+      h: 170.23,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.6967,
+      c: 0.121,
+      h: 182.44,
     },
   },
   {
@@ -87,7 +132,22 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
   },
   {
     name: "Blue",
-    ...DEFAULT_COLOR_PALETTE as ColorPaletteSetting,
+    ...(DEFAULT_COLOR_PALETTE as ColorPaletteSetting),
+  },
+  {
+    name: "Indigo",
+    one: {
+      mode: "oklch",
+      l: 0.3875,
+      c: 0.159,
+      h: 263.84,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.6211,
+      c: 0.11,
+      h: 265.42,
+    },
   },
   {
     name: "Purple",
@@ -104,6 +164,97 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
       h: 276.38,
     },
   },
+  {
+    name: "Fuchsia",
+    one: {
+        mode: "oklch",
+        l: 0.5780,
+        c: 0.274,
+        h: 315.00,
+    },
+    two: {
+        mode: "oklch",
+        l: 0.6370,
+        c: 0.288,
+        h: 320.00,
+    },
+  },
+  {
+    name: "Pink",
+    one: {
+      mode: "oklch",
+      l: 0.7321,
+      c: 0.146,
+      h: 343.12,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.7034,
+      c: 0.128,
+      h: 329.54,
+    },
+  },
+  {
+    name: "Magenta",
+    one: {
+        mode: "oklch",
+        l: 0.6200,
+        c: 0.180,
+        h: 0.00,
+    },
+    two: {
+        mode: "oklch",
+        l: 0.4500,
+        c: 0.140,
+        h: 10.00,
+    },
+  },
+  {
+    name: "Brown",
+    one: {
+      mode: "oklch",
+      l: 0.4256,
+      c: 0.15,
+      h: 28.76,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.3982,
+      c: 0.134,
+      h: 20.35,
+    },
+  },
+  {
+    name: "Slate",
+    one: {
+        mode: "oklch",
+        l: 0.5120,
+        c: 0.056,
+        h: 220.00,
+    },
+    two: {
+        mode: "oklch",
+        l: 0.4678,
+        c: 0.048,
+        h: 210.00,
+    },
+  },
+  {
+    name: "Gray",
+    one: {
+        mode: "oklch",
+        l: 0.5500,
+        c: 0.000,
+        h: 0.00,
+    },
+    two: {
+        mode: "oklch",
+        l: 0.6300,
+        c: 0.000,
+        h: 0.00,
+  },
+}
+
 ];
 ---
 
@@ -121,8 +272,12 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
           slot="content"
           class="px-1.5 py-1 rounded text-sm"
           style={{
-            "color": `rgba(${polyfillOklch(calcColorFunctions.light.back(color.two))})`,
-            "background-color": `rgba(${polyfillOklch(calcColorFunctions.light.front(color.two))})`,
+            color: `rgba(${polyfillOklch(
+              calcColorFunctions.light.back(color.two)
+            )})`,
+            "background-color": `rgba(${polyfillOklch(
+              calcColorFunctions.light.front(color.two)
+            )})`,
           }}
         >
           <span>{color.name}</span>
