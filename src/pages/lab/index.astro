@@ -1,5 +1,18 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
+
+const labItems = [
+  {
+    title: "Typesetting",
+    icon: "i-mdi-typewriter",
+    url: "typesetting",
+  },
+  {
+    title: "Search",
+    icon: "i-mdi-search",
+    url: "search",
+  }
+]
 ---
 
 <LayoutDefault
@@ -8,8 +21,14 @@ import LayoutDefault from "src/layouts/LayoutDefault.astro";
   noComments={true}
 >
   <main class="grid grid-cols-[auto_1fr] gap-1 items-center">
-    <div class="i-mdi-typewriter" />
-    <a href={new URL(`${import.meta.env.BASE_URL}lab/typesetting`, Astro.site)}>Typesetting</a>
+    {labItems.map(({ title, icon, url }) => (
+      <>
+        <div class="text-one">
+          <div class={icon} />
+        </div>
+        <a href={new URL(`${import.meta.env.BASE_URL}lab/${url}`, Astro.site)}>{title}</a>
+      </>
+    ))}
   </main>
 </LayoutDefault>
 

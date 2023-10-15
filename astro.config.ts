@@ -14,6 +14,8 @@ import Svelte from "@astrojs/svelte";
 
 import Unocss from "unocss/astro";
 
+import Pagefind from "astro-pagefind";
+
 import PostProvider from "./src/build/providers";
 import ProviderFs from "./src/build/providers/fs";
 import ProviderGh from "./src/build/providers/gh";
@@ -81,6 +83,7 @@ export default defineConfig({
         },
       }
     }),
+    Pagefind(),
   ],
   vite: {
     plugins: [

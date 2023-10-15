@@ -1,0 +1,43 @@
+---
+import Search from "astro-pagefind/components/Search";
+
+const translations = {
+  placeholder: "Search on Pak",
+  clear_search: "Clear",
+  load_more: "Load more results",
+  search_label: "Search the site",
+  filters_label: "Filters",
+  zero_results: "No results for [SEARCH_TERM]",
+  many_results: "[COUNT] results for [SEARCH_TERM]",
+  one_result: "[COUNT] result for [SEARCH_TERM]",
+  alt_search:
+    "No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead",
+  search_suggestion:
+    "No results for [SEARCH_TERM]. Try one of the following searches:",
+  searching: "Searching for [SEARCH_TERM]...",
+};
+---
+
+<Search uiOptions={{ showImages: false, translations }} />
+
+<style is:global>
+  .pagefind-ui {
+    --pagefind-ui-primary: rgb(var(--color-one));
+    --pagefind-ui-text: rgb(var(--color-front));
+    --pagefind-ui-background: transparent;
+    --pagefind-ui-border: rgb(var(--color-one-front));
+    --pagefind-ui-tag: rgb(var(--color-one-front));
+  }
+
+  .pagefind-ui mark {
+    @apply bg-transparent! text-one-front! underline! underline-dotted!;
+  }
+
+  .pagefind-ui li {
+    @apply py-3! border-y-none!;
+  }
+
+  .pagefind-ui li > div {
+    @apply mt-0!;
+  }
+</style>
