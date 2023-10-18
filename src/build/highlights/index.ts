@@ -7,6 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const fetchGrammar = (lang: string) => JSON.parse(readFileSync(resolve(__dirname, `languages/${lang}.tmLanguage.json`), { encoding: "utf-8" }))
 
+const theme = JSON.parse(readFileSync(resolve(__dirname, "theme.json"), { encoding: "utf-8" }))
+
 const languages: ILanguageRegistration[] = [
   {
     id: "coq",
@@ -28,4 +30,7 @@ const languages: ILanguageRegistration[] = [
   },
 ] satisfies Omit<ILanguageRegistration, "path">[] as ILanguageRegistration[];
 
-export default languages;
+export {
+  languages,
+  theme,
+};

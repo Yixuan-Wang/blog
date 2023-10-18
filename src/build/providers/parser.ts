@@ -28,7 +28,7 @@ import remarkDirectiveFallback from "../plugins/remark-directive-fallback";
 import remarkDirectivePlainContainers from "../plugins/remark-directive-plain-containers";
 import remarkRuby from "../plugins/remark-ruby";
 import remarkShiki from "../plugins/remark-shiki";
-import languages from "../highlights";
+import { languages, theme } from "../highlights";
 
 export function parseFrontmatter(source: string) {
   const { data, excerpt, content } = matter(source, {
@@ -59,9 +59,10 @@ const pipeline = {
     .use(remarkRuby)
     .use(remarkShiki, {
       highlighter: await shiki.getHighlighter({
-        theme: "one-dark-pro",
+        theme,
         langs: [...BUNDLED_LANGUAGES, ...languages],
       }),
+      cssVariables: true,
     })
     .use(remarkDirectivePlainContainers)
     .use(remarkDirectiveFallback),
