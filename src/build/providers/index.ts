@@ -182,7 +182,6 @@ export default _;`;
 
         if (modules.has(id)) {
           // console.log(chalk.bgGray(" DEBUG "), ` update: ${id}`);
-          const node = ctx.server.moduleGraph.idToModuleMap.get(id)!;
 
           const hmrProvider
             = providers.find(provider => provider.hmr.canHandle(slug))
@@ -202,7 +201,13 @@ export default _;`;
             modules,
           )(await hmrProvider.hmr.accept(slug, ctx));
 
-          ctx.server.reloadModule(node);
+          const node = ctx.server.moduleGraph.idToModuleMap.get(id);
+          if (node) {
+            // Only reload the node if its loaded.
+            // Astro component is lazy loaded and may not be there.
+            ctx.server.reloadModule(node);
+          }
+
           ctx.server.moduleGraph.onFileChange(id);
           (
             ((astroBuilder.handleHotUpdate as any)?.handler
