@@ -19,8 +19,16 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  # envs for build
+  PUBLIC_BUILT_BY: "ci" # Build indicator on the blog
+  POSTS_DIR: "data/posts" # fs content provider
+  GITHUB_USER: "Yixuan-Wang" # GitHub content provider (username)
+  GITHUB_REPO: "blog-contents" # GitHub content provider (repo)
+  GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # GitHub content provider (access token)
+
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
 
     steps:
@@ -61,39 +69,47 @@ jobs:
       - name: Install Node Packages
         run: pnpm install
 
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: prepare
+  #   env:
+  #     BUILD_OUTPUT_DIR: "dist"
+  #   steps:
+  #     - name: Build
+  #       env:
+  #         PUBLIC_BUILD_SITE_URL: "https://blog.yixuan-wang.site"
+  #         PUBLIC_BUILD_BASE_URL: "/"
+  #       run: pnpm run build -- --outDir=${{ env.BUILD_OUTPUT_DIR }}
+
+  #     - name: Deploy Server
+  #       uses: burnett01/rsync-deployments@5.2.1
+  #       with:
+  #         switches: -avzr --delete
+  #         path: ${{ env.BUILD_OUTPUT_DIR }}/.
+  #         remote_path: ${{ secrets.MIRROR_TARGET }}
+  #         remote_host: ${{ secrets.MIRROR_HOST }}
+  #         remote_user: github
+  #         remote_key: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
+
+  deploy-gh-pages:
+    runs-on: ubuntu-latest
+    needs: prepare
+    env:
+      BUILD_OUTPUT_DIR: "dist"
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
       - name: Build
         env:
           PUBLIC_BUILD_SITE_URL: "https://blog.yixuan-wang.site"
           PUBLIC_BUILD_BASE_URL: "/"
-          PUBLIC_BUILT_BY: "ci"
-          POSTS_DIR: "data/posts"
-          GITHUB_USER: "Yixuan-Wang"
-          GITHUB_REPO: "blog-contents"
-          GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: pnpm run build
+        run: pnpm run build -- --outDir=${{ env.BUILD_OUTPUT_DIR }}
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: blog-build
-          path: ./dist
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Donwload Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: blog-build
-          path: ./dist
-
-      - name: Deploy Server
-        uses: burnett01/rsync-deployments@5.2.1
-        with:
-          switches: -avzr --delete
-          path: dist/.
-          remote_path: ${{ secrets.MIRROR_TARGET }}
-          remote_host: ${{ secrets.MIRROR_HOST }}
-          remote_user: github
-          remote_key: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./${{ env.BUILD_OUTPUT_DIR }}
+          cname: blog.yixuan-wang.site
