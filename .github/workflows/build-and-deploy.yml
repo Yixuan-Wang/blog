@@ -78,10 +78,9 @@ jobs:
           PUBLIC_BUILD_BASE_URL: "/"
         run: pnpm run build -- --outDir=${{ env.BUILD_OUTPUT_DIR_MAIN }}
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: blog-build-main
           path: ./${{ env.BUILD_OUTPUT_DIR_MAIN }}
 
   # deploy:
@@ -113,15 +112,11 @@ jobs:
       pages: write
       id-token: write
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: blog-build-main
-          path: ./public
-  
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          cname: blog.yixuan-wang.site
+        id: deployment
+        uses: actions/deploy-pages@v2
