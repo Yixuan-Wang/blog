@@ -16,12 +16,6 @@ import TheSearch from "~/components/TheSearch.astro";
     <p class="text-xl font-mono"><span>|</span><span class="text-one-front">_</span><span>|</span><span>&nbsp;</span><span class="text-one">todo!</span><span>()</span></p>
   </header>
 
-  <!-- A search section -->
-  <section class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Search</h2>
-    <TheSearch />
-  </section>
-
   <section class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
     {timeDesc.slice(0, 10).map(key => <PostInfoFull info={PostInfo[key]} />)}
