@@ -8,7 +8,7 @@ const { toc } = Astro.props;
 
 <section id="toc-container">
   <aside id="toc">
-    <a id="toc-to-top" href="#"><div class="i-mdi-arrow-up-circle"></div></a>
+    <button id="toc-to-top" class="cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Scroll to top"><div class="i-mdi-arrow-up-circle"></div></button>
     {
       toc.map(([heading, id]) => (
         <span class="font-bold">
@@ -31,7 +31,7 @@ const { toc } = Astro.props;
     @apply
       flex flex-col w-full items-start
       overflow-y-auto
-      gap-y-1
+      gap-y-2
       lg:(
         absolute left-full ml-4 w-fit
       )
@@ -52,8 +52,11 @@ const { toc } = Astro.props;
   }
 
   #toc a {
-    border: none !important;
-    padding: unset;
+    @apply border-none! p-unset text-inherit;
+  }
+
+  #toc > * {
+    @apply text-front lh-tight @hover:text-one-front
   }
 
   #toc-to-top {
