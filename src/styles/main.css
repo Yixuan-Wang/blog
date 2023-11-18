@@ -131,7 +131,7 @@ input {
 }
 
 ::selection {
-  background-color: rgb(var(--color-one-back), 60%);
+  background-color: rgb(var(--color-one-back), 75%);
   color: rgb(var(--color-one-front));
 }
 
@@ -210,32 +210,32 @@ input {
 .shiki {
   --shiki-color-var-foreground: rgb(var(--color-front));
   --shiki-color-var-background: color-mix(in oklab, white, rgb(var(--color-one)) 15%);
-  --shiki-color-var-builtin: color-mix(in oklab, #d20f39, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-constant: color-mix(in oklab, #fe640b, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-string: color-mix(in oklab, #40a02b, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-comment: color-mix(in oklab, #9ca0b0, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-keyword: color-mix(in oklab, #8839ef, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-parameter: color-mix(in oklab, #e64553, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-function: color-mix(in oklab, #1e66f5, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-escape: color-mix(in oklab, #ea76cb, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-punctuation: color-mix(in oklab, #7c7f93, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-type: color-mix(in oklab, #df8e1d, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-macro: color-mix(in oklab, #179299, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-generic: color-mix(in oklab, #04a5e5, rgb(var(--color-one-front)) 60%);
+  --shiki-color-var-builtin: color-mix(in oklab, #5a5a5a, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-constant: color-mix(in oklab, #525252, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-string: color-mix(in oklab, #737373, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-comment: color-mix(in oklab, #b5b5b5, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-keyword: color-mix(in oklab, #0a0a0a, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-parameter: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-function: color-mix(in oklab, #404040, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-escape: color-mix(in oklab, #acacac, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-punctuation: color-mix(in oklab, #686868, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-type: color-mix(in oklab, #171717, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-macro: color-mix(in oklab, #494949, rgb(var(--color-one-front)) 75%);
+  --shiki-color-var-generic: color-mix(in oklab, #2d2d2d, rgb(var(--color-one-front)) 75%);
 }
 
 :root.dark .shiki {
   --shiki-color-var-background: color-mix(in oklab, black, rgb(var(--color-one)) 25%);
-  --shiki-color-var-builtin: color-mix(in oklab, #e05561, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-constant: color-mix(in oklab, #f0a45d, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-string: color-mix(in oklab, #98c379, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-comment: color-mix(in oklab, #7f848e, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-keyword: color-mix(in oklab, #c678dd, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-parameter: color-mix(in oklab, #ff616e, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-function: color-mix(in oklab, #4aa5f0, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-escape: color-mix(in oklab, #de73ff, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-punctuation: color-mix(in oklab, #abb2bf, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-type: color-mix(in oklab, #e5c07b, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-macro: color-mix(in oklab, #42b3c2, rgb(var(--color-one-front)) 60%);
-  --shiki-color-var-generic: color-mix(in oklab, #d19a66, rgb(var(--color-one-front)) 60%);
+  --shiki-color-var-builtin: color-mix(in oklab, #e5e5e5 rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-constant: color-mix(in oklab, #d4d4d4, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-string: color-mix(in oklab, #404040, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-comment: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-keyword: color-mix(in oklab, #fafafa, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-parameter: color-mix(in oklab, #a3a3a3, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-function: color-mix(in oklab, #f5f5f5, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-escape: color-mix(in oklab, #505050, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-punctuation: color-mix(in oklab, #3c3c3c, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-type: color-mix(in oklab, #737373, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-macro: color-mix(in oklab, #9b9b9b, rgb(var(--color-one-front)) 50%);
+  --shiki-color-var-generic: color-mix(in oklab, #6a6a6a, rgb(var(--color-one-front)) 50%);
 }
