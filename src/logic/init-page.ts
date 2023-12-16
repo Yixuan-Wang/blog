@@ -27,8 +27,8 @@ colorPalette.subscribe(state => {
 /* Typeface Init */
 
 typeface.subscribe(state => {
-  document.documentElement.style.setProperty("--font-post-heading", `var(--font-${state.postHeading})`);
-  document.documentElement.style.setProperty("--font-post-content", `var(--font-${state.postContent})`);
+  document.documentElement.dataset.fontPostHeading = state.postHeading;
+  document.documentElement.dataset.fontPostContent = state.postContent;
 });
 
 /* Fontfamily Init */

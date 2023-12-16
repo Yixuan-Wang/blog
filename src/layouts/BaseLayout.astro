@@ -10,9 +10,24 @@ import "src/styles/main.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:type" content="website" />
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+      :root {
+        font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+      }
+      @supports (font-variation-settings: normal) {
+        :root { font-family: InterVariable, sans-serif; }
+      }
+    </style>
+
+    <!-- Color palette and typesetting -->
     <style is:inline id="style-color-palette"></style>
     <script src="src/logic/init-page"></script>
     <meta name="giscus:backlink" content={Astro.url}>
+    
     <slot name="head">
       <title>Pak</title>
       <meta name="description" content="Yixuan Wang's personal blog." />

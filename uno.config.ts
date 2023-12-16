@@ -44,9 +44,30 @@ export default defineConfig({
     presetWebFonts({
       provider: "google",
       fonts: {
-        sans: ["Inter:400,700", "Noto Sans CJK SC:400,700"],
-        serif: ["Source Serif 4"],
-        mono: ["JetBrains Mono:400,700"],
+        sans: [
+          {
+            name: "Noto Sans CJK SC",
+            weights: [400, 700],
+          }
+        ],
+        serif: [
+          {
+            name: "Source Serif 4",
+            weights: [400, 700],
+            italic: true,
+          },
+          {
+            name: "Noto Serif CJK SC",
+            weights: [400, 700],
+          },
+        ],
+        mono: [
+          {
+            name: "JetBrains Mono",
+            weights: [400, 700],
+            italic: true,
+          },
+        ],
       },
     }),
   ],

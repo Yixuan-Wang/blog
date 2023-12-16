@@ -22,6 +22,9 @@ const { default: Content, excerpt, metadata: meta, toc } = await postImport[slug
 
 <LayoutDefault title={meta.title} description={excerpt}>
   <Fragment slot="head">
+    <!-- [霞鹜文楷](https://github.com/lxgw) 来自 [中文网字计划](https://chinese-font.netlify.app/)-->
+    <link rel='stylesheet' href='https://192960944.r.cdn36.com/chinesefonts2/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css' /> 
+    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
