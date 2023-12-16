@@ -15,7 +15,7 @@ const { toc } = Astro.props;
           <a href={`#${id}`}>{heading}</a>
         </span>
       )).reduce((list, line) => {
-        if (list.length) list.push((<span class="display-none" role="separator">|</span>), line);
+        if (list.length) list.push((<span class="hidden" role="separator">|</span>), line);
         else list.push(line);
         return list;
       }, [])
