@@ -60,7 +60,7 @@ export function formatRgb(rgb: ColorRgb): [number, number, number] {
 
 export function polyfillOklch(oklch: ColorOklch): string {
   return formatRgb(clipRgb(convertOklabToRgb(convertLchToLab(oklch)))).join(
-    ",",
+    " ",
   );
 }
 
