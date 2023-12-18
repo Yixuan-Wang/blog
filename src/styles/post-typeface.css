@@ -31,6 +31,6 @@ html[data-font-post-content="sans"] #md :is(i, em) {
 }
 
 html[data-font-post-content="serif"] #md :is(i, em) {
-  font-family: var(--font-custom-serif, "Source Serif 4"), "LXGW WenKai", var(--font-custom-sans-cjk, "Noto Sans CJK SC"), sans-serif;
+  font-family: var(--font-custom-serif, "Source Serif 4"), "LXGW WenKai", var(--font-custom-sans-cjk, "Noto Serif CJK SC"), sans-serif;
   font-synthesis-style: none;
 }
