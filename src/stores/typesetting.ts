@@ -12,7 +12,7 @@ export type StoreFontFamily = Record<FontFamily, string>;
 
 export const typeface = persistentMap<StoreTypeface>("typeface:", {
   postHeading: "sans",
-  postContent: "sans",
+  postContent: "serif",
 });
 
 export const fontFamily = persistentMap<StoreFontFamily>("font-family:", {
