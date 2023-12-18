@@ -34,7 +34,6 @@
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/node": "^18.19.3",
     "@typescript-eslint/parser": "^5.62.0",
-    "@unocss/preset-web-fonts": "^0.58.0",
     "@unocss/reset": "^0.58.0",
     "@unocss/transformer-directives": "^0.58.0",
     "@unocss/transformer-variant-group": "^0.58.0",

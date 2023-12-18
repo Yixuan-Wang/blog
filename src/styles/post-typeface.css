@@ -26,11 +26,11 @@ html[data-font-post-heading="serif"] #md :is(h2, h3, h4, h5, h6) {
 }
 
 html[data-font-post-content="sans"] #md :is(i, em) {
-  font-family: var(--font-custom-sans, "Inter"), "LXGW WenKai", var(--font-custom-sans-cjk, "Noto Sans CJK SC"), sans-serif;
+  font-family: var(--font-custom-sans, "Inter"), "LXGW WenKai", var(--font-custom-sans-cjk, "Noto Sans SC"), sans-serif;
   font-synthesis-style: none;
 }
 
 html[data-font-post-content="serif"] #md :is(i, em) {
-  font-family: var(--font-custom-serif, "Source Serif 4"), "LXGW WenKai", var(--font-custom-sans-cjk, "Noto Serif CJK SC"), sans-serif;
+  font-family: var(--font-custom-serif, "Source Serif 4"), "LXGW WenKai", var(--font-custom-sans-cjk, "Noto Serif SC"), sans-serif;
   font-synthesis-style: none;
 }

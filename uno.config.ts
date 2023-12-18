@@ -1,7 +1,6 @@
 import { defineConfig } from "unocss";
 import presetUno from "@unocss/preset-uno";
 import presetIcons from "@unocss/preset-icons";
-import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
@@ -38,36 +37,6 @@ export default defineConfig({
       extraProperties: {
         width: "1.25em",
         height: "1.25em",
-      },
-    }),
-    // @ts-ignore
-    presetWebFonts({
-      provider: "google",
-      fonts: {
-        sans: [
-          {
-            name: "Noto Sans CJK SC",
-            weights: [400, 700],
-          }
-        ],
-        serif: [
-          {
-            name: "Source Serif 4",
-            weights: [400, 700],
-            italic: true,
-          },
-          {
-            name: "Noto Serif CJK SC",
-            weights: [400, 700],
-          },
-        ],
-        mono: [
-          {
-            name: "JetBrains Mono",
-            weights: [400, 700],
-            italic: true,
-          },
-        ],
       },
     }),
   ],
