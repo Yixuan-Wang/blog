@@ -49,6 +49,7 @@ declare global {
       alias?: string | string[];
       draft?: boolean;
       outdated?: boolean;
+      status?: Status;
     }
 
     interface PostMeta {

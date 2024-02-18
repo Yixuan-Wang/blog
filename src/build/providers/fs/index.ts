@@ -105,6 +105,8 @@ export default function ProviderFs(
       status = Status.DRAFT;
     else if (frontmatter.outdated)
       status = Status.OUTDATED;
+    else if (frontmatter.status)
+      status = Status[frontmatter.status.toUpperCase() as keyof typeof Status];
 
     return {
       status,
