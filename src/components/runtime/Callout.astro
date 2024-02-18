@@ -1,0 +1,30 @@
+---
+const { kind } = Astro.props;
+
+const ICONS = {
+  "note": "i-mdi-information",
+  "tip": "i-mdi-lightbulb",
+  "info": "i-mdi-information",
+  "warning": "i-mdi-alert",
+  "important": "i-mdi-comment-alert",
+  "caution": "i-mdi-alert-octagon",
+  "tldr": "i-mdi-briefcase",
+  "tbc": "i-mdi-progress-clock",
+}
+
+const KIND_TITLE = {
+  "tldr": "TL;DR",
+  "tbc": "Incomplete",
+}
+
+const icon = ICONS[kind] ?? "i-mdi-comment-quote";
+const title = KIND_TITLE[kind] ?? (kind.charAt(0).toUpperCase() + kind.slice(1));
+---
+
+<div class="card flex flex-col gap-1 bg-one-back ">
+  <div role="heading" class="flex flex-row items-center gap-1 text-two-front text-lg">
+    <div class={icon}></div>
+    <span class="font-bold">{title}</span>
+  </div>
+  <slot></slot>
+</div>

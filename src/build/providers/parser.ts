@@ -29,6 +29,7 @@ import remarkDirectivePlainContainers from "../plugins/remark-directive-plain-co
 import remarkRuby from "../plugins/remark-ruby";
 import remarkShiki from "../plugins/remark-shiki";
 import { languages, theme } from "../highlights";
+import rehypeCallout from "../plugins/rehype-callout";
 
 export function parseFrontmatter(source: string) {
   const { data, excerpt, content } = matter(source, {
@@ -71,6 +72,7 @@ const pipeline = {
   }) as Processor<MdastRoot, HastRoot, HastRoot, never>,
   transformHtml: unified()
     .use(rehypeRaw)
+    .use(rehypeCallout) 
     .use(rehypeRuby)
     .use(rehypeSlug)
     .use(rehypeKatex, {
