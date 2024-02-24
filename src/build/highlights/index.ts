@@ -30,6 +30,5 @@ export default async function getMyHighlighter() {
     themes: [theme],
     langs: [...Object.keys(bundledLanguages), ...langs],
   });
-  console.log(highlighter.getLanguage("coq"));
   return highlighter;
 }
