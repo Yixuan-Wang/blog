@@ -34,7 +34,7 @@ export function emitModuleFromSource(
     either,
     Either.match(
       err => console.error(err),
-      ({ info, slug, source }) => {
+      async ({ info, slug, source }) => {
         try {
           const moduleName = `post:${slug}.astro`;
 
@@ -50,7 +50,7 @@ export function emitModuleFromSource(
           if (process.env.POST_DRAFT !== "true" && meta.status === Status.DRAFT)
             return;
 
-          const { componentImport, jsx, toc } = parseMarkdown(rawContent, {
+          const { componentImport, jsx, toc } = await parseMarkdown(rawContent, {
             componentBase: config.componentBase,
             info: {
               slug,

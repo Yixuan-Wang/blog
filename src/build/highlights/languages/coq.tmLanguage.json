@@ -2,7 +2,7 @@
   "fileTypes": [
     "v"
   ],
-  "name": "Coq",
+  "name": "coq",
   "patterns": [
     {
       "match": "\\b(From|Require|Import|Export|Local|Global|Include)\\b",

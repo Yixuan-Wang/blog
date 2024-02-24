@@ -174,68 +174,62 @@ input {
 }
 
 /* .shiki {
-  --shiki-color-var-foreground: #4c4f69;
-  --shiki-color-var-background: #eff1f5;
-  --shiki-color-var-builtin: #d20f39;
-  --shiki-color-var-constant: #fe640b;
-  --shiki-color-var-string: #40a02b;
-  --shiki-color-var-comment: #9ca0b0;
-  --shiki-color-var-keyword: #8839ef;
-  --shiki-color-var-parameter: #e64553;
-  --shiki-color-var-function: #1e66f5;
-  --shiki-color-var-escape: #ea76cb;
-  --shiki-color-var-punctuation: #7c7f93;
-  --shiki-color-var-type: #df8e1d;
-  --shiki-color-var-macro: #179299;
-  --shiki-color-var-generic: #04a5e5;
+  --shiki-foreground: #4c4f69;
+  --shiki-background: #eff1f5;
+  --shiki-builtin: #d20f39;
+  --shiki-constant: #fe640b;
+  --shiki-string: #40a02b;
+  --shiki-comment: #9ca0b0;
+  --shiki-keyword: #8839ef;
+  --shiki-parameter: #e64553;
+  --shiki-function: #1e66f5;
+  --shiki-escape: #ea76cb;
+  --shiki-punctuation: #7c7f93;
+  --shiki-type: #df8e1d;
+  --shiki-macro: #179299;
+  --shiki-generic: #04a5e5;
 }
 
 :root.dark .shiki {
-  --shiki-color-var-foreground: #dcdfe4;
-  --shiki-color-var-background: #282c34;
-  --shiki-color-var-builtin: #e05561;
-  --shiki-color-var-constant: #f0a45d;
-  --shiki-color-var-string: #98c379;
-  --shiki-color-var-comment: #7f848e;
-  --shiki-color-var-keyword: #c678dd;
-  --shiki-color-var-parameter: #ff616e;
-  --shiki-color-var-function: #4aa5f0;
-  --shiki-color-var-escape: #de73ff;
-  --shiki-color-var-punctuation: #abb2bf;
-  --shiki-color-var-type: #e5c07b;
-  --shiki-color-var-macro: #42b3c2;
-  --shiki-color-var-generic: #d19a66;
+  --shiki-foreground: #dcdfe4;
+  --shiki-background: #282c34;
+  --shiki-builtin: #e05561;
+  --shiki-constant: #f0a45d;
+  --shiki-string: #98c379;
+  --shiki-comment: #7f848e;
+  --shiki-keyword: #c678dd;
+  --shiki-parameter: #ff616e;
+  --shiki-function: #4aa5f0;
+  --shiki-escape: #de73ff;
+  --shiki-punctuation: #abb2bf;
+  --shiki-type: #e5c07b;
+  --shiki-macro: #42b3c2;
+  --shiki-generic: #d19a66;
 } */
 
 .shiki {
-  --shiki-color-var-foreground: rgb(var(--color-front));
-  --shiki-color-var-background: color-mix(in oklab, white, rgb(var(--color-one)) 15%);
-  --shiki-color-var-builtin: color-mix(in oklab, #5a5a5a, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-constant: color-mix(in oklab, #525252, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-string: color-mix(in oklab, #737373, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-comment: color-mix(in oklab, #b5b5b5, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-keyword: color-mix(in oklab, #0a0a0a, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-parameter: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-function: color-mix(in oklab, #404040, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-escape: color-mix(in oklab, #acacac, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-punctuation: color-mix(in oklab, #686868, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-type: color-mix(in oklab, #171717, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-macro: color-mix(in oklab, #494949, rgb(var(--color-one-front)) 75%);
-  --shiki-color-var-generic: color-mix(in oklab, #2d2d2d, rgb(var(--color-one-front)) 75%);
+  --shiki-foreground: rgb(var(--color-front));
+  --shiki-background: color-mix(in oklab, white, rgb(var(--color-one)) 12%);
+  --shiki-token-constant: color-mix(in oklab, #666666, rgb(var(--color-two)) 85%);
+  --shiki-token-string: rgb(var(--color-two-front));
+  --shiki-token-string-expression: var(--shiki-token-string);
+  --shiki-token-link: var(--shiki-token-string); 
+  --shiki-token-comment: color-mix(in oklab, #d5d5d5, rgb(var(--color-one-front)) 50%);
+  --shiki-token-keyword: color-mix(in oklab, #666666, rgb(var(--color-one)) 85%);
+  --shiki-token-parameter: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 75%);
+  --shiki-token-function: rgb(var(--color-one-front));
+  --shiki-token-punctuation: rgb(var(--color-front));
 }
 
 :root.dark .shiki {
-  --shiki-color-var-background: color-mix(in oklab, black, rgb(var(--color-one)) 25%);
-  --shiki-color-var-builtin: color-mix(in oklab, #e5e5e5 rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-constant: color-mix(in oklab, #d4d4d4, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-string: color-mix(in oklab, #404040, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-comment: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-keyword: color-mix(in oklab, #fafafa, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-parameter: color-mix(in oklab, #a3a3a3, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-function: color-mix(in oklab, #f5f5f5, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-escape: color-mix(in oklab, #505050, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-punctuation: color-mix(in oklab, #3c3c3c, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-type: color-mix(in oklab, #737373, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-macro: color-mix(in oklab, #9b9b9b, rgb(var(--color-one-front)) 50%);
-  --shiki-color-var-generic: color-mix(in oklab, #6a6a6a, rgb(var(--color-one-front)) 50%);
+  --shiki-background: color-mix(in oklab, black, rgb(var(--color-one)) 25%);
+  --shiki-token-constant: rgb(var(--color-two));
+  --shiki-token-string: rgb(var(--color-two-front));
+  --shiki-token-string-expression: var(--shiki-token-string);
+  --shiki-token-link: var(--shiki-token-string); 
+  --shiki-token-comment: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 50%);
+  --shiki-token-keyword: rgb(var(--color-one)); 
+  --shiki-token-parameter: color-mix(in oklab, #a3a3a3, rgb(var(--color-one-front)) 50%);
+  --shiki-token-function: rgb(var(--color-one-front));
+  --shiki-token-punctuation: rgb(var(--color-front));
 }
