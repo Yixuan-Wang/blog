@@ -7,9 +7,9 @@ const DEFAULT_COLOR_PALETTE = {
   },
   two: {
     mode: "oklch",
-    l: 0.5446,
+    l: 0.6967,
     c: 0.122,
-    h: 241.22,
+    h: 217.58,
   },
 };
 

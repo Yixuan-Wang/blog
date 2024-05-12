@@ -131,7 +131,7 @@ input {
 }
 
 ::selection {
-  background-color: rgb(var(--color-one-back), 75%);
+  background-color: rgb(var(--color-two-back) / 50%);
   color: rgb(var(--color-one-front));
 }
 

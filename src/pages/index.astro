@@ -12,12 +12,12 @@ import TheSearch from "~/components/TheSearch.astro";
 <LayoutEmpty>
   <header class="flex flex-col">
     <h1 class="text-6xl font-bold text-one">Pak</h1>
-    <p class="text-3xl font-bold mb-3 text-one-front">Yixuan Wang's Blog</p>
-    <p class="text-xl font-mono"><span>|</span><span class="text-one-front">_</span><span>|</span><span>&nbsp;</span><span class="text-one">todo!</span><span>()</span></p>
+    <p class="text-3xl font-bold mb-3 text-two">Yixuan Wang's Blog</p>
+    <p class="text-xl font-mono"><span>|</span><span class="text-one-front">_</span><span>|</span><span>&nbsp;</span><span class="text-two-front">todo!</span><span>()</span></p>
   </header>
 
   <section class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
+    <h2 class="text-2xl font-bold text-two-front">Recent Posts</h2>
     {timeDesc.slice(0, 10).map(key => <PostInfoFull info={PostInfo[key]} />)}
     <article class="card flex flex-row gap-2 items-center @hover-bg-one-back transition-lively">
       <div class="i-mdi-inbox" />
@@ -28,12 +28,12 @@ import TheSearch from "~/components/TheSearch.astro";
   </section>
 
   <section class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Friends</h2>
+    <h2 class="text-2xl font-bold text-two-front">Friends</h2>
     <FriendList />
   </section>
 
   <section class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Color Palettes</h2>
+    <h2 class="text-2xl font-bold text-two-front">Color Palettes</h2>
     <ColorPalette />
   </section>
 

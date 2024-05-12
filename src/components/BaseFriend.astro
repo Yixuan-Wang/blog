@@ -56,6 +56,10 @@ const outlink = { rel: "noopener", target: "_blank" };
 <style>
   @media (hover: hover) and (pointer: fine) {
     article:hover h2 {
+      @apply font-bold;
+    }
+
+    article:hover a {
       @apply text-one-front;
     }
   }
@@ -69,6 +73,6 @@ const outlink = { rel: "noopener", target: "_blank" };
   }
 
   .friends-list a {
-    @apply text-one-front @hover-text-one transition-lively;
+    @apply text-two-front @hover-text-one transition-lively;
   }
 </style>
