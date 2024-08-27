@@ -215,7 +215,7 @@ input {
   --shiki-token-string-expression: var(--shiki-token-string);
   --shiki-token-link: var(--shiki-token-string); 
   --shiki-token-comment: color-mix(in oklab, #d5d5d5, rgb(var(--color-one-front)) 50%);
-  --shiki-token-keyword: color-mix(in oklab, #666666, rgb(var(--color-one)) 85%);
+  --shiki-token-keyword: color-mix(in oklab, #666666, rgb(var(--color-two)) 85%);
   --shiki-token-parameter: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 75%);
   --shiki-token-function: rgb(var(--color-one-front));
   --shiki-token-punctuation: rgb(var(--color-front));
@@ -228,7 +228,7 @@ input {
   --shiki-token-string-expression: var(--shiki-token-string);
   --shiki-token-link: var(--shiki-token-string); 
   --shiki-token-comment: color-mix(in oklab, #262626, rgb(var(--color-one-front)) 50%);
-  --shiki-token-keyword: rgb(var(--color-one)); 
+  --shiki-token-keyword: rgb(var(--color-two)); 
   --shiki-token-parameter: color-mix(in oklab, #a3a3a3, rgb(var(--color-one-front)) 50%);
   --shiki-token-function: rgb(var(--color-one-front));
   --shiki-token-punctuation: rgb(var(--color-front));
