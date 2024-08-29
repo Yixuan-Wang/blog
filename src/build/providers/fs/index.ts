@@ -21,7 +21,6 @@ interface ProviderFsOptions {
 }
 
 interface ProviderFsExtra {
-  lastModified: string
 }
 
 export default function ProviderFs(
@@ -37,12 +36,8 @@ export default function ProviderFs(
     allSlug.add(slug);
 
     let source: string;
-    let lastModified: string;
     try {
-      [source, lastModified] = await Promise.all([
-        fileSystem.readFile(filePath, { encoding: "utf-8" }),
-        fileSystem.stat(filePath).then(({ mtime }) => formatISO(mtime)),
-      ]);
+      source = await fileSystem.readFile(filePath, { encoding: "utf-8" })
     }
     catch (error) {
       console.error(error);
@@ -52,9 +47,7 @@ export default function ProviderFs(
     return right({
       slug,
       source,
-      info: {
-        lastModified,
-      },
+      info: {},
     } satisfies ProviderSource<ProviderFsExtra>);
   };
 
@@ -98,7 +91,7 @@ export default function ProviderFs(
     const created = vagueDateToISO(frontmatter.date);
     const updated = frontmatter.updated
       ? vagueDateToISO(frontmatter.updated)
-      : info.lastModified;
+      : created;
 
     let status: Status = Status.FINISHED;
     if (frontmatter.draft)
