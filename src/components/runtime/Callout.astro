@@ -1,7 +1,7 @@
 ---
 const { kind } = Astro.props;
 
-const ICONS = {
+const ICONS: Record<string, string> = {
   "note": "i-mdi-information",
   "tip": "i-mdi-lightbulb",
   "info": "i-mdi-information",
@@ -13,7 +13,7 @@ const ICONS = {
   "update": "i-mdi-history",
 }
 
-const KIND_TITLE = {
+const KIND_TITLE: Record<string, string> = {
   "tldr": "TL;DR",
   "tbc": "Incomplete",
 }
