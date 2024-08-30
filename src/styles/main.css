@@ -135,6 +135,11 @@ input {
   color: rgb(var(--color-one-front));
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-one)) transparent;
+}
+
 ::-webkit-scrollbar {
   height: 4px;
   width: 4px;

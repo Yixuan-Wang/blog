@@ -25,13 +25,13 @@ const { toc } = Astro.props;
 
 <style>
   #toc-container {
-    @apply relative lg:(sticky top-6) w-full ;
+    @apply relative lg:(sticky top-6) w-full;
   }
   #toc {
     @apply
       flex flex-col w-full items-start
-      overflow-y-auto
-      gap-y-2
+      overflow-y-auto overflow-x-hidden
+      gap-y-2 p-2
       lg:(
         absolute left-full ml-4 w-fit
       )
