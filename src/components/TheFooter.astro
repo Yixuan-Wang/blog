@@ -50,7 +50,7 @@ const { noComments } = Astro.props;
       </BaseHover>
     }
     <BaseHover>
-      <TheFooterColorSchemeButton slot="handle" client:only />
+      <TheFooterColorSchemeButton slot="handle" client:only="svelte" />
       <div slot="content" class="tip">Color Scheme</div>
     </BaseHover>
   </nav>

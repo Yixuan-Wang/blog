@@ -1,6 +1,9 @@
 # Contents
 data/
 
+# Astro
+.astro/
+
 # build output
 dist/
 .output/
