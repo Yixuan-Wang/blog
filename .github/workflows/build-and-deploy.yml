@@ -8,7 +8,7 @@ on:
       - contents-issues-update
   push:
     branches:
-      - v4
+      - main
     tags:
       - "v*"
 
