@@ -103,7 +103,7 @@ export async function parseMarkdown(content: string, options: OptionsParseMarkdo
   );
 
   const components = Array.from(pipeline.analyzeComponents.stringify(hast));
-  const toc = pipeline.analyzeToc.stringify(hast);
+  const toc = pipeline.analyzeToc.stringify(hast) as any as [string, string][];
   const getFileNameFromComponent = toGetFileNameFromComponent(
     options.componentBase,
   );

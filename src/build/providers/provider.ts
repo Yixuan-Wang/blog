@@ -15,14 +15,14 @@ export async function emitModules(
   config: ConfigPostProvider,
   modules: Map<string, post.Post>) {
   PROVIDER_SPINNER.start();
-  await Promise.all(
+  await Promise.allSettled(
     providers.map(async (rawProvider) => {
       const provider = await rawProvider;
       const sources = await provider.generateSource();
       await sources.forEach(emitModuleFromSource(provider, config, modules));
     }),
   );
-  PROVIDER_SPINNER.succeed(`Compiled ${chalk.green(PROVIDER_COUNTER)} posts.\n`);
+  PROVIDER_SPINNER.succeed(`Found ${chalk.green(PROVIDER_COUNTER)} posts.\n`);
 }
 
 export function emitModuleFromSource(
@@ -37,19 +37,27 @@ export function emitModuleFromSource(
       async ({ info, slug, source }) => {
         try {
           const moduleName = `post:${slug}.astro`;
-
-          PROVIDER_SPINNER.text = `Fetched ${chalk.bold(slug)} from provider ${chalk.underline(provider.name)}`;
-
+          
           const { frontmatter, excerpt: excerptRaw, rawContent } = parseFrontmatter(source);
           const excerpt = (excerptRaw as string).trim();
           const meta = provider.generatePostMeta(frontmatter, info);
-
-          if (process.env.POST_DRAFT === "only" && meta.status !== Status.DRAFT)
-            return;
-
-          if (process.env.POST_DRAFT !== "true" && meta.status === Status.DRAFT)
-            return;
-
+          
+          if (process.env.POST_DRAFT) {
+            if (process.env.POST_DRAFT === "only") {
+              if (meta.status !== Status.DRAFT) return;
+              PROVIDER_SPINNER.text = `${chalk.bgGreen(" SUCC ")} Compiling draft ${chalk.bold(slug)} from provider ${chalk.underline(provider.name)}`;
+            }
+            PROVIDER_SPINNER.text = `${chalk.bgGreen(" SUCC ")} Compiling ${chalk.bold(slug)} from provider ${chalk.underline(provider.name)}`;
+          }
+          else {
+            if (meta.status === Status.DRAFT) {
+              PROVIDER_SPINNER.text = `${chalk.bgYellow(" WARN ")} Skipping draft ${chalk.underline(slug)}`;
+              return;
+            }
+            PROVIDER_SPINNER.text = `${chalk.bgGreen(" SUCC ")} Compiling ${chalk.bold(slug)} from provider ${chalk.underline(provider.name)}`;
+          }
+          
+          PROVIDER_COUNTER += 1;
           const { componentImport, jsx, toc } = await parseMarkdown(rawContent, {
             componentBase: config.componentBase,
             info: {
