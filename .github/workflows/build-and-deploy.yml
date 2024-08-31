@@ -84,9 +84,9 @@ jobs:
           path: ./${{ env.BUILD_OUTPUT_DIR_MAIN }}
 
       - name: Publish to Cloudflare Pages
-          uses: cloudflare/pages-action@v1
-          with:
-            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-            accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-            projectName: blog
-            directory: ${{ env.BUILD_OUTPUT_DIR_MAIN }}
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: blog
+          directory: ${{ env.BUILD_OUTPUT_DIR_MAIN }}
