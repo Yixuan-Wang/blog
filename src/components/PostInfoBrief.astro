@@ -5,18 +5,20 @@ import { STATUS_META, Status } from "~/logic/status";
 
 export interface Props {
   info: post.PostInfo
+  timeFormat?: string
   hideCategory?: boolean
 }
 
 const {
   info: { slug, meta },
   hideCategory,
+  timeFormat = "yyyy/MM/dd"
 } = Astro.props;
 ---
 
 <article class="flex flex-row flex-gap-[0_1rem] items-baseline">
   <span class="font-mono">
-    <time>{lightFormat(decideTimeFromStatus(meta), "MM/dd")}</time>
+    <time>{lightFormat(decideTimeFromStatus(meta), timeFormat)}</time>
   </span>
   {
     !hideCategory
