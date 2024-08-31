@@ -14,32 +14,68 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params as {
-  slug: string
+  slug: string;
 };
 
-const { default: Content, excerpt, metadata: meta, toc } = await postImport[slug]();
+const {
+  default: Content,
+  excerpt,
+  metadata: meta,
+  toc,
+  componentNames,
+} = await postImport[slug]();
 ---
 
 <LayoutDefault title={meta.title} description={excerpt}>
   <Fragment slot="head">
     <!-- [霞鹜文楷](https://github.com/lxgw) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css" /> 
-    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
       crossorigin="anonymous"
     />
+
+    {
+      componentNames?.includes("Mermaid") ? (
+        <script is:inline type="module">
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+          document.addEventListener("DOMContentLoaded", function() {
+            const style = getComputedStyle(document.body);
+            mermaid.initialize({
+              securityLevel: 'loose',
+              theme: 'base',
+              fontFamily: 'inherit',
+              themeVariables: {
+                darkMode: document.documentElement.classList.contains("dark"),
+                primaryColor: `rgb(${style.getPropertyValue("--color-one-back")})`,
+                lineColor: `rgb(${style.getPropertyValue("--color-front")})`,
+              }
+            });
+          }); 
+        </script>
+      ) : null
+    }
   </Fragment>
   <Fragment slot="headline">
     <PostMeta meta={meta} />
   </Fragment>
   <main id="md" lang={meta.lang ?? "zh-Hans"}>
-    { toc ? <TheToc {toc} /> : null }
+    {toc ? <TheToc {toc} /> : null}
     <Content>
       <Fragment slot="foldout">
-        { meta.status !== Status.FINISHED ? <CalloutStatus status={meta.status} updated={meta.timeline.updated} /> : null }
-        <!-- <p class="my-4">Hi! from foldout.</p> -->
+        {
+          meta.status !== Status.FINISHED ? (
+            <CalloutStatus
+              status={meta.status}
+              updated={meta.timeline.updated}
+            />
+          ) : null
+        }
       </Fragment>
     </Content>
   </main>

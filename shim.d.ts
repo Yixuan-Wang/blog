@@ -6,6 +6,7 @@ declare module "post:*.astro" {
   export const excerpt: string;
   export const metadata: post.PostMeta;
   export const toc: [string, string][];
+  export const componentNames: string[];
 }
 
 declare module "post:info" {

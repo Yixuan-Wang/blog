@@ -16,6 +16,7 @@ declare global {
       content: PostContent;
       meta: PostMeta;
       toc: [string, string][];
+      componentNames: string[];
     }
 
     interface PostInfo {

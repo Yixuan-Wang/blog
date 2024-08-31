@@ -28,7 +28,7 @@ const theme = createCssVariablesTheme({
 export default async function getMyHighlighter() {
   const highlighter = await getHighlighter({
     themes: [theme],
-    langs: [...Object.keys(bundledLanguages), ...langs],
+    langs: [...Object.keys(bundledLanguages).filter(lang => lang !== "mermaid"), ...langs],
   });
   return highlighter;
 }

@@ -63,7 +63,7 @@ export function emitModuleFromSource(
           }
           
           PROVIDER_COUNTER += 1;
-          const { componentImport, jsx, toc } = await parseMarkdown(rawContent, {
+          const { componentNames, componentImport, jsx, toc } = await parseMarkdown(rawContent, {
             componentBase: config.componentBase,
             info: {
               slug,
@@ -83,6 +83,7 @@ export function emitModuleFromSource(
             },
             meta,
             toc,
+            componentNames,
           } satisfies post.Post);
         }
         catch (err) {

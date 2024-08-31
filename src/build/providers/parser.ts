@@ -16,6 +16,7 @@ import { unified } from "unified";
 import highlighter from "../highlights";
 import rehypeAstroJsx from "../plugins/rehype-astro-jsx";
 import rehypeCallout from "../plugins/rehype-callout";
+import rehypeMermaid from "../plugins/rehype-mermaid";
 import rehypeExtractToc from "../plugins/rehype-extract-toc";
 import rehypeFindComponents from "../plugins/rehype-find-components";
 import rehypeRuby from "../plugins/rehype-ruby";
@@ -58,6 +59,7 @@ const pipeline = {
   transformHtml: unified()
     .use(rehypeRaw)
     .use(rehypeCallout)
+    .use(rehypeMermaid)
     .use(rehypeRuby)
     .use(rehypeSlug)
     .use(rehypeKatex, {
@@ -66,6 +68,9 @@ const pipeline = {
     })
     .use(rehypeShikiFromHighlighter, await highlighter(), { 
       theme: "css-variables",
+      addLanguageClass: true,
+      defaultLanguage: "plaintext",
+      fallbackLanguage: "plaintext",
     }),
   analyzeComponents: unified().use(rehypeFindComponents),
   analyzeToc: unified().use(rehypeExtractToc),
@@ -114,6 +119,7 @@ export async function parseMarkdown(content: string, options: OptionsParseMarkdo
   const jsx = pipeline.escapeAstro(pipeline.compileAstro.stringify(pipeline.compileHtmlToAstro.runSync(hast)));
 
   return {
+    componentNames: components,
     componentImport,
     jsx,
     toc,
