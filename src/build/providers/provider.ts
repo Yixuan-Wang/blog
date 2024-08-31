@@ -25,6 +25,8 @@ export async function emitModules(
   PROVIDER_SPINNER.succeed(`Found ${chalk.green(PROVIDER_COUNTER)} posts.\n`);
 }
 
+const SLUG_FILTER = process.env.POST_SLUG ? new RegExp(process.env.POST_SLUG) : null;
+
 export function emitModuleFromSource(
   provider: Provider<unknown>,
   config: ConfigPostProvider,
@@ -36,6 +38,9 @@ export function emitModuleFromSource(
       err => console.error(err),
       async ({ info, slug, source }) => {
         try {
+          if (SLUG_FILTER && !slug.match(SLUG_FILTER))
+            return
+
           const moduleName = `post:${slug}.astro`;
           
           const { frontmatter, excerpt: excerptRaw, rawContent } = parseFrontmatter(source);
@@ -79,8 +84,6 @@ export function emitModuleFromSource(
             meta,
             toc,
           } satisfies post.Post);
-
-          PROVIDER_COUNTER += 1;
         }
         catch (err) {
           console.error(chalk.bgRed(" ERROR "), ` Compile failed for ${chalk.underline(slug)}`);
