@@ -31,7 +31,7 @@ env:
   BUILD_OUTPUT_DIR_MAIN: "dist" # Build output directory for main site
 
 jobs:
-  prepare:
+  cloudflare-pages:
     runs-on: ubuntu-latest
 
     steps:
@@ -83,40 +83,10 @@ jobs:
         with:
           path: ./${{ env.BUILD_OUTPUT_DIR_MAIN }}
 
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: prepare
-  #   env:
-  #     BUILD_OUTPUT_DIR: "dist"
-  #   steps:
-  #     - name: Donwload Artifact
-  #           uses: actions/download-artifact@v3
-  #           with:
-  #             name: blog-build-main
-  #             path: ./${{ env.BUILD_OUTPUT_DIR_MAIN }}
-  #
-  #     - name: Deploy Server
-  #       uses: burnett01/rsync-deployments@5.2.1
-  #       with:
-  #         switches: -avzr --delete
-  #         path: ${{ env.BUILD_OUTPUT_DIR_MAIN }}/.
-  #         remote_path: ${{ secrets.MIRROR_TARGET }}
-  #         remote_host: ${{ secrets.MIRROR_HOST }}
-  #         remote_user: github
-  #         remote_key: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
-
-  deploy-gh-pages:
-    runs-on: ubuntu-latest
-    needs: prepare
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Publish to Cloudflare Pages
+          uses: cloudflare/pages-action@v1
+          with:
+            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+            projectName: blog
+            directory: ${{ env.BUILD_OUTPUT_DIR_MAIN }}
