@@ -1,0 +1,53 @@
+---
+import LayoutEmpty from "src/layouts/LayoutEmpty.astro";
+
+import PostInfo, { timeDesc } from "post:info";
+import PostInfoFull from "src/components/PostInfoFull.astro";
+import BaseHead from "src/components/BaseHead.astro";
+import BaseHeadline from "src/components/BaseHeadline.astro";
+
+const description = `Yixuan "Tom" Wang is a Master's student at University of Chicago, focusing on Natural Language Processing and Computational Linguistics. I also have a broad interest in Systems Research for Machine Learning and Programming Languages.`;
+const outlink = { rel: "noopener", target: "_blank" };
+---
+
+<LayoutEmpty>
+  <Fragment slot="head">
+    <title>Yixuan Wang</title>
+    <meta property="og:title" content="Yixuan Wang's Academic Writings" />
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
+  </Fragment>
+  <BaseHeadline headline="Yixuan Wang" />
+  <div class="card mb-3 flex flex-col gap-1 bg-one-back font-sans">
+    <div role="heading" class="flex flex-row items-center gap-1 text-one-front text-lg">
+      <div class="i-mdi-school"></div>
+      <span class="font-bold">About Me</span>
+    </div>
+    <p>{description}</p>
+    <div id="academia-social-link" class="mt-2 w-fit flex flex-row gap-2 p-2 rounded-full bg-two-back">
+      <a href="https://github.com/Yixuan-Wang" aria-label="GitHub" {...outlink}>
+        <div class="i-mdi-github"></div>
+      </a>
+      <a href="https://x.com/tom_yixuan_wang" aria-label="Twitter" {...outlink}>
+        <div class="i-mdi-twitter"></div>
+      </a>
+      <a href="https://www.linkedin.com/in/yixuan-wang-196b60253/" aria-label="LinkedIn" {...outlink}>
+        <div class="i-mdi-linkedin"></div>
+      </a>
+      <a href="https://sigmoid.social/@tom_yixuan_wang" aria-label="Mastodon" {...outlink}>
+        <div class="i-mdi-mastodon"></div>
+      </a>
+    </div>
+  </div>
+  <section class="flex flex-col gap-3">
+    {timeDesc.filter(key => PostInfo[key].meta.taxonomy.keywords?.includes("academia")).map(key => <PostInfoFull info={PostInfo[key]} />)}
+  </section>
+
+  <div role="none" class="mb-10"></div>
+</LayoutEmpty>
+
+<style>
+#academia-social-link a {
+  @apply transition-lively text-two-front hover:text-one-front;
+}
+</style>

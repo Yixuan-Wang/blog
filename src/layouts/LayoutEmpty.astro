@@ -11,6 +11,9 @@ const { noComments } = Astro.props;
 ---
 
 <BaseLayout>
+  <Fragment slot="head">
+    <slot name="head" />
+  </Fragment>
   <TheHeader />
   <div id="the-main">
     <slot />

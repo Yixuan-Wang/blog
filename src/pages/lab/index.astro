@@ -5,7 +5,12 @@ const labItems = [
   {
     title: "Typesetting",
     icon: "i-mdi-typewriter",
-    url: "typesetting",
+    url: "lab/typesetting",
+  },
+  {
+    title: "Academia",
+    icon: "i-mdi-school",
+    url: "academia",
   },
 ]
 ---
@@ -21,7 +26,7 @@ const labItems = [
         <div class="text-one">
           <div class={icon} />
         </div>
-        <a href={new URL(`${import.meta.env.BASE_URL}lab/${url}`, Astro.site)}>{title}</a>
+        <a href={new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}>{title}</a>
       </>
     ))}
   </main>
@@ -29,6 +34,6 @@ const labItems = [
 
 <style>
   a {
-    @apply px-2 py-1 rounded transition-lively @hover-text-one-front @hover-bg-one-back;
+    @apply px-2 py-1 rounded transition-lively @hover-text-one-front @hover-bg-one-back @hover-font-bold;
   }
 </style>
