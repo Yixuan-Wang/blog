@@ -58,7 +58,7 @@ export default defineConfig({
     ["card", ["p-4", "rounded"]],
     [
       /^ub(?:-(.*))?$/,
-      ([, c]) => `pb-0.25 border-b-1 border-b-${c ?? "current"}`,
+      ([, c]) => `pb-0.5 border-b-1 border-b-${c ?? "current"}`,
     ],
   ],
   rules: [

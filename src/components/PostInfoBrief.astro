@@ -32,12 +32,16 @@ const {
         )
       : null
   }
-  <a
-    class="inline-flex gap-1 @hover-text-one-front transition-lively"
-    href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}
-    style={meta.status === Status.OUTDATED ? "text-decoration-line: line-through;" : ""}
+  <span
+    class="flex gap-1 @hover-text-one-front transition-lively"
   >
-    <span class="ub">{meta.title}</span>
+    <a
+      class="inline"
+      href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}
+      style={meta.status === Status.OUTDATED ? "text-decoration-line: line-through;" : ""}
+    >
+      <span class="ub">{meta.title}</span>
+    </a>
     { meta.status !== Status.FINISHED ? <span class="text-sm"><div class={STATUS_META[meta.status].icon}></div></span> : null }
-  </a>
+  </span>
 </article>
