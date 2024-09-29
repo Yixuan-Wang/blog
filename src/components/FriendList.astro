@@ -2,10 +2,12 @@
 import { sortUnicode } from "src/utils/stub";
 import BaseFriend from "./BaseFriend.astro";
 import { friends } from "@/meta/friends.yaml";
+import CardTravelling from "./CardTravelling.astro";
 
 const friendsSorted = friends.sort((a, b) => sortUnicode(a.name, b.name));
 ---
 
 <div class="p-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 grid-gap-1 items-center relative">
+  <CardTravelling />
   {friendsSorted.map(friend => <BaseFriend {friend} />)}
 </div>

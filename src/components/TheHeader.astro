@@ -5,6 +5,7 @@ interface HeaderItem {
   title: string;
   icon: string;
   url: string;
+  absolute?: boolean;
 }
 const headerItems: HeaderItem[] = [
   {
@@ -28,6 +29,12 @@ const headerItems: HeaderItem[] = [
     url: "friends",
   },
   {
+    title: "Travelling",
+    icon: "i-custom-travelling",
+    url: "https://www.travellings.cn/go.html",
+    absolute: true,
+  },
+  {
     title: "Lab",
     icon: "i-mdi-developer-board",
     url: "lab",
@@ -44,12 +51,12 @@ const headerItems: HeaderItem[] = [
   <div class="flex-1"></div>
   <nav id="the-header-end" class="gap-2">
     {
-      headerItems.map(({ url, title, icon }) => (
+      headerItems.map(({ url, title, icon, absolute }) => (
         <BaseHover>
           <a
             slot="handle"
             title={title}
-            href={new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}
+            href={absolute ? url : new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}
           >
             <div class={icon} />
           </a>
