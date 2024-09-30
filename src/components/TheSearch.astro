@@ -1,6 +1,8 @@
 ---
 import Search from "astro-pagefind/components/Search";
 
+const { query } = Astro.params;
+
 const translations = {
   placeholder: "Search on Pak",
   clear_search: "Clear",
@@ -18,7 +20,32 @@ const translations = {
 };
 ---
 
-<Search uiOptions={{ showImages: false, translations }} />
+<Search
+  id="search"
+  uiOptions={{ 
+    showImages: false,
+    translations,
+    ranking: {
+      pageLength: 0.25,
+    }
+  }}
+/>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("search");
+  if (el) {
+    const query = new URLSearchParams(location.search).get("q");
+    if (query) {
+      const input = el.querySelector(`input[type="text"]`);
+      if (input) {
+        input.value = query;
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    }
+  }
+});
+</script>
 
 <style is:global>
   .pagefind-ui {
