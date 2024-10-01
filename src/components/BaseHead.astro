@@ -1,15 +1,16 @@
 ---
 export interface Props {
-  title?: string
-  description?: string
+  title: string
+  description: string
+  noSuffix?: boolean
 }
 
-const title = Astro.props.title ? `${Astro.props.title} | Pak` : "Pak";
-const { description } = Astro.props;
+const { description, title, noSuffix } = Astro.props;
+const fullTitle = noSuffix ? title : `${title} | Pak`;
 ---
 
-<title>{ title }</title>
-<meta property="og:title" content={title} />
+<title>{ fullTitle }</title>
+<meta property="og:title" content={fullTitle} />
 {description
   ? (
     <meta name="description" content={description} />

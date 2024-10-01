@@ -1,5 +1,6 @@
 ---
 import LayoutEmpty from "src/layouts/LayoutEmpty.astro";
+import BaseHead from "~/components/BaseHead.astro";
 
 import PostInfo, { timeDesc } from "post:info";
 import PostInfoFull from "src/components/PostInfoFull.astro";
@@ -10,6 +11,13 @@ import TheSearch from "~/components/TheSearch.astro";
 ---
 
 <LayoutEmpty>
+  <Fragment slot="head">
+    <BaseHead title="Pak" description="Yixuan Wang's blog." noSuffix={true} />
+    <meta property="og:image" content={new URL("/favicon.svg", Astro.site)} />
+    <meta property="og:url" content={Astro.site} />
+    <meta property="og:type" content="website" />
+  </Fragment>
+
   <header class="flex flex-col">
     <h1 class="text-7xl font-bold mb-1 text-one">Pak</h1>
     <p class="text-3xl font-bold mb-3 text-one-front">Yixuan Wang's Blog</p>
