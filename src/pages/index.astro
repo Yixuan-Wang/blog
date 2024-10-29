@@ -7,7 +7,7 @@ import PostInfoFull from "src/components/PostInfoFull.astro";
 
 import ColorPalette from "src/components/ColorPalette.astro";
 import FriendList from "src/components/FriendList.astro";
-import TheSearch from "~/components/TheSearch.astro";
+import BaseHover from "~/components/BaseHover.astro";
 ---
 
 <LayoutEmpty>
@@ -24,25 +24,65 @@ import TheSearch from "~/components/TheSearch.astro";
     <p class="text-xl font-mono"><span>|</span><span class="text-two">_</span><span>|</span><span>&nbsp;</span><span class="text-two-front">todo!</span><span>()</span></p>
   </header>
 
-  <section class="flex flex-col gap-3">
+  <nav class="index-sec-list flex flex-row gap-2">
+    <BaseHover>
+      <a slot="handle" title="Friends" href="#recent-posts">
+        <div class="i-mdi-clock"></div>
+      </a>
+      <div slot="content" class="tip">Recent Posts</div>
+    </BaseHover>
+    <BaseHover>
+      <a slot="handle" title="Friends" href="#friend">
+        <div class="i-mdi-account-circle"></div>
+      </a>
+      <div slot="content" class="tip">Friends</div>
+    </BaseHover>
+    <BaseHover>
+      <a slot="handle" title="Color Palettes" href="#color-palette">
+        <div class="i-mdi-circle-half-full"></div>
+      </a>
+      <div slot="content" class="tip">Color Palettes</div>
+    </BaseHover>
+    <hr class="h-full border-l-1 border-one-back mx-1" />
+    <BaseHover>
+      <a slot="handle" title="Archive" href={new URL(`${import.meta.env.BASE_URL}archive`, Astro.site)}>
+        <div class="i-mdi-inbox"></div>
+      </a>
+      <div slot="content" class="tip">Archive</div>
+    </BaseHover>
+    <BaseHover>
+      <a slot="handle" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
+        <div class="i-mdi-school"></div>
+      </a>
+      <div slot="content" class="tip">Academia</div>
+    </BaseHover>
+    <hr class="h-full border-l-1 border-one-back mx-1" />
+    <BaseHover>
+      <a slot="handle" class="out-link" title="Project Travelling" href="https://www.travellings.cn/go.html" rel="noopener" target="_blank">
+        <div class="i-mdi-train-variant"></div>
+      </a>
+      <div slot="content" class="tip">Project Travelling</div>
+    </BaseHover>
+    <BaseHover>
+      <a slot="handle" class="out-link" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
+        <div class="i-mdi-information"></div>
+      </a>
+      <div slot="content" class="tip">Am</div>
+    </BaseHover>
+  </nav>
+
+
+  <section id="recent-posts" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
     {timeDesc.slice(0, 10).map(key => <PostInfoFull info={PostInfo[key]} />)}
-    <a class="contents" href={new URL(`${import.meta.env.BASE_URL}archive`, Astro.site)}>
-      <article class="card flex flex-row gap-2 items-center @hover-bg-one-back transition-lively">
-        <div class="i-mdi-inbox" />
-        <h2 class="font-bold @hover-text-one-front transition-lively">
-          Archive
-        </h2>
-      </article>
-    </a>
   </section>
 
-  <section class="flex flex-col gap-3">
+  <section id="friend" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Friends</h2>
     <FriendList />
   </section>
 
-  <section class="flex flex-col gap-3">
+  <section id="color-palette" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Color Palettes</h2>
     <ColorPalette />
   </section>
@@ -59,4 +99,14 @@ import TheSearch from "~/components/TheSearch.astro";
   #the-main .friends-list .tip {
     @apply bg-one-front text-one-back;
   }
+</style>
+
+<style>
+.index-sec-list a:not(.out-link) {
+  @apply text-one-front @hover-text-one-front transition-lively cursor-pointer;
+}
+
+.index-sec-list a.out-link {
+  @apply text-two-front @hover-text-two-front transition-lively cursor-pointer;
+}
 </style>
