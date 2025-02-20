@@ -17,12 +17,12 @@
   };
 </script>
 
-<button on:click={handleClick} aria-label="Color Scheme Toggle">
+<button onclick={handleClick} aria-label="Color Scheme Toggle">
   {#if $colorSchemeSetting === "auto"}
-    <div class="i-mdi-brightness-auto" />
+    <div class="i-mdi-brightness-auto"></div>
   {:else if $colorSchemeSetting === "light"}
-    <div class="i-mdi-brightness-7" />
+    <div class="i-mdi-brightness-7"></div>
   {:else}
-    <div class="i-mdi-brightness-4" />
+    <div class="i-mdi-brightness-4"></div>
   {/if}
 </button>

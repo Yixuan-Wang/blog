@@ -6,6 +6,8 @@
   } from "~/stores/typesetting";
   import BaseHoverSv from "./BaseHoverSv.svelte";
 
+  const { handle, content } = $props();
+
   const nextTypeface = (current: Typeface) => {
     switch (current) {
       case "sans":
@@ -32,20 +34,28 @@
         <span>Contents</span>
       {/if}
     </div>
-    <button class="contents" on:click={handleClick(key)}>
+    <button class="contents" onclick={handleClick(key)}>
       {#if value === "sans"}
         <BaseHoverSv>
-          <div slot="handle" class="i-mdi-newspaper-variant" />
-          <div slot="content" class="tip">
-            <span>Sans Serif</span>
-          </div>
+          {#snippet handle()}
+            <div class="i-mdi-newspaper-variant"></div>
+          {/snippet}
+          {#snippet content()}
+            <div class="tip">
+              <span>Sans Serif</span>
+            </div>
+          {/snippet}
         </BaseHoverSv>
       {:else if value === "serif"}
         <BaseHoverSv>
-          <div slot="handle" class="i-mdi-newspaper" />
-          <div slot="content" class="tip">
-            <span>Serif</span>
-          </div>
+          {#snippet handle()}
+            <div class="i-mdi-newspaper"></div>
+          {/snippet}
+          {#snippet content()}
+                        <div class="tip">
+              <span>Serif</span>
+            </div>
+                      {/snippet}
         </BaseHoverSv>
       {/if}
     </button>

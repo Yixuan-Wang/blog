@@ -134,7 +134,7 @@ export default _;`;
 
           return {
             code,
-            map: "",
+            map: null,
             meta: {
               vite: {
                 lang: "js",
@@ -152,7 +152,7 @@ export default _;`;
 
           return {
             code,
-            map: "",
+            map: null,
             meta: {
               vite: {
                 lang: "js",

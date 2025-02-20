@@ -1,15 +1,27 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  export let targetSelector: string;
-  export let filled: boolean = false;
 
-  let className: string | null = null;
-  export { className as class };
+  interface Props {
+    targetSelector: string;
+    filled?: boolean;
+    class?: string | null;
+    storage?: import('svelte').Snippet;
+    handle?: import('svelte').Snippet;
+  }
 
-  let storageElement: Element | null = null;
+  let {
+    targetSelector,
+    filled = $bindable(false),
+    class: className = null,
+    storage,
+    handle
+  }: Props = $props();
+  
+
+  let storageElement: Element | null = $state(null);
   let targetElement: Element | null = null;
-  let handleElement: Element | null = null;
+  let handleElement: Element | null = $state(null);
 
   const content: Node[] = [];
 
@@ -51,8 +63,8 @@
 </script>
 
 <div bind:this={storageElement} style="display:none;">
-  <slot name="storage" />
+  {@render storage?.()}
 </div>
 <div class={className} bind:this={handleElement} style="display:contents;">
-  <slot name="handle" />
+  {@render handle?.()}
 </div>

@@ -12,9 +12,12 @@
   import { colorScheme } from "~/stores/color-scheme";
   import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";
 
-  export let palette: ColorPaletteSetting =
-    DEFAULT_COLOR_PALETTE as ColorPaletteSetting;
-  export let title: string = "Color Palette";
+  interface Props {
+    palette?: ColorPaletteSetting;
+    title?: string;
+  }
+
+  let { palette = DEFAULT_COLOR_PALETTE as ColorPaletteSetting, title = "Color Palette" }: Props = $props();
 
   function setPalette() {
     colorPalette.set(palette);
@@ -23,17 +26,14 @@
       colorPaletteStyleTag;
   }
 
-  let accent: (_: ColorOklch) => ColorOklch;
-  $: accent = calcColorFunctions[$colorScheme].accent;
+  let accent: (_: ColorOklch) => ColorOklch = $derived(calcColorFunctions[$colorScheme].accent);
+  
 
-  let colorOne: string;
-  let colorTwo: string;
-  let style: string;
-  $: colorOne = polyfillOklch(accent(palette.one));
-  $: colorTwo = polyfillOklch(accent(palette.two));
-  $: style = `width:1.125rem;height:1.125rem;border-radius:50%;background:linear-gradient(to right,rgb(${colorOne}) 50%,rgb(${colorTwo}) 0);`;
+  let colorOne: string = $derived(polyfillOklch(accent(palette.one)));
+  let colorTwo: string = $derived(polyfillOklch(accent(palette.two)));
+  let style: string = $derived(`width:1.125rem;height:1.125rem;border-radius:50%;background:linear-gradient(to right,rgb(${colorOne}) 50%,rgb(${colorTwo}) 0);`);
 </script>
 
-<button class="flex gap-1" {title} on:click={setPalette}>
-  <div {style} />
+<button class="flex gap-1" {title} onclick={setPalette} aria-label={title}>
+  <div {style}></div>
 </button>

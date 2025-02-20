@@ -1,7 +1,13 @@
 <script lang="ts">
-  export let style: string = "";
+  interface Props {
+    style?: string;
+    handle?: import('svelte').Snippet;
+    content?: import('svelte').Snippet;
+  }
+
+  let { style = "", handle, content }: Props = $props();
   let isPinned: boolean = false;
-  let isOpen: boolean = false;
+  let isOpen: boolean = $state(false);
 
   const handleMouseEnter = () => {
     if (window.matchMedia("(pointer: fine)").matches) {
@@ -27,15 +33,15 @@
 <div
   class="hover-component-container"
   {style}
-  on:mouseenter={handleMouseEnter}
-  on:mouseleave={handleMouseLeave}
+  onmouseenter={handleMouseEnter}
+  onmouseleave={handleMouseLeave}
 >
-  <div class="hover-component-handle" on:click={handleClick} on:keypress={handleClick}>
-    <slot name="handle" />
+  <div class="hover-component-handle" onclick={handleClick} onkeypress={handleClick}>
+    {@render handle?.()}
   </div>
   {#if isOpen}
   <div class="hover-component-content">
-    <slot name="content" />
+    {@render content?.()}
   </div>
   {/if}
 </div>

@@ -1,7 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  export let target: string;
-  let sourceElement: Element;
+  interface Props {
+    target: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let { target, children }: Props = $props();
+  let sourceElement = $state<Element>();
 
   onMount(() => {
     const targetElement = document.querySelector(target);
@@ -13,4 +18,4 @@
   })
 </script>
 
-<div bind:this={sourceElement} style="display: none;"><slot /></div>
+<div bind:this={sourceElement} style="display: none;">{@render children?.()}</div>

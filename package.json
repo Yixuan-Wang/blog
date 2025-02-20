@@ -13,16 +13,16 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/svelte": "^5.0.1",
-    "@giscus/svelte": "^2.3.0",
+    "@astrojs/svelte": "^7.0.4",
+    "@giscus/svelte": "^3.1.0",
     "@nanostores/persistent": "^0.7.0",
-    "astro": "^4.15.1",
-    "astro-pagefind": "^1.6.0",
+    "astro": "^5.3.0",
+    "astro-pagefind": "^1.8.0",
     "culori": "^2.1.1",
     "date-fns": "^2.30.0",
     "fp-ts": "^2.16.1",
     "nanostores": "^0.7.4",
-    "svelte": "^4.2.8"
+    "svelte": "^5.20.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
@@ -65,7 +65,7 @@
     "unist-util-map": "^4.0.0",
     "unist-util-visit": "^5.0.0",
     "unocss": "^66.0.0",
-    "vite-plugin-inspect": "^0.8.1"
+    "vite-plugin-inspect": "^10.2.1"
   },
   "eslintConfig": {
     "extends": [
