@@ -36,10 +36,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Checkout Contents
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: Yixuan-Wang/blog-contents
           ref: v4
@@ -79,7 +79,7 @@ jobs:
         run: pnpm run build -- --outDir=${{ env.BUILD_OUTPUT_DIR_MAIN }}
 
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./${{ env.BUILD_OUTPUT_DIR_MAIN }}
 
