@@ -1,6 +1,7 @@
 import { defineConfig } from "unocss";
-import presetUno from "@unocss/preset-uno";
+import presetUno from "@unocss/preset-wind3";
 import presetIcons from "@unocss/preset-icons";
+import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
@@ -39,6 +40,9 @@ export default defineConfig({
         height: "1.25em",
       }, 
     }),
+    presetWebFonts({
+      
+    })
   ],
   shortcuts: [
     // ["btn-icon", ["hover:text-acc", "transition-lively"]],
