@@ -38,10 +38,40 @@ export default defineConfig({
       extraProperties: {
         width: "1.25em",
         height: "1.25em",
-      }, 
+      },
     }),
     presetWebFonts({
-      
+      fonts: {
+        _sans: [
+          {
+            name: 'Inter',
+            weights: ['400', '700'],
+            italic: true,
+          },
+          {
+            name: 'Noto Sans SC',
+            weights: ['400', '700'],
+          },
+        ],
+        _serif: [
+          {
+            name: 'Source Serif 4',
+            weights: ['400', '700'],
+            italic: true,
+          },
+          {
+            name: 'Noto Serif SC',
+            weights: ['400', '700'],
+          },
+        ],
+        _mono: [
+          {
+            name: 'JetBrains Mono',
+            weights: ['400', '700'],
+            italic: true,
+          },
+        ],
+      },
     })
   ],
   shortcuts: [
