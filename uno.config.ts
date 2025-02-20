@@ -16,14 +16,14 @@ export default defineConfig({
     },
     colors: {
       one: {
-        DEFAULT: "rgb(var(--color-one))",
-        front: "rgb(var(--color-one-front))",
-        back: "rgb(var(--color-one-back))",
+        DEFAULT: "var(--color-one)",
+        front: "var(--color-one-front)",
+        back: "var(--color-one-back)",
       },
       two: {
-        DEFAULT: "rgb(var(--color-two))",
-        front: "rgb(var(--color-two-front))",
-        back: "rgb(var(--color-two-back))",
+        DEFAULT: "var(--color-two)",
+        front: "var(--color-two-front)",
+        back: "var(--color-two-back)",
       },
       back: "rgb(var(--color-back))",
       front: "rgb(var(--color-front))",

@@ -202,9 +202,9 @@
 
 
 #md a {
+  border-bottom: oklch(from var(--color-one) l c h / 50%) solid 1px;
   @apply
     text-one-front
-    ub-one border-op-50
     transition-lively
   ;
 }
