@@ -80,9 +80,9 @@
     ></div>
   </div>
 
-  <div class="flex w-full justify-stretch gap-4">
-    <input class="ring-none inline" type="number" min="0" max="360" bind:value={hue} oninput={() => colorChange({ h: hue, c: chroma, l: luminance })} />
-    <input class="ring-none inline" type="number" min="0" max={MAX_CHROMA} step="0.01" bind:value={chroma} oninput={() => colorChange({ h: hue, c: chroma, l: luminance })} />
+  <div class="flex gap-4">
+    <input class="ring-none" type="number" min="0" max="360" bind:value={hue} oninput={() => colorChange({ h: hue, c: chroma, l: luminance })} />
+    <input class="ring-none" type="number" min="0" max={MAX_CHROMA} step="0.01" bind:value={chroma} oninput={() => colorChange({ h: hue, c: chroma, l: luminance })} />
   </div>
 </div>
 
