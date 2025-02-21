@@ -89,7 +89,7 @@ export default defineConfig({
     ["chip", ["rounded", "px-1.5", "py-0.75", "text-sm", "font-mono"]],
     ["tip", ["px-1.5", "py-1", "rounded", "text-sm", "bg-one-back", "text-one-front"]],
     ["inline-chip", ["text-sm", "font-mono"]],
-    ["card", ["p-4", "rounded"]],
+    ["card", ["p-4", "rounded-2"]],
     [
       /^ub(?:-(.*))?$/,
       ([, c]) => `pb-0.5 border-b-1 border-b-${c ?? "current"}`,

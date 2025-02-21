@@ -6,11 +6,13 @@ const labItems = [
     title: "Typesetting",
     icon: "i-mdi-typewriter",
     url: "lab/typesetting",
+    description: "Customize the font of posts",
   },
   {
     title: "Academia",
     icon: "i-mdi-school",
     url: "academia",
+    description: "Special curation of academic notes and thoughts",
   },
 ]
 ---
@@ -20,20 +22,25 @@ const labItems = [
   description="Experiments on Yixuan Wang's blog."
   noComments={true}
 >
-  <main class="grid grid-cols-[auto_1fr] gap-1 items-center">
-    {labItems.map(({ title, icon, url }) => (
-      <>
-        <div class="text-one">
-          <div class={icon} />
-        </div>
-        <a href={new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}>{title}</a>
-      </>
+  <main class="grid grid-cols-2 gap-2 items-stretch">
+    {labItems.map(({ title, icon, url, description }) => (
+      <a href={new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}>
+        <article class="card h-full flex flex-col gap-1 bg-transparent cursor-pointer @hover-bg-one-back transition-lively">
+            <div role="heading" class="inline-flex flex-row items-center gap-1 text-one text-xl transition-lively">
+              <div class={icon}></div>
+              <span class="font-bold">{title}</span>
+            </div>
+            <p>{description}</p>
+        </article>
+      </a>
     ))}
   </main>
 </LayoutDefault>
 
 <style>
-  a {
-    @apply px-2 py-1 rounded transition-lively @hover-text-one-front @hover-bg-one-back @hover-font-bold;
+@media (hover: hover) and (pointer: fine) {
+  article:hover [role="heading"] > * {
+    @apply text-one-front;
   }
+}
 </style>
