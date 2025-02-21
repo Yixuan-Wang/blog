@@ -1,7 +1,6 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
 import postInfo from "post:info";
-import postImport from "post:import";
 
 import "src/styles/post.css";
 import PostMeta from "src/components/PostMeta.astro";
@@ -17,12 +16,21 @@ const { slug } = Astro.params as {
   slug: string;
 };
 
+let postImport;
+if (import.meta.env.MODE === "development") {
+  postImport = { [slug]: () => import(/* @vite-ignore */ `/@id/post:${slug}.astro`) };
+}
+else {
+  postImport = (await import("post:import")).default;
+}
+
 const {
   default: Content,
   excerpt,
   metadata: meta,
   toc,
   componentNames,
+  // @ts-ignore
 } = await postImport[slug]();
 ---
 
