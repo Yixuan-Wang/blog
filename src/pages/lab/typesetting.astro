@@ -3,7 +3,20 @@ import LayoutDefault from "src/layouts/LayoutDefault.astro";
 import TypesettingTypeface from "src/components/TypesettingTypeface.svelte";
 import TypesettingFontFamily from "src/components/TypesettingFontFamily.svelte";
 
+import ColorPalettePlayer from "src/components/ColorPalettePlayer.svelte";
+
 import "src/styles/post.css";
+import Callout from "~/components/runtime/Callout.astro";
+
+const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)"
+  tabindex="0"><code class="language-cpp"><span class="line"><span style="color:var(--shiki-token-keyword)">#include</span><span style="color:var(--shiki-token-string-expression)"> &lt;iostream&gt;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">using</span><span style="color:var(--shiki-token-keyword)"> namespace</span><span style="color:var(--shiki-foreground)"> std;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">int</span><span style="color:var(--shiki-token-function)"> main</span><span style="color:var(--shiki-foreground)">() {</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    cout </span><span style="color:var(--shiki-token-keyword)">&lt;&lt;</span><span style="color:var(--shiki-token-string-expression)"> "Hello, World!"</span><span style="color:var(--shiki-token-keyword)"> &lt;&lt;</span><span style="color:var(--shiki-foreground)"> endl;</span></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">    return</span><span style="color:var(--shiki-token-constant)"> 0</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span>
+</code></pre>`
 ---
 
 <LayoutDefault
@@ -12,11 +25,17 @@ import "src/styles/post.css";
   noComments={true}
 >
   <main class="flex flex-col gap-4">
-    <section id="md" class="card bg-one-back">
+    <section id="md">
       <div></div>
-      <h2 class="mt-0!">Demo</h2>
+      <h2 class="text-2xl mt-0!">Demo</h2>
+      <Callout kind="info">
+        <p>You can customize site-wise <strong>fonts</strong> and <em>colors</em>.</p>
+      </Callout>
       <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={new URL(`${import.meta.env.BASE_URL}post/test-content`, Astro.site)}>expedita exercitationem!</a></p>
+
+      <Fragment set:html={CODE_BLOCK} />
     </section>
+    <div class="mt-4"></div>
     <section class="flex flex-col gap-3">
       <h2 class="text-2xl font-bold text-one-front">Typeface</h2>
       <TypesettingTypeface client:only="svelte" />
@@ -24,6 +43,22 @@ import "src/styles/post.css";
     <section class="flex flex-col gap-3">
       <h2 class="text-2xl font-bold text-one-front">Font Family</h2>
       <TypesettingFontFamily client:only="svelte" />
+    </section>
+    <section class="flex flex-col gap-3">
+      <h2>
+        <span class="text-2xl font-bold text-one-front">Color Palette</span>
+        <div class="ml-2 inline-flex text-sm gap-1">
+          <div class="i-mdi-circle text-one-front"></div>
+          <div class="i-mdi-circle text-one"></div>
+          <div class="i-mdi-circle text-one-back"></div>
+        
+          <div class="i-mdi-circle text-two-front"></div>
+          <div class="i-mdi-circle text-two"></div>
+          <div class="i-mdi-circle text-two-back"></div>
+        </div>
+      </h2>
+
+      <ColorPalettePlayer client:only="svelte" />
     </section>
   </main>
 </LayoutDefault>
