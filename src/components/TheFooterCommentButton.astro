@@ -6,16 +6,19 @@ import BaseStorage from "src/components/BaseStorage.svelte";
 <BaseStorage client:idle targetSelector="#the-bottom-sheet" filled={true}>
   <Fragment slot="storage">
     <section
-      class="md:mx-3 p-4 rounded-t relative flex flex-col gap-3 text-[#F5F5F5] bg-[#222222] h-[50vh] overflow-y-auto overflow-y-overlay"
-      style="box-shadow: 0 0 4px rgb(var(--color-one));"
+      id="comment-container"
+      class="md:mx-3 p-4 rounded-t-4 relative flex flex-col gap-3 h-[60vh] md:h-[50vh] overflow-y-auto overflow-y-overlay"
     >
-      <h3 class="text-xl font-bold">Comments</h3>
+      <h3 class="flex flex-row items-center gap-1 text-xl">
+        <div class="i-mdi-comment"></div>
+        <span class="text-xl font-bold">Comments</span>
+      </h3>
       <button
         name="close"
         title="Close"
         class="absolute top-4 right-3"
         onclick="this.dispatchEvent(new Event('component-storage:push',{bubbles:true}))"
-      ><div class="i-mdi-close"></div></button>
+      ><div class="i-mdi-close transition-lively @hover-text-one"></div></button>
       <TheComment client:visible />
     </section>
   </Fragment>
@@ -26,3 +29,13 @@ import BaseStorage from "src/components/BaseStorage.svelte";
     ><div class="i-mdi-comment"></div></button>
   </Fragment>
 </BaseStorage>
+
+<style>
+#comment-container {
+  background-color: oklch(from var(--color-one) 25% calc(c * 0.25) h);
+  color: oklch(from var(--color-one) 90% calc(c * 0.75) h);
+  border-style: solid;
+  border-color: var(--color-one-front);
+  border-width: 2px 2px 0 2px;
+}
+</style>

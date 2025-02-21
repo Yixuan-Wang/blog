@@ -17,16 +17,8 @@
     reactionsEnabled="1"
     emitMetadata="0"
     inputPosition="top"
-    theme={new URL(`${import.meta.env.BASE_URL}comments.css`, import.meta.env.PUBLIC_BUILD_SITE_URL).toString()}
+    theme="transparent_dark"
     lang="en"
     loading="lazy"
   />
 </div>
-
-<style>
-  /* giscus-widget {
-    display: flex;
-    margin: auto;
-    max-height: 50%;
-  } */
-</style>
