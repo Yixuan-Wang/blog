@@ -80,6 +80,7 @@ export default defineConfig({
             italic: true,
           },
         ],
+        _emoji: ["Noto Color Emoji"],
       },
     })
   ],
