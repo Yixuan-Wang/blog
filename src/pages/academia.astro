@@ -10,27 +10,33 @@ const description = `Yixuan Wang's academic writings, including posts, project i
 
 <LayoutEmpty>
   <Fragment slot="head">
-    <title>Academic Writings | Yixuan Wang</title>
-    <meta property="og:title" content="Yixuan Wang's Academic Writings" />
+    <title>Academic Posts | Yixuan Wang</title>
+    <meta property="og:title" content="Yixuan Wang's Academic Posts" />
     <meta name="description" content={description} />
     <meta property="og:description" content={description} />
   </Fragment>
-  <BaseHeadline headline="Academia Writings" />
-  <div class="mb-3 w-full flex flex-row gap-2 px-3 py-2 items-center rounded-full bg-one-back">
-    <span class="font-bold text-one-front flex-1">Yixuan Wang</span>
-    <a class="transition-lively text-one-front hover:text-one" title="About" href="https://am.yixuan-wang.site" aria-label="About" rel="noopener" target="_blank">
-      <div class="i-mdi-information"></div>
-    </a>
-  </div>
+  <BaseHeadline headline="Academic Posts">
+    <div class="flex items-center gap-2">
+      <a title="About" href="https://am.yixuan-wang.site" aria-label="About" rel="noopener" target="_blank">
+        <div class="w-fit flex flex-row gap-1 px-3 py-2 items-center rounded-full bg-one-back text-one-front @hover-text-one transition-lively">
+          <div class="i-mdi-information"></div>
+          <span class="font-bold flex-1 mr-1">Yixuan Wang</span>
+        </div>
+      </a>
+      <a class="text-one-front @hover-text-one" title="Google Scholar" href="https://scholar.google.com/citations?user=2-qOuAQAAAAJ&hl=en" aria-label="Google Scholar" rel="noopener" target="_blank">
+        <div class="i-custom:google-scholar"></div>
+      </a>
+      <a class="text-one-front @hover-text-one" title="Twitter" href="https://twitter.com/tom_yixuan_wang" aria-label="Twitter" rel="noopener" target="_blank">
+        <div class="i-mdi-twitter"></div>
+      </a>
+      <a class="text-one-front @hover-text-one" title="Bluesky" href="https://bsky.app/profile/tomyxw.bsky.social" aria-label="Bluesky" rel="noopener" target="_blank">
+        <div class="i-custom:bluesky"></div>
+      </a>
+
+    </div>
+  </BaseHeadline>
   <section class="flex flex-col gap-3">
     {timeDesc.filter(key => PostInfo[key].meta.taxonomy.keywords?.includes("academia")).map(key => <PostInfoFull info={PostInfo[key]} />)}
   </section>
-
   <div role="none" class="mb-10"></div>
 </LayoutEmpty>
-
-<!-- <style>
-#academia-social-link a {
-  @apply ;
-}
-</style> -->
