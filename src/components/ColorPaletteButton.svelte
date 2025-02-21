@@ -1,15 +1,9 @@
 <script lang="ts">
-  import {
-    polyfillOklch,
-    calcColorFunctions,
-    type ColorOklch,
-  } from "src/logic/color";
   import { DEFAULT_COLOR_PALETTE } from "src/logic/color-palette-default";
   import {
     colorPalette,
     type ColorPaletteSetting,
   } from "src/stores/color-palette";
-  import { colorScheme } from "~/stores/color-scheme";
   import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";
 
   interface Props {
@@ -26,12 +20,7 @@
       colorPaletteStyleTag;
   }
 
-  let accent: (_: ColorOklch) => ColorOklch = $derived(calcColorFunctions[$colorScheme].accent);
-  
-
-  let colorOne: string = $derived(polyfillOklch(accent(palette.one)));
-  let colorTwo: string = $derived(polyfillOklch(accent(palette.two)));
-  let style: string = $derived(`width:1.125rem;height:1.125rem;border-radius:50%;background:linear-gradient(to right,rgb(${colorOne}) 50%,rgb(${colorTwo}) 0);`);
+  let style: string = $derived(`width:1.125rem;height:1.125rem;border-radius:50%;background:linear-gradient(to right,oklch(65% ${palette.one.c} ${palette.one.h}) 50%,oklch(65% ${palette.two.c} ${palette.two.h}) 0);`);
 </script>
 
 <button class="flex gap-1" {title} onclick={setPalette} aria-label={title}>

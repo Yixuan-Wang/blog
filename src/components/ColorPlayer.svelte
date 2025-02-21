@@ -12,8 +12,6 @@
   }>();
 
   const MAX_CHROMA = 0.5;
-  const DEFAULT_HEIGHT = 200;
-  const DEFAULT_WIDTH = 300;
 
   let slider: HTMLElement;
 

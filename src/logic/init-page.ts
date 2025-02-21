@@ -1,5 +1,3 @@
-import type { ColorScheme, ColorSchemeSetting } from "src/stores/color-scheme";
-import type { ColorPaletteSetting } from "src/stores/color-palette";
 import { generateColorPaletteStyleTag } from "src/logic/color-palette-style-tag";
 
 import { fontFamily, typeface } from "src/stores/typesetting";
