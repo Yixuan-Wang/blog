@@ -155,10 +155,17 @@ input {
   color: var(--color-one-front);
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: oklch(var(--color-one)) transparent;
+@supports not (selector(::-webkit-scrollbar)) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-one) transparent;
+  }
 }
+
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-one) transparent;
+} */
 
 ::-webkit-scrollbar {
   height: 4px;
@@ -167,14 +174,14 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(var(--color-one));
-  border: solid oklch(var(--color-one)) 1px;
+  background: var(--color-one);
+  border: solid var(--color-one) 1px;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background-color: oklch(var(--color-two));
-  border-color: oklch(var(--color-two));
+  background-color: var(--color-two);
+  border-color: var(--color-two);
 }
 
 .hover-component-container {
