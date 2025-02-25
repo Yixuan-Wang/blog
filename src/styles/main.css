@@ -151,8 +151,7 @@ input {
 }
 
 ::selection {
-  background-color: oklch(from var(--color-two-back) l c h / 50%);
-  color: var(--color-one-front);
+  background-color: oklch(from var(--color-one-back) l c calc(360 - h) / 75%);
 }
 
 @supports not (selector(::-webkit-scrollbar)) {
