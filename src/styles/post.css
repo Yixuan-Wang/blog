@@ -175,7 +175,7 @@
 
 #md pre {
   @apply
-    p-3 rounded max-w-full
+    p-3 rounded-2 max-w-full
     overflow-x-auto
   ;
 }
