@@ -1,0 +1,20 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import NotFound from "@/meta/coo.html?raw";
+---
+
+<LayoutDefault
+  title="🐦"
+  description="This post is not yet written."
+  noComments={true}
+>
+  <Fragment slot="headline">
+    <p>This post is not yet written.</p>
+  </Fragment>
+  <p class="pb-4">
+    <button title="Back" onclick="history.back()">
+      <div class="i-mdi-arrow-left" />
+    </button>
+  </p>
+  <Fragment set:html={NotFound}></Fragment>
+</LayoutDefault>
