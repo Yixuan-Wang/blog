@@ -17,6 +17,9 @@ importers:
       '@nanostores/persistent':
         specifier: ^0.7.0
         version: 0.7.0(nanostores@0.7.4)
+      '@playform/inline':
+        specifier: ^0.1.1
+        version: 0.1.1(@types/node@18.19.3)(jiti@2.4.2)(rollup@4.34.8)(typescript@5.3.3)
       astro:
         specifier: ^5.3.0
         version: 5.3.0(@types/node@18.19.3)(jiti@2.4.2)(rollup@4.34.8)(typescript@5.3.3)
@@ -637,6 +640,12 @@ packages:
     resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@playform/inline@0.1.1':
+    resolution: {integrity: sha512-aKxR5GlRjw+OcppaCIM+VqQSY0DygiQ1UnKIs0YMB6ASTZjCp6UPnOO2tw1zYpiCt1cjQ2CPm9xlFWj2As0H5A==}
+
+  '@playform/pipe@0.1.2':
+    resolution: {integrity: sha512-fMZyPQXweet44Apz5F+9kAjrmy9RbMX7ajZJmw40lWarWI380D/b0bnJOvOmmZztx3pJZxbBMht2QLd8AG4V2w==}
+
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
@@ -854,6 +863,9 @@ packages:
 
   '@types/node@18.19.3':
     resolution: {integrity: sha512-k5fggr14DwAytoA/t8rPrIz++lXK7/DqckthCmoZOKNsEbJkId4Z//BqgApXBUGrGddrigYa1oqheo/7YmW4rg==}
+
+  '@types/node@22.10.5':
+    resolution: {integrity: sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1378,6 +1390,10 @@ packages:
     resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==}
     engines: {node: '>= 0.6'}
 
+  critters@0.0.25:
+    resolution: {integrity: sha512-ROF/tjJyyRdM8/6W0VqoN5Ql05xAGnkf5b7f3sTEl1bI5jTQQf8O918RD/V9tEb9pRY/TKcvJekDbJtniHyPtQ==}
+    deprecated: Ownership of Critters has moved to the Nuxt team, who will be maintaining the project going forward. If you'd like to keep using Critters, please switch to the actively-maintained fork at https://github.com/danielroe/beasties
+
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -1385,9 +1401,16 @@ packages:
   crossws@0.3.4:
     resolution: {integrity: sha512-uj0O1ETYX1Bh6uSgktfPvwDiPYGQ3aI4qVsaC/LWpkIzGj1nUYm5FK3K+t11oOlpN01lGbprFCH4wBlKdJjVgw==}
 
+  css-select@5.1.0:
+    resolution: {integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==}
+
   css-tree@3.1.0:
     resolution: {integrity: sha512-0eW44TGN5SQXU1mWSkKwFstI/22X2bG1nYzZTYMAWjylYURhse752YgbE4Cx46AC+bAvI+/dYTPRk1LqSUnu6w==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
+
+  css-what@6.1.0:
+    resolution: {integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==}
+    engines: {node: '>= 6'}
 
   cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
@@ -1435,6 +1458,10 @@ packages:
 
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
+
+  deepmerge-ts@7.1.3:
+    resolution: {integrity: sha512-qCSH6I0INPxd9Y1VtAiLpnYvz5O//6rCfJXKk0z66Up9/VOSr+1yS8XSKA5IWRxjocFGlzPyaZYe+jxq7OOLtQ==}
+    engines: {node: '>=16.0.0'}
 
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
@@ -2869,6 +2896,9 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
+  postcss-media-query-parser@0.2.3:
+    resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
+
   postcss-selector-parser@6.0.13:
     resolution: {integrity: sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==}
     engines: {node: '>=4'}
@@ -3384,6 +3414,9 @@ packages:
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   unified@11.0.4:
     resolution: {integrity: sha512-apMPnyLjAX+ty4OrNap7yumyVAMlKx5IWU2wlzzUdYJO9A8f1p9m/gywF/GM2ZDFcjQPrx59Mc90KwmxsoklxQ==}
@@ -4183,6 +4216,52 @@ snapshots:
       picocolors: 1.0.0
       tslib: 2.6.2
 
+  '@playform/inline@0.1.1(@types/node@18.19.3)(jiti@2.4.2)(rollup@4.34.8)(typescript@5.3.3)':
+    dependencies:
+      '@playform/pipe': 0.1.2
+      astro: 5.3.0(@types/node@18.19.3)(jiti@2.4.2)(rollup@4.34.8)(typescript@5.3.3)
+      critters: 0.0.25
+      deepmerge-ts: 7.1.3
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@types/node'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - db0
+      - idb-keyval
+      - ioredis
+      - jiti
+      - less
+      - lightningcss
+      - rollup
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - uploadthing
+      - yaml
+
+  '@playform/pipe@0.1.2':
+    dependencies:
+      '@types/node': 22.10.5
+      deepmerge-ts: 7.1.3
+      fast-glob: 3.3.3
+
   '@polka/url@1.0.0-next.28': {}
 
   '@rollup/plugin-yaml@4.1.2(rollup@4.34.8)':
@@ -4390,6 +4469,10 @@ snapshots:
   '@types/node@18.19.3':
     dependencies:
       undici-types: 5.26.5
+
+  '@types/node@22.10.5':
+    dependencies:
+      undici-types: 6.20.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -5103,6 +5186,16 @@ snapshots:
 
   cookie@0.7.2: {}
 
+  critters@0.0.25:
+    dependencies:
+      chalk: 4.1.2
+      css-select: 5.1.0
+      dom-serializer: 2.0.0
+      domhandler: 5.0.3
+      htmlparser2: 8.0.2
+      postcss: 8.5.3
+      postcss-media-query-parser: 0.2.3
+
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -5113,10 +5206,20 @@ snapshots:
     dependencies:
       uncrypto: 0.1.3
 
+  css-select@5.1.0:
+    dependencies:
+      boolbase: 1.0.0
+      css-what: 6.1.0
+      domhandler: 5.0.3
+      domutils: 3.1.0
+      nth-check: 2.1.1
+
   css-tree@3.1.0:
     dependencies:
       mdn-data: 2.12.2
       source-map-js: 1.2.1
+
+  css-what@6.1.0: {}
 
   cssesc@3.0.0: {}
 
@@ -5145,6 +5248,8 @@ snapshots:
   dedent-js@1.0.1: {}
 
   deep-is@0.1.4: {}
+
+  deepmerge-ts@7.1.3: {}
 
   deepmerge@4.3.1: {}
 
@@ -7065,6 +7170,8 @@ snapshots:
 
   pluralize@8.0.0: {}
 
+  postcss-media-query-parser@0.2.3: {}
+
   postcss-selector-parser@6.0.13:
     dependencies:
       cssesc: 3.0.0
@@ -7720,6 +7827,8 @@ snapshots:
   uncrypto@0.1.3: {}
 
   undici-types@5.26.5: {}
+
+  undici-types@6.20.0: {}
 
   unified@11.0.4:
     dependencies:

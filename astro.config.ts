@@ -25,6 +25,8 @@ import Feed from "./src/build/feed";
 import SiteMeta from "./src/build/site-meta";
 import { formatISO } from "date-fns";
 
+import playformInline from "@playform/inline";
+
 const _dirname =
   typeof __dirname !== "undefined"
     ? __dirname
@@ -37,54 +39,48 @@ export default defineConfig({
   build: {
     format: "file",
   },
-  integrations: [
-    Unocss({
-      mode: "dist-chunk",
-      injectEntry: process.env.NODE_ENV === "development",
-      injectReset: "@unocss/reset/tailwind.css",
-    }),
-    PostProvider({
-      providers: [
-        ProviderFs({
-          baseDir: path.resolve(_dirname, process.env.POSTS_DIR ?? "data/posts"),
-          patterns: [[process.env.POST_FILTER_FS ?? "**/*.md", "!README.md"]],
-        }),
-        ...(
-          process.env.POST_NO_GH === "true"
-          ? []
-          : [ProviderGh({
-            userName: process.env.GITHUB_USER!,
-            repoName: process.env.GITHUB_REPO!,
-            accessToken: process.env.GITHUB_ACCESS_TOKEN!,
-            includedLabels: [process.env.POST_FILTER_GH ?? "+"],
-          })]
-        ),
-        // ...(
-        //   process.env.POST_NO_NTN === "true"
-        //   ? []
-        //   : [ProviderNtn({
-        //     accessToken: process.env.NOTION_ACCESS_TOKEN,
-        //     databaseId: process.env.NOTION_DATABASE_ID,
-        //   })]
-        // )
-      ],
-      componentBase: "~/components/runtime",
-    }),
-    Svelte(),
-    Feed({
-      feedConfig: {
-        title: "Pak",
-        id: "blog-yixuan-wang-v4",
-        copyright: "CC BY-NC-SA 4.0 © Yixuan Wang",
-        description: "Yixuan Wang's personal blog.",
-        favicon: new URL(`${process.env.PUBLIC_BUILD_BASE_URL}favicon.svg`, process.env.PUBLIC_BUILD_SITE_URL).toString(),
-        author: {
-          name: "Yixuan Wang",
-        },
-      }
-    }),
-    Pagefind(),
-  ],
+  integrations: [Unocss({
+    mode: "dist-chunk",
+    injectEntry: process.env.NODE_ENV === "development",
+    injectReset: "@unocss/reset/tailwind.css",
+  }), PostProvider({
+    providers: [
+      ProviderFs({
+        baseDir: path.resolve(_dirname, process.env.POSTS_DIR ?? "data/posts"),
+        patterns: [[process.env.POST_FILTER_FS ?? "**/*.md", "!README.md"]],
+      }),
+      ...(
+        process.env.POST_NO_GH === "true"
+        ? []
+        : [ProviderGh({
+          userName: process.env.GITHUB_USER!,
+          repoName: process.env.GITHUB_REPO!,
+          accessToken: process.env.GITHUB_ACCESS_TOKEN!,
+          includedLabels: [process.env.POST_FILTER_GH ?? "+"],
+        })]
+      ),
+      // ...(
+      //   process.env.POST_NO_NTN === "true"
+      //   ? []
+      //   : [ProviderNtn({
+      //     accessToken: process.env.NOTION_ACCESS_TOKEN,
+      //     databaseId: process.env.NOTION_DATABASE_ID,
+      //   })]
+      // )
+    ],
+    componentBase: "~/components/runtime",
+  }), Svelte(), Feed({
+    feedConfig: {
+      title: "Pak",
+      id: "blog-yixuan-wang-v4",
+      copyright: "CC BY-NC-SA 4.0 © Yixuan Wang",
+      description: "Yixuan Wang's personal blog.",
+      favicon: new URL(`${process.env.PUBLIC_BUILD_BASE_URL}favicon.svg`, process.env.PUBLIC_BUILD_SITE_URL).toString(),
+      author: {
+        name: "Yixuan Wang",
+      },
+    }
+  }), Pagefind(), playformInline()],
   vite: {
     plugins: [
       Inspect(),
