@@ -31,7 +31,6 @@
     "@shikijs/rehype": "^1.15.1",
     "@types/node": "^18.19.3",
     "@typescript-eslint/parser": "^5.62.0",
-    "@unocss/preset-web-fonts": "^66.0.0",
     "@unocss/reset": "^66.0.0",
     "@unocss/transformer-directives": "^66.0.0",
     "@unocss/transformer-variant-group": "^66.0.0",
