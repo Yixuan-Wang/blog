@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Noto Sans CJK SC";
+  font-weight: normal;
+  src: local('Noto Sans CJK SC'),
+    local("Source Han Sans SC"),
+    local("Source Han Sans CN"),
+    local("Noto Sans SC");
+}
+
+@font-face {
+  font-family: "Noto Sans CJK SC";
+  font-weight: bold;
+  src: local('Noto Sans CJK SC Bold'),
+    local("Source Han Sans SC Bold"),
+    local("Noto Sans CJK SC")
+    local("Source Han Sans SC"),
+    local("Source Han Sans CN"),
+    local("Noto Sans SC");
+}
+
+@font-face {
+  font-family: "Noto Serif CJK SC";
+  font-weight: normal;
+  src: local('Noto Serif CJK SC'),
+    local("Source Han Serif SC"),
+    local("Source Han Serif CN"),
+    local("Noto Serif SC");
+}
+
+@font-face {
+  font-family: "Noto Serif CJK SC";
+  font-weight: bold;
+  src: local('Noto Serif CJK SC Bold'),
+    local("Source Han Serif SC Bold"),
+    local("Noto Serif CJK SC"),
+    local("Source Han Serif SC"),
+    local("Source Han Serif CN"),
+    local("Noto Serif SC");
+}
+
+@font-face {
+  font-family: "LXGW WenKai";
+  font-weight: normal;
+  src: local('LXGW WenKai');
+}
+
