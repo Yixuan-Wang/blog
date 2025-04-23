@@ -13,6 +13,11 @@ const rehypeFindComponents: Plugin<[], Root, Set<string>> = function (this: Plug
         );
         components.add(component);
       }
+
+      if ((node.properties?.className as string[])?.includes("katex")) {
+        const component = "Math";
+        components.add(component);
+      }
     });
 
     return components;

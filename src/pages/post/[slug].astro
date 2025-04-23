@@ -36,12 +36,16 @@ const {
 
 <LayoutDefault title={meta.title} description={excerpt}>
   <Fragment slot="head">
-    <link
-      rel="preload"
-      as="style"
-      href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
-      crossorigin="anonymous"
-    />
+    {
+      componentNames?.includes("Math") ? (
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+          crossorigin="anonymous"
+        />
+      ) : null
+    }
+    
 
     {
       componentNames?.includes("Mermaid") ? (

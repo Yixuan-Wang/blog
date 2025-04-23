@@ -113,6 +113,7 @@ export async function parseMarkdown(content: string, options: OptionsParseMarkdo
     options.componentBase,
   );
   const componentImport = components
+    .filter(c => c !== "Math")
     .map(c => `import ${c} from "${getFileNameFromComponent(c)}";`)
     .join("\n");
 
