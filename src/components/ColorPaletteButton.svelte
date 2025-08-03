@@ -9,9 +9,10 @@
   interface Props {
     palette?: ColorPaletteSetting;
     title?: string;
+    children?: any;
   }
 
-  let { palette = DEFAULT_COLOR_PALETTE as ColorPaletteSetting, title = "Color Palette" }: Props = $props();
+  let { palette = DEFAULT_COLOR_PALETTE as ColorPaletteSetting, title = "Color Palette", children }: Props = $props();
 
   function setPalette() {
     colorPalette.set(palette);
@@ -24,5 +25,9 @@
 </script>
 
 <button class="flex gap-1" {title} onclick={setPalette} aria-label={title}>
-  <div {style}></div>
+  {#if children}
+    {@render children()}
+  {:else}
+    <div {style}></div>
+  {/if}
 </button>
