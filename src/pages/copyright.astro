@@ -1,0 +1,38 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import "../styles/post.css";
+---
+
+<LayoutDefault
+  title="Copyright"
+  description="Copyright notices of the blog."
+>
+  <main id="md" class="flex flex-col">
+    <div class="font-sans">
+      <button title="Back" onclick="history.back()">
+        <div class="i-mdi-arrow-left" />
+      </button>
+    </div>
+    <div>
+      <p>
+        The blog contents are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a>.
+      </p>
+      <p lang="zh-Hans">
+        博客的内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank">Creative Commons 署名—非商业性使用—相同方式共享 4.0 许可</a>。
+      </p>
+    </div>
+    <div>
+      <p>
+        The blog source code is licensed under <a href="https://github.com/Yixuan-Wang/blog/blob/main/LICENSE" target="_blank">MIT License</a>.
+      </p>
+      <p>
+        博客的代码采用 <a href="https://github.com/Yixuan-Wang/blog/blob/main/LICENSE" target="_blank">MIT 许可证</a>。
+      </p>
+    </div>
+    <h2 id="map">Map</h2>
+    <p>
+      Map data are from <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> or <a href="https://www.tianditu.gov.cn/" target="_blank">天地图 (Tianditu)</a>, with map services provided by OpenStreetMap, 天地图 or <a href="https://carto.com/" target="_blank">Carto</a>.
+    </p>
+  </main>
+</LayoutDefault>
+
