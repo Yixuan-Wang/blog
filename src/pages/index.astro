@@ -7,7 +7,6 @@ import PostInfoFull from "src/components/PostInfoFull.astro";
 
 import ColorPalette from "src/components/ColorPalette.astro";
 import FriendList from "src/components/FriendList.astro";
-import BaseHover from "~/components/BaseHover.astro";
 ---
 
 <LayoutEmpty>
@@ -24,47 +23,60 @@ import BaseHover from "~/components/BaseHover.astro";
     <p class="text-xl font-mono"><span>|</span><span class="text-two">_</span><span>|</span><span>&nbsp;</span><span class="text-two-front">todo!</span><span>()</span></p>
   </header>
 
-  <nav class="index-sec-list flex flex-row gap-2">
-    <BaseHover>
-      <a slot="handle" title="Friends" href="#recent-posts">
-        <div class="i-mdi-clock"></div>
-      </a>
-      <div slot="content" class="tip">Recent Posts</div>
-    </BaseHover>
-    <BaseHover>
-      <a slot="handle" title="Friends" href="#friend">
+  <section class="card px-5 font-serif bg-one-back grid grid-cols-[auto_auto_1fr] items-center gap-x-2 gap-y-1.5">
+    <div class="justify-self-end">Read the latest work</div>
+    <div class="i-mdi-clock text-one"></div>
+    <div>
+      {}
+      <span
+        class="flex gap-1 @hover-text-one-front transition-lively"
+      >
+        <a
+          class="inline"
+          href={new URL(`${import.meta.env.BASE_URL}post/${PostInfo[timeDesc[0]].slug}`, Astro.site)}
+        >
+          <span class="ub">{PostInfo[timeDesc[0]].meta.title}</span>
+        </a>
+      </span>
+    </div>
+    <div class="justify-self-end">Overhaul the look</div>
+    <div class="i-mdi-circle-half-full text-one"></div>
+    <ColorPalette />
+    <div class="justify-self-end">Visit my ...</div>
+    <div class="text-one-front">
+      <a title="Friends" href="#friend">
         <div class="i-mdi-account-circle"></div>
       </a>
-      <div slot="content" class="tip">Friends</div>
-    </BaseHover>
-    <BaseHover>
-      <a slot="handle" title="Color Palettes" href="#color-palette">
-        <div class="i-mdi-circle-half-full"></div>
-      </a>
-      <div slot="content" class="tip">Color Palettes</div>
-    </BaseHover>
-    <hr class="h-full border-l-1 border-one-back mx-1" />
-    <BaseHover>
-      <a slot="handle" title="Archive" href={new URL(`${import.meta.env.BASE_URL}archive`, Astro.site)}>
-        <div class="i-mdi-inbox"></div>
-      </a>
-      <div slot="content" class="tip">Archive</div>
-    </BaseHover>
-    <BaseHover>
-      <a slot="handle" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
+    </div>
+    <div>
+      <a class="ub transition-lively @hover-text-one" title="Friends" href="#friend">
+        Friends
+      </a> 
+    </div>
+    <div class="justify-self-end">Keep calm and ...</div>
+    <div class="text-one-front">
+      <a title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
         <div class="i-mdi-school"></div>
       </a>
-      <div slot="content" class="tip">Academia</div>
-    </BaseHover>
-    <hr class="h-full border-l-1 border-one-back mx-1" />
-    <BaseHover>
-      <a slot="handle" class="out-link" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
+    </div>
+    <div>
+      read
+      <a class="ub transition-lively @hover-text-one" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
+        academic posts
+      </a>
+    </div>
+    <div class="justify-self-end"><code>whoami</code></div>
+    <div class="text-two-front">
+      <a class="out-link" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
         <div class="i-mdi-information"></div>
       </a>
-      <div slot="content" class="tip">Am</div>
-    </BaseHover>
-  </nav>
-
+    </div>
+    <div>
+      <a class="out-link ub transition-lively @hover-text-two" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
+        王奕轩
+      </a>
+    </div>
+  </section>
 
   <section id="recent-posts" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
@@ -74,11 +86,6 @@ import BaseHover from "~/components/BaseHover.astro";
   <section id="friend" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Friends</h2>
     <FriendList />
-  </section>
-
-  <section id="color-palette" class="flex flex-col gap-3">
-    <h2 class="text-2xl font-bold text-one-front">Color Palettes</h2>
-    <ColorPalette />
   </section>
 
   <div role="none" class="mb-10"></div>

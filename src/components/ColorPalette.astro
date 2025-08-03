@@ -17,12 +17,11 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
       c: 0.215,
       h: 23.81,
     },
-    /* 62.97% 0.218 18.81 */
     two: {
       mode: "oklch",
       l: 0.6926,
-      c: 0.156,
-      h: 33.02,
+      c: 0.2428,
+      h: 47.16,
     },
   },
   {
@@ -85,15 +84,29 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     two: {
         mode: "oklch",
         l: 0.5500,
-        c: 0.015,
-        h: 0.00,
+        c: 0.025,
+        h: 10,
+    },
+  },
+  {
+    name: "Sihouette",
+    one: {
+      mode: "oklch",
+      l: 0.05,
+      c: 0.0,
+      h: 0.00,
+    },
+    two: {
+      mode: "oklch",
+      l: 0.7500,
+      c: 0.0,
+      h: 0.00,
     },
   }
-
 ];
 ---
 
-<div class="px-2 py-1 flex flex-row flex-wrap gap-2 items-center">
+<div class="py-1 flex flex-row flex-wrap gap-2 items-center">
   {
     prebuiltColorPalettes.map((color, index) => (
       <BaseHover>
