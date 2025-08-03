@@ -1,0 +1,16 @@
+---
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import "src/styles/post.css";
+import Geo from "~/components/runtime/Geo.astro";
+
+---
+
+<LayoutDefault
+  title="Geographics"
+  description="Geographics playground of Yixuan Wang's blog."
+  noComments={true}
+>
+  <main class="flex flex-col gap-4">
+    <Geo lat="39.9935" long="116.303873" zoom="16"></Geo>
+  </main>
+</LayoutDefault>
