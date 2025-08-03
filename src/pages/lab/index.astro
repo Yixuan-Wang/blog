@@ -28,7 +28,7 @@ const labItems = [
   description="Experiments on Yixuan Wang's blog."
   noComments={true}
 >
-  <main class="grid grid-cols-2 gap-2 items-stretch">
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 items-stretch">
     {labItems.map(({ title, icon, url, description }) => (
       <a href={new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}>
         <article class="card h-full flex flex-col gap-1 bg-transparent cursor-pointer @hover-bg-one-back transition-lively">
