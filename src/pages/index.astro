@@ -23,9 +23,9 @@ import FriendList from "src/components/FriendList.astro";
     <p class="text-xl font-mono"><span>|</span><span class="text-two">_</span><span>|</span><span>&nbsp;</span><span class="text-two-front">todo!</span><span>()</span></p>
   </header>
 
-  <section class="card px-5 font-serif bg-one-back grid grid-cols-[auto_auto_1fr] items-center gap-x-2 gap-y-1.5">
-    <div class="justify-self-end">Read the latest work</div>
+  <section class="card bg-one-back grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-2">
     <div class="i-mdi-clock text-one"></div>
+    <div>Latest</div>
     <div>
       {}
       <span
@@ -39,41 +39,25 @@ import FriendList from "src/components/FriendList.astro";
         </a>
       </span>
     </div>
-    <div class="justify-self-end">Overhaul the look</div>
     <div class="i-mdi-circle-half-full text-one"></div>
+    <div>Palette</div>
     <ColorPalette />
-    <div class="justify-self-end">Visit my ...</div>
-    <div class="text-one-front">
-      <a title="Friends" href="#friend">
-        <div class="i-mdi-account-circle"></div>
-      </a>
-    </div>
-    <div>
-      <a class="ub transition-lively @hover-text-one" title="Friends" href="#friend">
+    <div class="text-one-front i-mdi-account-circle"></div>
+    <div class="col-span-2">
+      <a class="text-one-front ub transition-lively @hover-text-one" title="Friends" href="#friend">
         Friends
       </a> 
     </div>
-    <div class="justify-self-end">Keep calm and ...</div>
-    <div class="text-one-front">
-      <a title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
-        <div class="i-mdi-school"></div>
+    <div class="text-one-front i-mdi-school"></div>
+    <div class="col-span-2">
+      <a class="text-one-front ub transition-lively @hover-text-one" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
+        Academic posts
       </a>
     </div>
-    <div>
-      read
-      <a class="ub transition-lively @hover-text-one" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
-        academic posts
-      </a>
-    </div>
-    <div class="justify-self-end"><code>whoami</code></div>
-    <div class="text-two-front">
-      <a class="out-link" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
-        <div class="i-mdi-information"></div>
-      </a>
-    </div>
-    <div>
-      <a class="out-link ub transition-lively @hover-text-two" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
-        王奕轩
+    <div class="text-two i-mdi-information"></div>
+    <div class="col-span-2">
+      <a class="out-link text-two-front ub transition-lively @hover-text-two" title="Am" href="https://am.yixuan-wang.site" rel="noopener" target="_blank">
+        About me
       </a>
     </div>
   </section>
