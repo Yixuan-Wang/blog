@@ -86,7 +86,7 @@ declare global {
     }
 
     interface Link {
-      github: string;
+      github?: string;
       blog?: string;
       homepage?: string;
     }

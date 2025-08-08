@@ -1,0 +1,11 @@
+---
+import { sortUnicode } from "src/utils/stub";
+import BaseFriendBrief from "./BaseFriendBrief.astro";
+import { friends } from "@/meta/friends.yaml";
+
+const friendsSorted = friends.sort((a, b) => sortUnicode(a.name, b.name));
+---
+
+<div class="px-3 py-2 grid grid-cols-[auto_1fr_2fr] gap-x-2 gap-y-3 items-center relative">
+  {friendsSorted.map(friend => <BaseFriendBrief {friend} />)}
+</div>
