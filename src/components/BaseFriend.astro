@@ -1,5 +1,5 @@
 ---
-import BaseHover from './BaseHover.astro';
+import BaseFriendSocial from './BaseFriendSocial.astro';
 
 export interface Props {
   friend: friend.Friend
@@ -8,7 +8,6 @@ export interface Props {
 const {
   friend: { name, avatar, link },
 } = Astro.props;
-const outlink = { rel: "noopener", target: "_blank" };
 ---
 
 <article 
@@ -17,63 +16,17 @@ const outlink = { rel: "noopener", target: "_blank" };
 >
   <img class="rounded-1/2 w-8 h-8 row-[1/3]" src={avatar} alt={`Avatar of ${name}`} />
   <h2 class="font-mono transition-lively">{name}</h2>
-  <div class="friends-list flex flex-row gap-1.5 items-center">
-    {
-      link.github
-      ? (
-        <BaseHover>
-          <a slot="handle" title={`GitHub of ${name}`} href={link.github} {...outlink}
-          >
-            <div class="i-mdi-github"></div>
-          </a>
-          <div slot="content" class="tip">GitHub</div>
-        </BaseHover>
-      )
-      : null
-    }
-    {
-      link.homepage
-        ? (
-        <BaseHover>
-          <a slot="handle" title={`Home Page of ${name}`} href={link.homepage} {...outlink}>
-            <div class="i-mdi-home" />
-          </a>
-          <div slot="content" class="tip">Home Page</div>
-        </BaseHover>
-          )
-        : null
-    }
-    {
-      link.blog
-        ? (
-        <BaseHover>
-          <a slot="handle" title={`Blog of ${name}`} href={link.blog} {...outlink}>
-            <div class="i-mdi-blog" />
-          </a>
-          <div slot="content" class="tip">Blog</div>
-        </BaseHover>
-          )
-        : null
-    }
-  </div>
+  <BaseFriendSocial {name} {link} brief />
 </article>
 
 <style>
   @media (hover: hover) and (pointer: fine) {
-    article:hover a {
+    article:hover :global(.friends-list a) {
       @apply text-one;
     }
   }
 
-  .friends-list :global(.hover-component-container) {
-    @apply justify-center;
-  }
-
-  .friends-list :global(.hover-component-content) {
-    @apply top-[calc(100%+0.25rem)] bottom-unset;
-  }
-
-  .friends-list a {
-    @apply text-one-front @hover-text-two transition-lively;
+  :global(.friends-list a) {
+    @apply @hover-text-two;
   }
 </style>

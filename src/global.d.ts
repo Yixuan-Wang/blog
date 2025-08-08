@@ -82,13 +82,12 @@ declare global {
     interface Friend {
       name: string;
       avatar: string;
-      link: Link;
-    }
-
-    interface Link {
-      github?: string;
-      blog?: string;
-      homepage?: string;
+      link: {
+        github?: string;
+        blog?: string;
+        homepage?: string;
+        [key: string]: string;
+      };
     }
   }
 

@@ -1,0 +1,61 @@
+---
+import BaseHover from './BaseHover.astro';
+
+export interface Props {
+  name: string;
+  link: {
+    [key: string]: string;
+  };
+  brief?: boolean; // Optional prop to indicate if it's a brief display
+};
+
+let { name, link, brief = false } = Astro.props;
+const outlink = { rel: "noopener", target: "_blank" };
+
+if (brief) {
+  // Take head 5 links only
+  link = Object.fromEntries(
+    Object.entries(link).slice(0, 5)
+  );
+}
+
+const SUPPORTED_LINKS: Record<string, { icon: string; title: string }> = {
+  github: { icon: "i-mdi-github", title: "GitHub" },
+  homepage: { icon: "i-mdi-home", title: "Home Page" },
+  blog: { icon: "i-mdi-blog", title: "Blog" },
+  twitter: { icon: "i-mdi-twitter", title: "Twitter" },
+  bluesky: { icon: "i-custom-bluesky", title: "Bluesky" },
+  wechat: { icon: "i-mdi-wechat", title: "WeChat" },
+  instagram: { icon: "i-mdi-instagram", title: "Instagram" },
+};
+---
+
+<div class="friends-list flex flex-row flex-wrap gap-1.5 items-center"}>
+  {Object.entries(link).map(([key, url]) => {
+    if (key in SUPPORTED_LINKS && url) {
+      const { icon, title } = SUPPORTED_LINKS[key];
+      return (
+        <BaseHover>
+          <a slot="handle" title={`${title} of ${name}`} href={url} {...outlink}>
+            <div class={icon}></div>
+          </a>
+          <div slot="content" class="tip">{title}</div>
+        </BaseHover>
+      );
+    }
+  })}
+</div>
+
+<style>
+  .friends-list :global(.hover-component-container) {
+    @apply justify-center;
+  }
+
+  .friends-list :global(.hover-component-content) {
+    @apply top-[calc(100%+0.25rem)] bottom-unset;
+  }
+
+  .friends-list a {
+    @apply text-one-front transition-lively;
+  }
+</style>
