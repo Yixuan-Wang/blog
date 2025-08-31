@@ -74,7 +74,7 @@ export default defineConfig({
       title: "Pak",
       id: "blog-yixuan-wang-v4",
       copyright: "CC BY-NC-SA 4.0 © Yixuan Wang",
-      description: "Yixuan Wang's personal blog. Provided on Folo as feedId:66489740729596929+userId:42216269487583232.",
+      description: "Yixuan Wang's personal blog.",
       favicon: new URL(`${process.env.PUBLIC_BUILD_BASE_URL}favicon.svg`, process.env.PUBLIC_BUILD_SITE_URL).toString(),
       author: {
         name: "Yixuan Wang",
