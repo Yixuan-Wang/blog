@@ -36,6 +36,7 @@ export default defineConfig({
   base: process.env.PUBLIC_BUILD_BASE_URL,
   build: {
     format: "file",
+    inlineStylesheets: "never",
   },
   integrations: [Unocss({
     mode: "dist-chunk",
