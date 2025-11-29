@@ -38,8 +38,8 @@ export default defineConfig({
     format: "file",
   },
   integrations: [Unocss({
-    // mode: "dist-chunk",
-    // injectEntry: process.env.NODE_ENV === "development",
+    mode: "dist-chunk",
+    injectEntry: process.env.NODE_ENV === "development",
     injectReset: "@unocss/reset/tailwind.css",
   }), PostProvider({
     providers: [
