@@ -36,11 +36,10 @@ export default defineConfig({
   base: process.env.PUBLIC_BUILD_BASE_URL,
   build: {
     format: "file",
-    inlineStylesheets: "never",
   },
   integrations: [Unocss({
-    mode: "dist-chunk",
-    injectEntry: process.env.NODE_ENV === "development",
+    // mode: "dist-chunk",
+    // injectEntry: process.env.NODE_ENV === "development",
     injectReset: "@unocss/reset/tailwind.css",
   }), PostProvider({
     providers: [
