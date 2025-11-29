@@ -25,8 +25,6 @@ import Feed from "./src/build/feed";
 import SiteMeta from "./src/build/site-meta";
 import { formatISO } from "date-fns";
 
-import playformInline from "@playform/inline";
-
 const _dirname =
   typeof __dirname !== "undefined"
     ? __dirname
@@ -80,7 +78,7 @@ export default defineConfig({
         name: "Yixuan Wang",
       },
     }
-  }), Pagefind(), playformInline()],
+  }), Pagefind()],
   vite: {
     plugins: [
       Inspect(),
