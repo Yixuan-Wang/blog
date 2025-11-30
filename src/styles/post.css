@@ -99,10 +99,13 @@
 }
 
 #md ul > :first-child,
+#md ol > :first-child {
+  @apply mt-0;
+}
+
 #md ul > :last-child,
-#md ol > :first-child,
 #md ol > :last-child {
-  @apply my-0;
+  @apply mb-0;
 }
 
 #md li::marker {
