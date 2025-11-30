@@ -9,7 +9,7 @@ import ColorPalette from "src/components/ColorPalette.astro";
 import FriendList from "src/components/FriendList.astro";
 ---
 
-<LayoutEmpty>
+<LayoutEmpty hasScrollToTop={true}>
   <Fragment slot="head">
     <BaseHead title="Pak" description="Yixuan Wang's blog." noSuffix={true} />
     <meta property="og:image" content={new URL("/favicon.svg", Astro.site)} />

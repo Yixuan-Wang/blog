@@ -5,10 +5,12 @@ import TheFooterColorSchemeButton from "./TheFooterColorSchemeButton.svelte";
 import TheFooterCommentButton from "./TheFooterCommentButton.astro";
 
 export interface Props {
+  noFab?: boolean
   noComments?: boolean
+  hasScrollToTop?: boolean
 }
 
-const { noComments } = Astro.props;
+const { noComments, hasScrollToTop, noFab } = Astro.props;
 ---
 
 <footer id="the-footer">
@@ -56,26 +58,40 @@ const { noComments } = Astro.props;
   </nav>
   <div class="flex-1"></div>
   <nav id="the-footer-end" class="gap-2">
-    {noComments ? null : 
-      <BaseHover>
-        <TheFooterCommentButton slot="handle" />
-        <div slot="content" class="tip">Comments</div>
-      </BaseHover>
-    }
     <BaseHover>
       <TheFooterColorSchemeButton slot="handle" client:only="svelte" />
       <div slot="content" class="tip">Color Scheme</div>
     </BaseHover>
   </nav>
 </footer>
+<footer id="the-fab" class="gap-2" data-fab={!noFab}>
+  {noComments ? null : 
+    <BaseHover>
+      <TheFooterCommentButton slot="handle" />
+      <div slot="content" class="tip">Comments</div>
+    </BaseHover>
+  }
+  {!hasScrollToTop ? null :
+    <BaseHover>
+      <button slot="handle" title="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top">
+        <div class="i-mdi-arrow-up-circle"></div>
+      </button>
+      <div slot="content" class="tip">Back to Top</div>
+    </BaseHover>
+  }
+</footer>
 
 <style is:global>
-  #the-footer button {
+  :is(#the-footer, #the-fab) button {
     @apply text-lg
     @hover-text-one active:text-one transition-lively;
   }
 
-  #the-footer button[pinned] {
+  #the-fab button {
+    @apply text-one-front;
+  }
+
+  :is(#the-footer, #the-fab) button[pinned] {
     @apply text-one;
   }
 
@@ -83,7 +99,32 @@ const { noComments } = Astro.props;
     @apply justify-start lg:justify-center;
   }
 
-  #the-footer-end .hover-component-container {
+  :is(#the-footer-end, #the-fab) .hover-component-container {
     @apply justify-end lg:justify-center;
   }
+
+  #the-fab {
+    &[data-fab="true"] {
+      @apply sticky bottom-0;
+    }
+
+    & > * {
+      @apply z-9;
+    }
+
+    &:has(> *) {
+      @apply ml-2;
+    }
+
+  }
+
+  /* @media (min-width: 1024px) {
+    #the-fab {
+      @apply fixed bottom-0 right-1;
+
+      .hover-component-container {
+        @apply justify-end;
+      }
+    }
+  } */
 </style>

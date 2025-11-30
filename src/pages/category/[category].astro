@@ -21,6 +21,7 @@ const { category } = Astro.params as {
 <LayoutDefault
   title={categoryInfo[category].name}
   description={categoryInfo[category].description}
+  hasScrollToTop={true}
 >
   <Fragment slot="head"></Fragment>
   <Fragment slot="headline">

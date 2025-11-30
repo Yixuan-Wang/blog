@@ -34,7 +34,7 @@ const {
 } = await postImport[slug]();
 ---
 
-<LayoutDefault title={meta.title} description={excerpt}>
+<LayoutDefault title={meta.title} description={excerpt} hasScrollToTop={true}>
   <Fragment slot="head">
     {
       componentNames?.includes("Math") ? (

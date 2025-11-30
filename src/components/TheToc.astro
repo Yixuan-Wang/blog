@@ -8,10 +8,11 @@ const { toc } = Astro.props;
 
 <section id="toc-container">
   <aside id="toc">
-    <button id="toc-to-top" class="cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Scroll to top"><div class="i-mdi-arrow-up-circle"></div></button>
+    <!-- <button id="toc-to-top" class="cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Scroll to top"><div class="i-mdi-arrow-up-circle"></div></button> -->
     {
       toc.map(([heading, id]) => (
         <span class="font-bold">
+          <span class="lg:hidden">#</span>
           <a href={`#${id}`}>{heading}</a>
         </span>
       )).reduce((list, line) => {
@@ -31,9 +32,9 @@ const { toc } = Astro.props;
     @apply
       flex flex-col w-full items-start
       overflow-y-auto overflow-x-hidden
-      gap-y-2 p-2
+      gap-y-2
       lg:(
-        absolute left-full ml-4 w-fit
+        absolute left-full p-2 ml-4 w-fit
       )
     ;
     max-height: 25vh;
@@ -59,8 +60,8 @@ const { toc } = Astro.props;
     @apply text-front lh-tight @hover:text-one-front
   }
 
-  #toc-to-top {
+  /* #toc-to-top {
     @apply lt-lg:hidden;
-  }
+  } */
 
 </style>
