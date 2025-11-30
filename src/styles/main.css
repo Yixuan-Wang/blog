@@ -25,9 +25,22 @@ body {
 }
 
 body > * {
-  max-width: 85ch;
+  max-width: 65ch;
   margin: auto;
 }
+
+@media (min-width: 145ch) {
+  body > * {
+    max-width: 75ch;
+  }
+}
+
+@media (min-width: 175ch) {
+  body > * {
+    max-width: 85ch;
+  }
+}
+
 
 #app {
   display: grid;
