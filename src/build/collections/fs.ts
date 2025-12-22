@@ -20,11 +20,18 @@ type FsOptions = {
 
 const generatePostMeta = (
   frontmatter: post.FrontmatterRaw,
+  fsInfo: import('fs').Stats,
 ) => {
-  const created = vagueDateToISO(frontmatter.date);
-  const updated = frontmatter.updated
-    ? vagueDateToISO(frontmatter.updated)
-    : created;
+  const created = vagueDateToISO(
+    frontmatter.date
+    ? frontmatter.date
+    : fsInfo.ctime
+  );
+  const updated = vagueDateToISO(
+    frontmatter.updated
+    ? frontmatter.updated
+    : fsInfo.mtime
+  );
 
   let status: Status = Status.FINISHED;
   if (frontmatter.draft)
@@ -78,10 +85,10 @@ export function fs(loaderOptions: FsOptions): Loader {
         untouchedEntryKeys.delete(slug);
 
         const rawData = parseFrontmatter(rawContent);
-        // TODO: Handle frontmatter data
+        const fsInfo = await node_fs.stat(filePath);
         const data = {
           excerpt: rawData.excerpt,
-          ...generatePostMeta(rawData.frontmatter),
+          ...generatePostMeta(rawData.frontmatter, fsInfo),
         }
         const content = rawData.rawContent;
         const digest = generateDigest({

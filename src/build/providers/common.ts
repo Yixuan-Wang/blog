@@ -12,7 +12,7 @@ export function generatePostMetaCommons(frontmatter: post.FrontmatterRaw) {
 
   const keywords = frontmatter.keywords ?? [];
 
-  const series = frontmatter.series ?? null;
+  const series = frontmatter.series ? { name: frontmatter.series[0], index: frontmatter.series[1] } : null;
 
   let genre = Genre.ARTICLE;
   if (frontmatter.genre) {

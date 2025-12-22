@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const {
-  info: { slug, meta, excerpt },
+  info: { id: slug, data: meta },
 } = Astro.props;
 ---
 
@@ -20,7 +20,7 @@ const {
       <span>{meta.title}</span>
       { meta.status !== Status.FINISHED ? <span class="text-sm"><div class={STATUS_META[meta.status].icon}></div></span> : null }
     </h2>
-    <p class="font-post-content">{excerpt}</p>
+    <p class="font-post-content">{meta.excerpt}</p>
     <PostMeta meta={meta} />
   </article>
 </a>

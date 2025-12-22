@@ -83,12 +83,6 @@ const { Content, toc, features } = await render(post.body!);
         }
       </Fragment>
     </Content>
-    <details>
-      <summary>Debug Info</summary>
-      <pre lang="json">{JSON.stringify(Array.from(Object.keys(post)))}</pre>
-      <pre lang="json">{JSON.stringify(post.data, null, 2)}</pre>
-      <!-- <pre lang="json">{JSON.stringify(markdown, null, 2)}</pre> -->
-    </details>
   </main>
   <!-- 
   <main id="md" lang={meta.lang ?? "zh-Hans"}>

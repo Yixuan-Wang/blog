@@ -1,15 +1,21 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
-import postInfo, { allTag } from "post:info";
+import pl from "nodejs-polars";
+import { getDataset, getPosts } from "~/logic/dataset";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(allTag).map(tag => ({ params: { tag } }));
+  const dataset = await getDataset();
+  const tags = dataset.select("tags").explode("tags").unique().toSeries().toArray() as string[];
+  return tags.map(tag => ({ params: { tag } }));
 }
 
 const { tag } = Astro.params as {
   tag: string
 };
+const dataset = await getDataset();
+const postIds = dataset.filter(pl.col("tags").lst.contains(tag)).select("id").toSeries().toArray() as string[];
+const postInfo = await getPosts(postIds);
 ---
 
 <LayoutDefault
@@ -20,6 +26,6 @@ const { tag } = Astro.params as {
   <Fragment slot="head"></Fragment>
   <Fragment slot="headline"></Fragment>
   <div class="flex flex-col gap-5">
-    {allTag[tag].map(slug => <PostInfoFull info={postInfo[slug]} />)}
+    {postInfo.map(data => <PostInfoFull info={data} />)}
   </div>
 </LayoutDefault>

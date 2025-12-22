@@ -1,10 +1,40 @@
 ---
-import { allCategory } from "post:info";
+import { getDataset, getPosts } from "~/logic/dataset";
+import pl, { all } from "nodejs-polars";
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
 import { category as categoryInfo } from "@/meta/category.yaml";
 import SeriesList from "~/components/SeriesList.astro";
 import TagList from "~/components/TagList.astro";
 
+const dataset = await getDataset();
+
+const allCategory = dataset.select(
+  pl.col("category"),
+  pl.col("tags"),
+  pl.col("series").struct.field("name").alias("series"),
+);
+const allTaxonomy = allCategory.explode("tags").groupBy("tags").agg(
+  pl.len().alias("count_tags"),
+  pl.col("category").first().alias("category"),
+).groupBy("category").agg(
+  pl.cols("tags", "count_tags").sortBy("count_tags", true),
+  pl.col("count_tags").sum().alias("total"),
+).sort("category").join(
+  allCategory.groupBy("series").agg(
+    pl.len().alias("count_series"),
+    pl.col("category").first().alias("category"),
+  ).sort("count_series", true).filter(pl.col("series").isNotNull()).groupBy("category").agg(
+    pl.cols("series", "count_series").sortBy("count_series", true),
+  ),
+  { on: "category", how: "left" }
+).toRecords() as unknown as {
+  category: string;
+  tags: string[];
+  count_tags: number[];
+  total: number;
+  series?: string[];
+  count_series?: number[];
+}[];
 ---
 
 <LayoutDefault
@@ -15,7 +45,7 @@ import TagList from "~/components/TagList.astro";
 >
   <div class="flex flex-col gap-8">
     {
-      Object.keys(allCategory).map(category => (
+      allTaxonomy.map(({category, tags, count_tags, total, series, count_series}) => (
         <section class="flex flex-col gap-4">
           <div>
             <h2 id={category} class="text-3xl font-bold text-one-front">
@@ -23,12 +53,12 @@ import TagList from "~/components/TagList.astro";
             </h2>
             <div class="flex flex-col">
               <span class="font-mono font-bold text-one-front">{category}</span>
-              <span class="font-mono pb-2">{allCategory[category]!.length}</span>
+              <span class="font-mono pb-2">{total}</span>
               <p>{categoryInfo[category]?.description ?? ""}</p>
             </div>
           </div>
-          <TagList category={category} />
-          <SeriesList category={category} />
+          <TagList tags={tags} counts={count_tags} />
+          { (series && count_series) ? <SeriesList series={series} counts={count_series} /> : null}
         </section>
       ))
     }

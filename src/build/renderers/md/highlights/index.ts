@@ -4,9 +4,7 @@ import { fileURLToPath } from "node:url";
 import { getHighlighter, bundledLanguages } from "shiki/bundle/full";
 import { createCssVariablesTheme } from "shiki";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const fetchGrammar = (lang: string) => JSON.parse(readFileSync(resolve(__dirname, `languages/${lang}.tmLanguage.json`), { encoding: "utf-8" }))
+const fetchGrammar = (lang: string) => JSON.parse(readFileSync(`src/build/renderers/md/highlights/languages/${lang}.tmLanguage.json`, { encoding: "utf-8" }))
 
 // const theme = JSON.parse(readFileSync(resolve(__dirname, "theme.json"), { encoding: "utf-8" }))
 

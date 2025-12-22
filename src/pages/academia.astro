@@ -1,11 +1,23 @@
 ---
 import LayoutEmpty from "src/layouts/LayoutEmpty.astro";
 
-import PostInfo, { timeDesc } from "post:info";
+import { getDataset, getPosts } from "~/logic/dataset";
+import pl from "nodejs-polars";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 import BaseHeadline from "src/components/BaseHeadline.astro";
 
+const dataset = await getDataset();
+const allAcademia = dataset.filter(pl.col("keywords").lst.contains("academia"))
+  .select("id").toSeries().toArray() as string[];
+const postInfo = await getPosts(allAcademia);
+
 const description = `Yixuan Wang's academic writings, including posts, project intros and short thoughts.`;
+
+function removeAcademiaTag(data: any) {
+  const newData = { ...data };
+  newData.data.taxonomy.keywords = newData.data.taxonomy.keywords.filter((tag: string) => tag !== "academia");
+  return newData;
+}
 ---
 
 <LayoutEmpty noFab={true} hasScrollToTop={true}>
@@ -36,7 +48,7 @@ const description = `Yixuan Wang's academic writings, including posts, project i
     </div>
   </BaseHeadline>
   <section class="flex flex-col gap-3">
-    {timeDesc.filter(key => PostInfo[key].meta.taxonomy.keywords?.includes("academia")).map(key => <PostInfoFull info={PostInfo[key]} />)}
+    {postInfo.map(info => <PostInfoFull info={removeAcademiaTag(info)} />)}
   </section>
   <div role="none" class="mb-10"></div>
 </LayoutEmpty>

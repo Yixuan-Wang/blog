@@ -1,6 +1,7 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
-import postInfo, { allCategory } from "post:info";
+import { getDataset, getPosts } from "~/logic/dataset";
+import pl from "nodejs-polars";
 import { category as categoryInfo } from "@/meta/category.yaml";
 import PostInfoBrief from "~/components/PostInfoBrief.astro";
 import TagList from "~/components/TagList.astro";
@@ -8,13 +9,27 @@ import TagList from "~/components/TagList.astro";
 // import PostMeta from "src/components/PostMeta.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(allCategory).map(category => ({ params: { category } }));
+  const dataset = await getDataset();
+  const allCategory = dataset.select(pl.col("category").unique()).toSeries().toArray() as string[];
+  return allCategory.map(category => ({ params: { category } }));
 }
 
 const { category } = Astro.params as {
   category: string
 };
 
+const dataset = await getDataset();
+const allCategory = dataset.filter(pl.col("category").eq(pl.lit(category)))
+  .select("id").toSeries().toArray() as string[];
+const allTags = dataset.filter(pl.col("category").eq(pl.lit(category)))
+  .explode("tags")
+  .groupBy("tags").agg(
+    pl.len().alias("count"),
+  ).sort("count", true).toObject() as unknown as {
+    tags: string[];
+    count: number[];
+  };
+const postInfo = await getPosts(allCategory);
 // const { default: Content, excerpt, metadata: meta } = await postImport[slug]();
 ---
 
@@ -28,11 +43,11 @@ const { category } = Astro.params as {
     <p>{categoryInfo[category].description}</p>
   </Fragment>
   <main class="flex flex-col gap-5">
-    <TagList category={category} />
+    <TagList tags={allTags.tags} counts={allTags.count} />
     <section class="flex flex-col gap-2">
       {
-        allCategory[category].map(slug => (
-          <PostInfoBrief hideCategory={true} info={postInfo[slug]} />
+        postInfo.map(info => (
+          <PostInfoBrief hideCategory={true} info={info} />
         ))
       }
     </section>
