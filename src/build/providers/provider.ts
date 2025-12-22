@@ -3,7 +3,7 @@ import { pipe } from "fp-ts/lib/function";
 import chalk from "chalk";
 import ora from "ora";
 import { Status } from "../../logic/status";
-import { parseFrontmatter, parseMarkdown } from "./parser";
+import { parseFrontmatter, parseMarkdown } from "../renderers/md";
 import type { Provider, ProviderSource } from "./module";
 import type { ConfigPostProvider } from ".";
 

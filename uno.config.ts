@@ -4,7 +4,7 @@ import presetIcons from "@unocss/preset-icons";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
-export default defineConfig({
+export const unoConfig: Parameters<typeof defineConfig>[0] = {
   theme: {
     fontFamily: {
       sans: "var(--font-sans)",
@@ -75,4 +75,6 @@ export default defineConfig({
   ],
   // @ts-ignore
   transformers: [transformerDirectives(), transformerVariantGroup()],
-});
+};
+
+export default defineConfig(unoConfig);

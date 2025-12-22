@@ -2,7 +2,7 @@
 import LayoutEmpty from "src/layouts/LayoutEmpty.astro";
 import BaseHead from "~/components/BaseHead.astro";
 
-import PostInfo, { timeDesc } from "post:info";
+// import PostInfo, { timeDesc } from "post:info";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 import ColorPalette from "src/components/ColorPalette.astro";
@@ -23,7 +23,7 @@ import FriendList from "src/components/FriendList.astro";
     <p class="text-xl font-mono"><span>|</span><span class="text-two">_</span><span>|</span><span>&nbsp;</span><span class="text-two-front">todo!</span><span>()</span></p>
   </header>
 
-  <section class="card bg-one-back grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-2">
+  <!-- <section class="card bg-one-back grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-2">
     <div class="i-mdi-clock text-one"></div>
     <div>Latest</div>
     <div>
@@ -65,12 +65,12 @@ import FriendList from "src/components/FriendList.astro";
   <section id="recent-posts" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
     {timeDesc.slice(0, 10).map(key => <PostInfoFull info={PostInfo[key]} />)}
-  </section>
+  </section> -->
 
-  <section id="friend" class="flex flex-col gap-3">
+  <!-- <section id="friend" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Friends</h2>
     <FriendList />
-  </section>
+  </section> -->
 
   <div role="none" class="mb-10"></div>
 </LayoutEmpty>
