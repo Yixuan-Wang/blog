@@ -13,7 +13,7 @@ const {
 
 <a
   class="contents"
-  href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}
+  href={`${import.meta.env.BASE_URL}post/${slug}`}
 >
   <article class="card flex flex-col gap-1 bg-transparent cursor-pointer @hover-bg-one-back transition-lively">
     <h2 class="inline-flex gap-1 text-2xl font-bold font-post-heading transition-lively">

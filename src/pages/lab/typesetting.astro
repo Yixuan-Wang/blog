@@ -32,7 +32,7 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
       <Callout kind="info">
         <p>You can customize site-wise <strong>fonts</strong> and <em>colors</em>.</p>
       </Callout>
-      <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={new URL(`${import.meta.env.BASE_URL}post/test-content`, Astro.site)}>expedita exercitationem!</a></p>
+      <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={`${import.meta.env.BASE_URL}post/test-content`}>expedita exercitationem!</a></p>
 
       <Fragment set:html={CODE_BLOCK} />
     </section>

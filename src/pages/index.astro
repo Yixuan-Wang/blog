@@ -23,7 +23,7 @@ const timeDesc = await getPosts(latestPosts);
 <LayoutEmpty hasScrollToTop={true}>
   <Fragment slot="head">
     <BaseHead title="Pak" description="Yixuan Wang's blog." noSuffix={true} />
-    <meta property="og:image" content={new URL("/favicon.svg", Astro.site)} />
+    <meta property="og:image" content={"/favicon.svg"} />
     <meta property="og:url" content={Astro.site} />
     <meta property="og:type" content="website" />
   </Fragment>
@@ -44,7 +44,7 @@ const timeDesc = await getPosts(latestPosts);
       >
         <a
           class="inline"
-          href={new URL(`${import.meta.env.BASE_URL}post/${timeDesc[0].id}`, Astro.site)}
+          href={`${import.meta.env.BASE_URL}post/${timeDesc[0].id}`}
         >
           <span class="ub">{timeDesc[0].data.title}</span>
         </a>
@@ -61,7 +61,7 @@ const timeDesc = await getPosts(latestPosts);
     </div>
     <div class="text-one-front i-mdi-school"></div>
     <div class="col-span-2">
-      <a class="text-one-front ub transition-lively @hover-text-one" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
+      <a class="text-one-front ub transition-lively @hover-text-one" title="Academia" href={`${import.meta.env.BASE_URL}academia`}>
         Academic posts
       </a>
     </div>
