@@ -1,4 +1,3 @@
-import type { Option } from "fp-ts/lib/Option";
 import type { Genre } from "./logic/genre";
 import type { Status } from "./logic/status";
 
