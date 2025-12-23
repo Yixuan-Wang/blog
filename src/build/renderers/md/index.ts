@@ -1,6 +1,8 @@
 import path from "node:path";
 import matter from "gray-matter";
 import { renderJSX, type AstroComponentFactory } from "astro/runtime/server/index.js";
+import { renderSlotToString } from "astro/runtime/server/render/slot.js";
+import { chunkToString } from "astro/runtime/server/render/common.js";
 import { jsx, jsxs, jsxDEV, Fragment } from "astro/jsx-runtime";
 import type { Root as MdastRoot } from "mdast";
 import rehypeKatex from "rehype-katex";
@@ -26,6 +28,11 @@ import rehypeRuby from "./rehype-ruby";
 import remarkDirectiveFallback from "./remark-directive-fallback";
 import remarkDirectivePlainContainers from "./remark-directive-plain-containers";
 import remarkRuby from "./remark-ruby";
+
+import { slotName } from "~/utils/stub";
+import { RenderTemplateResult } from "astro/runtime/server/render/astro/render-template.js";
+import { tr } from "date-fns/locale";
+import { visit } from "unist-util-visit";
 
 /** Parse and strip the frontmatter from a markdown source string.
  * @param source The markdown source string.
@@ -147,14 +154,35 @@ export async function render(content: string) {
   const componentTree = await pipeline.transformAstro.run(hast);
   const astroComponent: AstroComponentFactory = async (result, props, slots) => {
     const runtimeComponents = components ? await loadRuntimeComponent(Array.from(components)) : {};
-    const { type, props: innerProps } = toJsxRuntime(componentTree, {
+
+    const transformedSlots: Record<string, any> = {};
+    for (const [name, slot] of Object.entries(slots)) {
+      transformedSlots[slotName(name)] = chunkToString(
+        result,
+        await renderSlotToString(result, slot as any)
+      )
+    }
+
+    for (const node of componentTree.children) {
+      if (node.type !== "element") continue;
+      if (node.tagName === "slot") {
+        const name = slotName(node.properties?.name?.toString() ?? "default");
+        if (transformedSlots[name]) {
+          node.tagName = "Fragment";
+          delete node.properties?.name;
+          node.properties["set:html"] = transformedSlots[name];
+        }
+      }
+    }
+
+    const { type, props: { children } } = toJsxRuntime(componentTree, {
       Fragment,
       jsx,
       jsxs,
       jsxDEV,
       components: runtimeComponents,
     });
-    return renderJSX(result, jsx(type, { ...innerProps, ...props, ...slots }));
+    return renderJSX(result, jsx(type, { ...props, children }))
   }
   Object.assign(astroComponent, {
     isAstroComponentFactory: true,
