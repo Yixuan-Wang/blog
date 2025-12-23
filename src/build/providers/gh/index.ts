@@ -6,9 +6,9 @@ import {
   mergeMap as rxMergeMap,
 } from "rxjs";
 import { Status } from "../../../logic/status";
-import { generatePostMetaCommons, vagueDateToISO } from "../common";
+import { generatePostMetaCommons, vagueDateToISO } from "../../collections/common";
 import type { Provider, ProviderSource } from "../module";
-import api, { type GhComment, type GhIssue } from "./api";
+import api, { type GhComment, type GhIssue } from "../../collections/gh/api";
 
 interface ProviderGhOptions {
   userName: string

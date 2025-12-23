@@ -4,7 +4,7 @@ import type { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/
 import { NotionToMarkdown } from "notion-to-md";
 import { from as rxFrom, mergeMap as rxMergeMap } from "rxjs";
 import { left, right } from "fp-ts/Either";
-import { generatePostMetaCommons, vagueDateToISO } from "../common";
+import { generatePostMetaCommons, vagueDateToISO } from "../../collections/common";
 import { Status } from "../../../logic/status";
 import { Genre } from "../../../logic/genre";
 import chalk from "chalk";

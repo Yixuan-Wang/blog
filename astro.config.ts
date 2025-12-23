@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 const timestamp = Date.now();
 
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 import Inspect from "vite-plugin-inspect";
 import Yaml from "@rollup/plugin-yaml";
@@ -31,6 +31,14 @@ export default defineConfig({
   base: process.env.PUBLIC_BUILD_BASE_URL,
   build: {
     format: "file",
+  },
+  env: {
+    schema: {
+      POSTS_DIR: envField.string({ context: "server" , access: "secret" }), 
+      GITHUB_USER: envField.string({ context: "server", access: "secret" }),
+      GITHUB_REPO: envField.string({ context: "server", access: "secret" }),
+      GITHUB_ACCESS_TOKEN: envField.string({ context: "server", access: "secret" }),
+    },
   },
   integrations: [
     Unocss({
