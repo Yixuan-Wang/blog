@@ -1,23 +1,20 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
-import { getDataset, getPosts } from "~/logic/dataset";
+import { getSeriesRecord, getPosts } from "~/logic/dataset";
 import pl from "nodejs-polars";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 export async function getStaticPaths() {
-  const dataset = await getDataset();
-  const allSeriesIds = dataset.filter(pl.col("series").isNotNull()).select(pl.col("series").struct.field("name").unique()).toSeries().toArray() as string[];
-  return allSeriesIds.map(series => ({ params: { series } }));
+  const allSeriesRecord = await getSeriesRecord();
+  return Object.keys(allSeriesRecord).map(series => ({ params: { series } }));
 }
 
 const { series } = Astro.params as {
   series: string
 };
 
-const dataset = await getDataset();
-const allSeries = dataset.filter(pl.col("series").struct.field("name").eq(pl.lit(series)))
-  .sort(pl.col("series").struct.field("index"), false)
-  .select("id").toSeries().toArray() as string[];
+const allSeriesRecord = await getSeriesRecord();
+const allSeries = allSeriesRecord[series] || [];
 const postInfo = await getPosts(allSeries);
 ---
 

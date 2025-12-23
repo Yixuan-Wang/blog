@@ -1,21 +1,19 @@
 ---
 export interface Props {
-  series: string[],
-  counts: number[],
+  series: {
+    name: string;
+    count: number;
+  }[];
 }
 
-const { series, counts } = Astro.props;
-const seriesWithCounts = series.map((series, index) => ({
-  series,
-  count: counts[index],
-}));
+const { series } = Astro.props;
 ---
 
 <section class="flex flex-row flex-wrap gap-2">
-  {seriesWithCounts.map(({ series, count }) => (
+  {series.map(({ name, count }) => (
     <div class="inline-flex gap-0.5">
       <span class="text-one-front ub-one-front border-b-dotted @hover-text-one @hover-border-two inline-chip transition-lively">
-        <a href={new URL(`${import.meta.env.BASE_URL}series/${series}`, Astro.site)}>{series}</a>
+        <a href={new URL(`${import.meta.env.BASE_URL}series/${name}`, Astro.site)}>{name}</a>
       </span>
       <span class="text-sm font-mono relative bottom-1">{count}</span>
     </div>
