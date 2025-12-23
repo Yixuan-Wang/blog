@@ -19,7 +19,9 @@ export async function getDataset(): Promise<pl.DataFrame> {
     return DATASET;
   }
 
-  const posts = await getCollection('posts');
+  const posts = await getCollection("posts", ({ data }) => (
+    import.meta.env.PROD ? data.status !== Status.DRAFT : true
+  ));
   const dataset = pl.DataFrame(
       posts.map(post => ({
         id: post.id,

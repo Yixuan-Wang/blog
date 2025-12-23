@@ -93,14 +93,6 @@ export function fs(loaderOptions: FsOptions, loaderContext?: {
           ...generatePostMeta(rawData.frontmatter, fsInfo),
         } satisfies post.PostMeta;
 
-        if (data.status === Status.DRAFT) {
-          logger.info(`Skipping draft file: ${filePath}`);
-          if (store.has(slug)) {
-            store.delete(slug);
-          }
-          return;
-        }
-
         const content = rawData.rawContent;
         const digest = generateDigest({
           content,

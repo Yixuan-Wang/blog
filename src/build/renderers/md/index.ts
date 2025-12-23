@@ -30,9 +30,6 @@ import remarkDirectivePlainContainers from "./remark-directive-plain-containers"
 import remarkRuby from "./remark-ruby";
 
 import { slotName } from "~/utils/stub";
-import { RenderTemplateResult } from "astro/runtime/server/render/astro/render-template.js";
-import { tr } from "date-fns/locale";
-import { visit } from "unist-util-visit";
 
 /** Parse and strip the frontmatter from a markdown source string.
  * @param source The markdown source string.

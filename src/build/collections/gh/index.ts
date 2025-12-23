@@ -145,13 +145,6 @@ async function processGhIssue(
       ...generatePostMeta(rawData.frontmatter, issue),
     } satisfies post.PostMeta;
 
-    if (data.status === Status.DRAFT) {
-      logger.info(`Skipping draft issue: ${issue.number} - ${issue.title}`);
-      if (store.has(slug)) {
-        store.delete(slug);
-      }
-      return;
-    }
 
     const body = rawData.rawContent;
     const digest = generateDigest({

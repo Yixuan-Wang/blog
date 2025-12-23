@@ -1,6 +1,5 @@
 import { z, defineCollection } from 'astro:content';
-import { glob, type Loader } from 'astro/loaders';
-import { Status } from './logic/status';
+import type { Loader } from 'astro/loaders';
 
 import { fs } from '~/build/collections/fs';
 import { gh } from '~/build/collections/gh';
