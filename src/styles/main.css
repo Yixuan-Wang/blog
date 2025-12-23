@@ -154,7 +154,9 @@ body.cloak {
 }
 
 html {
-  background: color-mix(in oklab, rgb(var(--color-back)), var(--color-one) var(--color-blend-intensity));
+  --color-one-canvas: color-mix(in oklab, rgb(var(--color-back)), var(--color-one) var(--color-blend-intensity));
+  --color-two-canvas: color-mix(in oklab, rgb(var(--color-back)), var(--color-two) var(--color-blend-intensity));
+  background: var(--color-one-canvas);
   color: rgba(var(--color-front));
 }
 

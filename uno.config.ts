@@ -18,11 +18,13 @@ export const unoConfig: Parameters<typeof defineConfig>[0] = {
         DEFAULT: "var(--color-one)",
         front: "var(--color-one-front)",
         back: "var(--color-one-back)",
+        canvas: "var(--color-one-canvas)",
       },
       two: {
         DEFAULT: "var(--color-two)",
         front: "var(--color-two-front)",
         back: "var(--color-two-back)",
+        canvas: "var(--color-two-canvas)",
       },
       back: "rgb(var(--color-back))",
       front: "rgb(var(--color-front))",
