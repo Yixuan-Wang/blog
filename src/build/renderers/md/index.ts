@@ -17,6 +17,7 @@ import remarkRehype from "remark-rehype";
 import type { Processor } from "unified";
 import { unified } from "unified";
 import { toJsxRuntime } from "hast-util-to-jsx-runtime";
+import { visit } from "unist-util-visit";
 
 import highlighter from "./highlights";
 import rehypeTransformAstro from "./rehype-transform-astro";
@@ -160,8 +161,8 @@ export async function render(content: string) {
       )
     }
 
-    for (const node of componentTree.children) {
-      if (node.type !== "element") continue;
+    visit(componentTree, (node) => {
+      if (node.type !== "element") return;
       if (node.tagName === "slot") {
         const name = slotName(node.properties?.name?.toString() ?? "default");
         if (transformedSlots[name]) {
@@ -170,7 +171,7 @@ export async function render(content: string) {
           node.properties["set:html"] = transformedSlots[name];
         }
       }
-    }
+    });
 
     const { type, props: { children } } = toJsxRuntime(componentTree, {
       Fragment,
