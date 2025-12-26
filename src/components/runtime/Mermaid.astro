@@ -44,7 +44,7 @@
       }
 
       const config = () => ({
-        securityLevel: 'strict',
+        securityLevel: 'loose',
         theme: 'base',
         fontFamily: 'inherit',
         themeVariables: {
@@ -68,8 +68,10 @@
         attributeFilter: ['class'],
       });
 
-      saveOriginalData()
-      mermaid.initialize(config());
+      document.addEventListener("DOMContentLoaded", () => {
+        saveOriginalData();
+        mermaid.initialize(config());
+      });
     })();
   </script>
   <slot></slot>
