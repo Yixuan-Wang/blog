@@ -176,6 +176,14 @@
   ;
 }
 
+#md code {
+  font-size: 0.9em;
+}
+
+#md pre code {
+  font-size: 1em;
+}
+
 #md pre {
   @apply
     p-3 rounded-2 max-w-full
