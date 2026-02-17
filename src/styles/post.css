@@ -240,3 +240,12 @@
   @apply
     bg-one-back;
 }
+
+#md .data-footnote-backref {
+  font-family: var(--font-sans);
+  font-size: 0.875em;
+
+  &::after {
+    content: "\00FE0E";
+  }
+}
