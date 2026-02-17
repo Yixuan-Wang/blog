@@ -6,16 +6,22 @@
   <script is:inline type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
+    function clamp(num, min, max) {
+      return Math.min(Math.max(num, min), max);
+    }
+  
     function getRgb(className) {
-      const colorRaw = window.getComputedStyle(document.getElementsByClassName(className)[0]).backgroundColor.match(/srgb (?<rFrac>[0-9.]+) (?<gFrac>[0-9.]+) (?<bFrac>[0-9.]+)/);
+      const backgroundColor = window.getComputedStyle(document.getElementsByClassName(className)[0]).backgroundColor;
+      const colorRaw = backgroundColor.match(/srgb (?<rFrac>[0-9.\-]+) (?<gFrac>[0-9.\-]+) (?<bFrac>[0-9.\-]+)/);
       if (colorRaw) {
         const { rFrac, gFrac, bFrac } = colorRaw.groups;
-        const r = Math.round(parseFloat(rFrac) * 255);
-        const g = Math.round(parseFloat(gFrac) * 255);
-        const b = Math.round(parseFloat(bFrac) * 255);
+        const r = clamp(Math.round(parseFloat(rFrac) * 255), 0, 255);
+        const g = clamp(Math.round(parseFloat(gFrac) * 255), 0, 255);
+        const b = clamp(Math.round(parseFloat(bFrac) * 255), 0, 255);
+        
         return `rgb(${r} ${g} ${b})`;
       }
-      return null;
+      return `rgb(0 0 0)`; // Fallback to black if parsing fails
     }
 
     (function () {
