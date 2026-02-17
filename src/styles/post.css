@@ -241,6 +241,12 @@
     bg-one-back;
 }
 
+#md #footnote-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
 #md .data-footnote-backref {
   font-family: var(--font-sans);
   font-size: 0.875em;
