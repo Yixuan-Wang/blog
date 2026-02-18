@@ -212,7 +212,7 @@
 }
 
 
-#md a {
+#md a:not(.no-underline) {
   border-bottom: oklch(from var(--color-one) l c h / 50%) solid 1px;
   @apply
     text-one-front
@@ -221,13 +221,13 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  #md a:hover {
+  #md a:not(.no-underline):hover {
     @apply
       text-one border-one border-solid;
   }
 }
 
-#md a:active {
+#md a:not(.no-underline):active {
   @apply
     text-one border-one border-solid;
 }
