@@ -4,7 +4,7 @@ import presetIcons from "@unocss/preset-icons";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
-export default defineConfig({
+export const unoConfig: Parameters<typeof defineConfig>[0] = {
   theme: {
     fontFamily: {
       sans: "var(--font-sans)",
@@ -18,11 +18,13 @@ export default defineConfig({
         DEFAULT: "var(--color-one)",
         front: "var(--color-one-front)",
         back: "var(--color-one-back)",
+        canvas: "var(--color-one-canvas)",
       },
       two: {
         DEFAULT: "var(--color-two)",
         front: "var(--color-two-front)",
         back: "var(--color-two-back)",
+        canvas: "var(--color-two-canvas)",
       },
       back: "rgb(var(--color-back))",
       front: "rgb(var(--color-front))",
@@ -75,4 +77,6 @@ export default defineConfig({
   ],
   // @ts-ignore
   transformers: [transformerDirectives(), transformerVariantGroup()],
-});
+};
+
+export default defineConfig(unoConfig);

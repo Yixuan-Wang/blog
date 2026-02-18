@@ -19,3 +19,5 @@ export const sortUnicode = (a: string, b: string) => {
   }
   return 0;
 };
+
+export const slotName = (str: string) => str.trim().replace(/[-_]([a-z])/g, (_, w) => w.toUpperCase());

@@ -10,7 +10,7 @@ export interface Props {
 }
 
 const {
-  info: { slug, meta },
+  info: { id: slug, data: meta },
   hideCategory,
   timeFormat = "yyyy/MM/dd"
 } = Astro.props;
@@ -25,7 +25,7 @@ const {
       ? (
       <a
         class="lt-sm:hidden @hover-text-one-front font-mono transition-lively"
-        href={new URL(`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`, Astro.site)}
+        href={`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`}
       >
         <span>{meta.taxonomy.category}</span>
       </a>
@@ -37,7 +37,7 @@ const {
   >
     <a
       class="inline"
-      href={new URL(`${import.meta.env.BASE_URL}post/${slug}`, Astro.site)}
+      href={`${import.meta.env.BASE_URL}post/${slug}`}
       style={meta.status === Status.OUTDATED ? "text-decoration-line: line-through;" : ""}
     >
       <span class="ub">{meta.title}</span>

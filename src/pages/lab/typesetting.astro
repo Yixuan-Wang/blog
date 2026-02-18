@@ -32,7 +32,7 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
       <Callout kind="info">
         <p>You can customize site-wise <strong>fonts</strong> and <em>colors</em>.</p>
       </Callout>
-      <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={new URL(`${import.meta.env.BASE_URL}post/test-content`, Astro.site)}>expedita exercitationem!</a></p>
+      <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={`${import.meta.env.BASE_URL}post/test-content`}>expedita exercitationem!</a></p>
 
       <Fragment set:html={CODE_BLOCK} />
     </section>
@@ -49,13 +49,13 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
       <h2>
         <span class="text-2xl font-bold text-one-front">Color Palette</span>
         <div class="ml-2 inline-flex text-sm gap-1">
-          <div class="text-one-front i-mdi-circle"></div>
-          <div class="text-one i-mdi-circle"></div>
-          <div class="text-one-back i-mdi-circle"></div>
+          <div class="text-one-front! i-mdi-circle"></div>
+          <div class="text-one! i-mdi-circle"></div>
+          <div class="text-one-back! i-mdi-circle"></div>
         
-          <div class="text-two-front i-mdi-circle"></div>
-          <div class="text-two i-mdi-circle"></div>
-          <div class="text-two-back i-mdi-circle"></div>
+          <div class="text-two-front! i-mdi-circle"></div>
+          <div class="text-two! i-mdi-circle"></div>
+          <div class="text-two-back! i-mdi-circle"></div>
         </div>
       </h2>
 

@@ -1,0 +1,23 @@
+---
+import BaseFriendSocial from './BaseFriendSocial.astro';
+
+export interface Props {
+  friend: friend.Friend
+}
+
+const {
+  friend: { name, avatar, link },
+} = Astro.props;
+---
+
+<article class="contents">
+  <img class="rounded-1/2 w-8 h-8" src={avatar} alt={`Avatar of ${name}`} />
+  <div class="font-mono transition-lively">{name}</div>
+  <BaseFriendSocial {name} {link} />
+</article>
+
+<style>
+  :global(.friends-list a) {
+    @apply @hover-text-one;
+  }
+</style>

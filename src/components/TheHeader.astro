@@ -44,7 +44,7 @@ const headerItems: HeaderItem[] = [
 
 <header id="the-header">
   <nav id="the-header-start">
-    <a href={new URL(import.meta.env.BASE_URL, Astro.site)} title="Home" aria-label="Home">
+    <a href={import.meta.env.BASE_URL} title="Home" aria-label="Home">
       <div class="i-mdi-circle" />
     </a>
   </nav>
@@ -56,7 +56,7 @@ const headerItems: HeaderItem[] = [
           <a
             slot="handle"
             title={title}
-            href={absolute ? url : new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}
+            href={absolute ? url : `${import.meta.env.BASE_URL}${url}`}
           >
             <div class={icon} />
           </a>

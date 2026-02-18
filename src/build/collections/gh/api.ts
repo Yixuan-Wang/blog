@@ -23,6 +23,7 @@ export interface GhIssue {
   labels: GhNodes<{
     name: string
   }>
+  createdAt: string
   updatedAt: string
   body: string
 }
@@ -95,6 +96,7 @@ query (
             name
           }
         }
+        createdAt
         updatedAt
         body
       }

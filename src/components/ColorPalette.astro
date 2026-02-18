@@ -21,7 +21,7 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
       mode: "oklch",
       l: 0.6926,
       c: 0.2428,
-      h: 47.16,
+      h: 18.16,
     },
   },
   {
@@ -88,22 +88,23 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
         h: 10,
     },
   },
-  {
-    name: "Sihouette",
-    one: {
-      mode: "oklch",
-      l: 0.05,
-      c: 0.0,
-      h: 0.00,
-    },
-    two: {
-      mode: "oklch",
-      l: 0.7500,
-      c: 0.0,
-      h: 0.00,
-    },
-  }
 ];
+
+const sihouetteColorPalette: PrebuildColorPalette = {
+  name: "Sihouette",
+  one: {
+    mode: "oklch",
+    l: 0.3211,
+    c: 0.0,
+    h: 0.00,
+  },
+  two: {
+    mode: "oklch",
+    l: 0.8975,
+    c: 0.0,
+    h: 0.00,
+  },
+};
 ---
 
 <div class="py-1 flex flex-row flex-wrap gap-2 items-center">
@@ -130,4 +131,25 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
       </BaseHover>
     ))
   }
+  <BaseHover>
+    <ColorPaletteButton
+      slot="handle"
+      client:idle
+      palette={sihouetteColorPalette}
+      title={sihouetteColorPalette.name}
+    >
+      <div style="width: 1.125rem; height: 1.125rem; border-radius: 50%; background: linear-gradient(to right, #333333 50%, #DDDDDD 0);"></div>
+    </ColorPaletteButton>
+    <div
+      slot="content"
+      class="px-1.5 py-1 rounded text-sm"
+      style={{
+        '--color': `oklch(60% ${sihouetteColorPalette.one.c} ${sihouetteColorPalette.one.h})`,
+        color: "oklch(from var(--color) 90% calc(c * 0.75) h)",
+        "background-color": "oklch(from var(--color) 45% calc(c * 0.45) h)",
+      }}
+    >
+      <span>{sihouetteColorPalette.name}</span>
+    </div>
+  </BaseHover>
 </div>

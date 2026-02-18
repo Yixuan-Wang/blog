@@ -5,9 +5,11 @@ import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
   noComments?: boolean
+  noFab?: boolean
+  hasScrollToTop?: boolean
 }
 
-const { noComments } = Astro.props;
+const { noComments, noFab, hasScrollToTop } = Astro.props;
 ---
 
 <BaseLayout>
@@ -18,5 +20,5 @@ const { noComments } = Astro.props;
   <div id="the-main">
     <slot />
   </div>
-  <TheFooter {noComments} />
+  <TheFooter {noComments} {noFab} {hasScrollToTop} />
 </BaseLayout>

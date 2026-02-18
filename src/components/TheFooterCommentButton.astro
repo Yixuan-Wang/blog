@@ -7,7 +7,7 @@ import BaseStorage from "src/components/BaseStorage.svelte";
   <Fragment slot="storage">
     <section
       id="comment-container"
-      class="md:mx-3 p-4 rounded-t-4 relative flex flex-col gap-3 h-[60vh] md:h-[50vh] overflow-y-auto overflow-y-overlay"
+      class="md:mx-3 p-4 rounded-t-4 relative flex flex-col gap-3 bg-one-canvas max-h-[60vh] md:max-h-[50vh] overflow-y-auto overflow-y-overlay"
     >
       <h3 class="flex flex-row items-center gap-1 text-xl">
         <div class="i-mdi-comment"></div>
@@ -32,8 +32,8 @@ import BaseStorage from "src/components/BaseStorage.svelte";
 
 <style>
 #comment-container {
-  background-color: oklch(from var(--color-one) 25% calc(c * 0.25) h);
-  color: oklch(from var(--color-one) 90% calc(c * 0.75) h);
+  /* background-color: oklch(from var(--color-one) 25% calc(c * 0.25) h); */
+  /* color: oklch(from var(--color-one) 90% calc(c * 0.75) h); */
   border-style: solid;
   border-color: var(--color-one-front);
   border-width: 2px 2px 0 2px;

@@ -1,0 +1,10 @@
+---
+// A component that only renders its inner block when the containing area is within viewport
+import VisibleComponent from "./visible/Visible.svelte";
+
+const { target } = Astro.props as { target: string };
+---
+
+<VisibleComponent client:only="svelte" {target}>
+  <slot />
+</VisibleComponent>

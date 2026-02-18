@@ -99,10 +99,13 @@
 }
 
 #md ul > :first-child,
+#md ol > :first-child {
+  @apply mt-0;
+}
+
 #md ul > :last-child,
-#md ol > :first-child,
 #md ol > :last-child {
-  @apply my-0;
+  @apply mb-0;
 }
 
 #md li::marker {
@@ -173,6 +176,14 @@
   ;
 }
 
+#md code {
+  font-size: 0.9em;
+}
+
+#md pre code {
+  font-size: 1em;
+}
+
 #md pre {
   @apply
     p-3 rounded-2 max-w-full
@@ -228,4 +239,19 @@
 #md mark {
   @apply
     bg-one-back;
+}
+
+#md #footnote-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#md .data-footnote-backref {
+  font-family: var(--font-sans);
+  font-size: 0.875em;
+
+  &::after {
+    content: "\00FE0E";
+  }
 }

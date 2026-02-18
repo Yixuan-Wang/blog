@@ -1,24 +1,31 @@
 ---
 import LayoutDefault from "src/layouts/LayoutDefault.astro";
-import postInfo, { allSeries } from "post:info";
+import { getSeriesRecord, getPosts } from "~/logic/dataset";
+import pl from "nodejs-polars";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(allSeries).map(series => ({ params: { series } }));
+  const allSeriesRecord = await getSeriesRecord();
+  return Object.keys(allSeriesRecord).map(series => ({ params: { series } }));
 }
 
 const { series } = Astro.params as {
   series: string
 };
+
+const allSeriesRecord = await getSeriesRecord();
+const allSeries = allSeriesRecord[series] || [];
+const postInfo = await getPosts(allSeries);
 ---
 
 <LayoutDefault
   title={series}
   description={`Series ${series} on Yixuan Wang's blog.`}
+  hasScrollToTop={true}
 >
   <Fragment slot="head"></Fragment>
   <Fragment slot="headline"></Fragment>
   <div class="flex flex-col gap-5">
-    {allSeries[series].map(slug => <PostInfoFull info={postInfo[slug]} />)}
+    {postInfo.map(info => <PostInfoFull info={info} />)}
   </div>
 </LayoutDefault>

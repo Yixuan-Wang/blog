@@ -9,9 +9,11 @@ export interface Props {
   title: string
   description: string
   noComments?: boolean
+  noFab?: boolean
+  hasScrollToTop?: boolean
 }
 
-const { title, description, noComments } = Astro.props;
+const { title, description, noComments, noFab, hasScrollToTop } = Astro.props;
 ---
 
 <BaseLayout>
@@ -27,5 +29,5 @@ const { title, description, noComments } = Astro.props;
     </BaseHeadline>
     <slot />
   </div>
-  <TheFooter {noComments} />
+  <TheFooter {noComments} {hasScrollToTop} {noFab} />
 </BaseLayout>
