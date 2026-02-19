@@ -14,7 +14,14 @@ const {
   class="card flex flex-col gap-1 @hover:bg-one-back transition-lively"
   role="link"
 >
-  <img class="rounded-1/2 w-8 h-8 row-[1/3]" src={avatar} alt={`Avatar of ${name}`} />
+  <div
+    class="self-start flex-shrink rounded-1/2 w-8 h-8 row-[1/3] bg-one-back overflow-hidden"
+  >
+    <img
+      class="w-full h-full object-cover grayscale mix-blend-luminosity transition-all transition-lively"
+      src={avatar} alt={`Avatar of ${name}`}
+    />
+  </div>
   <h2 class="font-mono transition-lively">{name}</h2>
   <BaseFriendSocial {name} {link} brief />
 </article>
@@ -23,6 +30,10 @@ const {
   @media (hover: hover) and (pointer: fine) {
     article:hover :global(.friends-list a) {
       @apply text-one;
+    }
+    
+    article:hover img {
+      @apply grayscale-0 mix-blend-normal;
     }
   }
 
