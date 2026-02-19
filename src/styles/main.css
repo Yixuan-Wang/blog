@@ -185,7 +185,7 @@ body {
 }
 
 input {
-  @apply ring-2 ring-one focus:(ring-two outline-none) lh-6 rounded py-1 px-2 bg-transparent;
+  @apply border-b-[1px] border-one focus:(border-two outline-none) lh-6 py-0.5 px-1 bg-transparent;
 }
 
 ::selection {
