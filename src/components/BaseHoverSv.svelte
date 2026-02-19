@@ -1,8 +1,8 @@
 <script lang="ts">
   interface Props {
-    style?: string;
-    handle?: import('svelte').Snippet;
-    content?: import('svelte').Snippet;
+    style: string | null;
+    handle: import('svelte').Snippet | null;
+    content: import('svelte').Snippet | null;
   }
 
   let { style = "", handle, content }: Props = $props();
@@ -40,7 +40,7 @@
     {@render handle?.()}
   </div>
   {#if isOpen}
-  <div class="hover-component-content">
+  <div class="hover-component-content" style="display:block">
     {@render content?.()}
   </div>
   {/if}
