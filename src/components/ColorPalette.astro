@@ -13,15 +13,15 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     name: "Flame",
     one: {
       mode: "oklch",
-      l: 0.6100,
-      c: 0.215,
-      h: 23.81,
+      l: 0.61,
+      c: 0.25,
+      h: 26,
     },
     two: {
       mode: "oklch",
       l: 0.6926,
-      c: 0.2428,
-      h: 18.16,
+      c: 0.242,
+      h: 18,
     },
   },
   {
@@ -29,14 +29,14 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     one: {
       mode: "oklch",
       l: 0.7701,
-      c: 0.170,
-      h: 57.10,
+      c: 0.22,
+      h: 57,
     },
     two: {
       mode: "oklch",
       l: 0.8222,
-      c: 0.169,
-      h: 80.91,
+      c: 0.25,
+      h: 80,
     },
   },
   {
@@ -44,14 +44,14 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     one: {
       mode: "oklch",
       l: 0.5676,
-      c: 0.138,
-      h: 148.33,
+      c: 0.225,
+      h: 126,
     },
     two: {
       mode: "oklch",
       l: 0.6626,
-      c: 0.113,
-      h: 170.23,
+      c: 0.16,
+      h: 150,
     },
   },
   {
@@ -63,29 +63,29 @@ const prebuiltColorPalettes: PrebuildColorPalette[] = [
     one: {
       mode: "oklch",
       l: 0.3875,
-      c: 0.159,
-      h: 273.84,
+      c: 0.22,
+      h: 273,
     },
     two: {
       mode: "oklch",
       l: 0.6138,
-      c: 0.179,
-      h: 296.66,
+      c: 0.25,
+      h: 296,
     },
   },
   {
     name: "Rock",
     one: {
-        mode: "oklch",
-        l: 0.5120,
-        c: 0.056,
-        h: 220.00,
+      mode: "oklch",
+      l: 0.512,
+      c: 0.056,
+      h: 220,
     },
     two: {
-        mode: "oklch",
-        l: 0.5500,
-        c: 0.025,
-        h: 10,
+      mode: "oklch",
+      l: 0.55,
+      c: 0.055,
+      h: 159,
     },
   },
 ];
@@ -96,13 +96,13 @@ const sihouetteColorPalette: PrebuildColorPalette = {
     mode: "oklch",
     l: 0.3211,
     c: 0.0,
-    h: 0.00,
+    h: 0.0,
   },
   two: {
     mode: "oklch",
     l: 0.8975,
     c: 0.0,
-    h: 0.00,
+    h: 0.0,
   },
 };
 ---
@@ -121,7 +121,7 @@ const sihouetteColorPalette: PrebuildColorPalette = {
           slot="content"
           class="px-1.5 py-1 rounded text-sm"
           style={{
-            '--color': `oklch(60% ${color.one.c} ${color.one.h})`,
+            "--color": `oklch(60% ${color.one.c} ${color.one.h})`,
             color: "oklch(from var(--color) 90% calc(c * 0.75) h)",
             "background-color": "oklch(from var(--color) 45% calc(c * 0.45) h)",
           }}
@@ -138,13 +138,16 @@ const sihouetteColorPalette: PrebuildColorPalette = {
       palette={sihouetteColorPalette}
       title={sihouetteColorPalette.name}
     >
-      <div style="width: 1.125rem; height: 1.125rem; border-radius: 50%; background: linear-gradient(to right, #333333 50%, #DDDDDD 0);"></div>
+      <div
+        style="width: 1.125rem; height: 1.125rem; border-radius: 50%; background: linear-gradient(to right, #333333 50%, #DDDDDD 0);"
+      >
+      </div>
     </ColorPaletteButton>
     <div
       slot="content"
       class="px-1.5 py-1 rounded text-sm"
       style={{
-        '--color': `oklch(60% ${sihouetteColorPalette.one.c} ${sihouetteColorPalette.one.h})`,
+        "--color": `oklch(60% ${sihouetteColorPalette.one.c} ${sihouetteColorPalette.one.h})`,
         color: "oklch(from var(--color) 90% calc(c * 0.75) h)",
         "background-color": "oklch(from var(--color) 45% calc(c * 0.45) h)",
       }}
