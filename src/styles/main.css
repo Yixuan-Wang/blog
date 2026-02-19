@@ -136,23 +136,11 @@ body.cloak {
 }
 
 :root:not(.dark) {
-  /* --color-one: var(--ca, var(--color-muted));
-  --color-one-front: var(--cb, var(--color-front));
-  --color-one-back: var(--cc, var(--color-back));
-  --color-two: var(--cd, var(--color-muted));
-  --color-two-front: var(--ce, var(--color-front));
-  --color-two-back: var(--cf, var(--color-back)); */
   --color-blend-intensity: 5%;
 }
 
 :root.dark {
-  /* --color-one: var(--ca, var(--color-muted));
-  --color-one-front: var(--cb, var(--color-front));
-  --color-one-back: var(--cc, var(--color-back));
-  --color-two: var(--cd, var(--color-muted));
-  --color-two-front: var(--ce, var(--color-front));
-  --color-two-back: var(--cf, var(--color-back)); */
-  --color-blend-intensity: 15%;
+  --color-blend-intensity: 7.5%;
 }
 
 html {
