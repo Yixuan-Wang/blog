@@ -7,15 +7,20 @@ import PostInfoFull from "src/components/PostInfoFull.astro";
 import BaseHeadline from "src/components/BaseHeadline.astro";
 
 const dataset = await getDataset();
-const allAcademia = dataset.filter(pl.col("keywords").lst.contains("academia"))
-  .select("id").toSeries().toArray() as string[];
+const allAcademia = dataset
+  .filter(pl.col("keywords").lst.contains("academia"))
+  .select("id")
+  .toSeries()
+  .toArray() as string[];
 const postInfo = await getPosts(allAcademia);
 
 const description = `Yixuan Wang's academic writings, including posts, project intros and short thoughts.`;
 
 function removeAcademiaTag(data: any) {
   const newData = { ...data };
-  newData.data.taxonomy.keywords = newData.data.taxonomy.keywords.filter((tag: string) => tag !== "academia");
+  newData.data.taxonomy.keywords = newData.data.taxonomy.keywords.filter(
+    (tag: string) => tag !== "academia",
+  );
   return newData;
 }
 ---
@@ -29,26 +34,54 @@ function removeAcademiaTag(data: any) {
   </Fragment>
   <BaseHeadline headline="Yixuan Wang's Blog">
     <div class="flex items-center gap-2">
-      <a title="About" href="https://am.yixuan-wang.site" aria-label="About" rel="noopener" target="_blank">
-        <div class="w-fit flex flex-row gap-1 px-3 py-2 items-center rounded-full bg-one-back text-one-front @hover-text-one transition-lively">
+      <a
+        title="About"
+        href="https://am.yixuan-wang.site"
+        aria-label="About"
+        rel="noopener"
+        target="_blank"
+      >
+        <div
+          class="w-fit flex flex-row gap-1 px-3 py-2 items-center rounded-full bg-one-back text-one-front @hover-text-one transition-lively"
+        >
           <div class="i-mdi-information"></div>
           <span class="font-bold flex-1 mr-1">Yixuan Wang</span>
         </div>
       </a>
-      <a class="text-one-front @hover-text-one" title="Google Scholar" href="https://scholar.google.com/citations?user=2-qOuAQAAAAJ&hl=en" aria-label="Google Scholar" rel="noopener" target="_blank">
+      <a
+        class="text-one-front transition-lively @hover-text-one"
+        title="Google Scholar"
+        href="https://scholar.google.com/citations?user=2-qOuAQAAAAJ&hl=en"
+        aria-label="Google Scholar"
+        rel="noopener"
+        target="_blank"
+      >
         <div class="i-custom:google-scholar"></div>
       </a>
-      <a class="text-one-front @hover-text-one" title="Twitter" href="https://twitter.com/tom_yixuan_wang" aria-label="Twitter" rel="noopener" target="_blank">
+      <a
+        class="text-one-front transition-lively @hover-text-one"
+        title="Twitter"
+        href="https://twitter.com/tom_yixuan_wang"
+        aria-label="Twitter"
+        rel="noopener"
+        target="_blank"
+      >
         <div class="i-mdi-twitter"></div>
       </a>
-      <a class="text-one-front @hover-text-one" title="Bluesky" href="https://bsky.app/profile/tomyxw.bsky.social" aria-label="Bluesky" rel="noopener" target="_blank">
+      <a
+        class="text-one-front transition-lively @hover-text-one"
+        title="Bluesky"
+        href="https://bsky.app/profile/tomyxw.bsky.social"
+        aria-label="Bluesky"
+        rel="noopener"
+        target="_blank"
+      >
         <div class="i-custom:bluesky"></div>
       </a>
-
     </div>
   </BaseHeadline>
   <section class="flex flex-col gap-3">
-    {postInfo.map(info => <PostInfoFull info={removeAcademiaTag(info)} />)}
+    {postInfo.map((info) => <PostInfoFull info={removeAcademiaTag(info)} />)}
   </section>
   <div role="none" class="mb-10"></div>
 </LayoutEmpty>
