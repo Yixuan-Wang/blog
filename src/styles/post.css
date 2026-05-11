@@ -176,6 +176,14 @@
   ;
 }
 
+#md code {
+  font-size: 0.9em;
+}
+
+#md pre code {
+  font-size: 1em;
+}
+
 #md pre {
   @apply
     p-3 rounded-2 max-w-full
@@ -204,7 +212,7 @@
 }
 
 
-#md a {
+#md a:not(.no-underline) {
   border-bottom: oklch(from var(--color-one) l c h / 50%) solid 1px;
   @apply
     text-one-front
@@ -213,13 +221,13 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  #md a:hover {
+  #md a:not(.no-underline):hover {
     @apply
       text-one border-one border-solid;
   }
 }
 
-#md a:active {
+#md a:not(.no-underline):active {
   @apply
     text-one border-one border-solid;
 }
@@ -231,4 +239,19 @@
 #md mark {
   @apply
     bg-one-back;
+}
+
+#md #footnote-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#md .data-footnote-backref {
+  font-family: var(--font-sans);
+  font-size: 0.875em;
+
+  &::after {
+    content: "\00FE0E";
+  }
 }

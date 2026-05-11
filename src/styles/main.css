@@ -11,6 +11,8 @@ html {
   overflow-y: auto;
   overflow-y: overlay;
 
+  scrollbar-gutter: stable;
+
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -96,21 +98,21 @@ body.cloak {
 }
 
 :root {
-  --font-default-sans: "Inter", "Noto Color Emoji";
+  --font-default-sans: "Inter";
   --font-default-sans-cjk: "Noto Sans SC", "PingFang SC", "Microsoft YaHei";
 
-  --font-default-serif: "Source Serif 4", "Noto Color Emoji";
+  --font-default-serif: "Source Serif 4";
   --font-default-serif-cjk: "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
 
-  --font-default-mono: "JetBrains Mono", "Noto Color Emoji";
+  --font-default-mono: "JetBrains Mono";
   --font-default-mono-cjk: var(--font-default-sans-cjk);
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-optical-sizing: auto;
 
-  --font-sans: var(--font-custom-sans, var(--font-default-sans)), var(--font-custom-sans-cjk, var(--font-default-sans-cjk)), sans-serif;
-  --font-serif: var(--font-custom-serif, var(--font-default-serif)), var(--font-custom-serif-cjk, var(--font-default-serif-cjk)), serif;
-  --font-mono: var(--font-custom-mono, var(--font-default-mono)), var(--font-custom-mono-cjk, var(--font-default-mono-cjk)), monospace;
+  --font-sans: var(--font-custom-sans, var(--font-default-sans)), var(--font-custom-sans-cjk, var(--font-default-sans-cjk)), "Noto Color Emoji", sans-serif;
+  --font-serif: var(--font-custom-serif, var(--font-default-serif)), var(--font-custom-serif-cjk, var(--font-default-serif-cjk)), "Noto Color Emoji", serif;
+  --font-mono: var(--font-custom-mono, var(--font-default-mono)), var(--font-custom-mono-cjk, var(--font-default-mono-cjk)), "Noto Color Emoji", monospace;
 }
 
 :root:not(.dark) {
@@ -134,27 +136,17 @@ body.cloak {
 }
 
 :root:not(.dark) {
-  /* --color-one: var(--ca, var(--color-muted));
-  --color-one-front: var(--cb, var(--color-front));
-  --color-one-back: var(--cc, var(--color-back));
-  --color-two: var(--cd, var(--color-muted));
-  --color-two-front: var(--ce, var(--color-front));
-  --color-two-back: var(--cf, var(--color-back)); */
   --color-blend-intensity: 5%;
 }
 
 :root.dark {
-  /* --color-one: var(--ca, var(--color-muted));
-  --color-one-front: var(--cb, var(--color-front));
-  --color-one-back: var(--cc, var(--color-back));
-  --color-two: var(--cd, var(--color-muted));
-  --color-two-front: var(--ce, var(--color-front));
-  --color-two-back: var(--cf, var(--color-back)); */
-  --color-blend-intensity: 15%;
+  --color-blend-intensity: 7.5%;
 }
 
 html {
-  background: color-mix(in oklab, rgb(var(--color-back)), var(--color-one) var(--color-blend-intensity));
+  --color-one-canvas: color-mix(in oklab, rgb(var(--color-back)), var(--color-one) var(--color-blend-intensity));
+  --color-two-canvas: color-mix(in oklab, rgb(var(--color-back)), var(--color-two) var(--color-blend-intensity));
+  background: var(--color-one-canvas);
   color: rgba(var(--color-front));
 }
 
@@ -181,7 +173,7 @@ body {
 }
 
 input {
-  @apply ring-2 ring-one focus:(ring-two outline-none) lh-6 rounded py-1 px-2 bg-transparent;
+  @apply border-b-[1px] border-one focus:(border-two outline-none) lh-6 py-0.5 px-1 bg-transparent;
 }
 
 ::selection {

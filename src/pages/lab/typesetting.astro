@@ -17,7 +17,7 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
 <span class="line"><span style="color:var(--shiki-foreground)">    cout </span><span style="color:var(--shiki-token-keyword)">&lt;&lt;</span><span style="color:var(--shiki-token-string-expression)"> "Hello, World!"</span><span style="color:var(--shiki-token-keyword)"> &lt;&lt;</span><span style="color:var(--shiki-foreground)"> endl;</span></span>
 <span class="line"><span style="color:var(--shiki-token-keyword)">    return</span><span style="color:var(--shiki-token-constant)"> 0</span><span style="color:var(--shiki-foreground)">;</span></span>
 <span class="line"><span style="color:var(--shiki-foreground)">}</span></span>
-</code></pre>`
+</code></pre>`;
 ---
 
 <LayoutDefault
@@ -30,9 +30,20 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
       <div></div>
       <h2 class="text-2xl mt-0!">Demo</h2>
       <Callout kind="info">
-        <p>You can customize site-wise <strong>fonts</strong> and <em>colors</em>.</p>
+        <p>
+          You can customize site-wise <strong>fonts</strong> and <em>colors</em
+          >.
+        </p>
       </Callout>
-      <p>Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em>Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut accusantium voluptates</em>, <strong>dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong>, culpa <a href={new URL(`${import.meta.env.BASE_URL}post/test-content`, Astro.site)}>expedita exercitationem!</a></p>
+      <p>
+        Lorem ipsum <code>dolor</code> sit amet consectetur adipisicing elit. <em
+          >Quaerat aspernatur rem delectus ullam dolorum odit veritatis ut
+          accusantium voluptates</em
+        >, <strong
+          >dignissimos eius soluta tempore repellendus nisi explicabo commodi</strong
+        >, culpa <a href={`${import.meta.env.BASE_URL}post/test-content`}
+          >expedita exercitationem!</a>
+      </p>
 
       <Fragment set:html={CODE_BLOCK} />
     </section>
@@ -46,9 +57,9 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
       <TypesettingFontFamily client:only="svelte" />
     </section>
     <section class="flex flex-col gap-3">
-      <h2>
+      <h2 class="inline-flex items-center">
         <span class="text-2xl font-bold text-one-front">Color Palette</span>
-        <div class="ml-2 inline-flex text-sm gap-1">
+        <div class="ml-2 inline-flex text-lg gap-1">
           <div class="text-one-front! i-mdi-circle"></div>
           <div class="text-one! i-mdi-circle"></div>
           <div class="text-one-back! i-mdi-circle"></div>
@@ -58,9 +69,9 @@ const CODE_BLOCK = `<pre class="shiki css-variables" style="background-color:var
           <div class="text-two-back! i-mdi-circle"></div>
         </div>
       </h2>
-
+      <h3 class="font-bold">Presets</h3>
       <ColorPalette />
-      <hr />
+      <h3 class="font-bold">Player</h3>
       <ColorPalettePlayer client:only="svelte" />
     </section>
   </main>

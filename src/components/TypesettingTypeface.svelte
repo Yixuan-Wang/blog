@@ -34,29 +34,13 @@
         <span>Contents</span>
       {/if}
     </div>
-    <button class="contents" onclick={handleClick(key)}>
+    <button class="flex flex-row items-center gap-1" onclick={handleClick(key)}>
       {#if value === "sans"}
-        <BaseHoverSv>
-          {#snippet handle()}
-            <div class="i-mdi-newspaper-variant"></div>
-          {/snippet}
-          {#snippet content()}
-            <div class="tip">
-              <span>Sans Serif</span>
-            </div>
-          {/snippet}
-        </BaseHoverSv>
+        <div class="i-mdi-newspaper-variant"></div>
+        <span>Sans-serif</span>
       {:else if value === "serif"}
-        <BaseHoverSv>
-          {#snippet handle()}
-            <div class="i-mdi-newspaper"></div>
-          {/snippet}
-          {#snippet content()}
-                        <div class="tip">
-              <span>Serif</span>
-            </div>
-                      {/snippet}
-        </BaseHoverSv>
+        <div class="i-mdi-newspaper"></div>
+        <span>Serif</span>
       {/if}
     </button>
   {/each}

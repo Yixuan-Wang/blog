@@ -1,4 +1,3 @@
-import type { Option } from "fp-ts/lib/Option";
 import type { Genre } from "./logic/genre";
 import type { Status } from "./logic/status";
 
@@ -20,9 +19,8 @@ declare global {
     }
 
     interface PostInfo {
-      slug: string;
-      excerpt: string;
-      meta: PostMeta;
+      id: string;
+      data: PostMeta;
     }
 
     interface PostContent {
@@ -39,7 +37,7 @@ declare global {
 
     interface FrontmatterRaw {
       title: string;
-      date: Date | string;
+      date?: Date | string;
       updated?: Date | string;
       genre?: string;
       category: string;
@@ -56,6 +54,7 @@ declare global {
     interface PostMeta {
       title: string;
       genre: Genre;
+      excerpt: string;
       taxonomy: meta.Taxonomy;
       timeline: meta.Timeline;
       status: Status;
@@ -67,7 +66,7 @@ declare global {
       interface Taxonomy {
         category: string;
         tags: string[];
-        series: [string, number] | null;
+        series: { name: string; index: number } | null;
         keywords: string[];
       }
 

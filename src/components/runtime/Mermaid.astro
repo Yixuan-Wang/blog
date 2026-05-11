@@ -1,6 +1,84 @@
-<!-- A placeholder component -->
-<!-- Main code in [slug].astro header -->
+<div class="mermaid-container">
+  <div class="mermaid-text" style="background-color: color(from rgba(var(--color-front)) srgb r g b);"></div>
+  <div class="mermaid-back" style="background-color: color(from rgba(var(--color-back)) srgb r g b);"></div>
+  <div class="mermaid-primary" style="background-color: color(from var(--color-one-back) srgb r g b);"></div>
+  <div class="mermaid-secondary" style="background-color: color(from var(--color-two-back) srgb r g b);"></div>
+  <script is:inline type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
-<fragment>
+    function clamp(num, min, max) {
+      return Math.min(Math.max(num, min), max);
+    }
+  
+    function getRgb(className) {
+      const backgroundColor = window.getComputedStyle(document.getElementsByClassName(className)[0]).backgroundColor;
+      const colorRaw = backgroundColor.match(/srgb (?<rFrac>[0-9.\-]+) (?<gFrac>[0-9.\-]+) (?<bFrac>[0-9.\-]+)/);
+      if (colorRaw) {
+        const { rFrac, gFrac, bFrac } = colorRaw.groups;
+        const r = clamp(Math.round(parseFloat(rFrac) * 255), 0, 255);
+        const g = clamp(Math.round(parseFloat(gFrac) * 255), 0, 255);
+        const b = clamp(Math.round(parseFloat(bFrac) * 255), 0, 255);
+        
+        return `rgb(${r} ${g} ${b})`;
+      }
+      return `rgb(0 0 0)`; // Fallback to black if parsing fails
+    }
+
+    (function () {
+      if (window['mermaidInitialized']) return;
+      window['mermaidInitialized'] = true;
+
+      const elementCode = '.mermaid'
+      const loadMermaid = () => {
+        mermaid.initialize(config())
+        mermaid.init(config(), document.querySelectorAll(elementCode))
+      }
+      const saveOriginalData = () => {
+        let els = document.querySelectorAll(elementCode);
+        els?.forEach(element => {
+          element.setAttribute('data-original-code', element.innerHTML);
+        });
+      }
+      const resetProcessed = () => {
+        let els = document.querySelectorAll(elementCode);
+        els?.forEach(element => {
+          if(element.getAttribute('data-original-code') != null){
+            element.removeAttribute('data-processed')
+            element.innerHTML = element.getAttribute('data-original-code')
+          }
+        });
+      }
+
+      const config = () => ({
+        securityLevel: 'loose',
+        theme: 'base',
+        fontFamily: 'inherit',
+        themeVariables: {
+          darkMode: !!document.documentElement.classList.contains('dark'),
+          background: getRgb('mermaid-back'),
+          primaryTextColor: getRgb('mermaid-text'),
+          primaryColor: getRgb('mermaid-primary'),
+          secondaryColor: getRgb('mermaid-secondary'),
+          tertiaryColor: getRgb('mermaid-secondary'),
+        }
+      });
+
+      const change = () => {
+        resetProcessed();
+        loadMermaid();
+      };
+      const observer = new MutationObserver(change);
+
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class'],
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        saveOriginalData();
+        mermaid.initialize(config());
+      });
+    })();
+  </script>
   <slot></slot>
-</fragment>
+</div>

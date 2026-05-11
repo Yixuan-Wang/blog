@@ -1,18 +1,40 @@
 ---
-import LayoutDefault from "src/layouts/LayoutDefault.astro";
-import PostInfo, { timeDesc } from "post:info";
-import PostInfoBrief from "src/components/PostInfoBrief.astro";
-import { Collector } from "src/utils/collector";
-import { getYear } from "date-fns";
-import { decideTimeFromStatus } from "~/utils/time";
+import { getCollection, getEntry } from 'astro:content';
 
-const years = new Collector<string, string[], string>(
-  () => [],
-  (container, value) => container.push(value),
-);
-timeDesc.forEach(key =>
-  years.add(getYear(decideTimeFromStatus(PostInfo[key].meta)).toString(), key),
-);
+import LayoutDefault from "src/layouts/LayoutDefault.astro";
+import PostInfoBrief from "src/components/PostInfoBrief.astro";
+import pl from "nodejs-polars";
+// import { Collector } from "src/utils/collector";
+// import { getYear } from "date-fns";
+import { decideTimeFromStatus } from "~/utils/time";
+import { getDataset } from "~/logic/dataset";
+
+const posts = await getCollection("posts");
+const dataset = await getDataset();
+
+const datasetYears = dataset.withColumns(
+  pl.col("date").str.strptime(pl.Date, "%Y-%m-%d").dt.year().alias("year")
+).groupBy("year").agg(
+  pl.col("index").sortBy("date", true)
+).sort("year", true);
+
+const years: { year: number; posts: post.PostInfo[] }[] = datasetYears.map(([year, index]) => ({
+  year,
+  posts: index.map((id: number) => posts[id])
+}));
+
+// const years = dataset_years.map(row => ({
+//   row
+// }))
+
+
+// const years = new Collector<string, string[], string>(
+//   () => [],
+//   (container, value) => container.push(value),
+// );
+// timeDesc.forEach(key =>
+//   years.add(getYear(decideTimeFromStatus(PostInfo[key].meta)).toString(), key),
+// );
 ---
 
 <LayoutDefault
@@ -23,13 +45,13 @@ timeDesc.forEach(key =>
 >
   <div class="flex flex-col gap-8">
     {
-      Array.from(years.collector.keys()).map(year => (
+      years.map(({ year, posts }) => (
         <section>
           <h2 class="text-3xl font-bold text-one-front">{year}</h2>
-          <p class="pb-4 font-mono text-two-front">{years.collector.get(year)!.length}</p>
+          <p class="pb-4 font-mono text-two-front">{posts.length}</p>
           <div class="flex flex-col gap-2">
-            {years.collector.get(year)!.map(key => (
-              <PostInfoBrief info={PostInfo[key]} timeFormat="MM/dd" />
+            {posts.map(post => (
+              <PostInfoBrief info={post} timeFormat="MM/dd" />
             ))}
           </div>
         </section>

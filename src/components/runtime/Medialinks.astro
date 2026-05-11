@@ -1,0 +1,100 @@
+---
+import { unescape } from "@std/html/entities";
+import { parse as parseYAML } from "@std/yaml";
+import BaseHover from "~/components/BaseHover.astro";
+// export interface Props {
+//   title: string;
+//   artist?: string;
+//   links: Record<string, string>;
+// }
+
+const outlink = { rel: "noopener", target: "_blank" };
+
+const SERVICES: Record<string, { icon: string; label: string }> = {
+  spotify: { icon: "i-mdi-spotify", label: "Spotify" },
+  apple: { icon: "i-custom-apple-music", label: "Apple Music" },
+  youtube: { icon: "i-mdi-youtube", label: "YouTube" },
+  "youtube-music": { icon: "i-custom-youtube-music", label: "YouTube Music" },
+  netease: { icon: "i-custom-netease-cloud-music", label: "网易云音乐" },
+  bilibili: { icon: "i-custom-bilibili", label: "哔哩哔哩" },
+  qq: { icon: "i-custom-qq-music", label: "QQ 音乐" },
+  podcast: { icon: "i-mdi-podcast", label: "Podcast" },
+};
+
+const content = await Astro.slots.render("default");
+const {
+  title,
+  type = "music",
+  artist,
+  album,
+  albumArt,
+  links,
+} = parseYAML(unescape(content)) as {
+  title: string;
+  type?: string;
+  artist?: string;
+  album?: string;
+  albumArt?: string;
+  links: Record<string, string>;
+};
+---
+
+<div class="card flex flex-col gap-2 bg-one-back font-sans">
+  <div class="grid grid-cols-[4rem_1fr] gap-x-4 gap-y-1">
+    <div
+      class="relative row-[1/3] w-16 h-16 shrink-0 rounded overflow-hidden flex items-center justify-center bg-one-front text-one-back"
+    >
+      {
+        albumArt ? (
+          <img
+            src={albumArt}
+            alt={title}
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          ({
+            video: <div class="i-mdi-video text-3xl" />,
+          }[type] ?? <div class="i-mdi-music-note text-3xl" />)
+        )
+      }
+    </div>
+    <div
+      role="heading"
+      class="col-2 flex flex-col leading-tight text-lg min-w-0"
+    >
+      <span class="font-bold truncate">{title}</span>
+      {
+        (artist || album) && (
+          <span class="text-sm text-front truncate">
+            {artist}
+            {artist && album ? " – " : ""}
+            {album}
+          </span>
+        )
+      }
+    </div>
+    <div class="col-2 row-2 flex flex-row flex-wrap gap-1.5">
+      {
+        Object.entries(links).map(([key, url]) => {
+          const service = SERVICES[key] ?? { icon: "i-mdi-link", label: key };
+          return (
+            <BaseHover>
+              <a
+                slot="handle"
+                href={url}
+                title={service.label}
+                class="text-one-front no-underline transition-lively hover:text-one"
+                {...outlink}
+              >
+                <div class={service.icon} />
+              </a>
+              <div slot="content" class="tip text-one-back bg-one-front">
+                {service.label}
+              </div>
+            </BaseHover>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>

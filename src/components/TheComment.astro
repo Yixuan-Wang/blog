@@ -1,0 +1,49 @@
+<script>
+  import { init } from "sodesu-comment";
+  import "sodesu-comment/sodesu-comment.css";
+  let baseURL = import.meta.env.BASE_URL;
+  let path = window.location.pathname.replace(new RegExp("^" + baseURL), "");
+  if (path === "") {
+    path = "/";
+  }
+
+  init({
+    el: "#sodesu",
+    serverURL: "blog-comments.yixuan-wang.site",
+    dark: "html.dark",
+    lang: "en",
+    path,
+  });
+</script>
+
+<div id="sodesu"></div>
+
+<style>
+  #sodesu {
+    --sds-theme-color: var(--color-one);
+    --sds-active-color: var(--color-two);
+
+    --sds-badge-color: var(--color-one);
+    --sds-color: rgba(var(--color-front));
+    --sds-bg-color: rgba(var(--color-back));
+    --sds-bg-color-light: rgba(var(--color-back));
+    --sds-bg-color-hover: rgba(var(--color-back));
+    --sds-border-color: rgba(var(--color-back));
+    --sds-disable-bg-color: rgba(var(--color-muted));
+    --sds-disable-color: rgba(var(--color-front));
+    --sds-code-bg-color: var(--color-one-back);
+  }
+
+  #sodesu
+    :is(.wl-content, .wl-text, .wl-comment-text, .wl-item, .wl-card-item, a) {
+    max-width: 100%;
+  }
+  #sodesu :is(.wl-meta, .wl-content, .wl-text, .wl-comment-text) {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  #sodesu a {
+    display: inline-block;
+  }
+</style>

@@ -1,8 +1,6 @@
 import type { Element, Root, Text } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
-import { kebabCaseToCamelCase } from "../../utils/stub";
-import { is } from "date-fns/locale";
 
 interface Options {
   hookEscape: ((_: Element) => boolean | undefined)[]

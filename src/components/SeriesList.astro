@@ -1,20 +1,21 @@
 ---
-import { allSeries, mapCategorySeries } from "post:info";
-
 export interface Props {
-  category: string
+  series: {
+    name: string;
+    count: number;
+  }[];
 }
 
-const { category } = Astro.props;
+const { series } = Astro.props;
 ---
 
 <section class="flex flex-row flex-wrap gap-2">
-  {Array.from(mapCategorySeries[category]?.keys() ?? []).map(series => (
+  {series.map(({ name, count }) => (
     <div class="inline-flex gap-0.5">
       <span class="text-one-front ub-one-front border-b-dotted @hover-text-one @hover-border-two inline-chip transition-lively">
-        <a href={new URL(`${import.meta.env.BASE_URL}series/${series}`, Astro.site)}>{series}</a>
+        <a href={`${import.meta.env.BASE_URL}series/${name}`}>{name}</a>
       </span>
-      <span class="text-sm font-mono relative bottom-1">{allSeries[series]!.length}</span>
+      <span class="text-sm font-mono relative bottom-1">{count}</span>
     </div>
   ))}
 </section>

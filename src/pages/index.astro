@@ -2,17 +2,28 @@
 import LayoutEmpty from "src/layouts/LayoutEmpty.astro";
 import BaseHead from "~/components/BaseHead.astro";
 
-import PostInfo, { timeDesc } from "post:info";
+import { getDataset, getPosts } from "~/logic/dataset";
 import PostInfoFull from "src/components/PostInfoFull.astro";
 
 import ColorPalette from "src/components/ColorPalette.astro";
 import FriendList from "src/components/FriendList.astro";
+
+const dataset = await getDataset();
+
+const latestPosts = dataset
+  .sort("date", true)
+  .slice(0, 10)
+  .select("id")
+  .toSeries()
+  .toArray() as string[];
+const timeDesc = await getPosts(latestPosts);
+
 ---
 
 <LayoutEmpty hasScrollToTop={true}>
   <Fragment slot="head">
     <BaseHead title="Pak" description="Yixuan Wang's blog." noSuffix={true} />
-    <meta property="og:image" content={new URL("/favicon.svg", Astro.site)} />
+    <meta property="og:image" content={"/favicon.svg"} />
     <meta property="og:url" content={Astro.site} />
     <meta property="og:type" content="website" />
   </Fragment>
@@ -23,7 +34,7 @@ import FriendList from "src/components/FriendList.astro";
     <p class="text-xl font-mono"><span>|</span><span class="text-two">_</span><span>|</span><span>&nbsp;</span><span class="text-two-front">todo!</span><span>()</span></p>
   </header>
 
-  <section class="card bg-one-back grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-2">
+  <section class="px-3 grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-2">
     <div class="i-mdi-clock text-one"></div>
     <div>Latest</div>
     <div>
@@ -33,9 +44,9 @@ import FriendList from "src/components/FriendList.astro";
       >
         <a
           class="inline"
-          href={new URL(`${import.meta.env.BASE_URL}post/${PostInfo[timeDesc[0]].slug}`, Astro.site)}
+          href={`${import.meta.env.BASE_URL}post/${timeDesc[0].id}`}
         >
-          <span class="ub">{PostInfo[timeDesc[0]].meta.title}</span>
+          <span class="ub">{timeDesc[0].data.title}</span>
         </a>
       </span>
     </div>
@@ -50,7 +61,7 @@ import FriendList from "src/components/FriendList.astro";
     </div>
     <div class="text-one-front i-mdi-school"></div>
     <div class="col-span-2">
-      <a class="text-one-front ub transition-lively @hover-text-one" title="Academia" href={new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)}>
+      <a class="text-one-front ub transition-lively @hover-text-one" title="Academia" href={`${import.meta.env.BASE_URL}academia`}>
         Academic posts
       </a>
     </div>
@@ -64,7 +75,7 @@ import FriendList from "src/components/FriendList.astro";
 
   <section id="recent-posts" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
-    {timeDesc.slice(0, 10).map(key => <PostInfoFull info={PostInfo[key]} />)}
+    {timeDesc.map(data => <PostInfoFull info={data} />)}
   </section>
 
   <section id="friend" class="flex flex-col gap-3">

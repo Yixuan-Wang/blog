@@ -6,7 +6,7 @@ const labItems = [
     title: "Typesetting",
     icon: "i-mdi-typewriter",
     url: "lab/typesetting",
-    description: "Customize the font of posts",
+    description: "Customize the look of posts",
   },
   {
     title: "Academia",
@@ -19,8 +19,8 @@ const labItems = [
     icon: "i-mdi-map",
     url: "lab/geographics",
     description: "Geographic visualization components",
-  }
-]
+  },
+];
 ---
 
 <LayoutDefault
@@ -29,24 +29,29 @@ const labItems = [
   noComments={true}
 >
   <main class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 items-stretch">
-    {labItems.map(({ title, icon, url, description }) => (
-      <a href={new URL(`${import.meta.env.BASE_URL}${url}`, Astro.site)}>
-        <article class="card h-full flex flex-col gap-1 bg-transparent cursor-pointer @hover-bg-one-back transition-lively">
-            <div role="heading" class="inline-flex flex-row items-center gap-1 text-one text-xl transition-lively">
-              <div class={icon}></div>
+    {
+      labItems.map(({ title, icon, url, description }) => (
+        <a href={`${import.meta.env.BASE_URL}${url}`}>
+          <article class="card h-full flex flex-col gap-1 bg-transparent cursor-pointer @hover-bg-one-back transition-lively">
+            <div
+              role="heading"
+              class="inline-flex flex-row items-center gap-1 text-one text-xl transition-lively"
+            >
+              <div class={icon} />
               <span class="font-bold">{title}</span>
             </div>
             <p>{description}</p>
-        </article>
-      </a>
-    ))}
+          </article>
+        </a>
+      ))
+    }
   </main>
 </LayoutDefault>
 
 <style>
-@media (hover: hover) and (pointer: fine) {
-  article:hover [role="heading"] > * {
-    @apply text-one-front;
+  @media (hover: hover) and (pointer: fine) {
+    article:hover [role="heading"] > * {
+      @apply text-one-front;
+    }
   }
-}
 </style>

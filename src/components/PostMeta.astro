@@ -19,7 +19,7 @@ const { meta } = Astro.props;
   <div class="inline-chip">
     <time>{lightFormat(decideTimeFromStatus(meta), "yyyy/MM/dd")}</time>
   </div>
-  <a href={new URL(`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`, Astro.site)}
+  <a href={`${import.meta.env.BASE_URL}category/${meta.taxonomy.category}`}
     ><div
       class="text-one-front ub-one-front @hover-text-one @hover-border-one inline-chip transition-lively"
     >
@@ -28,7 +28,7 @@ const { meta } = Astro.props;
   >
   {
     meta.taxonomy.tags.map(tag => (
-      <a href={new URL(`${import.meta.env.BASE_URL}tag/${tag}`, Astro.site)}>
+      <a href={`${import.meta.env.BASE_URL}tag/${tag}`}>
         <div class="text-two-front ub-two-front @hover-text-two @hover-border-two inline-chip transition-lively">
           @{tag}
         </div>
@@ -38,9 +38,9 @@ const { meta } = Astro.props;
   {
     meta.taxonomy.series
       ? (
-      <a href={new URL(`${import.meta.env.BASE_URL}series/${meta.taxonomy.series[0]}`, Astro.site)}>
+      <a href={`${import.meta.env.BASE_URL}series/${meta.taxonomy.series.name}`}>
         <div class="inline-chip ub border-b-dotted @hover-text-one @hover-border-one transition-lively">
-          {meta.taxonomy.series[0]}[{meta.taxonomy.series[1]}]
+          {meta.taxonomy.series.name}[{meta.taxonomy.series.index}]
         </div>
       </a>
         )
@@ -51,8 +51,8 @@ const { meta } = Astro.props;
     meta.taxonomy.keywords.map(keyword => (
       <a href={
         keyword === "academia"
-          ? new URL(`${import.meta.env.BASE_URL}academia`, Astro.site)
-          : new URL(`${import.meta.env.BASE_URL}search?q=%23${keyword}`, Astro.site)
+          ? `${import.meta.env.BASE_URL}academia`
+          : `${import.meta.env.BASE_URL}search?q=%23${keyword}`
       }>
         <div class="inline-chip @hover-text-one transition-lively">#{keyword}</div>
       </a>
