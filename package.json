@@ -1,7 +1,7 @@
 {
   "name": "pak",
   "type": "module",
-  "version": "4.9.0-rc.2",
+  "version": "4.9.0-rc.3",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -34,6 +34,8 @@
     "@types/leaflet": "^1.9.20",
     "@types/node": "^18.19.3",
     "@typescript-eslint/parser": "^5.62.0",
+    "@unocss/preset-icons": "^66.7.5",
+    "@unocss/preset-wind3": "^66.7.5",
     "@unocss/reset": "^66.5.9",
     "@unocss/transformer-directives": "^66.5.9",
     "@unocss/transformer-variant-group": "^66.5.9",
@@ -48,6 +50,7 @@
     "hast-util-to-html": "^9.0.0",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "hast-util-to-text": "^4.0.0",
+    "hastscript": "^9.0.1",
     "js-yaml": "^4.1.1",
     "micromatch": "^4.0.8",
     "nodejs-polars": "^0.23.4",
