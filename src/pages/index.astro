@@ -38,7 +38,6 @@ const timeDesc = await getPosts(latestPosts);
     <div class="i-mdi-clock text-one"></div>
     <div>Latest</div>
     <div>
-      {}
       <span
         class="flex gap-1 @hover-text-one-front transition-lively"
       >
@@ -76,6 +75,10 @@ const timeDesc = await getPosts(latestPosts);
   <section id="recent-posts" class="flex flex-col gap-3">
     <h2 class="text-2xl font-bold text-one-front">Recent Posts</h2>
     {timeDesc.map(data => <PostInfoFull info={data} />)}
+
+    <h2 class="pl-4 @hover-text-one-front transition-lively">
+      <a class="ub inline" href={`${import.meta.env.BASE_URL}archive`}>All Posts...</a>
+    </h2>
   </section>
 
   <section id="friend" class="flex flex-col gap-3">
