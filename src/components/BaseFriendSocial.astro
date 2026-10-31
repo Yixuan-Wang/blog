@@ -52,7 +52,8 @@ const SUPPORTED_LINKS: Record<string, { icon: string; title: string }> = {
   }
 
   .friends-list :global(.hover-component-content) {
-    @apply top-[calc(100%+0.25rem)] bottom-unset;
+    @apply bottom-unset;
+    top: calc(100% + 0.25rem);
   }
 
   .friends-list a {
