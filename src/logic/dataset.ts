@@ -139,14 +139,14 @@ export async function getTaxonomyRecord(): Promise<Record<string, TaxonomyRecord
     pl.len().alias("count_tags"),
     pl.col("category").first().alias("category"),
   ).groupBy("category").agg(
-    pl.cols("tags", "count_tags").sortBy("count_tags", true),
+    pl.cols("tags", "count_tags").sortBy(["count_tags", "tags"], [true, false]),
     pl.col("count_tags").sum().alias("total"),
   ).sort("category").join(
     allCategory.groupBy("series").agg(
       pl.len().alias("count_series"),
       pl.col("category").first().alias("category"),
     ).sort("count_series", true).filter(pl.col("series").isNotNull()).groupBy("category").agg(
-      pl.cols("series", "count_series").sortBy("count_series", true),
+      pl.cols("series", "count_series").sortBy(["count_series", "series"], [true, false]),
     ),
     { on: "category", how: "left" }
   ).toObject() as unknown as {
