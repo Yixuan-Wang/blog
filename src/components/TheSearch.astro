@@ -1,79 +1,141 @@
 ---
-import Search from "astro-pagefind/components/Search";
-
-const { query } = Astro.params;
-
-const translations = {
-  placeholder: "Search on Pak",
-  clear_search: "Clear",
-  load_more: "Load more results",
-  search_label: "Search the site",
-  filters_label: "Filters",
-  zero_results: "No results for [SEARCH_TERM]",
-  many_results: "[COUNT] results for [SEARCH_TERM]",
-  one_result: "[COUNT] result for [SEARCH_TERM]",
-  alt_search:
-    "No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead",
-  search_suggestion:
-    "No results for [SEARCH_TERM]. Try one of the following searches:",
-  searching: "Searching for [SEARCH_TERM]...",
-};
+import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 ---
 
-<Search
-  id="search"
-  uiOptions={{ 
-    showImages: false,
-    translations,
-    ranking: {
-      pageLength: 0.25,
-    }
-  }}
-/>
+<div id="search" class="search">
+  <PagefindConfig lang="en" />
+  <pagefind-input placeholder="Search"></pagefind-input>
+  <pagefind-summary></pagefind-summary>
+  <pagefind-results></pagefind-results>
+</div>
 
-<script is:inline>
-document.addEventListener("DOMContentLoaded", () => {
-  const el = document.getElementById("search");
-  if (el) {
-    const query = new URLSearchParams(location.search).get("q");
-    if (query) {
-      const input = el.querySelector(`input[type="text"]`);
-      if (input) {
-        input.value = query;
-        input.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-    }
-  }
+<script>
+customElements.whenDefined("pagefind-input").then(() => {
+  const el = document.querySelector("#search pagefind-input") as
+    | (HTMLElement & { instance?: any })
+    | null;
+  const instance = el?.instance;
+  if (!instance) return;
+
+  // Must be set before the bundle loads, which happens on the first search.
+  instance.pagefindOptions.ranking = { pageLength: 0.25 };
+
+  const query = new URLSearchParams(location.search).get("q");
+  if (query) instance.triggerSearch(query);
 });
 </script>
 
 <style is:global>
-  .pagefind-ui {
-    --pagefind-ui-primary: var(--color-one);
-    --pagefind-ui-text: rgb(var(--color-front));
-    --pagefind-ui-background: transparent;
-    --pagefind-ui-border: var(--color-one-front);
-    --pagefind-ui-tag: var(--color-one-front);
-    --pagefind-ui-font: var(--font-sans);
+  #search {
+    --pf-text: rgb(var(--color-front));
+    --pf-text-secondary: rgb(var(--color-front));
+    --pf-text-muted: rgb(var(--color-muted));
+    --pf-background: transparent;
+    --pf-border: var(--color-one-front);
+    --pf-border-focus: var(--color-one);
+    --pf-outline-focus: var(--color-one);
+    --pf-hover: var(--color-one-back);
+    --pf-skeleton: var(--color-one-back);
+    --pf-skeleton-shine: var(--color-one-canvas);
+    --pf-mark: var(--color-one-front);
+    --pf-font: var(--font-sans);
+    --pf-input-font-size: 1rem;
+    --pf-result-excerpt-font-size: 1rem;
+    --pf-results-gap: 0.75rem;
+
+    @apply flex flex-col gap-3;
   }
 
-  .pagefind-ui mark {
-    @apply bg-transparent! text-one-front! underline! underline-dotted!;
+  /* Pagefind's own selectors carry ID-level specificity, hence the `!`s. */
+
+  #search .pf-input-wrapper::before {
+    @apply bg-one!;
   }
 
-  .pagefind-ui li {
-    @apply py-3! border-y-none!;
+  /* `outline: none` in every state; Uno's `outline-none` is a transparent 2px outline, which `transition-lively` animates into a blink on focus. */
+  #search .pf-input {
+    @apply border-0! border-b-1! border-one! rounded-none! lh-6! transition-lively!;
+    outline: none !important;
+    box-shadow: none !important;
   }
 
-  .pagefind-ui li > div {
-    @apply mt-0!;
+  #search .pf-input:focus,
+  #search .pf-input:focus-visible {
+    @apply border-two!;
   }
 
-  .pagefind-ui .pagefind-ui__result-title {
-    font-family: var(--font-post-heading);
+  #search .pf-input-clear {
+    @apply text-sm! text-one-front! bg-transparent! @hover:text-one! transition-lively!;
+    font-family: var(--font-sans) !important;
   }
 
-  .pagefind-ui .pagefind-ui__result-excerpt {
-    font-family: var(--font-post-content);
+  #search .pf-summary {
+    @apply text-sm!;
+  }
+
+  /* Same as `PostInfoFull`. The card spans the page result and its sub-results. */
+  #search .pf-result {
+    @apply card! gap-4! bg-transparent! @hover:bg-one-back! transition-lively!;
+  }
+
+  #search .pf-result:has([data-pf-selected]),
+  #search .pf-result:has(a:focus-visible) {
+    @apply bg-one-back!;
+  }
+
+  /* The title link's `::after` makes this whole block clickable. */
+  #search .pf-result-card {
+    @apply p-0! bg-transparent! border-none! rounded-none! shadow-none! transition-lively!;
+  }
+
+  #search .pf-result-title {
+    @apply text-2xl! font-bold!;
+    font-family: var(--font-post-heading) !important;
+  }
+
+  #search .pf-result-link {
+    @apply no-underline! transition-lively!;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    #search .pf-result-card:hover .pf-result-link {
+      @apply text-one-front!;
+    }
+  }
+
+  #search .pf-result-excerpt,
+  #search .pf-heading-excerpt {
+    @apply mt-1!;
+    font-family: var(--font-post-content) !important;
+    white-space: normal !important;
+  }
+
+  #search mark {
+    @apply bg-transparent! text-one-front! font-normal! border-b-1 border-b-dotted border-b-one-front;
+  }
+
+  /* Sub-results read like `TheToc`: plain `#` headings, no boxes. */
+  #search .pf-heading-chips {
+    @apply gap-2! ps-4!;
+  }
+
+  #search .pf-heading-chip {
+    @apply p-0! bg-transparent! border-none! rounded-none! shadow-none! text-base! transition-lively!;
+  }
+
+  #search .pf-heading-link {
+    @apply font-bold! lh-tight! @hover:text-one-front! transition-lively!;
+  }
+
+  #search .pf-heading-excerpt {
+    @apply text-sm! mt-0.5!;
+  }
+
+  #search .pf-heading-link::before {
+    @apply text-one-front!;
+  }
+
+  #search .pf-skeleton {
+    @apply rounded!;
   }
 </style>

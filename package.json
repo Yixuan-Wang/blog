@@ -16,7 +16,7 @@
     "@astrojs/svelte": "^9.1.2",
     "@nanostores/persistent": "^1.3.5",
     "astro": "^7.4.4",
-    "astro-pagefind": "^1.8.6",
+    "astro-pagefind": "^2.0.1",
     "date-fns": "^4.4.0",
     "leaflet": "^1.9.4",
     "nanostores": "^1.5.5",
