@@ -255,3 +255,25 @@
     content: "\00FE0E";
   }
 }
+.pele-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+.pele {
+  --pele-font: var(--font-serif);
+  --pele-font-mono: var(--font-mono);
+  --pele-bg: rgb(var(--color-back));
+  --pele-fg: rgb(var(--color-front));
+  --pele-fg-on-light: rgb(23, 23, 23);
+  --pele-fg-on-dark: rgb(212, 212, 212);
+  --pele-muted: rgb(var(--color-muted));
+  --pele-line: rgb(var(--color-front));
+  --pele-surface: var(--color-one-back);
+  --pele-surface-alt: var(--color-two-back);
+  --pele-border: var(--color-one-front);
+  --pele-accent: var(--color-one);
+  --pele-critical: var(--color-two);
+}

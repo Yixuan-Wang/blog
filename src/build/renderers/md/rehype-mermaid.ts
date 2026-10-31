@@ -1,13 +1,15 @@
-import type { Element, Root, Text } from "hast";
+import type { Element, Root } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 import { toText } from "hast-util-to-text";
+import { PeleError, render } from "pele";
 
 interface Options {
 }
 
 const rehypeMermaid: Plugin<[Options?], Root> = (_options) => {
   return (tree) => {
+    let count = 0;
     visit(tree, "element", (node: Element) => {
       if (node.tagName !== "pre") return;
 
@@ -23,26 +25,28 @@ const rehypeMermaid: Plugin<[Options?], Root> = (_options) => {
       const content = toText(enclosedCode, {
         whitespace: "pre-wrap",
       });
-      const textNode: Element = {
-        type: "element",
-        tagName: "pre",
-        properties: {
-          className: ["mermaid", "is:raw"],
-        },
-        children: [
-          {
-            type: "text",
-            value: content,
-          } as Text,
-        ],
-      };
 
-      node.tagName = "component";
-      node.properties = {
-        ...node.properties,
-        is: "mermaid",
-      };
-      node.children = [textNode];
+      let svg: string;
+      try {
+        ({ svg } = render(content, { idPrefix: `mermaid-${count++}-` }));
+      } catch (e) {
+        if (e instanceof PeleError) {
+          console.warn(`[rehype-mermaid] ${e.code} at ${e.line}:${e.column}: ${e.message}`);
+          return;
+        }
+        throw e;
+      }
+
+      node.tagName = "div";
+      node.properties = { className: ["pele-container"] };
+      node.children = [
+        {
+          type: "element",
+          tagName: "Fragment",
+          properties: { "set:html": svg },
+          children: [],
+        },
+      ];
     });
   };
 };
