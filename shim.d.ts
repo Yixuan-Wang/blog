@@ -39,3 +39,8 @@ declare module "virtual:site-meta" {
   const siteMeta: siteMeta.SiteMeta;
   export default siteMeta;
 }
+
+declare module "virtual:feed-config" {
+  const feedConfig: import("feed").FeedOptions;
+  export default feedConfig;
+}

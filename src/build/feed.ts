@@ -1,92 +1,23 @@
 import type { AstroIntegration } from "astro";
-import type { FeedOptions, Item } from "feed";
-import { Feed } from "feed";
+import type { FeedOptions } from "feed";
 import type { Plugin } from "vite";
-import { decideTimeFromStatus } from "../utils/time";
-import type { PluginPostProvider } from "./providers";
 
 export interface ConfigIntergrationFeed {
   feedConfig: FeedOptions
 }
 
-function convertPostToFeedItem(site: string, { slug, meta, excerpt }: post.Post): Item {
-  const link = new URL(`post/${slug}`, new URL(process.env.PUBLIC_BUILD_BASE_URL!, site)).toString();
-  return {
-    title: meta.title,
-    id: slug,
-    description: excerpt,
-    link,
-    date: decideTimeFromStatus(meta),
-    content: `<p>${excerpt}</p><p><a href="${link}">Full Article...</a></p>`,
-    category: meta.taxonomy.tags.map(tag => ({ name: tag, domain: meta.taxonomy.category })),
-  };
-}
-
 export default function IntergrationFeed(config: ConfigIntergrationFeed): AstroIntegration {
-  interface ConfigPluginFeed {
-    site: string
-    feedConfig: FeedOptions
-  }
-
-  function PluginFeed({ site, feedConfig }: ConfigPluginFeed): Plugin {
-    let pluginPostProvider: (Plugin & PluginPostProvider) | null = null;
-    const feed = new Feed(feedConfig);
-    let feedEmitted = false;
-
-    function emitFeed() {
-      feedEmitted = true;
-      const posts = pluginPostProvider?.getPosts() ?? new Map<string, post.Post>();
-      const timeDesc = pluginPostProvider?.getSlugs().timeDesc ?? [];
-
-      timeDesc.slice(0, 30).map(post => posts.get(`post:${post}.astro`)).map(post => convertPostToFeedItem(site, post!)).forEach(item => feed.addItem(item));
-    }
-    /* const feedItems: Item[] = [];
-    function generateFeed(article: Article) {
-      const link = `https://blog.yixuan-wang.site${article.path}.html`;
-      const item: Item = {
-        title: article.frontmatter.title,
-        id: `${article.path.slice(1).replaceAll("/", "_")}_${dayjs(article.timestamp).format()}`,
-        link,
-        date: dayjs.tz(article.timestamp).toDate(),
-        content: `<p>${article.excerpt}</p><p><a href="${link}">Full Article...</a></p>`,
-        category: article.frontmatter.tags.map(tag => ({ name: tag, domain: article.frontmatter.category })),
-      };
-      feedItems.push(item);
-    } */
+  function PluginFeedConfig(feedConfig: FeedOptions): Plugin {
+    const MODULE_ID = "virtual:feed-config";
     return {
-      name: "feed",
-      enforce: "post",
-      configResolved(resolvedConfig) {
-        pluginPostProvider
-          = resolvedConfig.plugins
-            .filter(({ name }) => name === "post-provider")
-            .at(0) as (Plugin & PluginPostProvider) ?? null;
+      name: "feed-config",
+      resolveId(id) {
+        if (id === MODULE_ID)
+          return id;
       },
-      configureServer(server) {
-        server.middlewares.use("/feed.xml", (_, res) => {
-          if (!feedEmitted)
-            emitFeed();
-          res.end(feed.rss2());
-        });
-        server.middlewares.use("/feed.atom", (_, res) => {
-          if (!feedEmitted)
-            emitFeed();
-          res.end(feed.atom1());
-        });
-      },
-      generateBundle() {
-        if (!feedEmitted)
-          emitFeed();
-        this.emitFile({
-          type: "asset",
-          fileName: "feed.xml",
-          source: feed.rss2(),
-        });
-        this.emitFile({
-          type: "asset",
-          fileName: "feed.atom",
-          source: feed.atom1(),
-        });
+      load(id) {
+        if (id === MODULE_ID)
+          return `const feedConfig=${JSON.stringify(feedConfig)};export default feedConfig;`;
       },
     };
   }
@@ -94,7 +25,7 @@ export default function IntergrationFeed(config: ConfigIntergrationFeed): AstroI
   return {
     name: "feed",
     hooks: {
-      "astro:config:setup": function ({ config: astroConfig, updateConfig }) {
+      "astro:config:setup": function ({ config: astroConfig, updateConfig, injectRoute }) {
         if (astroConfig.site) {
           const site = astroConfig.site + astroConfig.base;
           const atom = new URL("/feed.atom", site).toString();
@@ -109,8 +40,14 @@ export default function IntergrationFeed(config: ConfigIntergrationFeed): AstroI
           };
           updateConfig({
             vite: {
-              plugins: [PluginFeed({ site, feedConfig })],
+              plugins: [PluginFeedConfig(feedConfig)],
             },
+          });
+          // Feed entries come from the content collection, which is only available inside Astro's runtime
+          injectRoute({
+            pattern: "/feed.[format]",
+            entrypoint: new URL("./feed-endpoint.ts", import.meta.url),
+            prerender: true,
           });
         }
       },
