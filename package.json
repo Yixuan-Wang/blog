@@ -13,16 +13,16 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/svelte": "^8.1.2",
+    "@astrojs/svelte": "^9.1.2",
     "@nanostores/persistent": "^0.7.0",
-    "astro": "^6.4.8",
+    "astro": "^7.4.4",
     "astro-pagefind": "^1.8.6",
     "date-fns": "^2.30.0",
     "leaflet": "^1.9.4",
     "nanostores": "^0.7.4",
     "sodesu-comment": "^0.5.2",
     "solid-js": "^1.9.11",
-    "svelte": "^5.45.2"
+    "svelte": "^5.57.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",

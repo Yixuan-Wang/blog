@@ -25,7 +25,6 @@ const postInfo = await getPosts(postIds);
 >
   <Fragment slot="head"></Fragment>
   <Fragment slot="headline"></Fragment>
-  </pre>
   <div class="flex flex-col gap-5">
     {postInfo.map(data => <PostInfoFull info={data} />)}
   </div>

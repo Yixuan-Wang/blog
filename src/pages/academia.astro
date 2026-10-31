@@ -16,8 +16,9 @@ const postInfo = await getPosts(allAcademia);
 
 const description = `Yixuan Wang's academic writings, including posts, project intros and short thoughts.`;
 
+// Clone first: entries from `getEntry` are shared across pages.
 function removeAcademiaTag(data: any) {
-  const newData = { ...data };
+  const newData = structuredClone(data);
   newData.data.taxonomy.keywords = newData.data.taxonomy.keywords.filter(
     (tag: string) => tag !== "academia",
   );
