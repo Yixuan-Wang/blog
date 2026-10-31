@@ -42,8 +42,8 @@ export default defineConfig({
   },
   integrations: [
     Unocss({
-      mode: "dist-chunk",
-      injectEntry: process.env.NODE_ENV === "development",
+      mode: "global",
+      injectEntry: true,
       injectReset: "@unocss/reset/tailwind.css",
     }),
     Svelte(),

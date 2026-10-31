@@ -5,6 +5,9 @@ import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
 export const unoConfig: Parameters<typeof defineConfig>[0] = {
+  content: {
+    filesystem: ["src/**/*.{astro,svelte,ts,tsx,md,mdx}"],
+  },
   theme: {
     fontFamily: {
       sans: "var(--font-sans)",

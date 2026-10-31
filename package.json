@@ -13,10 +13,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.2.2",
+    "@astrojs/svelte": "^8.1.2",
     "@nanostores/persistent": "^0.7.0",
-    "astro": "^5.16.3",
-    "astro-pagefind": "^1.8.5",
+    "astro": "^6.4.8",
+    "astro-pagefind": "^1.8.6",
     "date-fns": "^2.30.0",
     "leaflet": "^1.9.4",
     "nanostores": "^0.7.4",
@@ -32,13 +32,14 @@
     "@std/html": "jsr:^1.0.5",
     "@std/yaml": "jsr:^1.0.11",
     "@types/leaflet": "^1.9.20",
-    "@types/node": "^18.19.3",
+    "@types/node": "^22.20.5",
     "@typescript-eslint/parser": "^5.62.0",
-    "@unocss/preset-icons": "^66.7.5",
-    "@unocss/preset-wind3": "^66.7.5",
-    "@unocss/reset": "^66.5.9",
-    "@unocss/transformer-directives": "^66.5.9",
-    "@unocss/transformer-variant-group": "^66.5.9",
+    "@unocss/astro": "^66.12.0",
+    "@unocss/preset-icons": "^66.12.0",
+    "@unocss/preset-wind3": "^66.12.0",
+    "@unocss/reset": "^66.12.0",
+    "@unocss/transformer-directives": "^66.12.0",
+    "@unocss/transformer-variant-group": "^66.12.0",
     "chalk": "^5.3.0",
     "dotenv": "^16.3.1",
     "eslint": "^8.56.0",
@@ -72,8 +73,8 @@
     "unionfs": "^4.5.1",
     "unist-util-map": "^4.0.0",
     "unist-util-visit": "^5.0.0",
-    "unocss": "^66.5.9",
-    "vite-plugin-inspect": "^10.2.1"
+    "unocss": "^66.12.0",
+    "vite-plugin-inspect": "^11.4.1"
   },
   "eslintConfig": {
     "extends": [
