@@ -1,4 +1,4 @@
-import { getHighlighter, bundledLanguages } from "shiki/bundle/full";
+import { createHighlighter, bundledLanguages } from "shiki/bundle/full";
 import { createCssVariablesTheme } from "shiki";
 
 // @ts-ignore
@@ -24,7 +24,7 @@ const theme = createCssVariablesTheme({
 })
 
 export default async function getMyHighlighter() {
-  const highlighter = await getHighlighter({
+  const highlighter = await createHighlighter({
     themes: [theme],
     langs: [...Object.keys(bundledLanguages).filter(lang => lang !== "mermaid"), ...langs],
   });

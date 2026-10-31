@@ -38,7 +38,7 @@ export default function IntergrationFeed(config: ConfigIntergrationFeed): AstroI
       const posts = pluginPostProvider?.getPosts() ?? new Map<string, post.Post>();
       const timeDesc = pluginPostProvider?.getSlugs().timeDesc ?? [];
 
-      timeDesc.slice(0, 30).map(post => posts.get(`post:${post}.astro`)).map(post => convertPostToFeedItem(site, post!)).forEach(feed.addItem);
+      timeDesc.slice(0, 30).map(post => posts.get(`post:${post}.astro`)).map(post => convertPostToFeedItem(site, post!)).forEach(item => feed.addItem(item));
     }
     /* const feedItems: Item[] = [];
     function generateFeed(article: Article) {

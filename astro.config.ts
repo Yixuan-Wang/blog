@@ -2,7 +2,7 @@ import path, { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 
-dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local"), quiet: true });
 const timestamp = Date.now();
 
 import { defineConfig, envField } from "astro/config";
