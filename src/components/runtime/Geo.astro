@@ -1,26 +1,17 @@
 ---
 import GeoComponent from "./geo/Geo.svelte";
 
-let {
-  lat,
-  long,
-  zoom,
-  tile,
-} = Astro.props;
+const { lat, long, zoom, interactive } = Astro.props;
 
-let view = [Number.parseFloat(lat ?? "39.9935"), Number.parseFloat(long ?? "116.303873")];
-
-zoom = Number.parseInt(zoom ?? 17);
-if (!["osm", "tianditu", "carto"].includes(tile)) {
-  tile = "osm";
-}
+const view = [Number.parseFloat(lat ?? "39.9935"), Number.parseFloat(long ?? "116.303873")];
+const zoomLevel = Number.parseInt(zoom ?? "17");
 ---
 
 <div class="w-full aspect-ratio-video">
   <GeoComponent
     client:only="svelte"
     {view}
-    {zoom}
-    tileType={tile}
+    zoom={zoomLevel}
+    interactive={interactive}
   />
 </div>
