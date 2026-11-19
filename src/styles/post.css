@@ -77,35 +77,25 @@
   ;
 }
 
-/* Ordered list */
+/* Lists */
 
+#md ul,
 #md ol {
-  @apply
-    max-w-full
-    list-inside list-decimal
-  ;
+  max-width: 100%;
+  padding-left: 1.5rem;
+  list-style-position: outside;
 }
 
 #md ul {
-  @apply
-    max-w-full
-    list-inside list-disc
-  ;
+  list-style-type: disc;
 }
 
-#md ul > *,
-#md ol > * {
-  @apply my-1;
+#md ol {
+  list-style-type: decimal;
 }
 
-#md ul > :first-child,
-#md ol > :first-child {
-  @apply mt-0;
-}
-
-#md ul > :last-child,
-#md ol > :last-child {
-  @apply mb-0;
+#md li + li {
+  margin-top: 0.5rem;
 }
 
 #md li::marker {
@@ -115,31 +105,30 @@
 }
 
 #md li > ol {
-  @apply list-inside list-alpha;
+  list-style-type: lower-alpha;
 }
 
 #md li > ol > li > ol {
-  @apply list-inside list-roman;
+  list-style-type: lower-roman;
 }
 
 #md li > ol > li > ol ol {
-  @apply list-inside list-decimal;
+  list-style-type: decimal;
 }
 
-#md li > p {
-  @apply
-    inline
-  ;
+/* Block children of an item */
+#md li > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-#md li > ol,
-#md li > ul,
-#md li > pre,
-#md li > div,
-#md li > blockquote {
-  @apply
-    ml-3 mt-1
-  ;
+#md li > * + * {
+  margin-top: 0.5rem;
+}
+
+/* Loose lists (items contain <p>) */
+#md li:has(> p) + li {
+  margin-top: 1rem;
 }
 
 #md table {
