@@ -30,7 +30,7 @@ const SUPPORTED_LINKS: Record<string, { icon: string; title: string }> = {
 };
 ---
 
-<div class="friends-list flex flex-row flex-wrap gap-1.5 items-center"}>
+<div class="friends-list flex flex-row flex-wrap gap-1.5 items-center">
   {Object.entries(link).map(([key, url]) => {
     if (key in SUPPORTED_LINKS && url) {
       const { icon, title } = SUPPORTED_LINKS[key];
