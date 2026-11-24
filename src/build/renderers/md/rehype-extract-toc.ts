@@ -9,6 +9,7 @@ const rehypeExtractToc: Plugin<[], Root, [string, string][]> = function (this: P
       if (child.type !== "element" || child.tagName !== "h2")
         return;
 
+      // @ts-ignore
       const h2 = toText(child).trim();
       headers.push([h2, child.properties?.id as string ?? ""]);
     });

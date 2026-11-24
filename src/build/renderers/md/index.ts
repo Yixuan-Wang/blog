@@ -5,6 +5,7 @@ import { renderSlotToString } from "astro/runtime/server/render/slot.js";
 import { chunkToString } from "astro/runtime/server/render/common.js";
 import { jsx, jsxs, jsxDEV, Fragment } from "astro/jsx-runtime";
 import type { Root as MdastRoot } from "mdast";
+import type { Root as HastRoot } from "hast";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
@@ -29,8 +30,12 @@ import rehypeRuby from "./rehype-ruby";
 import remarkDirectiveFallback from "./remark-directive-fallback";
 import remarkDirectivePlainContainers from "./remark-directive-plain-containers";
 import remarkRuby from "./remark-ruby";
+import rehypeFold from "./rehype-fold";
+
+import rehypeExtractWaypoint from "./rehype-extract-waypoint";
 
 import { slotName } from "~/utils/stub";
+import { Genre } from "~/logic/genre";
 
 /** Parse and strip the frontmatter from a markdown source string.
  * @param source The markdown source string.
@@ -80,6 +85,7 @@ const pipeline = {
   }),
   transformHtml: unified()
     .use(rehypeRaw)
+    .use(rehypeFold)
     .use(rehypeCallout)
     .use(rehypeMermaid)
     .use(rehypeRuby)
@@ -96,6 +102,7 @@ const pipeline = {
     }),
   analyzeFeatures: unified().use(rehypeFindFeatures),
   analyzeToc: unified().use(rehypeExtractToc),
+  analyzeWaypoint: unified().use(rehypeExtractWaypoint),
   transformAstro: unified().use(rehypeTransformAstro),
   // compileAstro: unified().use(rehypeStringify, {
   //   collapseEmptyAttributes: true,
@@ -138,16 +145,34 @@ async function loadRuntimeComponent(
   );
 }
 
+interface RenderData extends Record<string, any> {
+  fold: "fold" | "extract-yaml" | "none";
+}
 
+export async function render(content: string, metadata: post.PostMeta) {
+  const mdast: MdastRoot = await pipeline.transformMarkdown.run(pipeline.parseMarkdown.parse(content));
+  let hast: HastRoot = (await pipeline.compileMarkdownToHtml.run(mdast as any)) as HastRoot;
 
-export async function render(content: string) {
-  const mdast = await pipeline.transformMarkdown.run(pipeline.parseMarkdown.parse(content));
-  const hast = await pipeline.transformHtml.run(
-    await pipeline.compileMarkdownToHtml.run(mdast),
-  );
+  const renderData: RenderData = {
+    fold: "none",
+  }
+  if (metadata.genre === Genre.WAYPOINT) {
+    renderData.fold = "extract-yaml";
+  }
+  
+  hast = (await pipeline.transformHtml.run(hast as any, { data: renderData })) as HastRoot;
 
   const { components, features } = pipeline.analyzeFeatures.stringify(hast) as any as Features;
   const toc = pipeline.analyzeToc.stringify(hast) as any as [string, string][];
+
+  let extraInfo: post.PostExtraInfo = null;
+  if (metadata.genre === Genre.WAYPOINT) {
+    let waypoints = pipeline.analyzeWaypoint.stringify(hast) as any;
+    extraInfo = {
+      type: "waypoint",
+      waypoints,
+    };
+  }
 
   const componentTree = await pipeline.transformAstro.run(hast);
   const astroComponent: AstroComponentFactory = async (result, props, slots) => {
@@ -190,5 +215,6 @@ export async function render(content: string) {
     Content: astroComponent,
     features,
     toc,
+    extraInfo,
   };
 }

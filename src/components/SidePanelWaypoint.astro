@@ -1,0 +1,38 @@
+---
+import type { Marker } from "~/components/geo/Geo.svelte";
+import SidePanelWaypointClient from "~/components/SidePanelWaypoint.svelte";
+
+export interface Props {
+  waypoints: Marker[];
+}
+
+const { waypoints } = Astro.props;
+---
+
+<main id="side-panel-waypoint">
+  <SidePanelWaypointClient client:only="svelte" waypoints={waypoints} />
+</main>
+
+<style>
+:global(html:has(#side-panel-waypoint)) {
+  scroll-padding-top: calc(25vh + 2rem);
+}
+
+#side-panel-waypoint {
+  height: 25vh;
+  position: sticky;
+  top: 1rem;
+  z-index: 2;
+}
+
+@media (min-width: 1024px) {
+  :global(html:has(#side-panel-waypoint)) {
+    scroll-padding-top: 1rem;
+  }
+
+  #side-panel-waypoint {
+    margin-top: 1rem;
+    height: 75cqh;
+  }
+}
+</style>

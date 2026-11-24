@@ -4,6 +4,7 @@ export enum Genre {
   ARTICLE = "article",
   SHEET = "sheet",
   NOTE = "note",
+  WAYPOINT = "waypoint",
 }
 
 export const GENRE_META: Record<
@@ -24,5 +25,9 @@ export const GENRE_META: Record<
   [Genre.NOTE]: {
     title: "Note",
     icon: "i-mdi-clipboard-text",
+  },
+  [Genre.WAYPOINT]: {
+    title: "Waypoint",
+    icon: "i-mdi-map",
   },
 };
