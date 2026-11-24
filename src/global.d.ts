@@ -75,6 +75,18 @@ declare global {
         updated: string;
       }
     }
+
+    type PostExtraInfo = null | PostExtraInfoWaypoint;
+
+    interface PostExtraInfoWaypoint {
+      type: "waypoint";
+      waypoints: {
+        id: string;
+        title: string;
+        lat: number;
+        lng: number;
+      }[];
+    }
   }
 
   namespace friend {

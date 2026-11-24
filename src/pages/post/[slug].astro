@@ -9,9 +9,9 @@ import { render } from "~/build/renderers/md";
 import PostMeta from "src/components/PostMeta.astro";
 import TheToc from "~/components/TheToc.astro";
 import CalloutStatus from "~/components/CalloutStatus.astro";
-import { Status } from "~/logic/status";
-// import { parseMarkdown } from "~/build/providers/parser";
-// import { renderHtml } from "~/build/render";
+import { Genre } from "~/logic/genre";
+
+import SidePanelWaypoint from "~/components/SidePanelWaypoint.astro";
 
 export async function getStaticPaths() { 
   const posts = await getCollection("posts");
@@ -35,7 +35,12 @@ const { slug } = Astro.params as {
 // } = await postImport[slug]();
 
 const post = await getEntry("posts", slug)!;
-const { Content, toc, features } = await render(post.body!);
+const { Content, toc, features, extraInfo } = await render(post.body!, post.data);
+
+let layout = "default";
+if (post.data.genre === Genre.WAYPOINT) {
+  layout = "side-panel";
+}
 ---
 
 <!-- <LayoutDefault title={meta.title} description={excerpt} hasScrollToTop={true}> -->
@@ -54,35 +59,55 @@ const { Content, toc, features } = await render(post.body!);
   <Fragment slot="headline">
     <PostMeta meta={post.data} />
   </Fragment>
-  <main id="md" lang={post.data.lang}>
-    {toc ? <TheToc toc={toc} /> : null}
-    <Content>
-      <Fragment slot="foldout">
-        {
-          post.data.status !== "finished" ? (
-            <CalloutStatus
-              status={post.data.status}
-              updated={post.data.timeline.updated}
-            />
-          ) : null
-        }
-      </Fragment>
-    </Content>
-  </main>
-  <!-- 
-  <main id="md" lang={meta.lang ?? "zh-Hans"}>
-    {toc ? <TheToc {toc} /> : null}
-    <Content>
-      <Fragment slot="foldout">
-        {
-          meta.status !== Status.FINISHED ? (
-            <CalloutStatus
-              status={meta.status}
-              updated={meta.timeline.updated}
-            />
-          ) : null
-        }
-      </Fragment>
-    </Content>
-  </main> -->
+  <div id="post" data-layout={layout}>
+    { extraInfo?.type === "waypoint" ? <SidePanelWaypoint waypoints={extraInfo.waypoints} /> : null }
+    <main id="md" lang={post.data.lang}>
+      {toc ? <TheToc toc={toc} /> : null}
+      <Content>
+        <Fragment slot="foldout">
+          {
+            post.data.status !== "finished" ? (
+              <CalloutStatus
+                status={post.data.status}
+                updated={post.data.timeline.updated}
+              />
+            ) : null
+          }
+        </Fragment>
+      </Content>
+    </main>
+  </div>
 </LayoutDefault>
+
+<style>
+  [data-layout="side-panel"] {
+    display: grid;
+  }
+
+  @media (min-width: 1024px) {
+    [data-layout="side-panel"] {
+      gap: 2rem;
+      width: 150%;
+      justify-self: center;
+      grid-template-columns: 1fr 1fr;
+
+      main {
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      #md {
+        grid-row: 1;
+        grid-column: 1;
+      }
+    }
+  }
+
+  @media (min-width: 1280px) {
+    [data-layout="side-panel"] {
+      width: 175%;
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+</style>

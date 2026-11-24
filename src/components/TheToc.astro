@@ -6,7 +6,7 @@ export interface Props {
 const { toc } = Astro.props;
 ---
 
-<section id="toc-container">
+<nav id="toc-container">
   <aside id="toc">
     <!-- <button id="toc-to-top" class="cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Scroll to top"><div class="i-mdi-arrow-up-circle"></div></button> -->
     {
@@ -22,7 +22,7 @@ const { toc } = Astro.props;
       }, [])
     }
   </aside>
-</section>
+</nav>
 
 <style>
   #toc-container {

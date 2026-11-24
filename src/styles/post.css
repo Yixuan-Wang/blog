@@ -1,6 +1,7 @@
 @import url("./post-typeface.css");
 
-#md > * {
+#md > *,
+#md section > * {
   @apply my-4 relative;
 }
 

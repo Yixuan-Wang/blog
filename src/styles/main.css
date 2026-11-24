@@ -15,6 +15,8 @@ html {
 
   font-size: 1rem;
   line-height: 1.5rem;
+
+  --width-body: 65ch;
 }
 
 body {
@@ -35,11 +37,19 @@ body > * {
   body > * {
     max-width: 75ch;
   }
+
+  :root {
+    --width-body: 75ch;
+  }
 }
 
 @media (min-width: 175ch) {
   body > * {
     max-width: 85ch;
+  }
+
+  :root {
+    --width-body: 85ch;
   }
 }
 
